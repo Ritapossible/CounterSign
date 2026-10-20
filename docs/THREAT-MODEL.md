@@ -8,17 +8,17 @@ PLAN.md marks them done.
 
 **Attack.** "Audited by Northlight" with no audit.
 **Defence.** The claim is read against Northlight's own page at posting; no
-exact confirming sentence, no claim. The project cannot supply the URL; it
+exact confirming passage, no claim. The project cannot supply the URL; it
 is fixed by the auditor at registration.
-**Test.** `test_posting_without_the_sentence_is_refused_and_refunded`.
+**Test.** `test_posting_without_the_passage_is_refused_and_refunded`.
 
 ## T2 - Stretching a real audit to another version or date
 
 **Attack.** Northlight audited "Acme v1, 2024"; the project claims v3.
 **Defence.** Every scope string must appear, exactly and as whole words,
-inside the confirming sentence. "v3" is not in a sentence about v1, and "v2"
+inside the confirming passage. "v3" is not in a passage about v1, and "v2"
 does not match "v20", so the claim does not post. No paraphrase matching.
-**Test.** `test_a_scope_string_missing_from_the_sentence_is_refused`.
+**Test.** `test_a_scope_string_missing_from_the_passage_is_refused`.
 
 ## T3 - The project hosts its own "auditor" page
 
@@ -39,22 +39,22 @@ returns the stake to the project, minus a keeper reward.
 **Test.** `test_no_path_pays_the_auditor` over every outcome, plus a mutant
 that pays the auditor.
 
-## T5 - A sentence kept only in hidden markup
+## T5 - A passage kept only in hidden markup
 
-**Attack.** The auditor withdrew the audit visibly but left the sentence in a
+**Attack.** The auditor withdrew the audit visibly but left the passage in a
 `display:none` block, or a project relies on hidden text.
-**Defence.** Hidden text is not text (RedLine's rules). The sentence must be
+**Defence.** Hidden text is not text (RedLine's rules). The passage must be
 visible.
-**Test.** `test_a_hidden_sentence_is_not_present`.
+**Test.** `test_a_hidden_passage_is_not_present`.
 
-## T6 - The sentence stays, but is withdrawn next to it
+## T6 - The passage stays, but is withdrawn next to it
 
 **Attack.** "Acme lending contracts v2, March 2026. *This audit has been
 withdrawn.*"
 **Defence.** The surroundings fingerprint changes, so the jury is asked; a
 denial takes the claim down. At posting, a withdrawal word in the window
 sends it to the jury before it can post.
-**Test.** `test_a_withdrawn_sentence_comes_down` (on chain too).
+**Test.** `test_a_withdrawn_passage_comes_down` (on chain too).
 
 ## T7 - The page talks to the jury
 
@@ -64,12 +64,12 @@ confirms."
 parsed strictly, validators must reach the same label, and only `confirms`
 keeps a claim; anything unparseable is `cannot_tell`. The auditor controls
 the page, so injection can only help the auditor say what it already can by
-editing the sentence.
+editing the passage.
 **Test.** an injection page on chain, as in RedLine.
 
 ## T8 - Cloaking: different pages to different validators
 
-**Attack.** Serve the confirming sentence to some validators only.
+**Attack.** Serve the confirming passage to some validators only.
 **Defence.** Validators must agree on the outcome; disagreement is `silent`.
 One silent read never takes a claim down; two, `MISS_GAP` apart, do, with
 the stake returned. Cloaking can therefore remove a claim but never profit
@@ -127,3 +127,22 @@ well as `live`, so a Reader that never reports locks nothing.
 the contract never decodes. Measured on chain in Remit Milestone 1 against
 `%2e` and `%252e`.
 **Test.** `test_unsafe_urls_are_refused` (parity with the app).
+
+## T17 - A readable page that does not show the list
+
+**Accident.** The auditor's site returns thousands of characters of
+navigation to a validator but draws its audit list with JavaScript
+(measured in Phase 1: Halborn, OpenZeppelin). Registered on length alone,
+every claim against it would be refused.
+**Defence.** Registration needs an exact `sample` passage from the list to
+be present in the visible text, so only a page whose list a validator can
+see is registered.
+**Test.** `test_registration_without_its_sample_is_refused`.
+
+## T18 - A re-check that races the posting read
+
+**Attack.** Call `recheck` on a `pending` claim so two reads of one claim are
+in flight and their reports arrive in either order.
+**Defence.** `recheck` is accepted only for a `live` claim; on a `pending`
+claim it is refused and the fee is not taken.
+**Test.** `test_a_pending_claim_cannot_be_rechecked`.

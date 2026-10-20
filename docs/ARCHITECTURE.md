@@ -29,7 +29,7 @@ Reader.
 
 Pure logic lives outside the contract classes, as in RedLine and Remit:
 
-- `countersign_text.py`: visible text, normalisation, sentence search,
+- `countersign_text.py`: visible text, normalisation, passage search,
   surroundings fingerprint (from RedLine's `redline_text.py`, with its tests);
 - `countersign_core.py`: URL rules, field validation, the outcome tables in
   section 3, and money splits, all deterministic and tested directly;
@@ -42,16 +42,17 @@ tests run both the readable and the deployed builds.
 ## 2. Life of a claim
 
 ```
-auditor ── register(name, page_url) ──► Board ──► Reader: read_registration
+auditor ── register(name, page_url, sample) ──► Board ──► Reader: read_registration
                                           ◄── note_registration(ok | refused)
 
-project ── post(auditor_id, subject, scope, sentence) + stake ──► Board  (pending)
+project ── post(auditor_id, subject, scope, passage) + stake ──► Board  (pending)
                                           ──► Reader: read_posting
                                           ◄── note_posting(confirmed | denied | silent)
                     confirmed: live, fingerprint stored
                     denied / silent: refused, stake returned
 
 anyone  ── recheck(claim_id) + RECHECK_FEE ──► Board ──► Reader: read_recheck
+          (live claims only; a pending claim cannot be re-checked)
                                           ◄── note_recheck(confirmed | denied | silent)
                     confirmed: stays live, fee to project, misses reset
                     denied:    down, keeper reward to caller, rest of stake to project, fee back to caller
@@ -73,32 +74,40 @@ The Reader fetches the auditor's page inside a non-deterministic block. The
 leader and every validator each compute the outcome from their own fetch;
 validators agree only if they reach the same outcome. Validators compare
 outcomes, never page bytes or whole-page text (RedLine measured whole-page
-text disagreeing on Bradbury where presence agreed).
+text disagreeing on Bradbury where presence agreed). CounterSign's Phase 1
+probe found whole-page text agreeing on all four readable audit lists on
+both networks, which is expected of plain files; the rule stays on outcomes
+so a page with a changing footer or counter does not go silent.
+
+The Reader uses a plain fetch, never rendering (CLAIM-FORMAT, registration).
 
 | Outcome | Condition |
 | --- | --- |
-| `confirmed` | The normalised sentence is in the page's visible text, contains `subject` and every `scope` string, and the surroundings fingerprint matches the one stored at posting (at posting there is nothing to compare, see below) |
-| `ask_jury` | The sentence is present and complete, but the surroundings fingerprint differs from the stored one, or (at posting) the window contains a withdrawal word |
+| `confirmed` | The normalised passage is in the page's visible text, contains `subject` and every `scope` string, and the surroundings fingerprint matches the one stored at posting (at posting there is nothing to compare, see below) |
+| `ask_jury` | The passage is present and complete, but the surroundings fingerprint differs from the stored one, or (at posting) the window contains a withdrawal word |
 | `denied` | The jury answered `denies` or `points_elsewhere` or `cannot_tell` |
-| `silent` | The sentence is absent, incomplete, hidden, the page is empty, over the byte cap, unfetchable, or the validators could not agree |
+| `silent` | The passage is absent, incomplete, hidden, the page is empty, over the byte cap, unfetchable, or the validators could not agree |
 
 `confirmed` and `silent` need no model. Only `ask_jury` reaches one, and its
 answer turns into `confirmed` or `denied`.
 
 **At posting** there is no earlier fingerprint, so the Reader looks at the
-window of `WINDOW_WORDS` words around the sentence for a short, fixed list of
+window of `WINDOW_WORDS` words around the passage for a short, fixed list of
 phrases that only ever mean a withdrawal: `withdrawn`, `revoked`,
 `retracted`, `rescinded`, `superseded`, `no longer valid`, `not audited by`,
 `was not audited`, `not an audit`, `did not audit`, `do not endorse`. None
 present: `confirmed`, no model, and the fingerprint is stored. Any present:
 `ask_jury`. The list only decides whether to ask; it never decides the
-answer.
+answer. Phrases match as whole words, like subject and scope.
 
 Words that appear in ordinary audit reports are deliberately **not** on the
 list: `did not` ("did not find critical issues"), `draft`, `preliminary`,
 `findings`, `issues`. Otherwise the jury would be asked about the very pages
-the code path exists for. Phase 1's probe checks the list against real audit
-pages, and a phrase that fires on an ordinary confirmation is removed.
+the code path exists for. Phase 1 measured the list against real audit
+pages: no phrase fired in the window of any confirming row, and none of the
+eleven phrases occurs anywhere on the four readable lists (about 390,000
+characters). The only near miss was a substring: Sigma Prime lists "Kelp
+LRT-ETH Withdrawals", which is why phrases match as whole words.
 
 ## 4. Reading the page
 
@@ -107,12 +116,12 @@ Reused from RedLine, where it was measured on real pages:
 - Markup, comments, `script`, `style`, `svg` and similar are dropped.
 - Any element marked `hidden` or `aria-hidden`, hidden by an inline style,
   by a class or id the page's own `<style>` hides, or by a common framework
-  hiding class is dropped, children included. A sentence only inside hidden
+  hiding class is dropped, children included. A passage only inside hidden
   markup is **not present**.
 - Entities are decoded, typography folded, text lower-cased and whitespace
   collapsed before any comparison.
 - The surroundings fingerprint covers the `WINDOW_WORDS` words either side
-  of every place the sentence appears, with digits and month and day names
+  of every place the passage appears, with digits and month and day names
   dropped, so a date changing elsewhere does not trigger the jury.
 
 Not readable, and stated in the README: pages drawn by JavaScript, text in
@@ -121,13 +130,13 @@ opacity.
 
 ## 5. The jury's one question
 
-The jury is asked only when the sentence is present and complete but its
+The jury is asked only when the passage is present and complete but its
 surroundings changed (or contain a withdrawal word at posting). It is shown
-the claim (auditor name, subject, scope strings, sentence) and the words
-around the sentence on today's page, as untrusted text. It answers with
+the claim (auditor name, subject, scope strings, passage) and the words
+around the passage on today's page, as untrusted text. It answers with
 exactly one of:
 
-- `confirms`: the page, read around the sentence, still says the auditor
+- `confirms`: the page, read around the passage, still says the auditor
   audited this subject for this scope;
 - `denies`: the surrounding words withdraw, revoke or contradict it;
 - `points_elsewhere`: the words make it about something else (another

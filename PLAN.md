@@ -19,29 +19,57 @@ is built yet.
 
 **Done when** the design is reviewed and no open objection remains.
 
-## Phase 1 - Prove the auditor's page can be read `[ ]`
+## Phase 1 - Prove the auditor's page can be read `[x]`
 
 Before any contract, as RedLine did: can validators fetch real audit-list
-pages and agree on whether a sentence is present?
+pages and agree on whether a passage is present? Probe contract
+`deploy/probes/probe_audit_pages.py`, cases in `audit_pages.json`, records
+in `probe-audit-pages-studio.json` and `probe-audit-pages-bradbury.json`.
 
-- [ ] **Probe on Studio**: five real public audit pages (auditors' published
-      report lists), a known confirming sentence from each, presence
-      compared across validators. Record which pages are server-rendered and
-      which are empty to a validator (JavaScript).
-- [ ] **Probe on Bradbury**: the same pages, strict mode.
-- [ ] Decide the registration minimum (visible text length) from the probe.
-- [ ] Run the posting withdrawal list over each real page: a phrase that
-      fires on an ordinary confirmation is removed.
-- [ ] Check whole-word matching of a real subject and scope against each
-      page's confirming sentence.
+- [x] **Probe on Studio** (`0xd3B9173d6df9DEDEc2F02Fd40296Db94D13286E4`):
+      eight real audit lists, a real confirming row from each list that had
+      one, outcome compared across validators. 16 of 16 reads agreed.
+- [x] **Probe on Bradbury** (`0x68a305aBf88741acb661cF2b67cDe119C576B26a`):
+      the same reads plus whole-page strict mode. 15 of 16 agreed with
+      exactly Studio's outcome and text digest; one rendered read (Halborn)
+      timed out. Three views read empty straight after acceptance and were
+      read again later (`result_reread` in the record).
+
+| Page | Plain fetch | Rendered | Usable |
+| --- | --- | --- | --- |
+| Trail of Bits, Sigma Prime, Spearbit, Cyfrin (lists on GitHub, 43-144k chars) | readable; row present and complete; no phrase fired; whole-page text agreed | - | yes |
+| ChainSecurity | 1 MB, over the byte cap | names only, no scope or date: present, not complete | no |
+| Code4rena | 320 chars | 80 chars | no |
+| Halborn | readable (6.5k chars), list absent | list absent (Studio); timed out (Bradbury) | no |
+| OpenZeppelin | readable (2.8k chars), list absent | list absent | no |
+
+- [x] Decide the registration minimum. **Length alone is not enough**:
+      Halborn and OpenZeppelin pass 200 characters with no list visible.
+      Registration now also needs a `sample` row that must be present
+      (CLAIM-FORMAT, THREAT-MODEL T17). Byte cap stays 400 KB. Plain fetch
+      only: rendering never made an unusable list usable.
+- [x] Run the posting withdrawal list over each real page. No phrase fired
+      in any confirming row's window, and none occurs anywhere on the four
+      readable lists. The only near miss is a substring ("Kelp LRT-ETH
+      Withdrawals"), so phrases now match as whole words.
+- [x] Check whole-word matching of a real subject and scope against each
+      page's confirming row: complete on all four (`uniswap v4 core` /
+      `jul 2024`, `lido` / `january 2026`, `onchain bls library`, `morpho` /
+      `september 2026`, `lending`, `greekfi oracle` / `2026-09-02`).
+- [x] "Sentence" is now "passage" throughout: every list probed is a table,
+      one audit per row, so the confirming text is a row, not a sentence.
+- [x] Recorded from the second review: the stop list refuses a subject made
+      only of stop words (`labs`), not one containing them (`Acme Labs`); a
+      re-check is accepted only from `live`, so it cannot race the posting
+      read (T18).
 
 **Done when** the probe records are in `deploy/probes/` and the README's
-"server-rendered only" limit is backed by them.
+"server-rendered only" limit is backed by them. Both hold.
 
 ## Phase 2 - Pure logic `[ ]`
 
 - [ ] `countersign_text.py` from RedLine's text module, with its tests
-      carried over: visible text, hidden elements, normalisation, sentence
+      carried over: visible text, hidden elements, normalisation, passage
       search, surroundings fingerprint.
 - [ ] `countersign_core.py`: URL rules, field validation (CLAIM-FORMAT),
       the outcome table (ARCHITECTURE section 3), withdrawal-word window,
@@ -76,14 +104,16 @@ repository and is edited mid-run. Each case at least three times:
 | --- | --- |
 | Register a server-rendered page | registered |
 | Register a page drawn by JavaScript | refused |
-| Post with the exact sentence, subject and every scope string | live, no model |
-| Post with a scope string missing from the sentence | refused, stake returned |
-| Post a sentence not on the page | refused, stake returned |
-| Post a sentence present only in hidden markup | refused, stake returned |
-| Post a sentence with "withdrawn" next to it | jury; denied; refused, stake returned |
+| Register a readable page whose `sample` is not on it | refused |
+| Re-check a `pending` claim | refused, fee not taken |
+| Post with the exact passage, subject and every scope string | live, no model |
+| Post with a scope string missing from the passage | refused, stake returned |
+| Post a passage not on the page | refused, stake returned |
+| Post a passage present only in hidden markup | refused, stake returned |
+| Post a passage with "withdrawn" next to it | jury; denied; refused, stake returned |
 | Re-check an unchanged page | live; fee to the project |
-| Auditor adds "this audit has been withdrawn" beside the sentence | jury; down; keeper reward to caller, rest to project |
-| Auditor deletes the sentence | first re-check leaves it live; a second one `MISS_GAP` later takes it down |
+| Auditor adds "this audit has been withdrawn" beside the passage | jury; down; keeper reward to caller, rest to project |
+| Auditor deletes the passage | first re-check leaves it live; a second one `MISS_GAP` later takes it down |
 | Page unreachable once | stays live |
 | Page talks to the jury | does not keep a withdrawn claim |
 | Project withdraws a live claim, and one still pending | stake returned; a late report is ignored |

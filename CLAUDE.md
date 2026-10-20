@@ -5,7 +5,7 @@ auditor's own page confirms it. Two contracts: a **Board** (money, records)
 and a **Reader** (fetches the page, asks the jury). Read
 `docs/ARCHITECTURE.md` first.
 
-Status: design. Follow PLAN.md phase by phase; do not skip the probe.
+Status: design; Phase 1 probe measured. Follow PLAN.md phase by phase.
 
 ## Hard laws
 
@@ -14,14 +14,14 @@ These are the product. A change that breaks one is wrong even if tests pass.
 1. **No path pays the auditor.** Stakes go only to the project or to the
    keeper whose re-check took a claim down. `test_no_path_pays_the_auditor`
    and its mutant must stay.
-2. **No model on the happy path.** An exact, complete, visible sentence with
+2. **No model on the happy path.** An exact, complete, visible passage with
    ordinary surroundings is decided by code. The jury is asked only when the
-   sentence is present but its surroundings changed (or hold a withdrawal
+   passage is present but its surroundings changed (or hold a withdrawal
    phrase at posting). The withdrawal list holds only phrases that always
-   mean a withdrawal; never add words that ordinary reports use (`did not`,
-   `draft`, `preliminary`).
+   mean a withdrawal, matched as whole words; never add words that ordinary
+   reports use (`did not`, `draft`, `preliminary`).
 3. **Scope is exact whole words.** `subject` and every `scope` string must
-   appear in the normalised sentence with a non-alphanumeric character or
+   appear in the normalised passage with a non-alphanumeric character or
    the text's edge on both sides (`v2` never matches `v20`). Never add fuzzy matching or ask a
    model whether two scopes are "the same".
 4. **Only `confirms` keeps a claim.** `denies`, `points_elsewhere`,
@@ -30,7 +30,8 @@ These are the product. A change that breaks one is wrong even if tests pass.
 6. **Hidden text is not text.** Use the visible-text rules carried from
    RedLine; never weaken them.
 7. **The project never supplies the page URL.** It is fixed by the auditor at
-   registration and cannot be edited.
+   registration, with a `sample` passage that must be visible on it, and
+   cannot be edited. Plain fetch only, never rendering (Phase 1).
 8. **URLs are refused, never decoded:** no `%`, `..`, `\`, `@`, `?`, `#`,
    whitespace (Remit Milestone 1).
 9. **The Board never reads the Reader.** Reports arrive as messages from the

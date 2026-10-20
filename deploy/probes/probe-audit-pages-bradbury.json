@@ -1,0 +1,242 @@
+{
+  "network": "bradbury",
+  "out": {
+    "get https://raw.githubusercontent.com/trailofbits/publications/master/README.md": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0xf79339c577a67109bd01824ce7e36e0d8a2b992743de5fa33358aaa3bea9f8fd",
+      "result": {
+        "readable": true,
+        "present": true,
+        "complete": true,
+        "fired": [],
+        "len": 144186,
+        "digest": "554d623aab126cf1",
+        "status": 200
+      }
+    },
+    "get https://raw.githubusercontent.com/sigp/public-audits/master/README.md": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0xef9b30d68462db64c0eaf56230da69f4e9cd5ee1ac1989cb122cabab8f673b52",
+      "result": {
+        "readable": true,
+        "present": true,
+        "complete": true,
+        "fired": [],
+        "len": 43267,
+        "digest": "895f5bc5d9c0857c",
+        "status": 200
+      }
+    },
+    "get https://raw.githubusercontent.com/spearbit/portfolio/master/README.md": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0x8f42945568d3397888d19ec1b0adef7917c2794a9371bdee181957965f8c20f2",
+      "result": {
+        "readable": true,
+        "present": true,
+        "complete": true,
+        "fired": [],
+        "len": 67987,
+        "digest": "2640ce57f29c3d60",
+        "status": 200
+      }
+    },
+    "get https://raw.githubusercontent.com/Cyfrin/cyfrin-audit-reports/main/README.md": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0x169bbaf3499156bf7fa31f24184c2e44e5b5bff3b361205e51917312cd2548cc",
+      "result": {
+        "readable": true,
+        "present": true,
+        "complete": true,
+        "fired": [],
+        "len": 133701,
+        "digest": "699f496425178cf2",
+        "status": 200
+      }
+    },
+    "get https://www.chainsecurity.com/smart-contract-audit-reports": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0xa1778fba29e190a7f0e31d783ed7988ae8b826d168488265bcbd38da149be9cc",
+      "result": {
+        "readable": false,
+        "present": false,
+        "complete": false,
+        "fired": [],
+        "len": 11670,
+        "digest": "4fcd82c4898a4ef6",
+        "status": 200
+      }
+    },
+    "get https://code4rena.com/reports": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0x2a593cae41b52109fd70df370cbb138db6187db08ab748675360ad2216eade68",
+      "result": {
+        "readable": false,
+        "present": false,
+        "complete": false,
+        "fired": [],
+        "len": 320,
+        "digest": "2d44a3d84ab052bc",
+        "status": 200
+      },
+      "result_reread": true
+    },
+    "get https://www.halborn.com/audits": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0x159f3bd00a136a8cbf6361f7f57445b9664edaff3cf5e6b07a05a64989852ba9",
+      "result": {
+        "readable": true,
+        "present": false,
+        "complete": false,
+        "fired": [],
+        "len": 6539,
+        "digest": "56f88fa1504ceea6",
+        "status": 200
+      }
+    },
+    "get https://blog.openzeppelin.com/security-audits": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0xe2b059b72e35a32ca62b52e1f373c6abf5ffea7c31eee1f7426c988f4e00ee80",
+      "result": {
+        "readable": true,
+        "present": false,
+        "complete": false,
+        "fired": [],
+        "len": 2812,
+        "digest": "47d2a75f0b7335df",
+        "status": 200
+      }
+    },
+    "get-strict https://raw.githubusercontent.com/trailofbits/publications/master/README.md": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0x5dccd32920dfe646b48c146883a4fb4ef62ac034a3540cbd5d68e8f1ce94a895",
+      "result": {
+        "readable": true,
+        "present": true,
+        "complete": true,
+        "fired": [],
+        "len": 144186,
+        "digest": "554d623aab126cf1",
+        "status": 200
+      }
+    },
+    "get-strict https://raw.githubusercontent.com/sigp/public-audits/master/README.md": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0x1333799ac70e76638e65f47f8c2d460b09d08681eb370901dd1937ba38586229",
+      "result": {
+        "readable": true,
+        "present": true,
+        "complete": true,
+        "fired": [],
+        "len": 43267,
+        "digest": "895f5bc5d9c0857c",
+        "status": 200
+      }
+    },
+    "get-strict https://raw.githubusercontent.com/spearbit/portfolio/master/README.md": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0x45a7838ef6d1834c6a0c455ff3e3ea281c8dccadcab112de9532d2f7cc725a82",
+      "result": {
+        "readable": true,
+        "present": true,
+        "complete": true,
+        "fired": [],
+        "len": 67987,
+        "digest": "2640ce57f29c3d60",
+        "status": 200
+      },
+      "result_reread": true
+    },
+    "get-strict https://raw.githubusercontent.com/Cyfrin/cyfrin-audit-reports/main/README.md": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0xc4aed4f43dad73f7312a0e0ee37c87a228618579bfe619ef52948c4f3c3385e0",
+      "result": {
+        "readable": true,
+        "present": true,
+        "complete": true,
+        "fired": [],
+        "len": 133701,
+        "digest": "699f496425178cf2",
+        "status": 200
+      }
+    },
+    "render https://code4rena.com/reports": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0xc26e94e6259c903698acaef54f85fa53443f7900ec65ce9d66d789e7670bbbf3",
+      "result": {
+        "readable": false,
+        "present": false,
+        "complete": false,
+        "fired": [],
+        "len": 80,
+        "digest": "c445ecac92362dac",
+        "status": 200
+      },
+      "result_reread": true
+    },
+    "render https://www.halborn.com/audits": {
+      "consensus": "TIMEOUT",
+      "leader": "return",
+      "agreed": false,
+      "hash": "0xeab1eca49cb780ec444a45c201bb8d24cf94430c95f6cbfea22374541a0f868a",
+      "result": ""
+    },
+    "render https://blog.openzeppelin.com/security-audits": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0x68066f0a2f4a0ef4466da4ea678c5d9310d0ae7611413d995826bcef0b49a98a",
+      "result": {
+        "readable": true,
+        "present": false,
+        "complete": false,
+        "fired": [],
+        "len": 2682,
+        "digest": "2eec0f4006ff1394",
+        "status": 200
+      }
+    },
+    "render https://www.chainsecurity.com/smart-contract-audit-reports": {
+      "consensus": "AGREE",
+      "leader": "return",
+      "agreed": true,
+      "hash": "0x6b3db6221e107a76ccbe5cc28c4fcb5e3dbb548ed0ab1fe6706ecd031b435aa4",
+      "result": {
+        "readable": true,
+        "present": true,
+        "complete": false,
+        "fired": [],
+        "len": 27396,
+        "digest": "b771ce69667d8bce",
+        "status": 200
+      }
+    }
+  },
+  "address": "0x68a305aBf88741acb661cF2b67cDe119C576B26a",
+  "recorded_at": "2026-10-20T11:16:57.719Z"
+}
