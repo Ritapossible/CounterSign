@@ -137,6 +137,15 @@ that expires before its report lands refuses a good posting. `read_window`
 is set longer than what this measures; no other case runs until both
 messages have landed.
 
+- [x] **Studio** (Board `0x007efCEE4F9fc1CdD7411Cb9516304d1Cd67f45a`,
+      Reader `0xca1fdC90b56a85f2cbbBD720BccfB05bfd14128A`): both messages
+      landed. Registration: request accepted in 7 s, the Reader's read
+      recorded 7 s after that, `note_registration` on the Board 40 s after
+      acceptance (`registered`). Posting: accepted in 4 s, read recorded at
+      7 s, `note_claim` on the Board at 39 s (`live`). About 33 s of each is
+      finality. Studio's `read_window` of 600 s is 15 times that.
+- [ ] **Bradbury**: the same two messages, before any Bradbury case.
+
 Then each case at least three times:
 
 | Case | Expected |
