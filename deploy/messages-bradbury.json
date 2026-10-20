@@ -44,10 +44,48 @@
         "seq": 1,
         "kind": "confirmed",
         "print": "fd731559c212e9e2"
+      },
+      "board_after_s": 2001,
+      "board_result": {
+        "id": 0,
+        "auditor": 0,
+        "project": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "subject": "Acme Lending",
+        "scope": [
+          "lending contracts v2",
+          "March 2026"
+        ],
+        "passage": "Acme Lending lending contracts v2 March 2026 Northlight audit report",
+        "stake": 100000000000000000,
+        "state": "live",
+        "posted_at": 1792513178,
+        "print": "fd731559c212e9e2",
+        "misses": 0,
+        "miss_at": 0,
+        "checked_at": 1792513178,
+        "seq": 1,
+        "read": null,
+        "why": "",
+        "auditor_name": "Northlight Security (demo)",
+        "auditor_host": "raw.githubusercontent.com",
+        "auditor_signer": "0x3f55971f7fd2594a90871db489fbb82f1db4d747",
+        "now": 1792515194
       }
     }
   },
   "reader": "0x088F36a929016Ce3caF0aCf506a9645f732C4862",
-  "recorded_at": "2026-10-20T16:20:09.805Z",
-  "board": "0xac642d7d6f97e192D87e36DdE8E15Ae7d7415713"
+  "recorded_at": "2026-10-20T16:53:16.625Z",
+  "board": "0xac642d7d6f97e192D87e36DdE8E15Ae7d7415713",
+  "status": {
+    "release": "countersign-board/1",
+    "reader": "0x088f36a929016ce3caf0acf506a9645f732c4862",
+    "miss_gap": 3600,
+    "read_window": 604800,
+    "auditors": 1,
+    "claims": 1,
+    "held": 100000000000000000,
+    "owed": 0,
+    "received": 100000000000000000,
+    "balance": 100000000000000000
+  }
 }

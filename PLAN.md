@@ -144,7 +144,12 @@ messages have landed.
       acceptance (`registered`). Posting: accepted in 4 s, read recorded at
       7 s, `note_claim` on the Board at 39 s (`live`). About 33 s of each is
       finality. Studio's `read_window` of 600 s is 15 times that.
-- [ ] **Bradbury**: the same two messages, before any Bradbury case.
+- [x] **Bradbury** (Board `0xac642d7d6f97e192D87e36DdE8E15Ae7d7415713`, Reader `0x088F36a929016Ce3caF0aCf506a9645f732C4862`): both messages landed.
+      Registration: accepted in 15 s, read recorded 16 s after, `note_registration`
+      on the Board 2008 s after acceptance (`registered`). Posting: accepted in 15 s,
+      read at 15 s, `note_claim` at 2001 s (`live`), with the same surroundings
+      fingerprint Studio computed for the same page. About 33 minutes of
+      each is finality. Bradbury's `read_window` is 7,200 s, 3.6 times that.
 
 Then each case at least three times:
 
