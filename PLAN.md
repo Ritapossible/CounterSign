@@ -1,8 +1,7 @@
 # Plan
 
 What is built, what was measured, and what comes next. An item is done only
-when its "done when" holds and the evidence is in this repository. Nothing
-is built yet.
+when its "done when" holds and the evidence is in this repository.
 
 ## Phase 0 - Design `[~]`
 
@@ -66,34 +65,62 @@ in `probe-audit-pages-studio.json` and `probe-audit-pages-bradbury.json`.
 **Done when** the probe records are in `deploy/probes/` and the README's
 "server-rendered only" limit is backed by them. Both hold.
 
-## Phase 2 - Pure logic `[ ]`
+## Phase 2 - Pure logic `[x]`
 
-- [ ] `countersign_text.py` from RedLine's text module, with its tests
-      carried over: visible text, hidden elements, normalisation, passage
-      search, surroundings fingerprint.
-- [ ] `countersign_core.py`: URL rules, field validation (CLAIM-FORMAT),
-      the outcome table (ARCHITECTURE section 3), withdrawal-word window,
-      read numbering, money splits.
-- [ ] `countersign_prompts.py`: the jury prompt and strict label parsing;
-      anything unparseable is `cannot_tell`.
-- [ ] **Property test**: random claim lifecycles; every atto of every stake
-      ends with the project or a keeper; never with the auditor.
-- [ ] **Mutation check**: a mutant per rule (no auditor payout, scope
-      matching, hidden text, one-miss tolerance, `MISS_GAP`, refusal
-      refunds, terminal `down`, read numbering, URL rules), all killed.
+Run: `python3 -m pytest tests/direct -q` (180 tests) and
+`python3 tests/mutation_check.py` (74 mutants).
 
-**Done when** the suite is green and every mutant is killed.
+- [x] `countersign_text.py` from RedLine's text module, with its tests
+      carried over: visible text, hidden elements (twelve hiding forms, five
+      that must stay visible), normalisation; plus whole-word matching and
+      the surroundings (window and fingerprint), dates and numbers dropped.
+- [x] `countersign_core.py`: URL rules, field validation (CLAIM-FORMAT),
+      registration with its sample, the outcome of one read, the withdrawal
+      phrases as whole words, read numbering and deadlines, every money path.
+- [x] `countersign_prompts.py`: the jury prompt (claim and surroundings as
+      neutralised data) and strict label parsing; anything but an exact
+      label is `cannot_tell`, and only `confirms` keeps a claim.
+- [x] **Property tests**: 400 random claim lifecycles on the pure rules and
+      120 random steps on each built contract. Every atto ends with the
+      project or a keeper, or is still held; the auditor is never credited
+      or paid; the Board's books balance after every step.
+- [x] **Mutation check**: 74 mutants, one per rule (no auditor payout,
+      scope and subject matching, whole-word phrases, hidden text, the
+      sample, one-miss tolerance, `MISS_GAP`, refusal refunds, terminal
+      states, read numbering, expiry, URL rules, strict labels, who may
+      report and who may ask), all killed.
+- [x] Real rows: the five probed rows with a scope are checked against the
+      field rules; the four GitHub rows are complete, ChainSecurity's is
+      not, as measured on chain.
 
-## Phase 3 - Contracts `[ ]`
+Found while building, for review:
 
-- [ ] `board_shell.py` and `reader_shell.py`, built and minified into
-      `contracts/build/`.
-- [ ] Tests run the readable and the deployed builds through a GenVM
-      stand-in; both fit Bradbury's gas cap
-      (`test_it_fits_bradburys_gas_cap`).
-- [ ] Every THREAT-MODEL test named there exists and passes.
+- A generic disclaimer above an auditor's table ("a project not listed here
+  was not audited by us") contains `not audited by`, so a claim on a row
+  within 60 words of it goes to the jury at posting, which confirms. It
+  costs a model call, never the claim
+  (`test_a_disclaimer_near_the_list_asks_the_jury_which_confirms`).
+- Reports are sent on finality instead of replaced on appeal (ARCHITECTURE
+  section 2); an open read has a deadline and expires as silent.
+- The auditor's signer may not post or re-check on its own entry
+  (THREAT-MODEL T19); the Reader serves only its Board (T20).
 
-**Done when** both builds pass the whole suite and fit the cap.
+**Done when** the suite is green and every mutant is killed. Both hold.
+
+## Phase 3 - Contracts `[x]`
+
+- [x] `board_shell.py` and `reader_shell.py`, built and minified into
+      `contracts/build/` by `deploy/build_contract.py`.
+- [x] Tests run the readable and the deployed builds through a GenVM
+      stand-in (every scenario twice); both fit Bradbury's gas cap
+      (`test_it_fits_bradburys_gas_cap`): Board 16,349 bytes, Reader
+      12,872 bytes deployed, against about 19,000.
+- [x] Every THREAT-MODEL test named there exists and passes.
+- [ ] Measured only on chain (Phase 4): `emit(on="finalized")` from the
+      Reader, and the time from a request to its report on each network.
+
+**Done when** both builds pass the whole suite and fit the cap. Both hold;
+the finality message is the first thing Phase 4 measures.
 
 ## Phase 4 - On chain: Studio `[ ]`
 

@@ -4,10 +4,11 @@
 auditor's own page confirms it, word for word, and nobody can profit by
 editing a page they control.**
 
-> Status: **design.** This repository holds the plan, architecture, threat
-> model and claim format, and the Phase 1 probe of real audit pages on
-> Studio and Bradbury ([deploy/probes/](deploy/probes/)). No contract is
-> built yet. Nothing here should be read as measured until
+> Status: **contracts built and tested off chain; not deployed.** The
+> Phase 1 probe of real audit pages on Studio and Bradbury is in
+> [deploy/probes/](deploy/probes/). The Board and Reader contracts pass 180
+> tests (every contract scenario runs on the deployed bytes too) and kill 74
+> mutants. Nothing here should be read as measured on chain until
 > [PLAN.md](PLAN.md) marks it done with evidence.
 
 > **Who the auditor is.** An auditor entry is identified by the **web

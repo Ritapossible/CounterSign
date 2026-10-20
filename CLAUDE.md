@@ -5,7 +5,11 @@ auditor's own page confirms it. Two contracts: a **Board** (money, records)
 and a **Reader** (fetches the page, asks the jury). Read
 `docs/ARCHITECTURE.md` first.
 
-Status: design; Phase 1 probe measured. Follow PLAN.md phase by phase.
+Status: Phases 1-3 done (probe, pure logic, contracts). Next is Phase 4,
+on chain. Follow PLAN.md phase by phase.
+
+Build: `python3 deploy/build_contract.py`. Test: `python3 -m pytest tests/direct -q`.
+Mutants: `python3 tests/mutation_check.py` (must report 0 survived).
 
 ## Hard laws
 

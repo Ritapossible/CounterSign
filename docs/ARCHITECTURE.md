@@ -15,10 +15,14 @@ and runs a jury already sits within about 75 bytes of Bradbury's deploy cap,
 and an appeal can leave a contract unreadable. So:
 
 - the Reader reports to the Board by **messages** that only the Reader's
-  address may send (`note_registration`, `note_posting`, `note_recheck`),
-  emitted on acceptance;
+  address may send (`note_registration`, `note_claim`), emitted **on
+  finality**, so an appealed read reaches the Board once, with its final
+  outcome;
 - the Board asks the Reader to read by message (`read_registration`,
-  `read_posting`, `read_recheck`);
+  `read_claim`) carrying everything the read needs: page URL, passage,
+  subject, scope and stored fingerprint. The Reader is bound once to its
+  Board and refuses a read anyone else asks for, so nobody can have it read
+  a page of their choosing and report the result;
 - every payout is the Board's own arithmetic on its own records. The Board
   never reads the Reader's state.
 
@@ -64,9 +68,17 @@ project ── withdraw(claim_id) ──► Board: withdrawn, stake returned
            for a withdrawn claim is ignored)
 ```
 
-Each read is numbered per claim. A report for an older read than the latest
-recorded one is ignored, and a re-executed read (an appeal) replaces the
-report with the same number, as in RedLine.
+Each read is numbered per claim and has a deadline (`read_window`, set per
+deployment). A report applies only to the read that is open, with its
+number; a late, replayed or out-of-order report is ignored. A read with no
+report by its deadline is closed by anyone calling `expire` and counts as
+`silent`: validators that cannot agree report nothing, so disagreement and
+an unreachable page end the same way.
+
+Unlike RedLine, a report is never replaced: the Reader reports on finality,
+so an appeal is settled before the Board sees the outcome. On Bradbury that
+is about 30 minutes after acceptance (measured in Remit), so `read_window`
+there must exceed it (Phase 4 measures the margin).
 
 ## 3. One read, three outcomes
 
@@ -83,7 +95,7 @@ The Reader uses a plain fetch, never rendering (CLAIM-FORMAT, registration).
 
 | Outcome | Condition |
 | --- | --- |
-| `confirmed` | The normalised passage is in the page's visible text, contains `subject` and every `scope` string, and the surroundings fingerprint matches the one stored at posting (at posting there is nothing to compare, see below) |
+| `confirmed` | The normalised passage is in the page's visible text and the surroundings fingerprint matches the one stored at the last confirmation (at posting there is nothing to compare, see below). The Board has already checked, before any read, that the passage contains `subject` and every `scope` string as whole words |
 | `ask_jury` | The passage is present and complete, but the surroundings fingerprint differs from the stored one, or (at posting) the window contains a withdrawal word |
 | `denied` | The jury answered `denies` or `points_elsewhere` or `cannot_tell` |
 | `silent` | The passage is absent, incomplete, hidden, the page is empty, over the byte cap, unfetchable, or the validators could not agree |
@@ -151,18 +163,23 @@ validators accept the leader's answer only if they reach the same label.
 
 ## 6. Money
 
-All value sits in the Board. Every path, and only these:
+All value sits in the Board. Outcomes credit what each address is owed;
+`collect` sends it. Every path, and only these:
 
 | Event | Stake | Re-check fee |
 | --- | --- | --- |
-| Posting refused | all to project | - |
+| Posting refused before any read (fields, scope, stake) | all to project, at once | - |
+| Posting refused by the read | all to project | - |
 | Re-check, confirmed | stays | to project |
 | Re-check, first silent read | stays | back to caller |
 | Re-check takes the claim down | `KEEPER_REWARD` to caller, rest to project | back to caller |
 | Project withdraws | all to project | - |
 
 **No path pays the auditor.** A test asserts it for every path, and a mutant
-that pays the auditor anything must be killed. The Board's books balance to
+that pays the auditor anything must be killed. The auditor's signer may not
+post a claim on its own entry or re-check one, so no refund or keeper
+reward reaches that address either (an auditor using another address is
+THREAT-MODEL T19). The Board's books balance to
 the atto: stakes held + paid out equals stakes received, checked by a
 property test over random claim lifecycles.
 
@@ -173,10 +190,10 @@ revert.
 ## 7. Size budget
 
 Bradbury caps a transaction at 2^24 gas; a deploy costs about 0.96M gas plus
-782 per byte, so a contract must stay under about 19 KB minified. The Board
-has no page logic and should be well under. The Reader carries the text
-rules and the jury and is the one to watch; `test_it_fits_bradburys_gas_cap`
-holds both from the first build.
+782 per byte, so a contract must stay under about 19 KB minified. Built: the
+Board is 16,349 bytes deployed and the Reader 12,872 (the Reader needs no
+excerpting: the jury sees only the window around the passage).
+`test_it_fits_bradburys_gas_cap` holds both.
 
 ## 8. The app and the badge
 

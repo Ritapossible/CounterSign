@@ -109,16 +109,17 @@ once and is less than `MIN_STAKE`.
 
 ## T14 - Reports out of order or replayed
 
-**Defence.** Reads are numbered per claim; only the Reader's address may
-report; an older number is ignored and the same number replaces (an
-appealed read). As RedLine.
+**Defence.** Reads are numbered per claim and one is open at a time; only
+the Reader's address may report; a report for any read but the open one is
+ignored. The Reader reports on finality, so an appealed read arrives once.
 **Test.** `test_reports_late_twice_or_out_of_order`.
 
 ## T15 - The Reader becomes unreadable after an appeal
 
-**Defence.** The Board never reads the Reader. Live claims stay as recorded
-and a project can always withdraw and recover its stake, from `pending` as
-well as `live`, so a Reader that never reports locks nothing.
+**Defence.** The Board never reads the Reader. Live claims stay as recorded,
+an open read expires as silent after `read_window`, and a project can
+always withdraw and recover its stake, from `pending` as well as `live`, so
+a Reader that never reports locks nothing.
 **Test.** `test_board_works_when_the_reader_is_unreadable`, `test_a_pending_claim_can_be_withdrawn`.
 
 ## T16 - A secret or a different path in the URL
@@ -146,3 +147,23 @@ in flight and their reports arrive in either order.
 **Defence.** `recheck` is accepted only for a `live` claim; on a `pending`
 claim it is refused and the fee is not taken.
 **Test.** `test_a_pending_claim_cannot_be_rechecked`.
+
+## T19 - The auditor collects a keeper reward
+
+**Attack.** The auditor withdraws a confirmation on its page, then re-checks
+the claim itself to collect `KEEPER_REWARD`.
+**Defence.** Partly. The auditor's signer cannot re-check (or post) on its
+own entry, so nothing reaches the address that identifies it. Through
+another address it can collect one reward per claim, exactly as any keeper
+who did the same work: `down` is terminal, the reward is a fifth of
+`MIN_STAKE`, and the rest of the stake returns to the project.
+**Test.** `test_the_auditor_cannot_post_or_recheck_on_its_own_entry`.
+
+## T20 - Someone has the Reader read a page of their choosing
+
+**Attack.** Call the Reader directly with a forged URL or passage, so it
+reports `confirmed` for a claim.
+**Defence.** The Reader is bound once to its Board and refuses reads anyone
+else asks for; the Board sends the auditor's pinned URL and the claim's
+recorded fields.
+**Test.** `test_only_the_reader_reports_and_only_the_board_asks`.
