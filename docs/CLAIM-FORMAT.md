@@ -12,11 +12,14 @@ before signing and must agree with the contract exactly (parity tests).
 | `page_url` | The one public page that lists the auditor's audits. URL rules below. **(contract)** |
 | signer | `msg.sender` becomes the auditor's address. One address may register several pages (several auditor entries). **(contract)** |
 
-**Registration fetch.** Validators fetch `page_url` once. Registration is
-refused, and nothing is stored, if the validators do not agree on the page's
-visible text, if the visible text is shorter than 200 characters (a page
-drawn by JavaScript returns almost nothing), or if the page is over the byte
-cap. **(contract)**
+**Registration fetch.** Validators fetch `page_url` once and each computes one
+outcome: `readable` if the page is under the byte cap and its visible text
+is at least 200 characters (a page drawn by JavaScript returns almost
+nothing), otherwise `unreadable`. Validators agree on that outcome, never on
+identical text: RedLine measured validators agreeing a sentence is present
+while disagreeing on a whole page's text. Registration succeeds only on an
+agreed `readable`; otherwise it is refused and nothing is stored.
+**(contract)**
 
 An auditor entry cannot be edited. To move its list, an auditor registers a
 new entry; claims on the old entry come down when its page goes silent.
@@ -39,8 +42,8 @@ different path.
 | Field | Rule |
 | --- | --- |
 | `auditor_id` | A registered auditor entry. **(contract)** |
-| `subject` | The project's name exactly as the auditor writes it, 2-80 characters. **(contract)** |
-| `scope` | 1 to 4 strings, each 2-80 characters, for example `lending contracts v2`, `March 2026`. **(contract)** |
+| `subject` | The project's name exactly as the auditor writes it, 3-80 characters, containing at least 3 letters, and not a common word on the stop list (`the`, `and`, `inc`, `labs`, `protocol`, `audit`, `report`, `security`, ...). **(contract)** |
+| `scope` | 1 to 4 strings, each 2-80 characters, for example `lending contracts v2`, `March 2026`. Each must contain a letter or digit. **(contract)** |
 | `sentence` | The exact confirming sentence from the auditor's page, 40-600 characters. It must contain `subject` and every `scope` string. **(contract)** |
 | `kind` | `audit`. The only kind in version 1. **(contract)** |
 | stake | The value sent with the transaction, at least `MIN_STAKE`. **(contract)** |
@@ -48,9 +51,13 @@ different path.
 
 **Matching.** `subject`, every `scope` string and `sentence` are compared
 after the same normalisation RedLine uses (entities decoded, typography
-folded, lower-case, whitespace collapsed). Containment is plain substring
-matching on normalised text. There is no fuzzy matching and no model
-deciding whether "v2" means "version two".
+folded, lower-case, whitespace collapsed). The sentence must appear in the
+page's visible text; `subject` and every `scope` string must appear in the
+sentence **as whole words**: the character before and after each match is
+the start or end of the text or is not a letter or digit. So `v2` does not
+match `v20`, `acme` does not match `acmeswap`, and a short particle cannot
+stand in for a name. There is no fuzzy matching and no model deciding
+whether "v2" means "version two".
 
 ## Constants (proposed; fixed per deployment)
 
@@ -71,7 +78,7 @@ deciding whether "v2" means "version two".
 | `live` | Confirmed at posting or at the latest re-check |
 | `refused` | The posting read did not confirm it; stake returned |
 | `down` | Taken down by a re-check; stake returned (minus keeper reward) |
-| `withdrawn` | The project took it down itself; stake returned |
+| `withdrawn` | The project took it down itself, from `pending` or `live`; stake returned. A late Reader report is ignored |
 
 `live` claims also carry `last_checked_at` and `misses` (0 or 1), so the board
 and badge can show how fresh a claim is.

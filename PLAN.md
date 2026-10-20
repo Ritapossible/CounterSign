@@ -7,8 +7,15 @@ is built yet.
 ## Phase 0 - Design `[~]`
 
 - [x] README, ARCHITECTURE, CLAIM-FORMAT, THREAT-MODEL, this plan, CLAUDE.md.
-- [ ] Reviewed: the money table, the outcome table and the threat model
-      checked by a second reader before any code.
+- [x] First review. Kept: the money table (no path pays the auditor).
+      Fixed: the posting withdrawal list holds only phrases that always mean
+      a withdrawal (not `did not`, `draft`, `preliminary`); registration
+      agrees on an outcome, not identical text; subject and scope match as
+      whole words and the subject must be a name; a `pending` claim can be
+      withdrawn; the README says when keepers are and are not paid, and puts
+      the auditor's identity (host and signer, not the typed name) on its
+      first screen.
+- [ ] Second review of these fixes.
 
 **Done when** the design is reviewed and no open objection remains.
 
@@ -23,6 +30,10 @@ pages and agree on whether a sentence is present?
       which are empty to a validator (JavaScript).
 - [ ] **Probe on Bradbury**: the same pages, strict mode.
 - [ ] Decide the registration minimum (visible text length) from the probe.
+- [ ] Run the posting withdrawal list over each real page: a phrase that
+      fires on an ordinary confirmation is removed.
+- [ ] Check whole-word matching of a real subject and scope against each
+      page's confirming sentence.
 
 **Done when** the probe records are in `deploy/probes/` and the README's
 "server-rendered only" limit is backed by them.
@@ -75,7 +86,7 @@ repository and is edited mid-run. Each case at least three times:
 | Auditor deletes the sentence | first re-check leaves it live; a second one `MISS_GAP` later takes it down |
 | Page unreachable once | stays live |
 | Page talks to the jury | does not keep a withdrawn claim |
-| Project withdraws | stake returned |
+| Project withdraws a live claim, and one still pending | stake returned; a late report is ignored |
 | Every path | the auditor received nothing; the Board's books balance |
 
 **Done when** the record (`deploy/scenario-studio.json`) shows every case

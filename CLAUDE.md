@@ -17,9 +17,12 @@ These are the product. A change that breaks one is wrong even if tests pass.
 2. **No model on the happy path.** An exact, complete, visible sentence with
    ordinary surroundings is decided by code. The jury is asked only when the
    sentence is present but its surroundings changed (or hold a withdrawal
-   word at posting).
-3. **Scope is exact strings.** `subject` and every `scope` string must be
-   substrings of the normalised sentence. Never add fuzzy matching or ask a
+   phrase at posting). The withdrawal list holds only phrases that always
+   mean a withdrawal; never add words that ordinary reports use (`did not`,
+   `draft`, `preliminary`).
+3. **Scope is exact whole words.** `subject` and every `scope` string must
+   appear in the normalised sentence with a non-alphanumeric character or
+   the text's edge on both sides (`v2` never matches `v20`). Never add fuzzy matching or ask a
    model whether two scopes are "the same".
 4. **Only `confirms` keeps a claim.** `denies`, `points_elsewhere`,
    `cannot_tell` and anything unparseable do not.

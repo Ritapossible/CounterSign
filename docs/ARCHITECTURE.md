@@ -22,8 +22,10 @@ and an appeal can leave a contract unreadable. So:
 - every payout is the Board's own arithmetic on its own records. The Board
   never reads the Reader's state.
 
-If the Reader becomes unreadable, claims stay as last recorded and projects
-can still withdraw their own claims and stakes.
+If the Reader becomes unreadable or never reports, claims stay as last
+recorded and projects can still withdraw their own claims and stakes,
+including a claim stuck in `pending`: no stake is ever locked waiting on the
+Reader.
 
 Pure logic lives outside the contract classes, as in RedLine and Remit:
 
@@ -57,6 +59,8 @@ anyone  ── recheck(claim_id) + RECHECK_FEE ──► Board ──► Reader:
                                second miss >= MISS_GAP after the first: down, as for denied
 
 project ── withdraw(claim_id) ──► Board: withdrawn, stake returned
+          (allowed from pending or live; a Reader report that arrives
+           for a withdrawn claim is ignored)
 ```
 
 Each read is numbered per claim. A report for an older read than the latest
@@ -83,11 +87,18 @@ answer turns into `confirmed` or `denied`.
 
 **At posting** there is no earlier fingerprint, so the Reader looks at the
 window of `WINDOW_WORDS` words around the sentence for a short, fixed list of
-withdrawal words (`withdrawn`, `revoked`, `retracted`, `not audited`, `did
-not`, `draft`, `superseded`, `not an audit`, `preliminary`, `unofficial`,
-`disclaim`). None present: `confirmed`, no model, and the fingerprint is
-stored. Any present: `ask_jury`. The list only decides whether to ask; it
-never decides the answer.
+phrases that only ever mean a withdrawal: `withdrawn`, `revoked`,
+`retracted`, `rescinded`, `superseded`, `no longer valid`, `not audited by`,
+`was not audited`, `not an audit`, `did not audit`, `do not endorse`. None
+present: `confirmed`, no model, and the fingerprint is stored. Any present:
+`ask_jury`. The list only decides whether to ask; it never decides the
+answer.
+
+Words that appear in ordinary audit reports are deliberately **not** on the
+list: `did not` ("did not find critical issues"), `draft`, `preliminary`,
+`findings`, `issues`. Otherwise the jury would be asked about the very pages
+the code path exists for. Phase 1's probe checks the list against real audit
+pages, and a phrase that fires on an ordinary confirmation is removed.
 
 ## 4. Reading the page
 
@@ -161,12 +172,13 @@ holds both from the first build.
 ## 8. The app and the badge
 
 - **Board:** every live claim, by auditor and by project, with when it was
-  last checked; claims that came down, and why.
+  last checked; claims that came down, and why. Every auditor is shown by
+  its page's host and signer next to its typed name, which is display only.
 - **Auditor:** register a page; see every claim naming you.
 - **Project:** post a claim. The app fetches the page the way a validator
   does and shows the refusal the contract would return before signing.
 - **Re-check:** a button on every claim.
 - **Badge:** an embeddable image served by a small function that reads the
-  claim from the chain and draws "Audited by Northlight: v2, March 2026,
-  confirmed 2 days ago" or "Claim withdrawn". The badge holds no record of its
+  claim from the chain and draws "Audited by Northlight (northlight.example):
+  v2, March 2026, confirmed 2 days ago" or "Claim withdrawn". The badge holds no record of its
   own.

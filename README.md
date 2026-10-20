@@ -8,6 +8,13 @@ editing a page they control.**
 > model and claim format. No contract is built yet. Nothing here should be
 > read as measured until [PLAN.md](PLAN.md) marks it done with evidence.
 
+> **Who the auditor is.** An auditor entry is identified by the **web
+> address (host) of its pinned page** and the **address that signed the
+> registration**. The name it types is display only: anyone can register an
+> entry called "Northlight" on a page they control. Check the host. The board
+> and badge always show the host next to the name, and an auditor can publish
+> its entry id on its own site.
+
 ## The problem
 
 A project's website says "Audited by Northlight Security". Northlight never
@@ -86,7 +93,10 @@ nothing to fine. The stake pays for spam and for keepers, not penalties.
 - **The board covers registered auditors only.** A project cannot post a
   claim about an auditor that has not registered.
 - **Checked when someone checks.** A claim is as fresh as its last re-check;
-  the board shows when that was. Keepers are paid to re-check.
+  the board shows when that was. A keeper is paid only when its re-check
+  takes a claim down. A re-check that confirms a claim pays the fee to the
+  project and costs the caller, so a claim nobody doubts stays only as fresh
+  as a volunteer, the auditor, or the project itself keeps it.
 
 ## Documents
 

@@ -15,9 +15,9 @@ is fixed by the auditor at registration.
 ## T2 - Stretching a real audit to another version or date
 
 **Attack.** Northlight audited "Acme v1, 2024"; the project claims v3.
-**Defence.** Every scope string must appear, exactly, inside the confirming
-sentence. "v3" is not in a sentence about v1, so the claim does not post. No
-paraphrase matching.
+**Defence.** Every scope string must appear, exactly and as whole words,
+inside the confirming sentence. "v3" is not in a sentence about v1, and "v2"
+does not match "v20", so the claim does not post. No paraphrase matching.
 **Test.** `test_a_scope_string_missing_from_the_sentence_is_refused`.
 
 ## T3 - The project hosts its own "auditor" page
@@ -26,8 +26,10 @@ paraphrase matching.
 **Defence.** Partly none. Anyone can register an auditor entry; the board
 shows the entry's page URL and signer, and the app shows which entry a claim
 names. A user must still recognise the real auditor's domain.
-**Mitigation.** The board groups entries by page host, and an auditor can
-publish its entry id on its own site. Stated in the README.
+**Mitigation.** The typed name is display only; the identity is the page's
+host and the registering signer, shown next to every claim on the board and
+the badge. The board groups entries by host, and an auditor can publish its
+entry id on its own site. Stated on the README's first screen.
 
 ## T4 - The auditor edits its page to take the project's stake
 
@@ -115,8 +117,9 @@ appealed read). As RedLine.
 ## T15 - The Reader becomes unreadable after an appeal
 
 **Defence.** The Board never reads the Reader. Live claims stay as recorded
-and a project can always withdraw and recover its stake.
-**Test.** `test_board_works_when_the_reader_is_unreadable`.
+and a project can always withdraw and recover its stake, from `pending` as
+well as `live`, so a Reader that never reports locks nothing.
+**Test.** `test_board_works_when_the_reader_is_unreadable`, `test_a_pending_claim_can_be_withdrawn`.
 
 ## T16 - A secret or a different path in the URL
 
