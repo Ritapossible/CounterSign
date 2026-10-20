@@ -1,0 +1,320 @@
+{
+  "network": "bradbury",
+  "accounts": {
+    "deployer": "0xf1827cad7c88f02a7cad3627d7ce482a8f2d33c7",
+    "auditor": "0x3f55971f7fd2594a90871db489fbb82f1db4d747",
+    "project": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+    "keeper": "0xef359811497c724ef1942c6c079c64c07d87952d",
+    "keeper2": "0x8aa26fa51a68c583c467463e93db0ebc10f7d509"
+  },
+  "pages": {},
+  "done": {
+    "pages:initial": {
+      "commit": "c53ff3c96ccca3a965e58a44d893be69975fd273",
+      "visible_after_s": 0
+    },
+    "bind": {
+      "hash": "0x6ea432d59c58f55e4d49a4f9b3ccf163f663c82f1e6bebdd6f90680dbf56efa5",
+      "consensus": "AGREE"
+    },
+    "r1:register:happy": {
+      "id": 0,
+      "hash": "0xb0de7f51f09cd65ec3e5ca61ad366b5322d5fda8ffb3b49b51dfeb376288306a",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:spa": {
+      "id": 1,
+      "hash": "0x4e2f03346661d73a2808f434e61083af52abc3a9aee8509b9e9d569df799543e",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:nosample": {
+      "id": 2,
+      "hash": "0xdfa66dbb0e24ebc1c1adb03c57a0505286c53814550f10ad9ca6a740d6b1d360",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:hidden": {
+      "id": 3,
+      "hash": "0x7643202cd5cde423de6f5445dfd99e498155d70c0b1ee35570dd68e87614fe15",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:flagged": {
+      "id": 4,
+      "hash": "0x4c49ede66662b6a6459c5c029536f93646f6847a4e0318e8afb39ddb47f3f89e",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:withdraw": {
+      "id": 5,
+      "hash": "0x1b1a1c4a502ee6831b97788a2ff5d8fa13cc1a4f39b5bf15ee9e370c7f4b08c4",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:delete": {
+      "id": 6,
+      "hash": "0x7f1512811794ebe10baee4faf6c4885b0677ba9d3586e7b14a2f832513a60dae",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:outage": {
+      "id": 6,
+      "hash": "0xf3ad8e6f2096fc84e8d94073f4d5324e3f9b46af16c81704fb9e0b0e21353cde",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:inject": {
+      "id": 8,
+      "hash": "0xbb18ed3295000b2955db3bc7b0cf887d02fac3ed83b2633f408f66e0e583f8ba",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:happy": {
+      "id": 9,
+      "hash": "0xb9002e9c0a3e779103bf7973d73486a158eb8a2afd5f02a9cdadc0f61b5650ef",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:spa": {
+      "id": 10,
+      "hash": "0xb4cbc87991684739cd30d08fe6c5fa81ef6cb10a5181033d3eb552eb065a5b31",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:nosample": {
+      "id": 11,
+      "hash": "0x7830250abaaf1165ac62aa1cc5ef6fac8935179ba71536ad9e5043936555f6ac",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:hidden": {
+      "id": 12,
+      "hash": "0x3394ac38e022d36383836e1f4206cd4a05d56cd966dd952b3cd33e1cc378d015",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:flagged": {
+      "id": 13,
+      "hash": "0xf7c9718a44151a33e92d2d7ecda5a8bbb91e597136fc8d8c0043829d5792569f",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:withdraw": {
+      "id": 14,
+      "hash": "0xec8bf295a51d70a0576434a0695a4dd87b2916b7c86f3400c28b29a242765395",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:delete": {
+      "id": 15,
+      "hash": "0x598fe92424b00fc553198217208604428978c8f3fcd575b4a33cea9fd00e05e0",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:outage": {
+      "id": 16,
+      "hash": "0x2605e4d475a3449b7d6dc2fb8e48e4836d2cbe6c8f09d59eb5c9ef6f61c9d8c2",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:inject": {
+      "id": 17,
+      "hash": "0x7da764709414f05ff758e07d9e3068abd044d7b29a9c8407c59ad8ee04a5181d",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:happy": {
+      "id": 18,
+      "hash": "0xdf992f748121e7e08d023f506987a42b1b630624fad2cf1633256fc4208dd401",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:spa": {
+      "id": 19,
+      "hash": "0x535c3fbd77217024073056872cbfe25fc7c553345a4c6844f44f5787a6e1cb02",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:nosample": {
+      "id": 19,
+      "hash": "0x18c2a2b0529d5897246d9dc609c49262fc4c2b2687aca8cfd2cecd488e28a6e2",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:hidden": {
+      "id": 21,
+      "hash": "0x033556c15e69abc031f610146ce24cbc4761bd0547c56c2084343b3d11c42f57",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:flagged": {
+      "id": 21,
+      "hash": "0xa16657d06807744eb968a7e11c4c7f89ab7cf8eb95a61ce7e505b258544caaff",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:withdraw": {
+      "id": 23,
+      "hash": "0x9541a07276c809e5e8c0f56b1ebaaaa6c2b9aff1844776d7764b76d22cc7b0bc",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:delete": {
+      "id": 24,
+      "hash": "0xcc287a3eb04c15257b93da4f9f167dd71ca4ab2701c4893e40ffd2acc0465e5e",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:outage": {
+      "id": 25,
+      "hash": "0xd63d6aeb73e0bfecf89d666d33aaaddbd744cce97dceefba94713ecb29c5d6fc",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:inject": {
+      "id": 25,
+      "hash": "0x57dc70e69d681f3a1039701c327e42a83b7c100eddf5056299ee6513b154c33c",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:registered:happy": {
+      "state": "registered",
+      "waited": 928
+    },
+    "r1:registered:spa": {
+      "state": "refused",
+      "waited": 9
+    },
+    "r1:registered:nosample": {
+      "state": "refused",
+      "waited": 40
+    },
+    "r1:registered:hidden": {
+      "state": "registered",
+      "waited": 9
+    },
+    "r1:registered:flagged": {
+      "state": "registered",
+      "waited": 16
+    },
+    "r1:registered:withdraw": {
+      "state": "registered",
+      "waited": 9
+    },
+    "r1:registered:delete": {
+      "state": "registered",
+      "waited": 9
+    },
+    "r1:registered:outage": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r1:registered:inject": {
+      "state": "registered",
+      "waited": 24
+    },
+    "r2:registered:happy": {
+      "state": "registered",
+      "waited": 202
+    },
+    "r2:registered:spa": {
+      "state": "refused",
+      "waited": 83
+    },
+    "r2:registered:nosample": {
+      "state": "refused",
+      "waited": 9
+    }
+  },
+  "checks": [
+    {
+      "name": "r1 register happy: registered",
+      "ok": true,
+      "id": 0,
+      "state": "registered",
+      "waited": 928
+    },
+    {
+      "name": "r1 register spa: refused",
+      "ok": true,
+      "id": 1,
+      "state": "refused",
+      "waited": 9
+    },
+    {
+      "name": "r1 register nosample: refused",
+      "ok": true,
+      "id": 2,
+      "state": "refused",
+      "waited": 40
+    },
+    {
+      "name": "r1 register hidden: registered",
+      "ok": true,
+      "id": 3,
+      "state": "registered",
+      "waited": 9
+    },
+    {
+      "name": "r1 register flagged: registered",
+      "ok": true,
+      "id": 4,
+      "state": "registered",
+      "waited": 16
+    },
+    {
+      "name": "r1 register withdraw: registered",
+      "ok": true,
+      "id": 5,
+      "state": "registered",
+      "waited": 9
+    },
+    {
+      "name": "r1 register delete: registered",
+      "ok": true,
+      "id": 6,
+      "state": "registered",
+      "waited": 9
+    },
+    {
+      "name": "r1 register outage: registered",
+      "ok": true,
+      "id": 6,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r1 register inject: registered",
+      "ok": true,
+      "id": 8,
+      "state": "registered",
+      "waited": 24
+    },
+    {
+      "name": "r2 register happy: registered",
+      "ok": true,
+      "id": 9,
+      "state": "registered",
+      "waited": 202
+    },
+    {
+      "name": "r2 register spa: refused",
+      "ok": true,
+      "id": 10,
+      "state": "refused",
+      "waited": 83
+    },
+    {
+      "name": "r2 register nosample: refused",
+      "ok": true,
+      "id": 11,
+      "state": "refused",
+      "waited": 9
+    }
+  ],
+  "recorded_at": "2026-10-20T17:52:38.935Z",
+  "reader": "0x42a7F21e1ae19B2b0a05F19F91988A0CeaB36a3A",
+  "board": "0x36dA80A814eE4bD2dAc13Cf15Ca6584E6b143D70"
+}

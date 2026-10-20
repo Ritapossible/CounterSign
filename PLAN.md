@@ -223,6 +223,15 @@ about one item: `withdrawn`, `revoked`, `retracted`, `rescinded`,
 table runs again on Studio (record `deploy/scenario-studio.json`) and on
 Bradbury with the same build, and both are verified against it.
 
+**Studio result, this build** (`df56bdb`; Board `0xE83Fc81f4ece5917097947E0cE8612eaCfb07fe4`, Reader `0x5A41363301d9153362d6400c121A6155a9af54bC`;
+record `deploy/scenario-studio.json`): **94 checks, 0 failed**, every case
+three times, re-checks sent in batches with the money checked per batch.
+`deploy/verify_code.mjs df56bdb deploy/scenario-studio.json`: both
+contracts match. Per-validator votes (`deploy/scenario-studio-votes.json`):
+90 requests, 84 Reader reads, every one agreed; the other 6 were refused by
+the Board before any read (3 postings with a scope string missing, 3
+re-checks of a pending claim), so no Reader transaction exists for them.
+
 ## Phase 5 - On chain: Bradbury `[ ]`
 
 - [ ] The same cases on the Bradbury testnet (`deploy/scenario.mjs bradbury`,

@@ -29,9 +29,14 @@ const votes = (t) => ({
 
 // Every Board transaction in the record that asks the Reader for a read.
 const asks = [];
+const seen = new Set();
 const walk = (v, path) => {
   if (!v || typeof v !== "object") return;
-  if (typeof v.hash === "string" && /register|post|recheck|batch|pending/.test(path) && !/withdraw|collect/.test(path)) asks.push({ path, hash: v.hash });
+  // A batch's "settled" entry repeats its "sent" transaction: count each hash once.
+  if (typeof v.hash === "string" && /register|post|recheck|batch|pending/.test(path) && !/withdraw|collect|settled/.test(path) && !seen.has(v.hash)) {
+    seen.add(v.hash);
+    asks.push({ path, hash: v.hash });
+  }
   for (const [k, x] of Object.entries(v)) if (k !== "hash") walk(x, path + "/" + k);
 };
 walk(rec.done, "");
@@ -88,9 +93,16 @@ for (const a of asks) {
   save();
   console.log(a.path, entry.reader_tx ? `${entry.reader_votes.result} ${JSON.stringify(entry.reader_votes.votes)}` : "no reader tx found");
 }
+// Requests the Board refused before any read have no Reader transaction.
+const refusedBeforeRead = (path) => /:post:scope|:pending\/recheck/.test(path);
+for (const [path, x] of Object.entries(out.reads)) if (!x.reader_tx && refusedBeforeRead(path)) x.note = "refused by the Board before any read: no Reader transaction";
+const reads = Object.values(out.reads).filter((x) => x.reader_tx);
 out.summary = {
-  asks: Object.keys(out.reads).length,
-  with_reader_tx: Object.values(out.reads).filter((x) => x.reader_tx).length,
+  requests: Object.keys(out.reads).length,
+  reads: reads.length,
+  refused_before_read: Object.values(out.reads).filter((x) => x.note).length,
+  unexplained_missing: Object.values(out.reads).filter((x) => !x.reader_tx && !x.note).length,
+  reads_agreed: reads.filter((x) => /AGREE/.test(x.reader_votes.result) && !/DISAGREE/.test(x.reader_votes.result)).length,
 };
 save();
 console.log(JSON.stringify(out.summary));

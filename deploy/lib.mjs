@@ -39,6 +39,14 @@ export async function retry(label, fn, tries = 4) {
         await new Promise((r) => setTimeout(r, 25_000));
         continue;
       }
+      // Bradbury reverts a submission while the sender has too much in flight:
+      // back off for longer, without spending the normal tries.
+      if (/reverted/i.test(msg) && limited++ < 8) {
+        i--;
+        console.log(`  ${label}: submission reverted - retry in 30s`);
+        await new Promise((r) => setTimeout(r, 30_000));
+        continue;
+      }
       if (i === tries - 1) break;
       const wait = 2000 * Math.pow(2, i);
       console.log(`  ${label}: ${msg.slice(0, 120)} - retry in ${wait}ms`);
