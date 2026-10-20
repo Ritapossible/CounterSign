@@ -1,0 +1,54 @@
+{
+ "https://raw.githubusercontent.com/trailofbits/publications/master/README.md": {
+  "passage": "| [uniswap v4 core](https://docs.uniswap.org/contracts/v4/concepts/intro-to-v4) | jul 2024 | 6 | | [\ud83d\udcc4\u2705](reviews/2024-07-uniswap-v4-core-securityreview.pdf) |",
+  "subject": "uniswap v4 core",
+  "scope": [
+   "jul 2024"
+  ]
+ },
+ "https://raw.githubusercontent.com/sigp/public-audits/master/README.md": {
+  "passage": "| [lido](https://lido.fi/) | january 2026 | [a70087d](https://github.com/lidofinance/core/tree/a70087d99ead7acc43bce1aaf9fb7ef108d01e3c) | review of onchain bls library | [report](./reports/lido/sigma_prime_lido_bls_library_security_assessment_report_v2_0.pdf) |",
+  "subject": "lido",
+  "scope": [
+   "january 2026",
+   "onchain bls library"
+  ]
+ },
+ "https://raw.githubusercontent.com/spearbit/portfolio/master/README.md": {
+  "passage": "| [morpho](https://www.morpho.xyz) | september 2026 | [:page_facing_up:](https://cantina.xyz/portfolio/5a4c1c99-3882-47fc-a12b-88d11306d0e7) | defi, lending | lsr-[saw-mon and natalie](https://cantina.xyz/u/saw-mon-and-natalie) <br> lsr-[milotruck](https://cantina.xyz/u/milotruck) <br> sr-[om parikh](https://cantina.xyz/u/hack3r-0m) |",
+  "subject": "morpho",
+  "scope": [
+   "september 2026",
+   "lending"
+  ]
+ },
+ "https://raw.githubusercontent.com/Cyfrin/cyfrin-audit-reports/main/README.md": {
+  "passage": "| 2026-08-31 | 2026-09-02 | [greekfi oracle](./reports/2026-09-08-cyfrin-greekfi-oracle-v2.0.pdf) | options, derivatives, oracle, lending, morpho, chainlink | 0 | 0 | 2 | 1 | 4 | 0 |",
+  "subject": "greekfi oracle",
+  "scope": [
+   "2026-09-02"
+  ]
+ },
+ "https://www.chainsecurity.com/smart-contract-audit-reports": {
+  "passage": "lido liquity m^zero m0 makerdao (sky)",
+  "subject": "lido",
+  "scope": [
+   "2024"
+  ]
+ },
+ "https://code4rena.com/reports": {
+  "passage": "this passage is only here to test whether the page can be read at all",
+  "subject": "nothing",
+  "scope": []
+ },
+ "https://www.halborn.com/audits": {
+  "passage": "this passage is only here to test whether the page can be read at all",
+  "subject": "nothing",
+  "scope": []
+ },
+ "https://blog.openzeppelin.com/security-audits": {
+  "passage": "this passage is only here to test whether the page can be read at all",
+  "subject": "nothing",
+  "scope": []
+ }
+}
