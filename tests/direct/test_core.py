@@ -167,9 +167,12 @@ def test_a_standing_disclaimer_above_the_list_does_not_ask_the_jury():
     by us" above its table. A jury reading that beside the row might refuse an
     honest claim, so those phrases are not on the posting list."""
     for line in ("A project that is not listed here was not audited by us.",
-                 "Any project not on this list was not audited by Northlight."):
+                 "Any project not on this list was not audited by Northlight.",
+                 "Projects not listed here, we did not audit.",
+                 "We do not endorse any project. A listing here is not an audit of later versions."):
         assert page_read(audit_page(before="<p>%s</p>" % line))["kind"] == CONFIRMED, line
-    assert "not audited by" not in core.WITHDRAW and "was not audited" not in core.WITHDRAW
+    for phrase in ("not audited by", "was not audited", "did not audit", "not an audit", "do not endorse"):
+        assert phrase not in core.WITHDRAW
 
 
 def test_at_a_recheck_only_changed_surroundings_ask_the_jury():

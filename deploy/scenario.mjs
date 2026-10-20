@@ -83,8 +83,10 @@ async function publish(stage) {
     if (dirty) {
       git("-c", "user.name=Ritapossible", "-c", "user.email=egwuaturita95@gmail.com", "commit", "-qm",
         `Demo pages: ${network} ${stage} (fictional auditor; never merge)`);
+      // Another network's run may push to live too: rebase onto it first.
       for (let i = 0; i < 5; i++) {
-        try { git("push", "-q", "origin", "live"); break; } catch (e) { if (i === 4) throw e; await new Promise((r) => setTimeout(r, 2000 * 2 ** i)); }
+        try { git("pull", "-q", "--rebase", "origin", "live"); git("push", "-q", "origin", "live"); break; }
+        catch (e) { if (i === 4) throw e; await new Promise((r) => setTimeout(r, 2000 * 2 ** i)); }
       }
     }
     const commit = git("rev-parse", "HEAD");
@@ -204,91 +206,147 @@ for (let r = 1; r <= RUNS; r++) {
 
 // ---------------------------------- 3. a pending claim: recheck and withdraw
 
+// All runs at once: post, try to re-check while pending, withdraw; then wait
+// past finality for the posting reports, which must be ignored.
 for (let r = 1; r <= RUNS; r++) {
   await once(`r${r}:pending`, async () => {
     const p = await post(r, "pending", "happy");
     const id = p.id;
     const keeperBefore = await owed("keeper");
     const t1 = await tx("keeper", "recheck", [id], `r${r} recheck pending`, FEE);
-    const reason = (await view("refusal_of", [A.keeper])).reason || "";
+    const refusal = await view("refusal_of", [A.keeper]);
     const refunded = (await owed("keeper")) - keeperBefore;
     const projectBefore = await owed("project");
     const t2 = await tx("project", "withdraw_claim", [id], `r${r} withdraw pending`);
     const c = await claim(id);
     const returned = (await owed("project")) - projectBefore;
     check(`r${r} re-check a pending claim: refused, fee back`,
-      reason.includes("only a live claim") && refunded === FEE, { id, reason, refunded: String(refunded), state_at_recheck: "pending" });
+      (refusal.reason || "").includes("only a live claim") && String(refusal.returned) === String(FEE), { id, refusal });
     check(`r${r} withdraw a pending claim: withdrawn, stake returned`,
       c.state === "withdrawn" && returned === STAKE, { id, state: c.state, returned: String(returned) });
-    // The Reader's report for the posting read still lands; it must be ignored.
+    return { id, recheck: t1, withdraw: t2 };
+  });
+}
+for (let r = 1; r <= RUNS; r++) {
+  await once(`r${r}:pending-late`, async () => {
+    const id = rec.done[`r${r}:pending`].id;
     const { value: last } = await readUntil(() => readView(C.deployer, rec.reader, "last_read", [`c:${id}`]), (v) => v && v.kind,
-      { seconds: REPORT_WAIT, every: 6 });
-    await new Promise((s) => setTimeout(s, (STUDIO ? 60 : 1800) * 1000)); // past finality
+      { seconds: REPORT_WAIT, every: 10 });
+    return { id, reader: last, reader_seen_at: Date.now() };
+  });
+}
+await once("wait:pending-finality", async () => {
+  // The Reader recorded each read; its report reaches the Board at finality.
+  const wait = STUDIO ? 90 : 2400;
+  await new Promise((s) => setTimeout(s, wait * 1000));
+  return wait;
+});
+for (let r = 1; r <= RUNS; r++) {
+  await once(`r${r}:checked:pending-late`, async () => {
+    const id = rec.done[`r${r}:pending`].id;
     const later = await claim(id);
-    check(`r${r} a late report for a withdrawn claim is ignored`, later.state === "withdrawn", { id, reader: last, state: later.state });
-    return { id, recheck: t1, withdraw: t2, reader: last };
+    check(`r${r} a late report for a withdrawn claim is ignored`, later.state === "withdrawn",
+      { id, reader: rec.done[`r${r}:pending-late`].reader, state: later.state });
+    return true;
   });
 }
 
-// ------------------------------------------------ 4. recheck, page unchanged
+// ------------------------------------------------ re-checks, sent in batches
 
-async function recheck(r, key, id, keeperKey, label) {
-  return once(`r${r}:recheck:${key}`, async () => {
-    const before = { project: await owed("project"), keeper: await owed(keeperKey) };
-    const seq = (await claim(id)).seq;
-    const t = await tx(keeperKey, "recheck", [id], `r${r} ${label}`, FEE);
-    const { claim: c, waited } = await settle(id, (c) => c.seq > seq && !c.read, `r${r} ${label}`);
-    const delta = { project: String((await owed("project")) - before.project), keeper: String((await owed(keeperKey)) - before.keeper) };
-    const last = await readView(C.deployer, rec.reader, "last_read", [`c:${id}`]);
-    return { ...t, state: c.state, misses: c.misses, why: c.why, delta, waited, reader: last, checked_at: c.checked_at, miss_at: c.miss_at };
+/**
+ * Send every re-check of a stage, then wait for all of their reports.
+ * items: [{ r, key, id, keeper, label }]. Money is checked per batch: the
+ * sum of what each keeper and the project should be credited.
+ */
+async function recheckBatch(stage, items) {
+  const sent = await once(`batch:${stage}:sent`, async () => {
+    const before = { project: String(await owed("project")), keeper: String(await owed("keeper")), keeper2: String(await owed("keeper2")) };
+    const out = {};
+    for (const it of items) {
+      const seq = (await claim(it.id)).seq;
+      const t = await tx(it.keeper, "recheck", [it.id], `r${it.r} ${it.label}`, FEE);
+      out[it.key + ":" + it.r] = { ...t, id: it.id, seq, sent_at: Math.floor(Date.now() / 1000) };
+    }
+    return { before, out };
+  });
+  return once(`batch:${stage}:settled`, async () => {
+    const results = {};
+    for (const it of items) {
+      const s0 = sent.out[it.key + ":" + it.r];
+      const { claim: c, waited } = await settle(it.id, (c) => c.seq > s0.seq && !c.read, `r${it.r} ${it.label}`);
+      const last = await readView(C.deployer, rec.reader, "last_read", [`c:${it.id}`]);
+      results[it.key + ":" + it.r] = { ...s0, state: c.state, misses: c.misses, why: c.why, miss_at: c.miss_at, checked_at: c.checked_at, waited, reader: last };
+    }
+    const delta = {};
+    for (const k of ["project", "keeper", "keeper2"]) delta[k] = String((await owed(k)) - BigInt(sent.before[k]));
+    return { results, delta };
   });
 }
 const cid = (r, k) => rec.done[`r${r}:post:${k}`].id;
+const runs = [...Array(RUNS).keys()].map((i) => i + 1);
+const sum = (n, x) => String(BigInt(n) * x);
 
-for (let r = 1; r <= RUNS; r++) {
-  const x = await recheck(r, "unchanged", cid(r, "happy"), "keeper", "recheck unchanged");
-  if (!rec.done[`r${r}:checked:unchanged`]) {
-    check(`r${r} re-check an unchanged page: live, fee to project`,
-      x.state === "live" && x.delta.project === String(FEE) && x.delta.keeper === "0", x);
-    await once(`r${r}:checked:unchanged`, () => true);
-  }
+// ------------------------------------------------ 4. recheck, page unchanged
+
+{
+  const b = await recheckBatch("unchanged", runs.map((r) => ({ r, key: "unchanged", id: cid(r, "happy"), keeper: "keeper", label: "recheck unchanged" })));
+  await once("checked:unchanged", () => {
+    for (const r of runs) {
+      const x = b.results[`unchanged:${r}`];
+      check(`r${r} re-check an unchanged page: live`, x.state === "live" && x.misses === 0, x);
+    }
+    check("re-checks of unchanged pages: every fee to the project, nothing to the keeper",
+      b.delta.project === sum(RUNS, FEE) && b.delta.keeper === "0", b.delta);
+    return true;
+  });
 }
 
 // ------------------------------------------------- 5. the auditor edits pages
 
 await publish("edited");
-for (let r = 1; r <= RUNS; r++) {
-  const w = await recheck(r, "withdrawn", cid(r, "withdraw"), "keeper", "recheck withdrawn");
-  const d = await recheck(r, "deleted-1", cid(r, "delete"), "keeper", "recheck deleted (1st)");
-  const o = await recheck(r, "outage-1", cid(r, "outage"), "keeper", "recheck page down");
-  const j = await recheck(r, "inject", cid(r, "inject"), "keeper", "recheck injection");
-  await once(`r${r}:checked:edited`, () => {
-    check(`r${r} auditor withdraws beside the row: down, keeper reward, rest to project`,
-      w.state === "down" && w.delta.keeper === String(REWARD + FEE) && w.delta.project === String(STAKE - REWARD), w);
-    check(`r${r} auditor deletes the row, first re-check: live, one miss, fee back`,
-      d.state === "live" && d.misses === 1 && d.delta.keeper === String(FEE), d);
-    check(`r${r} page unreachable once: live, one miss, fee back`,
-      o.state === "live" && o.misses === 1 && o.delta.keeper === String(FEE), o);
-    check(`r${r} page talks to the jury: down`, j.state === "down" && j.delta.keeper === String(REWARD + FEE), j);
+{
+  const items = [];
+  for (const r of runs) {
+    items.push({ r, key: "withdrawn", id: cid(r, "withdraw"), keeper: "keeper", label: "recheck withdrawn" });
+    items.push({ r, key: "deleted-1", id: cid(r, "delete"), keeper: "keeper", label: "recheck deleted (1st)" });
+    items.push({ r, key: "outage-1", id: cid(r, "outage"), keeper: "keeper", label: "recheck page down" });
+    items.push({ r, key: "inject", id: cid(r, "inject"), keeper: "keeper", label: "recheck injection" });
+  }
+  const b = await recheckBatch("edited", items);
+  await once("checked:edited", () => {
+    for (const r of runs) {
+      const w = b.results[`withdrawn:${r}`], d = b.results[`deleted-1:${r}`], o = b.results[`outage-1:${r}`], j = b.results[`inject:${r}`];
+      check(`r${r} auditor withdraws beside the row: down`, w.state === "down" && /denies/.test(w.why), w);
+      check(`r${r} auditor deletes the row, first re-check: live, one miss`, d.state === "live" && d.misses === 1, d);
+      check(`r${r} page unreachable once: live, one miss`, o.state === "live" && o.misses === 1, o);
+      check(`r${r} page talks to the jury: down`, j.state === "down" && /denies/.test(j.why), j);
+    }
+    // Two take-downs per run pay reward + fee; two misses per run return the fee.
+    check("edited pages: keeper paid reward + fee per take-down and the fee back per miss; rest of each stake to the project",
+      b.delta.keeper === sum(RUNS, 2n * (REWARD + FEE) + 2n * FEE) && b.delta.project === sum(RUNS, 2n * (STAKE - REWARD)), b.delta);
     return true;
   });
 }
 
 // A second silent read of the deleted row, at least MISS_GAP after the first.
 await once("wait:miss-gap", async () => {
-  const firsts = [];
-  for (let r = 1; r <= RUNS; r++) firsts.push(rec.done[`r${r}:recheck:deleted-1`].miss_at);
+  const b = rec.done["batch:edited:settled"];
+  const firsts = runs.map((r) => b.results[`deleted-1:${r}`].miss_at);
   const now = (await claim(cid(1, "delete"))).now;
   const wait = Math.max(0, Math.max(...firsts) + MISS_GAP + 30 - now);
   console.log(`waiting ${wait}s for MISS_GAP`);
   await new Promise((s) => setTimeout(s, wait * 1000));
   return wait;
 });
-for (let r = 1; r <= RUNS; r++) {
-  const d2 = await recheck(r, "deleted-2", cid(r, "delete"), "keeper2", "recheck deleted (2nd)");
-  await once(`r${r}:checked:deleted-2`, () => {
-    check(`r${r} auditor deletes the row, second re-check MISS_GAP later: down, keeper reward`,
-      d2.state === "down" && d2.delta.keeper === String(REWARD + FEE) && d2.delta.project === String(STAKE - REWARD), d2);
+{
+  const b = await recheckBatch("deleted-2", runs.map((r) => ({ r, key: "deleted-2", id: cid(r, "delete"), keeper: "keeper2", label: "recheck deleted (2nd)" })));
+  await once("checked:deleted-2", () => {
+    for (const r of runs) {
+      const d2 = b.results[`deleted-2:${r}`];
+      check(`r${r} auditor deletes the row, second re-check MISS_GAP later: down`, d2.state === "down" && /twice/.test(d2.why), d2);
+    }
+    check("second silent reads: keeper paid reward + fee per take-down, rest of each stake to the project",
+      b.delta.keeper2 === sum(RUNS, REWARD + FEE) && b.delta.project === sum(RUNS, STAKE - REWARD), b.delta);
     return true;
   });
 }
@@ -296,13 +354,18 @@ for (let r = 1; r <= RUNS; r++) {
 // ----------------------------------------- 6. the page is back; withdraw live
 
 await publish("restored");
-for (let r = 1; r <= RUNS; r++) {
-  const o2 = await recheck(r, "outage-2", cid(r, "outage"), "keeper", "recheck page back");
-  await once(`r${r}:checked:outage-2`, () => {
-    check(`r${r} page back: live, misses reset, fee to project`,
-      o2.state === "live" && o2.misses === 0 && o2.delta.project === String(FEE), o2);
+{
+  const b = await recheckBatch("outage-2", runs.map((r) => ({ r, key: "outage-2", id: cid(r, "outage"), keeper: "keeper", label: "recheck page back" })));
+  await once("checked:outage-2", () => {
+    for (const r of runs) {
+      const o2 = b.results[`outage-2:${r}`];
+      check(`r${r} page back: live, misses reset`, o2.state === "live" && o2.misses === 0, o2);
+    }
+    check("pages back: every fee to the project", b.delta.project === sum(RUNS, FEE) && b.delta.keeper === "0", b.delta);
     return true;
   });
+}
+for (const r of runs) {
   await once(`r${r}:withdraw-live`, async () => {
     const before = await owed("project");
     const t = await tx("project", "withdraw_claim", [cid(r, "happy")], `r${r} withdraw live`);

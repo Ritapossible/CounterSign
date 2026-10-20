@@ -143,13 +143,21 @@ messages have landed.
       recorded 7 s after that, `note_registration` on the Board 40 s after
       acceptance (`registered`). Posting: accepted in 4 s, read recorded at
       7 s, `note_claim` on the Board at 39 s (`live`). About 33 s of each is
-      finality. Studio's `read_window` of 600 s is 15 times that.
+      finality. These measurement Boards were deployed with a `read_window`
+      of 604,800 s (7 days) so nothing could expire while measuring.
 - [x] **Bradbury** (Board `0xac642d7d6f97e192D87e36DdE8E15Ae7d7415713`, Reader `0x088F36a929016Ce3caF0aCf506a9645f732C4862`): both messages landed.
       Registration: accepted in 15 s, read recorded 16 s after, `note_registration`
       on the Board 2008 s after acceptance (`registered`). Posting: accepted in 15 s,
       read at 15 s, `note_claim` at 2001 s (`live`), with the same surroundings
       fingerprint Studio computed for the same page. About 33 minutes of
-      each is finality. Bradbury's `read_window` is 7,200 s, 3.6 times that.
+      each is finality. Also deployed with a 7-day `read_window`.
+
+`read_window` per deployment, set from these measurements: **Studio
+scenario Boards 600 s** (15 times the 40 s measured; the first Studio
+scenario Board's `status` reads `read_window: 600`), **Bradbury scenario
+Board 7,200 s** (3.6 times the 33 minutes measured). Never deploy a Board on
+Bradbury with Studio's 600 s: a read would expire before its report lands.
+`deploy/scenario.mjs` sets both by network.
 
 Then each case at least three times:
 
@@ -175,8 +183,9 @@ Then each case at least three times:
 **Done when** the record (`deploy/scenario-studio.json`) shows every case
 with transaction hashes and 0 failed checks.
 
-**Studio result** (Board `0xb9C634875f575cE0bB0924FF5e183132e190CeF6`, Reader `0x81f1c0Ad329a0eA23d2d9FD7Be8b0B7D9cea5c37`; `deploy/scenario.mjs`, record
-`deploy/scenario-studio.json`): **90 checks, 0 failed**, every case three
+**Studio result, first build** (`ab4f88d`; Board `0xb9C634875f575cE0bB0924FF5e183132e190CeF6`, Reader `0x81f1c0Ad329a0eA23d2d9FD7Be8b0B7D9cea5c37`; record
+`deploy/scenario-studio-v1.json`, code verified against `ab4f88d` with
+`deploy/verify_code.mjs`): **90 checks, 0 failed**, every case three
 times, on 27 auditor entries and 27 claims. The page edits were pushed to
 the `live` branch mid-run, and each re-check waited until the edit was
 visible plus 330 s of CDN margin.
@@ -205,12 +214,29 @@ while another claim's refund landed in the same window, one read balances
 before the collect's transfer finalised, and one used `received = held +
 owed`, which stops holding once anything is collected.
 
+**Third review:** `did not audit`, `not an audit` and `do not endorse` are
+off the posting list too: each reads like a standing header ("projects not
+listed here, we did not audit"; "we do not endorse any project"), the same
+false jury as the phrases removed before. The list now holds only words
+about one item: `withdrawn`, `revoked`, `retracted`, `rescinded`,
+`superseded`, `no longer valid`. That changes the deployed bytes, so the
+table runs again on Studio (record `deploy/scenario-studio.json`) and on
+Bradbury with the same build, and both are verified against it.
+
 ## Phase 5 - On chain: Bradbury `[ ]`
 
-- [ ] The same cases on the Bradbury testnet; jury rounds that do not decide
-      are convened again and both rounds recorded, with per-validator votes.
-- [ ] A verification script fetches each deployed contract's code and proves
-      it is the committed build.
+- [ ] The same cases on the Bradbury testnet (`deploy/scenario.mjs bradbury`,
+      record `deploy/scenario-bradbury.json`), re-checks sent in batches.
+- [ ] Per-validator votes of every Reader transaction (each read, jury or
+      not), found from the Board transaction that asked for it
+      (`deploy/reader_votes.mjs`). There is no re-convening in this design:
+      a read whose validators do not agree reports nothing and expires as
+      `silent`, and the record shows it.
+- [ ] `collect` pays a wallet at finality on Bradbury too (the Studio quirk,
+      a value send labelled `NO_MAJORITY` that still credits the wallet, is
+      shown again, not assumed).
+- [ ] `deploy/verify_code.mjs` proves each deployed contract is the
+      committed build.
 
 **Done when** the Bradbury record has 0 failed checks and the code check
 passes.

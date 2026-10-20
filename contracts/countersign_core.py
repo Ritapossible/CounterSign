@@ -44,18 +44,16 @@ REPORTS = (CONFIRMED, DENIED, SILENT)
 POSTING = "posting"
 RECHECK = "recheck"
 
-# Phrases that only ever mean a withdrawal. At posting, one of them as whole
-# words beside the passage sends the claim to the jury instead of posting it.
-# Never add words ordinary reports use (did not, draft, preliminary): Phase 1
-# found none of these on four real audit lists. "not audited by" and "was not
-# audited" are left out: a standing header above a table ("a project not
-# listed here was not audited by us") would put the first rows in front of the
-# jury, and a cautious jury could refuse an honest claim. A real withdrawal
-# added later changes the surroundings and reaches the jury on re-check.
-WITHDRAW = (
-    "withdrawn", "revoked", "retracted", "rescinded", "superseded", "no longer valid",
-    "not an audit", "did not audit", "do not endorse",
-)
+# Phrases that only ever mean that one item was withdrawn. At posting, one of
+# them as whole words beside the passage sends the claim to the jury instead
+# of posting it. Never add words ordinary reports use (did not, draft,
+# preliminary): Phase 1 found none of these on four real audit lists. Never
+# add a phrase a standing header or disclaimer uses ("not audited by", "was
+# not audited", "did not audit", "not an audit", "do not endorse"): a header
+# sits within the window of the first rows, and a cautious jury reading it
+# beside an honest row could refuse the claim. A real withdrawal added later
+# changes the surroundings and reaches the jury on re-check.
+WITHDRAW = ("withdrawn", "revoked", "retracted", "rescinded", "superseded", "no longer valid")
 
 # A subject made only of these words is not a name ("labs", "the protocol").
 STOP_WORDS = set(
