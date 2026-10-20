@@ -19,7 +19,7 @@ WINDOW = 600
 
 
 def registered():
-    a = core.new_auditor(auditor_id=0, name="Northlight Security", url=PAGE, sample=ACME, signer=AUDITOR, now=T0)
+    a = core.new_auditor(auditor_id=0, name="Northlight Security", url=PAGE, sample=ACME, signer=AUDITOR, now=T0, window=WINDOW)
     core.apply_registration(a, ok=True, now=T0)
     return a
 
@@ -101,7 +101,7 @@ def test_a_scope_string_missing_from_the_passage_is_refused():
 
 
 def test_posting_needs_a_registered_auditor_a_stake_and_a_different_project():
-    pending = core.new_auditor(auditor_id=0, name="Northlight", url=PAGE, sample=ACME, signer=AUDITOR, now=T0)
+    pending = core.new_auditor(auditor_id=0, name="Northlight", url=PAGE, sample=ACME, signer=AUDITOR, now=T0, window=WINDOW)
     assert errors(auditor=pending) == ["the auditor is not registered"]
     assert errors(auditor=None) == ["unknown auditor"]
     assert errors(value=STAKE - 1) and errors(value=True) and errors(value=0)
@@ -162,12 +162,14 @@ def test_words_that_ordinary_reports_use_do_not_ask_the_jury():
         assert page_read(audit_page(extra={"Acme Lending": words}))["kind"] == CONFIRMED, words
 
 
-def test_a_disclaimer_near_the_list_asks_the_jury_which_confirms():
-    """A real auditor page may say "not listed here: not audited by us" above
-    its table. That fires a phrase, so the jury is asked; it costs a model
-    call, never the claim."""
-    r = page_read(audit_page(before="<p>A project that is not listed here was not audited by us.</p>"))
-    assert r["kind"] == ASK_JURY
+def test_a_standing_disclaimer_above_the_list_does_not_ask_the_jury():
+    """A real auditor page may say "a project not listed here was not audited
+    by us" above its table. A jury reading that beside the row might refuse an
+    honest claim, so those phrases are not on the posting list."""
+    for line in ("A project that is not listed here was not audited by us.",
+                 "Any project not on this list was not audited by Northlight."):
+        assert page_read(audit_page(before="<p>%s</p>" % line))["kind"] == CONFIRMED, line
+    assert "not audited by" not in core.WITHDRAW and "was not audited" not in core.WITHDRAW
 
 
 def test_at_a_recheck_only_changed_surroundings_ask_the_jury():
@@ -318,9 +320,20 @@ def test_withdrawing_during_a_recheck_returns_the_fee_to_its_payer():
 
 
 def test_registration_reports_change_only_a_pending_entry():
-    a = core.new_auditor(auditor_id=0, name="Northlight", url=PAGE, sample=ACME, signer=AUDITOR, now=T0)
+    a = core.new_auditor(auditor_id=0, name="Northlight", url=PAGE, sample=ACME, signer=AUDITOR, now=T0, window=WINDOW)
     assert core.apply_registration(a, ok=False, now=T0) and a["state"] == "refused"
     assert not core.apply_registration(a, ok=True, now=T0) and a["state"] == "refused"
+
+
+def test_a_registration_with_no_report_expires_refused():
+    a = core.new_auditor(auditor_id=0, name="Northlight", url=PAGE, sample=ACME, signer=AUDITOR, now=T0, window=WINDOW)
+    with pytest.raises(CounterSignError):
+        core.expire_registration(a, now=T0 + WINDOW)
+    core.expire_registration(a, now=T0 + WINDOW + 1)
+    assert a["state"] == "refused"
+    assert not core.apply_registration(a, ok=True, now=T0 + WINDOW + 2)  # a late report is ignored
+    with pytest.raises(CounterSignError):
+        core.expire_registration(a, now=T0 + WINDOW * 3)
 
 
 # --------------------------------------------------- property: every path

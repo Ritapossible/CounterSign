@@ -106,8 +106,8 @@ answer turns into `confirmed` or `denied`.
 **At posting** there is no earlier fingerprint, so the Reader looks at the
 window of `WINDOW_WORDS` words around the passage for a short, fixed list of
 phrases that only ever mean a withdrawal: `withdrawn`, `revoked`,
-`retracted`, `rescinded`, `superseded`, `no longer valid`, `not audited by`,
-`was not audited`, `not an audit`, `did not audit`, `do not endorse`. None
+`retracted`, `rescinded`, `superseded`, `no longer valid`, `not an audit`,
+`did not audit`, `do not endorse`. None
 present: `confirmed`, no model, and the fingerprint is stored. Any present:
 `ask_jury`. The list only decides whether to ask; it never decides the
 answer. Phrases match as whole words, like subject and scope.
@@ -115,9 +115,14 @@ answer. Phrases match as whole words, like subject and scope.
 Words that appear in ordinary audit reports are deliberately **not** on the
 list: `did not` ("did not find critical issues"), `draft`, `preliminary`,
 `findings`, `issues`. Otherwise the jury would be asked about the very pages
-the code path exists for. Phase 1 measured the list against real audit
+the code path exists for. So are `not audited by` and `was not audited`
+(second review): a standing header above a table, "a project not listed
+here was not audited by us", sits within the window of the first rows, and
+a jury reading it beside an honest row might answer `cannot_tell`, which
+refuses the claim. A real withdrawal added later beside a row changes its
+surroundings and reaches the jury on re-check. Phase 1 measured the list against real audit
 pages: no phrase fired in the window of any confirming row, and none of the
-eleven phrases occurs anywhere on the four readable lists (about 390,000
+phrases occurs anywhere on the four readable lists (about 390,000
 characters). The only near miss was a substring: Sigma Prime lists "Kelp
 LRT-ETH Withdrawals", which is why phrases match as whole words.
 
@@ -191,7 +196,7 @@ revert.
 
 Bradbury caps a transaction at 2^24 gas; a deploy costs about 0.96M gas plus
 782 per byte, so a contract must stay under about 19 KB minified. Built: the
-Board is 16,349 bytes deployed and the Reader 12,872 (the Reader needs no
+Board is 17,067 bytes deployed and the Reader 12,835 (the Reader needs no
 excerpting: the jury sees only the window around the passage).
 `test_it_fits_bradburys_gas_cap` holds both.
 

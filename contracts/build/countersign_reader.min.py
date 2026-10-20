@@ -211,7 +211,7 @@ _AB = 'ask_jury'
 _AC = 'denied'
 _AD = 'silent'
 _AE = (_AA, _AC, _AD)
-_AF = ('withdrawn', 'revoked', 'retracted', 'rescinded', 'superseded', 'no longer valid', 'not audited by', 'was not audited', 'not an audit', 'did not audit', 'do not endorse')
+_AF = ('withdrawn', 'revoked', 'retracted', 'rescinded', 'superseded', 'no longer valid', 'not an audit', 'did not audit', 'do not endorse')
 
 class _AG(Exception):
  pass

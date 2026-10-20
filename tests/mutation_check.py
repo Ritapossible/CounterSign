@@ -79,6 +79,10 @@ MUTATIONS = [
      "    return apply_report(claim, seq=read[\"seq\"], kind=SILENT,", "    return apply_report(claim, seq=read[\"seq\"], kind=CONFIRMED,", CORE),
     ("registration-redecided", "a registration is decided once",
      "    if auditor[\"state\"] != AUDITOR_PENDING:\n        return False", "    if False:\n        return False", CORE),
+    ("registration-expires-early", "a registration expires only after its deadline",
+     "    if int(now) <= int(auditor[\"due\"]):", "    if False:", CORE),
+    ("registration-expiry-redecides", "only a pending registration expires",
+     "    if auditor[\"state\"] != AUDITOR_PENDING:\n        raise CounterSignError", "    if False:\n        raise CounterSignError", CORE),
     ("pending-auditor", "claims need a registered auditor",
      "        errors.append(\"the auditor is not registered\")", "        pass", CORE),
     # --- fields ---

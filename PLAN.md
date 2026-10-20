@@ -67,8 +67,8 @@ in `probe-audit-pages-studio.json` and `probe-audit-pages-bradbury.json`.
 
 ## Phase 2 - Pure logic `[x]`
 
-Run: `python3 -m pytest tests/direct -q` (180 tests) and
-`python3 tests/mutation_check.py` (74 mutants).
+Run: `python3 -m pytest tests/direct -q` (183 tests) and
+`python3 tests/mutation_check.py` (76 mutants).
 
 - [x] `countersign_text.py` from RedLine's text module, with its tests
       carried over: visible text, hidden elements (twelve hiding forms, five
@@ -84,7 +84,7 @@ Run: `python3 -m pytest tests/direct -q` (180 tests) and
       120 random steps on each built contract. Every atto ends with the
       project or a keeper, or is still held; the auditor is never credited
       or paid; the Board's books balance after every step.
-- [x] **Mutation check**: 74 mutants, one per rule (no auditor payout,
+- [x] **Mutation check**: 76 mutants, one per rule (no auditor payout,
       scope and subject matching, whole-word phrases, hidden text, the
       sample, one-miss tolerance, `MISS_GAP`, refusal refunds, terminal
       states, read numbering, expiry, URL rules, strict labels, who may
@@ -96,10 +96,12 @@ Run: `python3 -m pytest tests/direct -q` (180 tests) and
 Found while building, for review:
 
 - A generic disclaimer above an auditor's table ("a project not listed here
-  was not audited by us") contains `not audited by`, so a claim on a row
-  within 60 words of it goes to the jury at posting, which confirms. It
-  costs a model call, never the claim
-  (`test_a_disclaimer_near_the_list_asks_the_jury_which_confirms`).
+  was not audited by us") contains `not audited by`. Second review: a jury
+  reading it beside an honest row could refuse the claim, and the stub
+  cannot show otherwise. `not audited by` and `was not audited` are off the
+  posting list (`test_a_standing_disclaimer_above_the_list_does_not_ask_the_jury`).
+- A registration read now has a deadline too: with no report by
+  `read_window`, `expire_registration` refuses the entry.
 - Reports are sent on finality instead of replaced on appeal (ARCHITECTURE
   section 2); an open read has a deadline and expires as silent.
 - The auditor's signer may not post or re-check on its own entry
@@ -113,8 +115,8 @@ Found while building, for review:
       `contracts/build/` by `deploy/build_contract.py`.
 - [x] Tests run the readable and the deployed builds through a GenVM
       stand-in (every scenario twice); both fit Bradbury's gas cap
-      (`test_it_fits_bradburys_gas_cap`): Board 16,349 bytes, Reader
-      12,872 bytes deployed, against about 19,000.
+      (`test_it_fits_bradburys_gas_cap`): Board 17,067 bytes, Reader
+      12,835 bytes deployed, against about 19,000.
 - [x] Every THREAT-MODEL test named there exists and passes.
 - [ ] Measured only on chain (Phase 4): `emit(on="finalized")` from the
       Reader, and the time from a request to its report on each network.
@@ -125,7 +127,17 @@ the finality message is the first thing Phase 4 measures.
 ## Phase 4 - On chain: Studio `[ ]`
 
 A fictional auditor's audit-list page lives on a `live` branch of this
-repository and is edited mid-run. Each case at least three times:
+repository (`demo/northlight.html`) and is edited mid-run.
+
+**Step 0, before any case** (second review): one clean registration and one
+clean posting, timing request to `note_registration` and to `note_claim`
+(`deploy/measure_messages.mjs`, record `deploy/messages-studio.json`). The
+Reader's `emit(on="finalized")` has never run in the stand-in, and a read
+that expires before its report lands refuses a good posting. `read_window`
+is set longer than what this measures; no other case runs until both
+messages have landed.
+
+Then each case at least three times:
 
 | Case | Expected |
 | --- | --- |

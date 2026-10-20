@@ -24,6 +24,20 @@ def test_register_a_page_drawn_by_javascript(net):
     assert net.auditor()["state"] == "refused"
 
 
+def test_a_registration_the_reader_never_reports_expires(net):
+    pages = iter([audit_page(), audit_page(ROWS[1:])])
+    net.rt.web[PAGE] = lambda: next(pages)  # validators disagree: no report
+    net.register()
+    assert net.auditor()["state"] == "pending"
+    with pytest.raises(Exception):
+        net.call("expire_registration", 0, sender=OTHER)
+    net.rt.now += WINDOW + 1
+    net.call("expire_registration", 0, sender=OTHER)
+    assert net.auditor()["state"] == "refused"
+    net.rt.web[PAGE] = audit_page()
+    assert net.register() == 1 and net.auditor(1)["state"] == "registered"
+
+
 def test_registration_without_its_sample_is_refused(net):
     net.register(sample=ACME.replace("v2", "v7"))
     assert net.auditor()["state"] == "refused"

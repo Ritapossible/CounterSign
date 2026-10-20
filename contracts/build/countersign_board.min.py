@@ -173,8 +173,8 @@ def _AP(*, auditor, project, subject, scope, passage, value):
    _b.append('not in the passage as whole words: ' + ', '.join(_c))
  return _b
 
-def _AQ(*, auditor_id, name, url, sample, signer, now):
- return {'id': int(auditor_id), 'name': str(name).strip(), 'url': str(url), 'host': _AJ(url), 'signer': _AH(signer, 'signer'), 'sample': str(sample), 'state': _Q, 'at': int(now)}
+def _AQ(*, auditor_id, name, url, sample, signer, now, window):
+ return {'id': int(auditor_id), 'name': str(name).strip(), 'url': str(url), 'host': _AJ(url), 'signer': _AH(signer, 'signer'), 'sample': str(sample), 'state': _Q, 'at': int(now), 'due': int(now) + int(window)}
 
 def _AR(auditor, *, ok, now):
  if auditor['state'] != _Q:
@@ -182,6 +182,15 @@ def _AR(auditor, *, ok, now):
  auditor['state'] = _R if ok else _S
  auditor['decided_at'] = int(now)
  return True
+
+def expire_registration(auditor, *, now):
+ if auditor['state'] != _Q:
+  raise _AG('auditor %d is %s' % (int(auditor['id']), auditor['state']))
+ if int(now) <= int(auditor['due']):
+  raise _AG('the registration read is open until %d' % int(auditor['due']))
+ auditor['state'] = _S
+ auditor['decided_at'] = int(now)
+ auditor['why'] = 'no agreed read of the page in time'
 
 def _AS(*, claim_id, auditor, project, subject, scope, passage, stake, now):
  return {'id': int(claim_id), 'auditor': int(auditor['id']), 'project': _AH(project, 'project'), 'subject': str(subject).strip(), 'scope': [str(s).strip() for s in scope], 'passage': str(passage), 'stake': int(stake), 'state': _T, 'posted_at': int(now), 'print': '', 'misses': 0, 'miss_at': 0, 'checked_at': 0, 'seq': 0, 'read': None, 'why': ''}
@@ -372,7 +381,7 @@ class CounterSignBoard(gl.Contract):
   if _c:
    raise Exception('[EXPECTED] ' + '; '.join(_c))
   _b = int(self.auditor_count)
-  _a = _AQ(auditor_id=_b, name=str(name), url=str(page_url), sample=str(sample), signer=self._me(), now=self._now())
+  _a = _AQ(auditor_id=_b, name=str(name), url=str(page_url), sample=str(sample), signer=self._me(), now=self._now(), window=int(self.read_window))
   self.auditors[u256(_b)] = json.dumps(_a)
   self.auditor_count = u256(_b + 1)
   gl.get_contract_at(Address(self.reader)).emit(on='accepted').read_registration(_b, _a['url'], _a['sample'])
@@ -437,6 +446,15 @@ class CounterSignBoard(gl.Contract):
   if credits is not None:
    self._save_claim(_a)
    self._pay(credits)
+
+ @gl.public.write
+ def expire_registration(self, auditor_id: int) -> None:
+  _a = self._auditor(auditor_id)
+  try:
+   expire_registration(_a, now=self._now())
+  except _AG as _b:
+   raise Exception('[EXPECTED] ' + str(_b))
+  self.auditors[u256(int(auditor_id))] = json.dumps(_a)
 
  @gl.public.write
  def expire(self, claim_id: int) -> None:

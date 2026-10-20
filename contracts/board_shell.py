@@ -116,7 +116,7 @@ class CounterSignBoard(gl.Contract):
             raise Exception("[EXPECTED] " + "; ".join(errors))
         auditor_id = int(self.auditor_count)
         auditor = new_auditor(auditor_id=auditor_id, name=str(name), url=str(page_url), sample=str(sample),
-                              signer=self._me(), now=self._now())
+                              signer=self._me(), now=self._now(), window=int(self.read_window))
         self.auditors[u256(auditor_id)] = json.dumps(auditor)
         self.auditor_count = u256(auditor_id + 1)
         gl.get_contract_at(Address(self.reader)).emit(on="accepted").read_registration(auditor_id, auditor["url"], auditor["sample"])
@@ -193,6 +193,17 @@ class CounterSignBoard(gl.Contract):
         if credits is not None:
             self._save_claim(claim)
             self._pay(credits)
+
+    @gl.public.write
+    def expire_registration(self, auditor_id: int) -> None:
+        """Anyone closes a registration that got no report by its deadline. It
+        is refused; the auditor may register again."""
+        auditor = self._auditor(auditor_id)
+        try:
+            expire_registration(auditor, now=self._now())
+        except CounterSignError as exc:
+            raise Exception("[EXPECTED] " + str(exc))
+        self.auditors[u256(int(auditor_id))] = json.dumps(auditor)
 
     @gl.public.write
     def expire(self, claim_id: int) -> None:

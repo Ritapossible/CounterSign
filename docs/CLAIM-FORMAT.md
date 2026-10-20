@@ -32,6 +32,10 @@ without a usable list into one with a usable list (ChainSecurity rendered
 shows project names with no scope or date; Code4rena stays empty), and one
 rendered read timed out on Bradbury.
 
+A registration read has the same deadline as any read (`read_window`). If
+no report arrives by then, anyone may call `expire_registration`, and the
+entry is refused; the auditor may register again. **(contract)**
+
 An auditor entry cannot be edited. To move its list, an auditor registers a
 new entry; claims on the old entry come down when its page goes silent.
 
