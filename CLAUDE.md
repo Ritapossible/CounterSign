@@ -11,6 +11,9 @@ on chain. Follow PLAN.md phase by phase.
 Build: `python3 deploy/build_contract.py`. Test: `python3 -m pytest tests/direct -q`.
 Mutants: `python3 tests/mutation_check.py` (must report 0 survived).
 
+**Front end:** the owner provides the design. Do not design or build the
+app, site or badge until it is given; then follow it.
+
 ## Hard laws
 
 These are the product. A change that breaks one is wrong even if tests pass.

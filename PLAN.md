@@ -182,6 +182,10 @@ passes.
 
 ## Phase 6 - App and badge `[ ]`
 
+The front-end design comes from the project owner. Nothing in this phase is
+designed or built until that design is provided; the items below are the
+functions it must cover, not a layout.
+
 - [ ] Board, auditor, project and claim pages; Studio burner and wallets on
       Studio and Bradbury.
 - [ ] Posting shows the contract's refusal before signing (same rules,
