@@ -170,6 +170,35 @@ Then each case at least three times:
 **Done when** the record (`deploy/scenario-studio.json`) shows every case
 with transaction hashes and 0 failed checks.
 
+**Studio result** (Board `0xb9C634875f575cE0bB0924FF5e183132e190CeF6`, Reader `0x81f1c0Ad329a0eA23d2d9FD7Be8b0B7D9cea5c37`; `deploy/scenario.mjs`, record
+`deploy/scenario-studio.json`): **90 checks, 0 failed**, every case three
+times, on 27 auditor entries and 27 claims. The page edits were pushed to
+the `live` branch mid-run, and each re-check waited until the edit was
+visible plus 330 s of CDN margin.
+
+- Registrations: 18 server-rendered pages registered, 3 script-drawn pages
+  refused, 3 readable pages without their sample refused.
+- Postings: exact row live with no model; scope string missing refused at
+  once with the stake credited; row not on the page, hidden row and row
+  with "(withdrawn)" beside it all refused, stake returned.
+- Re-checks: unchanged page live, fee to the project; "withdrawn" added
+  beside the row, down; injection text beside the row, down; row deleted,
+  live on the first silent read and down on the second, 300 s later; page
+  404 once, live, then live again with misses reset when it came back.
+- Withdrawal of a pending and of a live claim returned the stake; the late
+  report for the withdrawn pending claim was ignored; a re-check of a
+  pending claim was refused with its fee back.
+- The auditor is owed nothing. Balance = held + owed and received = held +
+  owed + collected (3.54 = 0.30 + 0.30 + 2.94 GEN).
+- `collect` pays the wallet at finality: Studio labels the triggered value
+  send `NO_MAJORITY`, and the wallet is still credited
+  (`deploy/probes/probe_transfer.*`).
+
+Four first-run checks were wrong, not the contracts, and are kept in the
+record under `superseded` with the reason: three compared owed balances
+while another claim's refund landed in the same window, and one read
+balances before the collect's transfer finalised.
+
 ## Phase 5 - On chain: Bradbury `[ ]`
 
 - [ ] The same cases on the Bradbury testnet; jury rounds that do not decide

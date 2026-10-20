@@ -1,0 +1,53 @@
+{
+  "network": "bradbury",
+  "page": "https://raw.githubusercontent.com/Ritapossible/CounterSign/live/demo/northlight.html",
+  "steps": {
+    "bind": {
+      "hash": "0x099e0c8ddcabe88f81c1a03dc3707f865c8aebe1b11a7dce330d0f4a6deb4a73",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "register": {
+      "hash": "0x6e71d4ef8af4a8b0d77834bc231898610d867f840067b1175a41099be103ef53",
+      "consensus": "AGREE",
+      "leader": "return",
+      "sent_ms": 1792511153425,
+      "accepted_ms": 1792511168715,
+      "request_s": 15,
+      "reader_after_s": 16,
+      "reader_result": {
+        "ok": true
+      },
+      "board_after_s": 2008,
+      "board_result": {
+        "id": 0,
+        "name": "Northlight Security (demo)",
+        "url": "https://raw.githubusercontent.com/Ritapossible/CounterSign/live/demo/northlight.html",
+        "host": "raw.githubusercontent.com",
+        "signer": "0x3f55971f7fd2594a90871db489fbb82f1db4d747",
+        "sample": "Acme Lending lending contracts v2 March 2026 Northlight audit report",
+        "state": "registered",
+        "at": 1792511154,
+        "due": 1793115954,
+        "decided_at": 1792513161
+      }
+    },
+    "post": {
+      "hash": "0xee829aa57d367e29eb884cb2ff4ed01e876766a2be47625b6ca0922cc60fbeb8",
+      "consensus": "AGREE",
+      "leader": "return",
+      "sent_ms": 1792513177798,
+      "accepted_ms": 1792513193110,
+      "request_s": 15,
+      "reader_after_s": 15,
+      "reader_result": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    }
+  },
+  "reader": "0x088F36a929016Ce3caF0aCf506a9645f732C4862",
+  "recorded_at": "2026-10-20T16:20:09.805Z",
+  "board": "0xac642d7d6f97e192D87e36DdE8E15Ae7d7415713"
+}

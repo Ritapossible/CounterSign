@@ -1,0 +1,40 @@
+{
+  "network": "studio",
+  "steps": [
+    {
+      "step": "deposit 0.01",
+      "hash": "0xf2b2ed44857f4ecf738d90e75d422bf68db2150065c6ac9d474172bae864fc95",
+      "consensus": "MAJORITY_AGREE"
+    },
+    {
+      "step": "sender_address (agent)",
+      "hash": "0x04e04bbc2657d5cdbc3860e15ddd267803995be7fb12931282b299ca40fd8263",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    {
+      "step": "Address(str) (fresh wallet)",
+      "hash": "0x8b2ced7005bbc98bf5da2e3a42e0f76920ff5c868b896a3614951a10574f0e33",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    {
+      "step": "Address(str(sender)) (agent)",
+      "hash": "0x859a782fd03f38853ed8cac2f1974e546a1854ad18b75529b12b985b72b3f065",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    }
+  ],
+  "address": "0x76D06C46966ecbD87883d8D99b53F91028a95b6c",
+  "before": {
+    "contract": "10000000000000000",
+    "agent": "5091708333333333343",
+    "fresh": "0"
+  },
+  "after": {
+    "contract": "7000000000000000",
+    "agent": "5093708333333333343",
+    "fresh": "1000000000000000"
+  },
+  "status": "sent=3000000000000000 balance=7000000000000000"
+}

@@ -1,0 +1,2484 @@
+{
+  "network": "studio",
+  "accounts": {
+    "deployer": "0xf1827cad7c88f02a7cad3627d7ce482a8f2d33c7",
+    "auditor": "0x3f55971f7fd2594a90871db489fbb82f1db4d747",
+    "project": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+    "keeper": "0xef359811497c724ef1942c6c079c64c07d87952d",
+    "keeper2": "0x8aa26fa51a68c583c467463e93db0ebc10f7d509"
+  },
+  "pages": {},
+  "done": {
+    "pages:initial": {
+      "commit": "0ce079f90eeeb29351599468586e689725e35ae7",
+      "visible_after_s": 2
+    },
+    "bind": {
+      "hash": "0xe9663b2a35165bd74646d13003448231d09c63fa8f15eea9afc63c78532d6e80",
+      "consensus": "MAJORITY_AGREE"
+    },
+    "r1:register:happy": {
+      "id": 0,
+      "hash": "0xd6771cae86a068597e8921d26076c00e1be7b74d668daf30c1869f21b69fc028",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:spa": {
+      "id": 1,
+      "hash": "0x1ced67801f10d18f805ab4287f0a33ab4b74b9d223717ddd8ea87cde5c1183e5",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:nosample": {
+      "id": 2,
+      "hash": "0x48a43b9842336652de2b1663da4460ef18547c0e9a38e43425891d7cfb1396d5",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:hidden": {
+      "id": 3,
+      "hash": "0xb7805f0789e22ffd5c8085eb85f95bf17cc8d637cc201cf47d44eddf01434327",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:flagged": {
+      "id": 4,
+      "hash": "0xd9ad10071998a78b385f5cf49e6886e099adb7622016f2e5e2331e2e9727bd4e",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:withdraw": {
+      "id": 5,
+      "hash": "0xcb3dbcb852eede9e9c69ff06adc1baaae5bb7f6d460af8b1b8544aee94e675fc",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:delete": {
+      "id": 6,
+      "hash": "0x0017c74c66c7438baec34fe9e56773a60e84bcf4d2293c4f9087426fffa0c6c8",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:outage": {
+      "id": 7,
+      "hash": "0xcf0f7b08644e143e7cc6e5acb1f32d38a40bd2b8e9cba4b6c15ae94663ed17ab",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:inject": {
+      "id": 8,
+      "hash": "0xc6411a76208073ed58a0d1a5855150a7b7ca20823fc7546389f7c6a804c94762",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:happy": {
+      "id": 9,
+      "hash": "0x90f8cbfa22c6918bc46daf8e26decca322bc95ce8c6c1fccadd4c6610942a438",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:spa": {
+      "id": 10,
+      "hash": "0xce4b5ef43a451524285a9b61fc3f2c90dd2b3f3b7abae551d7941ffc9c95f88b",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:nosample": {
+      "id": 11,
+      "hash": "0x9395be16d16a43125325dfcefb7c05d0ed41eff14bd0c7658f5f6af1f65251f9",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:hidden": {
+      "id": 12,
+      "hash": "0x2a919b5d05d651540cffebcf1acacf6c69573ddb53d637bf34462847357f5a80",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:flagged": {
+      "id": 13,
+      "hash": "0xadf812d0d52ed82ed786a27f63044b155deb780b5cf3ed13db67159d55580f80",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:withdraw": {
+      "id": 14,
+      "hash": "0xff3387e33e784c1ed8fafb08e2a2b55bad1133994abb7304315f4b01c79f21d4",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:delete": {
+      "id": 15,
+      "hash": "0xd79bb70ea7f54d04f6d485f2893e4ec46d8d8621c77b9c8bfc10861186ae5288",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:outage": {
+      "id": 16,
+      "hash": "0x8f9671c86f7193042ba8e0666414054a58f2716efaaa72fc47d71c05641a5b47",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:inject": {
+      "id": 17,
+      "hash": "0x07a352122771d2b5069635c97480ed9d416bea0f6904715a250600bc24437e93",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:happy": {
+      "id": 18,
+      "hash": "0x1a9b2fea003cd057ed586b6f363f5eb54761f5290d56b9dd3520a6067c0bf5a6",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:spa": {
+      "id": 19,
+      "hash": "0x115c3febb39b64410ef56cd15db0b60ddfd7e00852f15ec5ef987391025319ba",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:nosample": {
+      "id": 20,
+      "hash": "0x4ea8f9a575b028c94b773714703c02bf7e8fa47a555f696643a011a926787eee",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:hidden": {
+      "id": 21,
+      "hash": "0x1c4858512cbc748581241d17b1598723779bf80ce110b82b386b0cd342ce14cb",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:flagged": {
+      "id": 22,
+      "hash": "0xbf293a5a00723d9d47acf06de13f89230d81411c0a0104cc6bcf3c56e17ddeef",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:withdraw": {
+      "id": 23,
+      "hash": "0x9946848412d9d6d1000ffec5217a825e5ad85ba01969fdcff1caa704fe4c8a64",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:delete": {
+      "id": 24,
+      "hash": "0x38703cecf0bcec039e06694a4ede57889e91bf37fa96ba290545eb6968bda642",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:outage": {
+      "id": 25,
+      "hash": "0xd7e94a303294301700f8b9dc02eaa2b381f1b074a8c601dfdf4700a9d875e2b6",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:inject": {
+      "id": 26,
+      "hash": "0x28c8c682f2df5ea74aa946f623b4c7947d4d984751a67ffb1683b1636af3e718",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:registered:happy": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r1:registered:spa": {
+      "state": "refused",
+      "waited": 1
+    },
+    "r1:registered:nosample": {
+      "state": "refused",
+      "waited": 1
+    },
+    "r1:registered:hidden": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r1:registered:flagged": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r1:registered:withdraw": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r1:registered:delete": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r1:registered:outage": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r1:registered:inject": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r2:registered:happy": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r2:registered:spa": {
+      "state": "refused",
+      "waited": 1
+    },
+    "r2:registered:nosample": {
+      "state": "refused",
+      "waited": 1
+    },
+    "r2:registered:hidden": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r2:registered:flagged": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r2:registered:withdraw": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r2:registered:delete": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r2:registered:outage": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r2:registered:inject": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r3:registered:happy": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r3:registered:spa": {
+      "state": "refused",
+      "waited": 1
+    },
+    "r3:registered:nosample": {
+      "state": "refused",
+      "waited": 8
+    },
+    "r3:registered:hidden": {
+      "state": "registered",
+      "waited": 8
+    },
+    "r3:registered:flagged": {
+      "state": "registered",
+      "waited": 8
+    },
+    "r3:registered:withdraw": {
+      "state": "registered",
+      "waited": 8
+    },
+    "r3:registered:delete": {
+      "state": "registered",
+      "waited": 8
+    },
+    "r3:registered:outage": {
+      "state": "registered",
+      "waited": 8
+    },
+    "r3:registered:inject": {
+      "state": "registered",
+      "waited": 8
+    },
+    "r1:post:happy": {
+      "id": 0,
+      "owed_before": "0",
+      "hash": "0xc4d0eebb731e62d7b805c7f3a37ed2758ea44af9af2b91403ea85cf536cf351c",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:absent": {
+      "id": 1,
+      "owed_before": "0",
+      "hash": "0x5c88c0659600b29dfee2a8b2b68763231b50c4a0935e829292456893d0e6018d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:hidden": {
+      "id": 2,
+      "owed_before": "0",
+      "hash": "0x448be21284ed05df5e19506a012b72954454b326cefe3bd5a50dc51343d60ee0",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:flagged": {
+      "id": 3,
+      "owed_before": "0",
+      "hash": "0xc75450a46443f87f4dc315b289435ca3d2c51a3ac161b0cb734d0c9cdbfa88fd",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:withdraw": {
+      "id": 4,
+      "owed_before": "0",
+      "hash": "0x8e5ac6f7adddf95ce564b7d3a4ee342f15f367ff852cc2fb9d142e1f4f4b3b66",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:delete": {
+      "id": 5,
+      "owed_before": "0",
+      "hash": "0x852d522951a97cdbe34c19a755440542fb2f1d125c638412149acd380477c345",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:outage": {
+      "id": 6,
+      "owed_before": "0",
+      "hash": "0x4b787cb213710e54fcd9492e091b5e0f408e4bb931f64b2c039adda04bfcc058",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:inject": {
+      "id": 7,
+      "owed_before": "0",
+      "hash": "0xec92e52a8cf6e6e05bce1b374616ed2b52be55b9efdd3b67093149f6f1fb26bb",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:happy": {
+      "id": 8,
+      "owed_before": "300000000000000000",
+      "hash": "0x69a68eeb6b3bc1a06523a2ade11bb9d6d9dddd37bb4503aae7c7bd9efe44ce7c",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:absent": {
+      "id": 9,
+      "owed_before": "400000000000000000",
+      "hash": "0xb0bf1c468e87418d01b8608278ebfb968bc1a5f2a9b1cf3cd7ed1432856e34d3",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:hidden": {
+      "id": 10,
+      "owed_before": "400000000000000000",
+      "hash": "0x845de80b5c1e5ba487c00f99482f9ed4b150a448915f901ffb1506d9db29f791",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:flagged": {
+      "id": 11,
+      "owed_before": "400000000000000000",
+      "hash": "0x0ae5aff0a249463819b25d663be73ac7936059e7bf40ab8754fa27f492ed3300",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:withdraw": {
+      "id": 12,
+      "owed_before": "400000000000000000",
+      "hash": "0x44c1d08655f7b712a328516ae8dfd9d63fcdc760f56bd77a2b861239e6b50f14",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:delete": {
+      "id": 13,
+      "owed_before": "400000000000000000",
+      "hash": "0x899f0b4a7b099259606a3fccaa523320e895784e27c00bdbec34f460aea35b29",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:outage": {
+      "id": 14,
+      "owed_before": "400000000000000000",
+      "hash": "0xfad3194cd17a356d292feb2fcc97304843f9f22cc28925571b76aa25155b680b",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:inject": {
+      "id": 15,
+      "owed_before": "600000000000000000",
+      "hash": "0x0e36cb26513e3ff89ed1ddc81d0c90c119ec0a2f78d6c14400e02ca536e8b459",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:happy": {
+      "id": 16,
+      "owed_before": "800000000000000000",
+      "hash": "0xc1d93b397e83412dfe2123c835f099d836bfc36c7edc8bd38fc5649fcdf762c3",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:absent": {
+      "id": 17,
+      "owed_before": "800000000000000000",
+      "hash": "0xa4589f568ac6d3e291c86f154c2bee96a1efc930828ccc77755b4b2947a40910",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:hidden": {
+      "id": 18,
+      "owed_before": "800000000000000000",
+      "hash": "0xc196ce0974644e64d6ae1acc2850b3648dc9496a96a02c9d15e0d2ca26699126",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:flagged": {
+      "id": 19,
+      "owed_before": "800000000000000000",
+      "hash": "0x04ec49e603b64c9da8655d00bdfd515e143b3d89098ab8e0c1896fb7c5ae4c8d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:withdraw": {
+      "id": 20,
+      "owed_before": "800000000000000000",
+      "hash": "0xfb010dd765c25df876f1cc1e7a78fb2a5b4504a28b2f8d19a3683c1d6cfac078",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:delete": {
+      "id": 21,
+      "owed_before": "800000000000000000",
+      "hash": "0xb1528c54ca10382d9a24b7db017b39b222ffd9b4a0f687ae0a84ad68c73496ab",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:outage": {
+      "id": 22,
+      "owed_before": "800000000000000000",
+      "hash": "0x892bd4aa1655bb4aa95b9b7631e08b66779bb772ac5d1d9e87b4698f2f18983d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:inject": {
+      "id": 23,
+      "owed_before": "800000000000000000",
+      "hash": "0x862ed5c4df4fe4601e6d8049f1ee27bab325c74982dce4c7eb5ec1307572fdab",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:posted:happy": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r1:posted:absent": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      }
+    },
+    "r1:posted:hidden": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      }
+    },
+    "r1:posted:flagged": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "denied",
+        "print": "873c4b8c2acac746"
+      }
+    },
+    "r1:posted:withdraw": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r1:posted:delete": {
+      "state": "live",
+      "waited": 26,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r1:posted:outage": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r1:posted:inject": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r2:posted:happy": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r2:posted:absent": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      }
+    },
+    "r2:posted:hidden": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      }
+    },
+    "r2:posted:flagged": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "denied",
+        "print": "873c4b8c2acac746"
+      }
+    },
+    "r2:posted:withdraw": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r2:posted:delete": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r2:posted:outage": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r2:posted:inject": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r3:posted:happy": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r3:posted:absent": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      }
+    },
+    "r3:posted:hidden": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      }
+    },
+    "r3:posted:flagged": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "denied",
+        "print": "873c4b8c2acac746"
+      }
+    },
+    "r3:posted:withdraw": {
+      "state": "live",
+      "waited": 26,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r3:posted:delete": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r3:posted:outage": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r3:posted:inject": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r1:post:pending": {
+      "id": 24,
+      "owed_before": "1200000000000000000",
+      "hash": "0x100acfa2dd22866a725845bc34bd9d5a96d3c9dcce0e0ec4974d290bf0c8e366",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:pending": {
+      "id": 24,
+      "recheck": {
+        "hash": "0x5be3f8cf956ef51b9e269995ea5874ec77e81eaf2ef687cb5eb7210cf788236b",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "withdraw": {
+        "hash": "0x679279a8a729df84b46052333e6cc1084585075ee21ee3410ad4b1d4f13524cf",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r2:post:pending": {
+      "id": 25,
+      "owed_before": "1300000000000000000",
+      "hash": "0xe29037b330acfc6123f87f3cc1a564088441fb41d16000546658c4412c0939bf",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:pending": {
+      "id": 25,
+      "recheck": {
+        "hash": "0x3b99ed055255e2a0fb29ccbbf21af354e88d27a8f356249d670d787de9db9df9",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "withdraw": {
+        "hash": "0xe88c31be2c6b97350c8ed0686bf52c6e6473a1b57498e87015d0c9e680ee708b",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r3:post:pending": {
+      "id": 26,
+      "owed_before": "1400000000000000000",
+      "hash": "0x3bef29163fb27a47f3c4fb1fa580dcd1cff2f7f40b5be9b18560a20946afdb38",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:pending": {
+      "id": 26,
+      "recheck": {
+        "hash": "0xfd8e04b6e3fe38e9ead1528a7cdaff02da7363cb42d35ff0e075a40419132ed5",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "withdraw": {
+        "hash": "0x5beae041d81512c56f606d9e9d06dba04d7282081f0d65d8ee198666b1ffc52d",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      }
+    },
+    "r1:recheck:unchanged": {
+      "hash": "0x18549e3c8af419568f27c29d8764edd9b47333cc72e5eda425b38e17aabc2300",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "delta": {
+        "project": "10000000000000000",
+        "keeper": "0"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 2,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "checked_at": 1792512162,
+      "miss_at": 0
+    },
+    "r1:checked:unchanged": true,
+    "r2:recheck:unchanged": {
+      "hash": "0x43a0fb9e31b6ca232afabccdb3d1c1b44c6cdf72827585e81e3cf7331c49ff82",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "delta": {
+        "project": "10000000000000000",
+        "keeper": "0"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 2,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "checked_at": 1792512220,
+      "miss_at": 0
+    },
+    "r2:checked:unchanged": true,
+    "r3:recheck:unchanged": {
+      "hash": "0xc0fbfd169f9d4c4a2c2565f3c2b69acab53c3b578decec8a7a041e7b6daf8be7",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "delta": {
+        "project": "10000000000000000",
+        "keeper": "0"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "checked_at": 1792512278,
+      "miss_at": 0
+    },
+    "r3:checked:unchanged": true,
+    "pages:edited": {
+      "commit": "dc25021c870f3016a77be6d2b81574370337d76f",
+      "visible_after_s": 2
+    },
+    "r1:recheck:withdrawn": {
+      "hash": "0xc3d1b90b4f256944f9b55d05bb98f94c98db3881d1d1aca0c6c91630b2bc697b",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 52,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "6cfde32660071749"
+      },
+      "checked_at": 1792511524,
+      "miss_at": 0
+    },
+    "r1:recheck:deleted-1": {
+      "hash": "0x582bac3cff4033f72412395d575e9e2c9ada414940438b56bf830114989d2841",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "delta": {
+        "project": "0",
+        "keeper": "10000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511534,
+      "miss_at": 1792512735
+    },
+    "r1:recheck:outage-1": {
+      "hash": "0xb14771bcecaf4100e4098a00a9933a15e455924e3f9bfb9784817ef620303f2d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "delta": {
+        "project": "0",
+        "keeper": "10000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511544,
+      "miss_at": 1792512793
+    },
+    "r1:recheck:inject": {
+      "hash": "0x1b4fff4a183e7cd5a25285d3f7c2987740ea4f439ebbd8c6318d05906bddf883",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "600d8cd68080c5aa"
+      },
+      "checked_at": 1792511554,
+      "miss_at": 0
+    },
+    "r1:checked:edited": true,
+    "r2:recheck:withdrawn": {
+      "hash": "0x30b7229315c77262adba186811e850c1a93c22a6eec6a8bc124b97d1865f738b",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "6cfde32660071749"
+      },
+      "checked_at": 1792511624,
+      "miss_at": 0
+    },
+    "r2:recheck:deleted-1": {
+      "hash": "0xcb0cecaf6ef97539f8c8d9bb5262c5b819ce8f66e4ce358cdf5bb04e44938238",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "delta": {
+        "project": "0",
+        "keeper": "10000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511637,
+      "miss_at": 1792512968
+    },
+    "r2:recheck:outage-1": {
+      "hash": "0xba6276c5e8269a26d34b50277a2be36a700e1a11a90ef9e5af2c1bdf68bf16de",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "delta": {
+        "project": "0",
+        "keeper": "10000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511650,
+      "miss_at": 1792513022
+    },
+    "r2:recheck:inject": {
+      "hash": "0x961bf269e3c3a6c48038ffaaa64c11ac183900ecaa7908004797a1f8d8bf83cc",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 52,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "600d8cd68080c5aa"
+      },
+      "checked_at": 1792511660,
+      "miss_at": 0
+    },
+    "r2:checked:edited": true,
+    "r3:recheck:withdrawn": {
+      "hash": "0x49e794eb3b233e9b333e8d60e6adf18dc45dea633e14462f307f1cc7e21004c7",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 52,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "6cfde32660071749"
+      },
+      "checked_at": 1792511724,
+      "miss_at": 0
+    },
+    "r3:recheck:deleted-1": {
+      "hash": "0xc44fdcdcaff62cdb823426e3dc81d18cc421dadc3d35933bbceaa3b990986c7f",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "delta": {
+        "project": "0",
+        "keeper": "10000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511734,
+      "miss_at": 1792513208
+    },
+    "r3:recheck:outage-1": {
+      "hash": "0xdf2a92bfb67a729f6620d4a858de5f97b612ce71122b3d3100539c48d01ba7b5",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "delta": {
+        "project": "0",
+        "keeper": "10000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511744,
+      "miss_at": 1792513266
+    },
+    "r3:recheck:inject": {
+      "hash": "0xb9f0050ae8e39d0d69e24454801ca7d096bf75e2799ee3ceb7989f469a1b2fd3",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "600d8cd68080c5aa"
+      },
+      "checked_at": 1792511754,
+      "miss_at": 0
+    },
+    "r3:checked:edited": true,
+    "wait:miss-gap": 160,
+    "r1:recheck:deleted-2": {
+      "hash": "0xa5c9df6869ef247f278489c5e168c11fd48c69608ab3206038874e6d3e4497c9",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 1,
+      "why": "the auditor's page was silent twice",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 3,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511534,
+      "miss_at": 1792512735
+    },
+    "r1:checked:deleted-2": true,
+    "r2:recheck:deleted-2": {
+      "hash": "0x81db1a667037c51b5a6d6d23512a3e06885ef4710fee16734fa30ced68f7459a",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 1,
+      "why": "the auditor's page was silent twice",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 3,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511637,
+      "miss_at": 1792512968
+    },
+    "r2:checked:deleted-2": true,
+    "r3:recheck:deleted-2": {
+      "hash": "0xd2467d56136009c42ecd9f78568fa2c1e3ab2cd05fa4ad669f34a4cd67815e79",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 1,
+      "why": "the auditor's page was silent twice",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 52,
+      "reader": {
+        "seq": 3,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511734,
+      "miss_at": 1792513208
+    },
+    "r3:checked:deleted-2": true,
+    "pages:restored": {
+      "commit": "46ce94c389fd81ff62a5ad9f85badb0bd21b670a",
+      "visible_after_s": 2
+    },
+    "r1:recheck:outage-2": {
+      "hash": "0x5430dd5af09f25428d6aac93c9779ffcb4ca44fe58a2fb0cb99d18d78f45f793",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "delta": {
+        "project": "10000000000000000",
+        "keeper": "0"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 3,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "checked_at": 1792514057,
+      "miss_at": 0
+    },
+    "r1:checked:outage-2": true,
+    "r1:withdraw-live": {
+      "hash": "0xe3953cecad99937404e77051421660cf09f7359374c8d346253481a5677b08e6",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:recheck:outage-2": {
+      "hash": "0x46f8b7439ba4e6781f0c51921468ca3cfdb2be5c029223cfe7d56cac1cd002c0",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "delta": {
+        "project": "10000000000000000",
+        "keeper": "0"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 3,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "checked_at": 1792514127,
+      "miss_at": 0
+    },
+    "r2:checked:outage-2": true,
+    "r2:withdraw-live": {
+      "hash": "0x7cb28da5c344a9e7d76637cf6a2d39aad3c8d4b22d6e5484376560ac392113f5",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:recheck:outage-2": {
+      "hash": "0x3fdc8de3251bab59faff47fde61e9d19800a208203d2626de48288b513161d92",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "delta": {
+        "project": "10000000000000000",
+        "keeper": "0"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 3,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "checked_at": 1792514195,
+      "miss_at": 0
+    },
+    "r3:checked:outage-2": true,
+    "r3:withdraw-live": {
+      "hash": "0x2d69088faff93a4d01e2929328f507cbf384170df5b2912319f3d64cf9979d3f",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:scope": {
+      "id": -1,
+      "owed_before": "0",
+      "hash": "0x5d3757679e57790d1e8b59a824efef9b058833cc1ca044ba1c7044a066df10b8",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:scope-missing": {
+      "reason": "not in the passage as whole words: April 2026",
+      "returned": "100000000000000000"
+    },
+    "r2:post:scope": {
+      "id": -1,
+      "owed_before": "100000000000000000",
+      "hash": "0xc6876a24906d9d93dc82736114abaf1f633c9046a51906327373ec7a1ba58857",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:scope-missing": {
+      "reason": "not in the passage as whole words: April 2026",
+      "returned": "100000000000000000"
+    },
+    "r3:post:scope": {
+      "id": -1,
+      "owed_before": "200000000000000000",
+      "hash": "0x7bee913ce383caad1ad9f8c524072e69edf2f4e1f29a6877be93d23c59b0988d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:scope-missing": {
+      "reason": "not in the passage as whole words: April 2026",
+      "returned": "100000000000000000"
+    },
+    "final": {
+      "status": {
+        "release": "countersign-board/1",
+        "reader": "0x81f1c0ad329a0ea23d2d9fd7be8b0b7d9cea5c37",
+        "miss_gap": 300,
+        "read_window": 600,
+        "auditors": 27,
+        "claims": 27,
+        "held": 300000000000000000,
+        "owed": 0,
+        "received": 3540000000000000000,
+        "balance": 300000000000000000
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "r1 register happy: registered",
+      "ok": true,
+      "id": 0,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r1 register spa: refused",
+      "ok": true,
+      "id": 1,
+      "state": "refused",
+      "waited": 1
+    },
+    {
+      "name": "r1 register nosample: refused",
+      "ok": true,
+      "id": 2,
+      "state": "refused",
+      "waited": 1
+    },
+    {
+      "name": "r1 register hidden: registered",
+      "ok": true,
+      "id": 3,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r1 register flagged: registered",
+      "ok": true,
+      "id": 4,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r1 register withdraw: registered",
+      "ok": true,
+      "id": 5,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r1 register delete: registered",
+      "ok": true,
+      "id": 6,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r1 register outage: registered",
+      "ok": true,
+      "id": 7,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r1 register inject: registered",
+      "ok": true,
+      "id": 8,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r2 register happy: registered",
+      "ok": true,
+      "id": 9,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r2 register spa: refused",
+      "ok": true,
+      "id": 10,
+      "state": "refused",
+      "waited": 1
+    },
+    {
+      "name": "r2 register nosample: refused",
+      "ok": true,
+      "id": 11,
+      "state": "refused",
+      "waited": 1
+    },
+    {
+      "name": "r2 register hidden: registered",
+      "ok": true,
+      "id": 12,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r2 register flagged: registered",
+      "ok": true,
+      "id": 13,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r2 register withdraw: registered",
+      "ok": true,
+      "id": 14,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r2 register delete: registered",
+      "ok": true,
+      "id": 15,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r2 register outage: registered",
+      "ok": true,
+      "id": 16,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r2 register inject: registered",
+      "ok": true,
+      "id": 17,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r3 register happy: registered",
+      "ok": true,
+      "id": 18,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r3 register spa: refused",
+      "ok": true,
+      "id": 19,
+      "state": "refused",
+      "waited": 1
+    },
+    {
+      "name": "r3 register nosample: refused",
+      "ok": true,
+      "id": 20,
+      "state": "refused",
+      "waited": 8
+    },
+    {
+      "name": "r3 register hidden: registered",
+      "ok": true,
+      "id": 21,
+      "state": "registered",
+      "waited": 8
+    },
+    {
+      "name": "r3 register flagged: registered",
+      "ok": true,
+      "id": 22,
+      "state": "registered",
+      "waited": 8
+    },
+    {
+      "name": "r3 register withdraw: registered",
+      "ok": true,
+      "id": 23,
+      "state": "registered",
+      "waited": 8
+    },
+    {
+      "name": "r3 register delete: registered",
+      "ok": true,
+      "id": 24,
+      "state": "registered",
+      "waited": 8
+    },
+    {
+      "name": "r3 register outage: registered",
+      "ok": true,
+      "id": 25,
+      "state": "registered",
+      "waited": 8
+    },
+    {
+      "name": "r3 register inject: registered",
+      "ok": true,
+      "id": 26,
+      "state": "registered",
+      "waited": 8
+    },
+    {
+      "name": "r1 post happy: live",
+      "ok": true,
+      "id": 0,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r1 post absent: refused",
+      "ok": true,
+      "id": 1,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "waited": 1
+    },
+    {
+      "name": "r1 post hidden: refused",
+      "ok": true,
+      "id": 2,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "waited": 1
+    },
+    {
+      "name": "r1 post flagged: refused",
+      "ok": true,
+      "id": 3,
+      "state": "refused",
+      "why": "the auditor's page did not confirm it",
+      "reader": {
+        "seq": 1,
+        "kind": "denied",
+        "print": "873c4b8c2acac746"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r1 post withdraw: live",
+      "ok": true,
+      "id": 4,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r1 post delete: live",
+      "ok": true,
+      "id": 5,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 26
+    },
+    {
+      "name": "r1 post outage: live",
+      "ok": true,
+      "id": 6,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r1 post inject: live",
+      "ok": true,
+      "id": 7,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r2 post happy: live",
+      "ok": true,
+      "id": 8,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r2 post absent: refused",
+      "ok": true,
+      "id": 9,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "waited": 1
+    },
+    {
+      "name": "r2 post hidden: refused",
+      "ok": true,
+      "id": 10,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "waited": 1
+    },
+    {
+      "name": "r2 post flagged: refused",
+      "ok": true,
+      "id": 11,
+      "state": "refused",
+      "why": "the auditor's page did not confirm it",
+      "reader": {
+        "seq": 1,
+        "kind": "denied",
+        "print": "873c4b8c2acac746"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r2 post withdraw: live",
+      "ok": true,
+      "id": 12,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r2 post delete: live",
+      "ok": true,
+      "id": 13,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r2 post outage: live",
+      "ok": true,
+      "id": 14,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r2 post inject: live",
+      "ok": true,
+      "id": 15,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r3 post happy: live",
+      "ok": true,
+      "id": 16,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r3 post absent: refused",
+      "ok": true,
+      "id": 17,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "waited": 1
+    },
+    {
+      "name": "r3 post hidden: refused",
+      "ok": true,
+      "id": 18,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "waited": 1
+    },
+    {
+      "name": "r3 post flagged: refused",
+      "ok": true,
+      "id": 19,
+      "state": "refused",
+      "why": "the auditor's page did not confirm it",
+      "reader": {
+        "seq": 1,
+        "kind": "denied",
+        "print": "873c4b8c2acac746"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r3 post withdraw: live",
+      "ok": true,
+      "id": 20,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 26
+    },
+    {
+      "name": "r3 post delete: live",
+      "ok": true,
+      "id": 21,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r3 post outage: live",
+      "ok": true,
+      "id": 22,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r3 post inject: live",
+      "ok": true,
+      "id": 23,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1
+    },
+    {
+      "name": "r1 re-check a pending claim: refused, fee back",
+      "ok": true,
+      "id": 24,
+      "reason": "only a live claim can be re-checked",
+      "refunded": "10000000000000000",
+      "state_at_recheck": "pending"
+    },
+    {
+      "name": "r1 withdraw a pending claim: withdrawn, stake returned",
+      "ok": true,
+      "id": 24,
+      "state": "withdrawn",
+      "returned": "100000000000000000"
+    },
+    {
+      "name": "r1 a late report for a withdrawn claim is ignored",
+      "ok": true,
+      "id": 24,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "state": "withdrawn"
+    },
+    {
+      "name": "r2 re-check a pending claim: refused, fee back",
+      "ok": true,
+      "id": 25,
+      "reason": "only a live claim can be re-checked",
+      "refunded": "10000000000000000",
+      "state_at_recheck": "pending"
+    },
+    {
+      "name": "r2 withdraw a pending claim: withdrawn, stake returned",
+      "ok": true,
+      "id": 25,
+      "state": "withdrawn",
+      "returned": "100000000000000000"
+    },
+    {
+      "name": "r2 a late report for a withdrawn claim is ignored",
+      "ok": true,
+      "id": 25,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "state": "withdrawn"
+    },
+    {
+      "name": "r3 re-check a pending claim: refused, fee back",
+      "ok": true,
+      "id": 26,
+      "reason": "only a live claim can be re-checked",
+      "refunded": "10000000000000000",
+      "state_at_recheck": "pending"
+    },
+    {
+      "name": "r3 withdraw a pending claim: withdrawn, stake returned",
+      "ok": true,
+      "id": 26,
+      "state": "withdrawn",
+      "returned": "100000000000000000"
+    },
+    {
+      "name": "r3 a late report for a withdrawn claim is ignored",
+      "ok": true,
+      "id": 26,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "state": "withdrawn"
+    },
+    {
+      "name": "r1 re-check an unchanged page: live, fee to project",
+      "ok": true,
+      "hash": "0x18549e3c8af419568f27c29d8764edd9b47333cc72e5eda425b38e17aabc2300",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "delta": {
+        "project": "10000000000000000",
+        "keeper": "0"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 2,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "checked_at": 1792512162,
+      "miss_at": 0
+    },
+    {
+      "name": "r2 re-check an unchanged page: live, fee to project",
+      "ok": true,
+      "hash": "0x43a0fb9e31b6ca232afabccdb3d1c1b44c6cdf72827585e81e3cf7331c49ff82",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "delta": {
+        "project": "10000000000000000",
+        "keeper": "0"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 2,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "checked_at": 1792512220,
+      "miss_at": 0
+    },
+    {
+      "name": "r3 re-check an unchanged page: live, fee to project",
+      "ok": true,
+      "hash": "0xc0fbfd169f9d4c4a2c2565f3c2b69acab53c3b578decec8a7a041e7b6daf8be7",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "delta": {
+        "project": "10000000000000000",
+        "keeper": "0"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "checked_at": 1792512278,
+      "miss_at": 0
+    },
+    {
+      "name": "r1 auditor withdraws beside the row: down, keeper reward, rest to project",
+      "ok": true,
+      "hash": "0xc3d1b90b4f256944f9b55d05bb98f94c98db3881d1d1aca0c6c91630b2bc697b",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 52,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "6cfde32660071749"
+      },
+      "checked_at": 1792511524,
+      "miss_at": 0
+    },
+    {
+      "name": "r1 auditor deletes the row, first re-check: live, one miss, fee back",
+      "ok": true,
+      "hash": "0x582bac3cff4033f72412395d575e9e2c9ada414940438b56bf830114989d2841",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "delta": {
+        "project": "0",
+        "keeper": "10000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511534,
+      "miss_at": 1792512735
+    },
+    {
+      "name": "r1 page unreachable once: live, one miss, fee back",
+      "ok": true,
+      "hash": "0xb14771bcecaf4100e4098a00a9933a15e455924e3f9bfb9784817ef620303f2d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "delta": {
+        "project": "0",
+        "keeper": "10000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511544,
+      "miss_at": 1792512793
+    },
+    {
+      "name": "r1 page talks to the jury: down",
+      "ok": true,
+      "hash": "0x1b4fff4a183e7cd5a25285d3f7c2987740ea4f439ebbd8c6318d05906bddf883",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "600d8cd68080c5aa"
+      },
+      "checked_at": 1792511554,
+      "miss_at": 0
+    },
+    {
+      "name": "r2 auditor withdraws beside the row: down, keeper reward, rest to project",
+      "ok": true,
+      "hash": "0x30b7229315c77262adba186811e850c1a93c22a6eec6a8bc124b97d1865f738b",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "6cfde32660071749"
+      },
+      "checked_at": 1792511624,
+      "miss_at": 0
+    },
+    {
+      "name": "r2 auditor deletes the row, first re-check: live, one miss, fee back",
+      "ok": true,
+      "hash": "0xcb0cecaf6ef97539f8c8d9bb5262c5b819ce8f66e4ce358cdf5bb04e44938238",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "delta": {
+        "project": "0",
+        "keeper": "10000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511637,
+      "miss_at": 1792512968
+    },
+    {
+      "name": "r2 page unreachable once: live, one miss, fee back",
+      "ok": true,
+      "hash": "0xba6276c5e8269a26d34b50277a2be36a700e1a11a90ef9e5af2c1bdf68bf16de",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "delta": {
+        "project": "0",
+        "keeper": "10000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511650,
+      "miss_at": 1792513022
+    },
+    {
+      "name": "r2 page talks to the jury: down",
+      "ok": true,
+      "hash": "0x961bf269e3c3a6c48038ffaaa64c11ac183900ecaa7908004797a1f8d8bf83cc",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 52,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "600d8cd68080c5aa"
+      },
+      "checked_at": 1792511660,
+      "miss_at": 0
+    },
+    {
+      "name": "r3 auditor withdraws beside the row: down, keeper reward, rest to project",
+      "ok": true,
+      "hash": "0x49e794eb3b233e9b333e8d60e6adf18dc45dea633e14462f307f1cc7e21004c7",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 52,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "6cfde32660071749"
+      },
+      "checked_at": 1792511724,
+      "miss_at": 0
+    },
+    {
+      "name": "r3 auditor deletes the row, first re-check: live, one miss, fee back",
+      "ok": true,
+      "hash": "0xc44fdcdcaff62cdb823426e3dc81d18cc421dadc3d35933bbceaa3b990986c7f",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "delta": {
+        "project": "0",
+        "keeper": "10000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511734,
+      "miss_at": 1792513208
+    },
+    {
+      "name": "r3 page unreachable once: live, one miss, fee back",
+      "ok": true,
+      "hash": "0xdf2a92bfb67a729f6620d4a858de5f97b612ce71122b3d3100539c48d01ba7b5",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "delta": {
+        "project": "0",
+        "keeper": "10000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511744,
+      "miss_at": 1792513266
+    },
+    {
+      "name": "r3 page talks to the jury: down",
+      "ok": true,
+      "hash": "0xb9f0050ae8e39d0d69e24454801ca7d096bf75e2799ee3ceb7989f469a1b2fd3",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "600d8cd68080c5aa"
+      },
+      "checked_at": 1792511754,
+      "miss_at": 0
+    },
+    {
+      "name": "r1 auditor deletes the row, second re-check MISS_GAP later: down, keeper reward",
+      "ok": true,
+      "hash": "0xa5c9df6869ef247f278489c5e168c11fd48c69608ab3206038874e6d3e4497c9",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 1,
+      "why": "the auditor's page was silent twice",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 44,
+      "reader": {
+        "seq": 3,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511534,
+      "miss_at": 1792512735
+    },
+    {
+      "name": "r2 auditor deletes the row, second re-check MISS_GAP later: down, keeper reward",
+      "ok": true,
+      "hash": "0x81db1a667037c51b5a6d6d23512a3e06885ef4710fee16734fa30ced68f7459a",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 1,
+      "why": "the auditor's page was silent twice",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 3,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511637,
+      "miss_at": 1792512968
+    },
+    {
+      "name": "r3 auditor deletes the row, second re-check MISS_GAP later: down, keeper reward",
+      "ok": true,
+      "hash": "0xd2467d56136009c42ecd9f78568fa2c1e3ab2cd05fa4ad669f34a4cd67815e79",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "down",
+      "misses": 1,
+      "why": "the auditor's page was silent twice",
+      "delta": {
+        "project": "80000000000000000",
+        "keeper": "30000000000000000"
+      },
+      "waited": 52,
+      "reader": {
+        "seq": 3,
+        "kind": "silent",
+        "print": ""
+      },
+      "checked_at": 1792511734,
+      "miss_at": 1792513208
+    },
+    {
+      "name": "r1 page back: live, misses reset, fee to project",
+      "ok": true,
+      "hash": "0x5430dd5af09f25428d6aac93c9779ffcb4ca44fe58a2fb0cb99d18d78f45f793",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "delta": {
+        "project": "10000000000000000",
+        "keeper": "0"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 3,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "checked_at": 1792514057,
+      "miss_at": 0
+    },
+    {
+      "name": "r1 withdraw a live claim: withdrawn, stake returned",
+      "ok": true,
+      "hash": "0xe3953cecad99937404e77051421660cf09f7359374c8d346253481a5677b08e6",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "withdrawn",
+      "returned": "100000000000000000"
+    },
+    {
+      "name": "r2 page back: live, misses reset, fee to project",
+      "ok": true,
+      "hash": "0x46f8b7439ba4e6781f0c51921468ca3cfdb2be5c029223cfe7d56cac1cd002c0",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "delta": {
+        "project": "10000000000000000",
+        "keeper": "0"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 3,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "checked_at": 1792514127,
+      "miss_at": 0
+    },
+    {
+      "name": "r2 withdraw a live claim: withdrawn, stake returned",
+      "ok": true,
+      "hash": "0x7cb28da5c344a9e7d76637cf6a2d39aad3c8d4b22d6e5484376560ac392113f5",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "withdrawn",
+      "returned": "100000000000000000"
+    },
+    {
+      "name": "r3 page back: live, misses reset, fee to project",
+      "ok": true,
+      "hash": "0x3fdc8de3251bab59faff47fde61e9d19800a208203d2626de48288b513161d92",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "delta": {
+        "project": "10000000000000000",
+        "keeper": "0"
+      },
+      "waited": 45,
+      "reader": {
+        "seq": 3,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "checked_at": 1792514195,
+      "miss_at": 0
+    },
+    {
+      "name": "r3 withdraw a live claim: withdrawn, stake returned",
+      "ok": true,
+      "hash": "0x2d69088faff93a4d01e2929328f507cbf384170df5b2912319f3d64cf9979d3f",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "withdrawn",
+      "returned": "100000000000000000"
+    },
+    {
+      "name": "r1 scope string missing: refused at once, stake credited back",
+      "ok": true,
+      "id": -1,
+      "refusal": {
+        "reason": "not in the passage as whole words: April 2026",
+        "at": 1792514745,
+        "returned": 100000000000000000
+      }
+    },
+    {
+      "name": "r2 scope string missing: refused at once, stake credited back",
+      "ok": true,
+      "id": -1,
+      "refusal": {
+        "reason": "not in the passage as whole words: April 2026",
+        "at": 1792514753,
+        "returned": 100000000000000000
+      }
+    },
+    {
+      "name": "r3 scope string missing: refused at once, stake credited back",
+      "ok": true,
+      "id": -1,
+      "refusal": {
+        "reason": "not in the passage as whole words: April 2026",
+        "at": 1792514764,
+        "returned": 100000000000000000
+      }
+    },
+    {
+      "name": "every path: the auditor is owed nothing",
+      "ok": true,
+      "owed": "0"
+    },
+    {
+      "name": "every path: the Board's books balance (balance = held + owed; received = held + owed + collected)",
+      "ok": true,
+      "release": "countersign-board/1",
+      "reader": "0x81f1c0ad329a0ea23d2d9fd7be8b0b7d9cea5c37",
+      "miss_gap": 300,
+      "read_window": 600,
+      "auditors": 27,
+      "claims": 27,
+      "held": 300000000000000000,
+      "owed": 300000000000000000,
+      "received": 3540000000000000000,
+      "balance": 600000000000000000,
+      "collected": "2940000000000000000"
+    },
+    {
+      "name": "collect zeroes what is owed, and the wallet is paid at finality",
+      "ok": true,
+      "hash": "0xa116bebd5d1da0e9df5e529f915dd62120659813f314506d28ea44031de83bcf",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "payee": "project",
+      "collected": "300000000000000000",
+      "wallet_delta": "300000000000000000",
+      "board_delta": "300000000000000000",
+      "waited": 31,
+      "status": {
+        "release": "countersign-board/1",
+        "reader": "0x81f1c0ad329a0ea23d2d9fd7be8b0b7d9cea5c37",
+        "miss_gap": 300,
+        "read_window": 600,
+        "auditors": 27,
+        "claims": 27,
+        "held": 300000000000000000,
+        "owed": 0,
+        "received": 3540000000000000000,
+        "balance": 300000000000000000
+      }
+    }
+  ],
+  "recorded_at": "2026-10-20T16:48:04.669Z",
+  "reader": "0x81f1c0Ad329a0eA23d2d9FD7Be8b0B7D9cea5c37",
+  "board": "0xb9C634875f575cE0bB0924FF5e183132e190CeF6",
+  "superseded": [
+    {
+      "name": "r1 scope string missing: refused at once, stake credited back",
+      "ok": false,
+      "id": -1,
+      "credited": "200000000000000000",
+      "reason": "not in the passage as whole words: April 2026",
+      "superseded_because": "The check measured the wrong thing; the contract behaved correctly. Scope: the difference in owed also caught another claim's refund that landed in the same window (0.2 GEN instead of 0.1); rerun reads the value the refusal itself records. Collect: balances were read before the transfer's finality; the keeper's 0.27 GEN arrived later (wallet 5.464 -> 5.734 GEN, Board balance 3.24 -> 0.39 after the project's 2.58 GEN collect). Rerun waits for finality."
+    },
+    {
+      "name": "r2 scope string missing: refused at once, stake credited back",
+      "ok": false,
+      "id": -1,
+      "credited": "200000000000000000",
+      "reason": "not in the passage as whole words: April 2026",
+      "superseded_because": "The check measured the wrong thing; the contract behaved correctly. Scope: the difference in owed also caught another claim's refund that landed in the same window (0.2 GEN instead of 0.1); rerun reads the value the refusal itself records. Collect: balances were read before the transfer's finality; the keeper's 0.27 GEN arrived later (wallet 5.464 -> 5.734 GEN, Board balance 3.24 -> 0.39 after the project's 2.58 GEN collect). Rerun waits for finality."
+    },
+    {
+      "name": "r3 scope string missing: refused at once, stake credited back",
+      "ok": false,
+      "id": -1,
+      "credited": "200000000000000000",
+      "reason": "not in the passage as whole words: April 2026",
+      "superseded_because": "The check measured the wrong thing; the contract behaved correctly. Scope: the difference in owed also caught another claim's refund that landed in the same window (0.2 GEN instead of 0.1); rerun reads the value the refusal itself records. Collect: balances were read before the transfer's finality; the keeper's 0.27 GEN arrived later (wallet 5.464 -> 5.734 GEN, Board balance 3.24 -> 0.39 after the project's 2.58 GEN collect). Rerun waits for finality."
+    },
+    {
+      "name": "collect sends what is owed and zeroes it",
+      "ok": false,
+      "hash": "0x7e2f35802692874a6876c1f3b978c4ddf5750c92d8f203d4df451e6e36ae616a",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "collected": "270000000000000000",
+      "status": {
+        "release": "countersign-board/1",
+        "reader": "0x81f1c0ad329a0ea23d2d9fd7be8b0b7d9cea5c37",
+        "miss_gap": 300,
+        "read_window": 600,
+        "auditors": 27,
+        "claims": 27,
+        "held": 300000000000000000,
+        "owed": 2670000000000000000,
+        "received": 3240000000000000000,
+        "balance": 3240000000000000000
+      },
+      "superseded_because": "The check measured the wrong thing; the contract behaved correctly. Scope: the difference in owed also caught another claim's refund that landed in the same window (0.2 GEN instead of 0.1); rerun reads the value the refusal itself records. Collect: balances were read before the transfer's finality; the keeper's 0.27 GEN arrived later (wallet 5.464 -> 5.734 GEN, Board balance 3.24 -> 0.39 after the project's 2.58 GEN collect). Rerun waits for finality."
+    },
+    {
+      "name": "every path: the Board's books balance (received = held + owed, balance = held + owed)",
+      "ok": false,
+      "release": "countersign-board/1",
+      "reader": "0x81f1c0ad329a0ea23d2d9fd7be8b0b7d9cea5c37",
+      "miss_gap": 300,
+      "read_window": 600,
+      "auditors": 27,
+      "claims": 27,
+      "held": 300000000000000000,
+      "owed": 390000000000000000,
+      "received": 3540000000000000000,
+      "balance": 690000000000000000,
+      "superseded_because": "The check's formula was wrong after collects: received equals held + owed + what was collected out. Measured: 3.54 = 0.30 + 0.39 + 2.85 (0.27 keeper, 2.58 project, both wallets paid)."
+    }
+  ],
+  "notes": [
+    {
+      "manual_collect": {
+        "payee": "project (funder)",
+        "hash": "0x3dc590a61e5c928a5c4e70b4910df6a9282f9046564e7d974816c196753cc474",
+        "collected": "2580000000000000000",
+        "wallet_delta": "2580000000000000000",
+        "board_delta": "-2580000000000000000"
+      },
+      "keeper_wallet_after": "5734000000000000000"
+    }
+  ],
+  "summary": {
+    "checks": 90,
+    "failed": 0
+  },
+  "collected": [
+    "270000000000000000",
+    "2580000000000000000",
+    "90000000000000000",
+    "300000000000000000"
+  ]
+}
