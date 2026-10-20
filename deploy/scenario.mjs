@@ -19,7 +19,7 @@ if (!LIVE) throw new Error("LIVE_DIR: a checkout of the live branch");
 const STUDIO = network === "studio";
 const MISS_GAP = STUDIO ? 300 : 3600;
 const READ_WINDOW = STUDIO ? 600 : 7200;
-const REPORT_WAIT = STUDIO ? 900 : 7200; // seconds to wait for a report to land
+const REPORT_WAIT = STUDIO ? 900 : 9000; // seconds to wait for a report to land (past READ_WINDOW)
 const CDN_MARGIN = 330; // raw.githubusercontent.com caches for 300 s
 const GEN = 10n ** 18n;
 const STAKE = GEN / 10n, FEE = GEN / 100n, REWARD = GEN / 50n;
@@ -33,7 +33,7 @@ const who = { deployer: "principal", auditor: "vendor", project: "funder", keepe
 const C = Object.fromEntries(Object.entries(who).map(([k, role]) => [k, clientFor(network, role)]));
 const A = Object.fromEntries(Object.entries(who).map(([k, role]) => [k, accountFor(role).address.toLowerCase()]));
 
-const OUT = new URL(`./scenario-${network}.json`, import.meta.url);
+const OUT = new URL(process.env.RECORD || `./scenario-${network}.json`, import.meta.url);
 const rec = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, "utf8")) : { network, accounts: A, pages: {}, done: {}, checks: [] };
 const save = () => { rec.recorded_at = new Date().toISOString(); fs.writeFileSync(OUT, JSON.stringify(rec, null, 2)); };
 
@@ -58,6 +58,31 @@ const auditor = (id) => view("get_auditor", [id]);
 const owed = async (k) => BigInt(await view("owed_to", [A[k]]));
 const status = () => view("status");
 
+/**
+ * The id of the entry or claim a write just created, found by its content,
+ * never from a count: on Bradbury a read straight after acceptance can be
+ * stale, and a stale count once gave four registrations and four postings
+ * the wrong id (the aborted run, scenario-bradbury-aborted.json). Ids already
+ * assigned are skipped, newest first.
+ */
+async function locate(kind, match) {
+  const used = new Set((rec.used && rec.used[kind]) || []);
+  const get = kind === "auditor" ? auditor : claim;
+  const { value } = await readUntil(async () => {
+    const n = (await status())[kind === "auditor" ? "auditors" : "claims"];
+    for (let id = n - 1; id >= 0; id--) {
+      if (used.has(id)) continue;
+      if (match(await get(id))) return id;
+    }
+    return -1;
+  }, (v) => v >= 0, { seconds: STUDIO ? 60 : 600, every: 8 });
+  if (value < 0) throw new Error(`no ${kind} found for this write`);
+  rec.used = rec.used || {};
+  (rec.used[kind] = rec.used[kind] || []).push(value);
+  save();
+  return value;
+}
+
 async function tx(k, fn, args, label, value = 0n) {
   const t = await sendTx(C[k], rec.board, fn, args, label, value);
   console.log(`  tx ${label}: ${t.consensus} ${t.leader} ${t.hash}`);
@@ -68,6 +93,25 @@ async function settle(id, ok, label) {
   const { value, waited } = await readUntil(() => claim(id), ok, { seconds: REPORT_WAIT, every: 6 });
   console.log(`  ${label}: ${value.state} after ${waited ?? "timeout"}s`);
   return { claim: value, waited };
+}
+
+/**
+ * Wait for a read's report. A read that never reports (validators did not
+ * agree, or the round never completed) is closed the way the design says:
+ * once its deadline has passed, anyone calls `expire` and it counts as
+ * silent. The expiry is recorded as an event, never hidden.
+ */
+async function settleOrExpire(id, ok, label) {
+  const late = (c) => c.read && c.now > c.read.due + 30;
+  const { claim: c0, waited } = await settle(id, (c) => ok(c) || late(c), label);
+  if (ok(c0) || !late(c0)) return { claim: c0, waited };
+  const t = await tx("keeper2", "expire", [id], `expire claim ${id}`);
+  const { value: c } = await readUntil(() => claim(id), (c) => !c.read, { seconds: 600, every: 6 });
+  const event = { id, label, read: c0.read, expire: t, state_after: c.state, misses_after: c.misses, why: c.why };
+  rec.expired = [...(rec.expired || []), event];
+  save();
+  console.log(`  ${label}: no report by the deadline; expired -> ${c.state}`);
+  return { claim: c, waited, expired: event };
 }
 
 function git(...args) {
@@ -144,8 +188,8 @@ const ENTRIES = [
 for (let r = 1; r <= RUNS; r++) {
   for (const [name, file, sample] of ENTRIES) {
     await once(`r${r}:register:${name}`, async () => {
-      const id = (await status()).auditors;
       const t = await tx("auditor", "register", [`Northlight Security (demo r${r})`, raw(r, file), sample], `r${r} register ${name}`);
+      const id = await locate("auditor", (a) => a.url === raw(r, file) && a.sample === sample && a.signer === A.auditor);
       return { id, ...t };
     });
   }
@@ -164,13 +208,15 @@ const entry = (r, name) => rec.done[`r${r}:register:${name}`].id;
 
 // ---------------------------------------------------------------- 2. posts
 
-async function post(r, key, auditorName, { scope = SCOPE, passage = ACME } = {}) {
+async function post(r, key, auditorName, { scope = SCOPE, passage = ACME, refused = false } = {}) {
   return once(`r${r}:post:${key}`, async () => {
     const before = await owed("project");
-    const id = (await status()).claims;
     const t = await tx("project", "post", [entry(r, auditorName), "Acme Lending", scope, passage], `r${r} post ${key}`, STAKE);
-    const after = await status();
-    return { id: after.claims > id ? id : -1, owed_before: String(before), ...t };
+    // A posting refused before any read creates no claim; its check reads the refusal record.
+    if (refused) return { id: -1, owed_before: String(before), ...t };
+    const aud = entry(r, auditorName), sc = JSON.stringify(JSON.parse(scope).map((x) => x.trim()));
+    const id = await locate("claim", (c) => c.auditor === aud && c.passage === passage && JSON.stringify(c.scope) === sc && c.project === A.project);
+    return { id, owed_before: String(before), ...t };
   });
 }
 
@@ -182,7 +228,7 @@ for (let r = 1; r <= RUNS; r++) {
   await once(`r${r}:scope-missing`, async () => {
     // The refusal records the value it credited back. (A difference in owed
     // is not used: other claims' reports land asynchronously in between.)
-    const p = await post(r, "scope", "happy", { scope: JSON.stringify(["lending contracts v2", "April 2026"]) });
+    const p = await post(r, "scope", "happy", { scope: JSON.stringify(["lending contracts v2", "April 2026"]), refused: true });
     const refusal = await view("refusal_of", [A.project]);
     const reason = refusal.reason || "";
     check(`r${r} scope string missing: refused at once, stake credited back`,
@@ -192,14 +238,27 @@ for (let r = 1; r <= RUNS; r++) {
 }
 
 const EXPECT_POST = { happy: "live", absent: "refused", hidden: "refused", flagged: "refused", withdraw: "live", delete: "live", outage: "live", inject: "live" };
+const ABSENT = { passage: "Acme Lending lending contracts v2 March 2026 Northlight final audit report" };
 for (let r = 1; r <= RUNS; r++) {
   for (const [k, expected] of Object.entries(EXPECT_POST)) {
     await once(`r${r}:posted:${k}`, async () => {
-      const { id } = rec.done[`r${r}:post:${k}`];
-      const { claim: c, waited } = await settle(id, (c) => c.state !== "pending", `r${r} post ${k}`);
+      let { id } = rec.done[`r${r}:post:${k}`];
+      let { claim: c, waited, expired } = await settleOrExpire(id, (c) => c.state !== "pending", `r${r} post ${k}`);
+      let repost = null;
+      if (expired) {
+        check(`r${r} post ${k}: a read that never reported expired as silent; refused, stake returned`,
+          c.state === "refused" && /silent/.test(c.why), expired);
+        if (expected === "live") {
+          // As a project would: post again, and run the case on the new claim.
+          const p2 = await post(r, k + "#2", k === "absent" ? "happy" : k, k === "absent" ? ABSENT : {});
+          id = p2.id;
+          ({ claim: c, waited } = await settleOrExpire(id, (c) => c.state !== "pending", `r${r} post ${k} (again)`));
+          repost = { id, hash: p2.hash };
+        }
+      }
       const last = await readView(C.deployer, rec.reader, "last_read", [`c:${id}`]);
-      check(`r${r} post ${k}: ${expected}`, c.state === expected, { id, state: c.state, why: c.why, reader: last, waited });
-      return { state: c.state, waited, reader: last };
+      check(`r${r} post ${k}: ${expected}`, c.state === expected, { id, state: c.state, why: c.why, reader: last, waited, repost });
+      return { state: c.state, waited, reader: last, expired: !!expired, repost };
     });
   }
 }
@@ -258,6 +317,17 @@ for (let r = 1; r <= RUNS; r++) {
  * items: [{ r, key, id, keeper, label }]. Money is checked per batch: the
  * sum of what each keeper and the project should be credited.
  */
+/** What one re-check did, from the claim after it, and what it pays. */
+function outcomeOf(c) {
+  if (c.state === "down") return /denies/.test(c.why) ? "denied" : "silent-down";
+  return c.misses === 0 ? "confirmed" : "silent";
+}
+function paysFor(kind, keeper, owe) {
+  if (kind === "confirmed") owe.project += FEE;
+  else if (kind === "silent") owe[keeper] += FEE;
+  else { owe[keeper] += REWARD + FEE; owe.project += STAKE - REWARD; }
+}
+
 async function recheckBatch(stage, items) {
   const sent = await once(`batch:${stage}:sent`, async () => {
     const before = { project: String(await owed("project")), keeper: String(await owed("keeper")), keeper2: String(await owed("keeper2")) };
@@ -271,32 +341,47 @@ async function recheckBatch(stage, items) {
   });
   return once(`batch:${stage}:settled`, async () => {
     const results = {};
+    const owe = { project: 0n, keeper: 0n, keeper2: 0n };
     for (const it of items) {
       const s0 = sent.out[it.key + ":" + it.r];
-      const { claim: c, waited } = await settle(it.id, (c) => c.seq > s0.seq && !c.read, `r${it.r} ${it.label}`);
+      let { claim: c, waited, expired } = await settleOrExpire(it.id, (c) => c.seq > s0.seq && !c.read, `r${it.r} ${it.label}`);
+      const attempts = [{ hash: s0.hash, outcome: outcomeOf(c), expired: !!expired }];
+      paysFor(outcomeOf(c), it.keeper, owe);
+      // A read that expired is a silent read. Where silence was not the case
+      // under test and the claim is still live, the keeper re-checks once more.
+      if (expired && it.expect !== "silent" && c.state === "live") {
+        const seq = c.seq;
+        const t = await tx(it.keeper, "recheck", [it.id], `r${it.r} ${it.label} (again)`, FEE);
+        ({ claim: c, waited } = await settleOrExpire(it.id, (c) => c.seq > seq && !c.read, `r${it.r} ${it.label} (again)`));
+        attempts.push({ hash: t.hash, outcome: outcomeOf(c) });
+        paysFor(outcomeOf(c), it.keeper, owe);
+      }
       const last = await readView(C.deployer, rec.reader, "last_read", [`c:${it.id}`]);
-      results[it.key + ":" + it.r] = { ...s0, state: c.state, misses: c.misses, why: c.why, miss_at: c.miss_at, checked_at: c.checked_at, waited, reader: last };
+      results[it.key + ":" + it.r] = { ...s0, state: c.state, misses: c.misses, why: c.why, miss_at: c.miss_at, checked_at: c.checked_at, waited, reader: last, attempts };
     }
-    const delta = {};
-    for (const k of ["project", "keeper", "keeper2"]) delta[k] = String((await owed(k)) - BigInt(sent.before[k]));
-    return { results, delta };
+    const delta = {}, expected = {};
+    for (const k of ["project", "keeper", "keeper2"]) {
+      delta[k] = String((await owed(k)) - BigInt(sent.before[k]));
+      expected[k] = String(owe[k]);
+    }
+    return { results, delta, expected };
   });
 }
-const cid = (r, k) => rec.done[`r${r}:post:${k}`].id;
+const cid = (r, k) => (rec.done[`r${r}:posted:${k}`]?.repost || rec.done[`r${r}:post:${k}`]).id;
 const runs = [...Array(RUNS).keys()].map((i) => i + 1);
 const sum = (n, x) => String(BigInt(n) * x);
 
 // ------------------------------------------------ 4. recheck, page unchanged
 
 {
-  const b = await recheckBatch("unchanged", runs.map((r) => ({ r, key: "unchanged", id: cid(r, "happy"), keeper: "keeper", label: "recheck unchanged" })));
+  const b = await recheckBatch("unchanged", runs.map((r) => ({ r, key: "unchanged", id: cid(r, "happy"), keeper: "keeper", label: "recheck unchanged", expect: "confirmed" })));
   await once("checked:unchanged", () => {
     for (const r of runs) {
       const x = b.results[`unchanged:${r}`];
       check(`r${r} re-check an unchanged page: live`, x.state === "live" && x.misses === 0, x);
     }
-    check("re-checks of unchanged pages: every fee to the project, nothing to the keeper",
-      b.delta.project === sum(RUNS, FEE) && b.delta.keeper === "0", b.delta);
+    check("re-checks of unchanged pages: the money matches each re-check's outcome",
+      JSON.stringify(b.delta) === JSON.stringify(b.expected), { delta: b.delta, expected: b.expected });
     return true;
   });
 }
@@ -307,10 +392,10 @@ await publish("edited");
 {
   const items = [];
   for (const r of runs) {
-    items.push({ r, key: "withdrawn", id: cid(r, "withdraw"), keeper: "keeper", label: "recheck withdrawn" });
-    items.push({ r, key: "deleted-1", id: cid(r, "delete"), keeper: "keeper", label: "recheck deleted (1st)" });
-    items.push({ r, key: "outage-1", id: cid(r, "outage"), keeper: "keeper", label: "recheck page down" });
-    items.push({ r, key: "inject", id: cid(r, "inject"), keeper: "keeper", label: "recheck injection" });
+    items.push({ r, key: "withdrawn", id: cid(r, "withdraw"), keeper: "keeper", label: "recheck withdrawn", expect: "denied" });
+    items.push({ r, key: "deleted-1", id: cid(r, "delete"), keeper: "keeper", label: "recheck deleted (1st)", expect: "silent" });
+    items.push({ r, key: "outage-1", id: cid(r, "outage"), keeper: "keeper", label: "recheck page down", expect: "silent" });
+    items.push({ r, key: "inject", id: cid(r, "inject"), keeper: "keeper", label: "recheck injection", expect: "denied" });
   }
   const b = await recheckBatch("edited", items);
   await once("checked:edited", () => {
@@ -321,9 +406,9 @@ await publish("edited");
       check(`r${r} page unreachable once: live, one miss`, o.state === "live" && o.misses === 1, o);
       check(`r${r} page talks to the jury: down`, j.state === "down" && /denies/.test(j.why), j);
     }
-    // Two take-downs per run pay reward + fee; two misses per run return the fee.
-    check("edited pages: keeper paid reward + fee per take-down and the fee back per miss; rest of each stake to the project",
-      b.delta.keeper === sum(RUNS, 2n * (REWARD + FEE) + 2n * FEE) && b.delta.project === sum(RUNS, 2n * (STAKE - REWARD)), b.delta);
+    // A take-down pays the keeper reward + fee and the rest of the stake to the project; a miss returns the fee.
+    check("edited pages: the money matches each re-check's outcome",
+      JSON.stringify(b.delta) === JSON.stringify(b.expected), { delta: b.delta, expected: b.expected });
     return true;
   });
 }
@@ -339,14 +424,14 @@ await once("wait:miss-gap", async () => {
   return wait;
 });
 {
-  const b = await recheckBatch("deleted-2", runs.map((r) => ({ r, key: "deleted-2", id: cid(r, "delete"), keeper: "keeper2", label: "recheck deleted (2nd)" })));
+  const b = await recheckBatch("deleted-2", runs.map((r) => ({ r, key: "deleted-2", id: cid(r, "delete"), keeper: "keeper2", label: "recheck deleted (2nd)", expect: "silent" })));
   await once("checked:deleted-2", () => {
     for (const r of runs) {
       const d2 = b.results[`deleted-2:${r}`];
       check(`r${r} auditor deletes the row, second re-check MISS_GAP later: down`, d2.state === "down" && /twice/.test(d2.why), d2);
     }
-    check("second silent reads: keeper paid reward + fee per take-down, rest of each stake to the project",
-      b.delta.keeper2 === sum(RUNS, REWARD + FEE) && b.delta.project === sum(RUNS, STAKE - REWARD), b.delta);
+    check("second silent reads: the money matches each re-check's outcome",
+      JSON.stringify(b.delta) === JSON.stringify(b.expected), { delta: b.delta, expected: b.expected });
     return true;
   });
 }
@@ -355,13 +440,14 @@ await once("wait:miss-gap", async () => {
 
 await publish("restored");
 {
-  const b = await recheckBatch("outage-2", runs.map((r) => ({ r, key: "outage-2", id: cid(r, "outage"), keeper: "keeper", label: "recheck page back" })));
+  const b = await recheckBatch("outage-2", runs.map((r) => ({ r, key: "outage-2", id: cid(r, "outage"), keeper: "keeper", label: "recheck page back", expect: "confirmed" })));
   await once("checked:outage-2", () => {
     for (const r of runs) {
       const o2 = b.results[`outage-2:${r}`];
       check(`r${r} page back: live, misses reset`, o2.state === "live" && o2.misses === 0, o2);
     }
-    check("pages back: every fee to the project", b.delta.project === sum(RUNS, FEE) && b.delta.keeper === "0", b.delta);
+    check("pages back: the money matches each re-check's outcome",
+      JSON.stringify(b.delta) === JSON.stringify(b.expected), { delta: b.delta, expected: b.expected });
     return true;
   });
 }

@@ -1,0 +1,552 @@
+{
+  "network": "studio",
+  "accounts": {
+    "deployer": "0xf1827cad7c88f02a7cad3627d7ce482a8f2d33c7",
+    "auditor": "0x3f55971f7fd2594a90871db489fbb82f1db4d747",
+    "project": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+    "keeper": "0xef359811497c724ef1942c6c079c64c07d87952d",
+    "keeper2": "0x8aa26fa51a68c583c467463e93db0ebc10f7d509"
+  },
+  "pages": {},
+  "done": {
+    "pages:initial": {
+      "commit": "6937779800dde86d26b38a876e3a9cf64b707ffd",
+      "visible_after_s": 1
+    },
+    "bind": {
+      "hash": "0xfa83ff4f593927d70d977ff781cb90bcc19b72c1ca1e55573970d24721de2b70",
+      "consensus": "MAJORITY_AGREE"
+    },
+    "r1:register:happy": {
+      "id": 0,
+      "hash": "0xc9e7882a856dd6141a8d6a5ebd4533681c7170cdb8742a14bc4ab07654a030f9",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:spa": {
+      "id": 1,
+      "hash": "0x0a98565e58b1038c8b3dc4725584ac0ca964d901ba84925d180546d6cf4dda0d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:nosample": {
+      "id": 2,
+      "hash": "0xc5da5d22b586abf56e4c545e4705f1ed5ae003a4cdf8220c82e4ab274d7f4ca2",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:hidden": {
+      "id": 3,
+      "hash": "0xbd4ef0e052a6b0e75bdbadf95632d0b7eb6d516127ed79fa9151d3b4122007f0",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:flagged": {
+      "id": 4,
+      "hash": "0x9b3547b359e71c209874edf37f9a90c40a2ec82069fd07072248a146b837df5b",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:withdraw": {
+      "id": 5,
+      "hash": "0xac17ea2de47c5950c29dcb6de75997432522f51cc3de61bec4b94f440d5b930d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:delete": {
+      "id": 6,
+      "hash": "0x3a7a11cc710d286895caf606e36f316a60ed2949221ad545a804a08a78c87d58",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:outage": {
+      "id": 7,
+      "hash": "0xd03042b60f29bd540097762705a756c07fdd0676054c3422c9c0ff797acbd28f",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:inject": {
+      "id": 8,
+      "hash": "0x3114d1f3a3cca34d0058787dc098b25048da403cfbddfc5d6a28a9b55c8c7bb6",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:registered:happy": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r1:registered:spa": {
+      "state": "refused",
+      "waited": 1
+    },
+    "r1:registered:nosample": {
+      "state": "refused",
+      "waited": 2
+    },
+    "r1:registered:hidden": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r1:registered:flagged": {
+      "state": "registered",
+      "waited": 16
+    },
+    "r1:registered:withdraw": {
+      "state": "registered",
+      "waited": 1
+    },
+    "r1:registered:delete": {
+      "state": "registered",
+      "waited": 8
+    },
+    "r1:registered:outage": {
+      "state": "registered",
+      "waited": 16
+    },
+    "r1:registered:inject": {
+      "state": "registered",
+      "waited": 16
+    },
+    "r1:post:happy": {
+      "id": 0,
+      "owed_before": "0",
+      "hash": "0x747d770e02ccfe2568ad725795aa56ef73fc78ba908886a07f643e980cf21c79",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:absent": {
+      "id": 1,
+      "owed_before": "0",
+      "hash": "0xbbeb33e00ac6eb258309636ec1e57491281ef2a7d33f8318ef95ac8b66330ed6",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:hidden": {
+      "id": 2,
+      "owed_before": "0",
+      "hash": "0x3f44c62fbf751c5ab4a5008af51e08ffb8479b0044d7f599424f1f238c959180",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:flagged": {
+      "id": 3,
+      "owed_before": "0",
+      "hash": "0xb90899e587923411458595d688b395cea8a457277a187c892cf090d567d3aeec",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:withdraw": {
+      "id": 4,
+      "owed_before": "0",
+      "hash": "0xc961d0be9c64790ed5c171bc0b6a95b3635c983b7ac5df434a8fd6cd3f21b958",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:delete": {
+      "id": 5,
+      "owed_before": "0",
+      "hash": "0x7089738354ee1bc6e10a87ec426ffc67ad5e8c7e5d1c1079e050df26ed0300ce",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:outage": {
+      "id": 6,
+      "owed_before": "0",
+      "hash": "0xe5d7230b8b707b79b410d11d749fa3056da9bddf79b6f3f468d67bda63b19386",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:inject": {
+      "id": 7,
+      "owed_before": "0",
+      "hash": "0x86b59f775f8ef665ca12481009268ddeb423882c2add8c0dc8670d58f7f166e0",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:scope": {
+      "id": -1,
+      "owed_before": "0",
+      "hash": "0xa40d7a984fd9dac6f441ab1e3808fa4f24360fb15b687427a2e002ce8452f3ab",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:scope-missing": {
+      "reason": "not in the passage as whole words: April 2026",
+      "returned": "100000000000000000"
+    },
+    "r1:post:happy#2": {
+      "id": 8,
+      "owed_before": "200000000000000000",
+      "hash": "0xfd6ebf19dcd01187ba0fd1ff4c2ec5de56d0a4685d38cff726b32c4524622371",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:posted:happy": {
+      "state": "refused",
+      "waited": 624,
+      "reader": {},
+      "expired": true,
+      "repost": {
+        "id": 8,
+        "hash": "0xfd6ebf19dcd01187ba0fd1ff4c2ec5de56d0a4685d38cff726b32c4524622371"
+      }
+    },
+    "r1:posted:absent": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {},
+      "expired": true,
+      "repost": null
+    },
+    "r1:posted:hidden": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {},
+      "expired": true,
+      "repost": null
+    },
+    "r1:posted:flagged": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {},
+      "expired": true,
+      "repost": null
+    }
+  },
+  "checks": [
+    {
+      "name": "r1 register happy: registered",
+      "ok": true,
+      "id": 0,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r1 register spa: refused",
+      "ok": true,
+      "id": 1,
+      "state": "refused",
+      "waited": 1
+    },
+    {
+      "name": "r1 register nosample: refused",
+      "ok": true,
+      "id": 2,
+      "state": "refused",
+      "waited": 2
+    },
+    {
+      "name": "r1 register hidden: registered",
+      "ok": true,
+      "id": 3,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r1 register flagged: registered",
+      "ok": true,
+      "id": 4,
+      "state": "registered",
+      "waited": 16
+    },
+    {
+      "name": "r1 register withdraw: registered",
+      "ok": true,
+      "id": 5,
+      "state": "registered",
+      "waited": 1
+    },
+    {
+      "name": "r1 register delete: registered",
+      "ok": true,
+      "id": 6,
+      "state": "registered",
+      "waited": 8
+    },
+    {
+      "name": "r1 register outage: registered",
+      "ok": true,
+      "id": 7,
+      "state": "registered",
+      "waited": 16
+    },
+    {
+      "name": "r1 register inject: registered",
+      "ok": true,
+      "id": 8,
+      "state": "registered",
+      "waited": 16
+    },
+    {
+      "name": "r1 scope string missing: refused at once, stake credited back",
+      "ok": true,
+      "id": -1,
+      "refusal": {
+        "reason": "not in the passage as whole words: April 2026",
+        "at": 1792526135,
+        "returned": 100000000000000000
+      }
+    },
+    {
+      "name": "r1 post happy: a read that never reported expired as silent; refused, stake returned",
+      "ok": true,
+      "id": 0,
+      "label": "r1 post happy",
+      "read": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792526057,
+        "due": 1792526657
+      },
+      "expire": {
+        "hash": "0xec75af8828b50571cab33500244f705de1e699738572bf6a572fc1f91ef0d04e",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "state_after": "refused",
+      "misses_after": 0,
+      "why": "the auditor's page was silent"
+    },
+    {
+      "name": "r1 post happy: live",
+      "ok": false,
+      "id": 8,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {},
+      "waited": 624,
+      "repost": {
+        "id": 8,
+        "hash": "0xfd6ebf19dcd01187ba0fd1ff4c2ec5de56d0a4685d38cff726b32c4524622371"
+      }
+    },
+    {
+      "name": "r1 post absent: a read that never reported expired as silent; refused, stake returned",
+      "ok": true,
+      "id": 1,
+      "label": "r1 post absent",
+      "read": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792526067,
+        "due": 1792526667
+      },
+      "expire": {
+        "hash": "0x1c5e7a87b4ecf859de7ca96372c1f55d7ab3ccd3aa3b75fedf9e7814cf2d6ed1",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "state_after": "refused",
+      "misses_after": 0,
+      "why": "the auditor's page was silent"
+    },
+    {
+      "name": "r1 post absent: refused",
+      "ok": true,
+      "id": 1,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {},
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r1 post hidden: a read that never reported expired as silent; refused, stake returned",
+      "ok": true,
+      "id": 2,
+      "label": "r1 post hidden",
+      "read": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792526077,
+        "due": 1792526677
+      },
+      "expire": {
+        "hash": "0xe1a3eb099ad19737439fd17658878711e66b21c982a272195ed26b58c57c5f01",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "state_after": "refused",
+      "misses_after": 0,
+      "why": "the auditor's page was silent"
+    },
+    {
+      "name": "r1 post hidden: refused",
+      "ok": true,
+      "id": 2,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {},
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r1 post flagged: a read that never reported expired as silent; refused, stake returned",
+      "ok": true,
+      "id": 3,
+      "label": "r1 post flagged",
+      "read": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792526087,
+        "due": 1792526687
+      },
+      "expire": {
+        "hash": "0x7bb2a290905106ebb7179a25bbb1eeeb8a9e29918504071e862a58c367fae43e",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "state_after": "refused",
+      "misses_after": 0,
+      "why": "the auditor's page was silent"
+    },
+    {
+      "name": "r1 post flagged: refused",
+      "ok": true,
+      "id": 3,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {},
+      "waited": 1,
+      "repost": null
+    }
+  ],
+  "recorded_at": "2026-10-20T20:24:29.229Z",
+  "reader": "0x981945EFC37A7318080BB9760480E409042Dea64",
+  "board": "0x0Aee78F62bF5F94139b7E70dfadEd295548F69D6",
+  "used": {
+    "auditor": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "claim": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "expired": [
+    {
+      "id": 0,
+      "label": "r1 post happy",
+      "read": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792526057,
+        "due": 1792526657
+      },
+      "expire": {
+        "hash": "0xec75af8828b50571cab33500244f705de1e699738572bf6a572fc1f91ef0d04e",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "state_after": "refused",
+      "misses_after": 0,
+      "why": "the auditor's page was silent"
+    },
+    {
+      "id": 8,
+      "label": "r1 post happy (again)",
+      "read": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792527201,
+        "due": 1792527801
+      },
+      "expire": {
+        "hash": "0x8ebde4d0d8b5da82e4ab3f95912b64c334481706a2d6451a002196d54bb995bd",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "state_after": "refused",
+      "misses_after": 0,
+      "why": "the auditor's page was silent"
+    },
+    {
+      "id": 1,
+      "label": "r1 post absent",
+      "read": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792526067,
+        "due": 1792526667
+      },
+      "expire": {
+        "hash": "0x1c5e7a87b4ecf859de7ca96372c1f55d7ab3ccd3aa3b75fedf9e7814cf2d6ed1",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "state_after": "refused",
+      "misses_after": 0,
+      "why": "the auditor's page was silent"
+    },
+    {
+      "id": 2,
+      "label": "r1 post hidden",
+      "read": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792526077,
+        "due": 1792526677
+      },
+      "expire": {
+        "hash": "0xe1a3eb099ad19737439fd17658878711e66b21c982a272195ed26b58c57c5f01",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "state_after": "refused",
+      "misses_after": 0,
+      "why": "the auditor's page was silent"
+    },
+    {
+      "id": 3,
+      "label": "r1 post flagged",
+      "read": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792526087,
+        "due": 1792526687
+      },
+      "expire": {
+        "hash": "0x7bb2a290905106ebb7179a25bbb1eeeb8a9e29918504071e862a58c367fae43e",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "state_after": "refused",
+      "misses_after": 0,
+      "why": "the auditor's page was silent"
+    }
+  ],
+  "note": "One-run smoke test of the content-based id lookup and the expire path (RUNS=1). Every entry and claim landed on the right page. Claim 0's posting read stuck in COMMITTING on Studio (validators started, never finished); after its deadline it was expired, refused as silent with the stake returned, and posted again. The second read queued behind the stuck one (Studio runs one contract's transactions in order), so the smoke run was stopped there."
+}
