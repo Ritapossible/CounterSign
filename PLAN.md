@@ -194,10 +194,11 @@ visible plus 330 s of CDN margin.
   send `NO_MAJORITY`, and the wallet is still credited
   (`deploy/probes/probe_transfer.*`).
 
-Four first-run checks were wrong, not the contracts, and are kept in the
+Five earlier checks were wrong, not the contracts, and are kept in the
 record under `superseded` with the reason: three compared owed balances
-while another claim's refund landed in the same window, and one read
-balances before the collect's transfer finalised.
+while another claim's refund landed in the same window, one read balances
+before the collect's transfer finalised, and one used `received = held +
+owed`, which stops holding once anything is collected.
 
 ## Phase 5 - On chain: Bradbury `[ ]`
 
