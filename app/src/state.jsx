@@ -1,6 +1,7 @@
 // Network, wallet and chain data, shared by every page.
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { NETWORKS, connect } from "../../client/countersign.mjs";
+import { useExternalWallet } from "./wallet.js";
 
 const Ctx = createContext(null);
 export const useApp = () => useContext(Ctx);
@@ -10,37 +11,18 @@ const recall = (k) => { try { return localStorage.getItem(k); } catch { return n
 
 export const LIVE_NETWORKS = Object.entries(NETWORKS).filter(([, n]) => n.board).map(([k]) => k);
 
-/** Ask the wallet to use this network's chain, adding it the first time. */
-async function switchChain(eth, chain) {
-  const chainId = "0x" + chain.id.toString(16);
-  try {
-    await eth.request({ method: "wallet_switchEthereumChain", params: [{ chainId }] });
-  } catch (e) {
-    if (e?.code !== 4902 && !/unrecognized|not added/i.test(String(e?.message))) throw e;
-    await eth.request({
-      method: "wallet_addEthereumChain",
-      params: [{
-        chainId,
-        chainName: chain.name,
-        rpcUrls: chain.rpcUrls.default.http,
-        nativeCurrency: chain.nativeCurrency ?? { name: "GEN", symbol: "GEN", decimals: 18 },
-        ...(chain.blockExplorers?.default?.url ? { blockExplorerUrls: [chain.blockExplorers.default.url] } : {}),
-      }],
-    });
-  }
-}
-
 export function AppProvider({ children }) {
   const [network, setNetworkState] = useState(() => (LIVE_NETWORKS.includes(recall("cs.network")) ? recall("cs.network") : "studio"));
-  const [account, setAccount] = useState(null);
+  const ext = useExternalWallet();
+  const account = ext.address || null;
   const [data, setData] = useState({ status: null, auditors: null, claims: null, error: null, at: 0 });
   const [toast, setToast] = useState(null);
   const loading = useRef(0);
 
   const reader = useMemo(() => connect(network), [network]);
   const signer = useMemo(
-    () => (account ? connect(network, { account, provider: window.ethereum }) : null),
-    [network, account],
+    () => (account && ext.provider ? connect(network, { account, provider: ext.provider }) : null),
+    [network, account, ext.provider],
   );
 
   const refresh = useCallback(async () => {
@@ -59,23 +41,12 @@ export function AppProvider({ children }) {
     refresh();
   }, [refresh]);
 
-  useEffect(() => {
-    const eth = window.ethereum;
-    if (!eth?.on) return;
-    const onAccounts = (a) => setAccount(a?.[0]?.toLowerCase() ?? null);
-    eth.on("accountsChanged", onAccounts);
-    return () => eth.removeListener?.("accountsChanged", onAccounts);
-  }, []);
-
   const setNetwork = (n) => { remember("cs.network", n); setNetworkState(n); };
 
+  /** Open the wallet picker (Reown AppKit), or ask the browser wallet. */
   const connectWallet = async () => {
-    const eth = window.ethereum;
-    if (!eth) throw new Error("No browser wallet found. Install MetaMask or another EIP-1193 wallet.");
-    const [a] = await eth.request({ method: "eth_requestAccounts" });
-    await switchChain(eth, NETWORKS[network].chain);
-    setAccount(a.toLowerCase());
-    return a.toLowerCase();
+    if (!ext.available) throw new Error("No wallet in this browser. Open this page in your wallet app's browser.");
+    await ext.connect();
   };
 
   /**
@@ -84,9 +55,14 @@ export function AppProvider({ children }) {
    */
   const run = async (label, fn, onStep) => {
     try {
-      const addr = account ?? (await connectWallet());
-      await switchChain(window.ethereum, NETWORKS[network].chain);
-      const cs = connect(network, { account: addr, provider: window.ethereum });
+      if (!account || !ext.provider) {
+        await connectWallet();
+        onStep?.({ phase: "error", label, message: "Connect your wallet, then press the button again." });
+        return null;
+      }
+      // The wallet must be on the network the app shows before it signs.
+      await ext.switchTo(network);
+      const cs = connect(network, { account, provider: ext.provider });
       onStep?.({ phase: "sign", label });
       const r = await fn(cs, { onSent: (hash) => onStep?.({ phase: "wait", label, hash }) });
       const result = r.refusal
@@ -108,7 +84,7 @@ export function AppProvider({ children }) {
 
   const say = (text) => { setToast(text); setTimeout(() => setToast(null), 4200); };
 
-  const value = { network, setNetwork, net: NETWORKS[network], reader, signer, account, connectWallet, data, refresh, run, say };
+  const value = { network, setNetwork, net: NETWORKS[network], reader, signer, account, wallet: ext, connectWallet, data, refresh, run, say };
   return (
     <Ctx.Provider value={value}>
       {children}

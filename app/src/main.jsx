@@ -1,9 +1,23 @@
 import { StrictMode } from "react";
+import { WagmiProvider } from "wagmi";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 import { AppProvider, useRoute } from "./state.jsx";
 import { Footer, Header } from "./ui.jsx";
 import { Account, Auditors, ClaimDetail, Claims, Home, How, Post } from "./pages.jsx";
+// Creates the Reown AppKit modal when VITE_REOWN_PROJECT_ID is set.
+import { wagmiAdapter } from "./wallet.js";
+
+const queryClient = new QueryClient();
+function WalletRoot({ children }) {
+  if (!wagmiAdapter) return children;
+  return (
+    <WagmiProvider config={wagmiAdapter.wagmiConfig}>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </WagmiProvider>
+  );
+}
 
 function App() {
   const [page, id] = useRoute();
@@ -25,8 +39,10 @@ function App() {
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AppProvider>
-      <App />
-    </AppProvider>
+    <WalletRoot>
+      <AppProvider>
+        <App />
+      </AppProvider>
+    </WalletRoot>
   </StrictMode>,
 );

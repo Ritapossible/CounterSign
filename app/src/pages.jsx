@@ -419,7 +419,7 @@ export function Post() {
 // ---------------------------------------------------------------- account
 
 export function Account() {
-  const { account, connectWallet, signer, run, say, data } = useApp();
+  const { account, wallet, connectWallet, signer, run, say, data } = useApp();
   const [owed, setOwed] = useState(null);
   const [refusal, setRefusal] = useState(null);
   const [step, setStep] = useState(null);
@@ -450,7 +450,13 @@ export function Account() {
       ) : (
         <div className="detail">
           <div className="panel">
-            <div className="panel-head"><span className="label">Your claims</span><span className="addr muted">{short(account)}</span></div>
+            <div className="panel-head">
+              <span className="label">Your claims</span>
+              <span style={{ display: "flex", gap: 12, alignItems: "center" }}>
+                <span className="addr muted nocase">{wallet.name} · {short(account)}</span>
+                <button className="arrow-link" style={{ fontSize: 12, padding: 0 }} onClick={() => wallet.disconnect()}>Disconnect</button>
+              </span>
+            </div>
             {mine.length ? (
               <dl className="rows">
                 {mine.map((c) => (

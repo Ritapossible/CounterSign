@@ -67,13 +67,16 @@ function NetworkSelect() {
 }
 
 function WalletButton({ block }) {
-  const { account, connectWallet, say } = useApp();
+  const { account, wallet, connectWallet, say } = useApp();
   if (account) {
-    return <a className={`btn-line dark small${block ? " block" : ""}`} href="#/account">{short(account)}</a>;
+    // AppKit's account view has the address, balance, network and disconnect.
+    return wallet.via === "appkit"
+      ? <button className={`btn-line dark small${block ? " block" : ""}`} onClick={() => wallet.manage()}>{short(account)}</button>
+      : <a className={`btn-line dark small${block ? " block" : ""}`} href="#/account">{short(account)}</a>;
   }
   return (
-    <button className={`btn small${block ? " block" : ""}`} onClick={() => connectWallet().catch((e) => say(e.message))}>
-      Connect
+    <button className={`btn small${block ? " block" : ""}`} disabled={wallet.connecting} onClick={() => connectWallet().catch((e) => say(e.message))}>
+      {wallet.connecting ? "Connecting" : "Connect"}
     </button>
   );
 }
