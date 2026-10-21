@@ -1,0 +1,371 @@
+{
+  "network": "studionext",
+  "accounts": {
+    "deployer": "0xf1827cad7c88f02a7cad3627d7ce482a8f2d33c7",
+    "auditor": "0x3f55971f7fd2594a90871db489fbb82f1db4d747",
+    "project": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+    "keeper": "0x8aa26fa51a68c583c467463e93db0ebc10f7d509"
+  },
+  "done": {
+    "register": {
+      "hash": "0xf65f9ab229dc1d7b1f9768b5a316f8df32618aa74a145ee36e5f0c3a0ca5e64b",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "applied": true,
+      "triggered": [
+        {
+          "id": "0xdeabead4d0bfeca4378c97f8dde5e71b09d7630d88d2cf3e2c0b6a7557e1377d",
+          "to": "0x7b87B5729a72F57c4B8eD9A1DfC944774F12950d",
+          "status": "ACCEPTED",
+          "result": "MAJORITY_AGREE",
+          "exec": "FINISHED_WITH_ERROR",
+          "leader": "contract_error",
+          "rotations": "",
+          "validators": [
+            "0x062D100010fF78038BC486b1A11F7aC1E57c3186",
+            "0x390DF233604A2DF0078cC927a6AbE90D9CF05825",
+            "0xB759250E426257d2c5e3a7bE86Be7067C81A5718",
+            "0xa629E59C12fAfadDFB3d98DAf771B68F78dC3514",
+            "0xb3256B8de9F98cb8Eb990a9AA6Efd626b8Ab2af5"
+          ],
+          "votes": [
+            "idle",
+            "agree",
+            "agree",
+            "agree",
+            "idle"
+          ],
+          "leader_output": null
+        }
+      ]
+    },
+    "register:pending": {
+      "state": "pending",
+      "last": {}
+    },
+    "bind": {
+      "hash": "0x64dc1f2f522324b67b696dbfe73857bc905bfbc61ad09156a422a325164df2dd",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "applied": true
+    },
+    "retry_registration": {
+      "hash": "0x5fa15249b59c919510a89c9254467d56b790f420302185faeeafecb2e77419fc",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "applied": true,
+      "votes": {
+        "status": "ACCEPTED",
+        "result": "MAJORITY_AGREE",
+        "exec": "FINISHED_WITH_RETURN",
+        "leader": "return",
+        "rotations": "",
+        "validators": [
+          "0x062D100010fF78038BC486b1A11F7aC1E57c3186",
+          "0x10ddC763969e35a0bf38a8dd051D59c97Be1516A",
+          "0xB759250E426257d2c5e3a7bE86Be7067C81A5718",
+          "0xC0D7EcbF25061f1175D7791e3b6d91A66394d577",
+          "0xb3256B8de9F98cb8Eb990a9AA6Efd626b8Ab2af5"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "leader_output": null
+      }
+    },
+    "registered": {
+      "state": "registered",
+      "waited": 53
+    },
+    "post:no-allocation": {
+      "hash": "0xd8d349a103f449b693b73b74d6e577bdf1d6c5b54e300e6054f0b1940f5a3332",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "rollback",
+      "estimated_allocations": [
+        {
+          "messageType": 1,
+          "onAcceptance": true,
+          "parentIndex": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+          "recipient": "0x7b87b5729a72f57c4b8ed9a1dfc944774f12950d",
+          "callKey": "0x726561645f636c61696d00000000000000000000000000000000000000000000",
+          "budget": "120000000000010352",
+          "feeParams": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000006400000000000000000000000000000000000000000000000000000000000000c80000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006a94d74f430000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000011e1a3000000000000000000000000000000000000000000000000000000000011e1a30000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000003"
+        }
+      ],
+      "triggered": [],
+      "finding": "a posting sent with no fee for its message to the Reader is rolled back whole: no claim, no stake taken, nothing left open"
+    },
+    "post:budget/1000": {
+      "finding": "a posting whose message budget is cut to 1/1000 of the estimate is reverted at submission: AllocationLifecycleBudgetInsufficient (EVM tx 0x04a25fee6a4439dfa8f3d49856bf43212acad781121e99730fb608a22bf62bb5); no claim, no stake taken"
+    },
+    "first-design:post": {
+      "hash": "0x17bd814df869857374edd6c278103cda6e1a0fad31a18e035e483b0e74004ff8",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "applied": true,
+      "read_at_post": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792580827,
+        "due": 1792581427
+      }
+    },
+    "first-design:retry_claim": {
+      "hash": "0x2f07989fe6bd354d751dd75e42a9b68bdd597459a26c21b54129f65b259fd8fe",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "contract_error",
+      "applied": false,
+      "read_open_when_sent": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792580827,
+        "due": 1792581427
+      },
+      "votes": {
+        "status": "ACCEPTED",
+        "result": "MAJORITY_AGREE",
+        "exec": "FINISHED_WITH_ERROR",
+        "leader": "contract_error",
+        "rotations": "",
+        "validators": [
+          "0x5a1CEA9a6329F8e7Ca3843192c620Dab4Be3612b",
+          "0x6C2c579210c2F49968CC76786d592c02b2204b0c",
+          "0x9B266051E9030F897953e47A1513D3955A8fda3e",
+          "0xa5DAfB7fC331cc6136651a77Bae59f5442D9858D",
+          "0xa629E59C12fAfadDFB3d98DAf771B68F78dC3514"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "leader_output": null
+      }
+    },
+    "first-design:live": {
+      "state": "live",
+      "print": "fd731559c212e9e2",
+      "seq": 1,
+      "waited": 3,
+      "owed": "0",
+      "board_read": [
+        {
+          "id": "0x20f2d7b964ed628af8673e359fd8e2b6bc8a748327a446e1d46dcbf62681e288",
+          "to": "0x7b87B5729a72F57c4B8eD9A1DfC944774F12950d",
+          "status": "FINALIZED",
+          "result": "MAJORITY_AGREE",
+          "exec": "FINISHED_WITH_RETURN",
+          "leader": "return",
+          "rotations": "",
+          "validators": [
+            "0x390DF233604A2DF0078cC927a6AbE90D9CF05825",
+            "0x6C2c579210c2F49968CC76786d592c02b2204b0c",
+            "0xB759250E426257d2c5e3a7bE86Be7067C81A5718",
+            "0xa629E59C12fAfadDFB3d98DAf771B68F78dC3514",
+            "0xb3256B8de9F98cb8Eb990a9AA6Efd626b8Ab2af5"
+          ],
+          "votes": [
+            "agree",
+            "idle",
+            "agree",
+            "idle",
+            "agree"
+          ],
+          "leader_output": null
+        }
+      ]
+    },
+    "claim0:attempt": {
+      "id": 1,
+      "state_after": "live",
+      "race": "lost the race: the Board's read had reported",
+      "detail": "claim 1 was posted and seen with its read open; the fee estimate for retry_claim (a simulation of the call) was then refused four times with '[EXPECTED] no read of this claim is open', so no retry was sent. On Studio Next the Board's read reports about 47 s after the posting is sent (messages-studionext.json); the estimate for a retry runs the read itself, which leaves no time for a retry to win. Claim 1 ended live by the Board's own read."
+    }
+  },
+  "checks": [
+    {
+      "name": "the Board's read_registration was refused by the unbound Reader",
+      "ok": true,
+      "triggered": [
+        {
+          "id": "0xdeabead4d0bfeca4378c97f8dde5e71b09d7630d88d2cf3e2c0b6a7557e1377d",
+          "to": "0x7b87B5729a72F57c4B8eD9A1DfC944774F12950d",
+          "status": "ACCEPTED",
+          "result": "MAJORITY_AGREE",
+          "exec": "FINISHED_WITH_ERROR",
+          "leader": "contract_error",
+          "rotations": "",
+          "validators": [
+            "0x062D100010fF78038BC486b1A11F7aC1E57c3186",
+            "0x390DF233604A2DF0078cC927a6AbE90D9CF05825",
+            "0xB759250E426257d2c5e3a7bE86Be7067C81A5718",
+            "0xa629E59C12fAfadDFB3d98DAf771B68F78dC3514",
+            "0xb3256B8de9F98cb8Eb990a9AA6Efd626b8Ab2af5"
+          ],
+          "votes": [
+            "idle",
+            "agree",
+            "agree",
+            "agree",
+            "idle"
+          ],
+          "leader_output": null
+        }
+      ]
+    },
+    {
+      "name": "registration still pending 150s later, no read recorded",
+      "ok": true,
+      "state": "pending",
+      "last": {}
+    },
+    {
+      "name": "retry_registration by a third party: entry registered",
+      "ok": true,
+      "state": "registered",
+      "waited": 53,
+      "retry": {
+        "hash": "0x5fa15249b59c919510a89c9254467d56b790f420302185faeeafecb2e77419fc",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return",
+        "applied": true,
+        "votes": {
+          "status": "ACCEPTED",
+          "result": "MAJORITY_AGREE",
+          "exec": "FINISHED_WITH_RETURN",
+          "leader": "return",
+          "rotations": "",
+          "validators": [
+            "0x062D100010fF78038BC486b1A11F7aC1E57c3186",
+            "0x10ddC763969e35a0bf38a8dd051D59c97Be1516A",
+            "0xB759250E426257d2c5e3a7bE86Be7067C81A5718",
+            "0xC0D7EcbF25061f1175D7791e3b6d91A66394d577",
+            "0xb3256B8de9F98cb8Eb990a9AA6Efd626b8Ab2af5"
+          ],
+          "votes": [
+            "idle",
+            "agree",
+            "agree",
+            "idle",
+            "agree"
+          ],
+          "leader_output": null
+        }
+      }
+    }
+  ],
+  "reader": "0x7b87B5729a72F57c4B8eD9A1DfC944774F12950d",
+  "recorded_at": "2026-10-21T11:08:08.134Z",
+  "board": "0x7ffee411c29A0e9f141913A6950474C0b3748411",
+  "superseded": [
+    {
+      "name": "retry_claim sent while the Board's posting read was open",
+      "ok": false,
+      "read": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792580827,
+        "due": 1792581427
+      },
+      "retry": {
+        "hash": "0x2f07989fe6bd354d751dd75e42a9b68bdd597459a26c21b54129f65b259fd8fe",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "contract_error",
+        "applied": false,
+        "read_open_when_sent": {
+          "seq": 1,
+          "kind": "posting",
+          "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+          "fee": 0,
+          "at": 1792580827,
+          "due": 1792581427
+        },
+        "votes": {
+          "status": "ACCEPTED",
+          "result": "MAJORITY_AGREE",
+          "exec": "FINISHED_WITH_ERROR",
+          "leader": "contract_error",
+          "rotations": "",
+          "validators": [
+            "0x5a1CEA9a6329F8e7Ca3843192c620Dab4Be3612b",
+            "0x6C2c579210c2F49968CC76786d592c02b2204b0c",
+            "0x9B266051E9030F897953e47A1513D3955A8fda3e",
+            "0xa5DAfB7fC331cc6136651a77Bae59f5442D9858D",
+            "0xa629E59C12fAfadDFB3d98DAf771B68F78dC3514"
+          ],
+          "votes": [
+            "idle",
+            "agree",
+            "agree",
+            "agree",
+            "idle"
+          ],
+          "leader_output": null
+        }
+      },
+      "reason": "first claim-retry design: the Board's read reported before the retry ran, so the retry was refused ('[EXPECTED] no read of this claim is open', read from its stderr) and changed nothing; the check wrongly counted that as a failure. Replaced by the per-attempt checks (claim0 onward)"
+    },
+    {
+      "name": "the claim ends live, stake held, nothing refunded",
+      "ok": true,
+      "state": "live",
+      "owed": "0",
+      "held": "100000000000000000",
+      "waited": 3,
+      "reason": "first claim-retry design: the Board's read reported before the retry ran, so the retry was refused ('[EXPECTED] no read of this claim is open', read from its stderr) and changed nothing; the check wrongly counted that as a failure. Replaced by the per-attempt checks (claim0 onward)"
+    },
+    {
+      "name": "both reads agreed confirmed with the same fingerprint",
+      "ok": false,
+      "board_read": [
+        {
+          "id": "0x20f2d7b964ed628af8673e359fd8e2b6bc8a748327a446e1d46dcbf62681e288",
+          "to": "0x7b87B5729a72F57c4B8eD9A1DfC944774F12950d",
+          "status": "FINALIZED",
+          "result": "MAJORITY_AGREE",
+          "exec": "FINISHED_WITH_RETURN",
+          "leader": "return",
+          "rotations": "",
+          "validators": [
+            "0x390DF233604A2DF0078cC927a6AbE90D9CF05825",
+            "0x6C2c579210c2F49968CC76786d592c02b2204b0c",
+            "0xB759250E426257d2c5e3a7bE86Be7067C81A5718",
+            "0xa629E59C12fAfadDFB3d98DAf771B68F78dC3514",
+            "0xb3256B8de9F98cb8Eb990a9AA6Efd626b8Ab2af5"
+          ],
+          "votes": [
+            "agree",
+            "idle",
+            "agree",
+            "idle",
+            "agree"
+          ],
+          "leader_output": null
+        }
+      ],
+      "retry_output": null,
+      "print": "fd731559c212e9e2",
+      "reason": "first claim-retry design: the Board's read reported before the retry ran, so the retry was refused ('[EXPECTED] no read of this claim is open', read from its stderr) and changed nothing; the check wrongly counted that as a failure. Replaced by the per-attempt checks (claim0 onward)"
+    }
+  ],
+  "summary": {
+    "registration": "recovered by retry_registration after the Board's ask was refused (unbound Reader)",
+    "claim": "retry_claim lost the race twice (first design, and claim 1): refused with 'no read of this claim is open', nothing changed; both claims ended live by the Board's own read",
+    "fee_findings": [
+      "no message allocation: the posting is rolled back whole",
+      "message budget / 1000: the posting is reverted at submission, AllocationLifecycleBudgetInsufficient"
+    ]
+  }
+}

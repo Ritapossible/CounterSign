@@ -1,0 +1,568 @@
+{
+  "network": "studio",
+  "accounts": {
+    "deployer": "0xf1827cad7c88f02a7cad3627d7ce482a8f2d33c7",
+    "auditor": "0x3f55971f7fd2594a90871db489fbb82f1db4d747",
+    "project": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+    "keeper": "0x8aa26fa51a68c583c467463e93db0ebc10f7d509"
+  },
+  "done": {
+    "register": {
+      "hash": "0xa73230c2a557226f1f2e26e8a71a39b3e1d8b7826eb17855f42b11b1bcb28d73",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "applied": true,
+      "triggered": [
+        {
+          "id": "0x6c7f75dcf21fc15f80d90fd7e2913fb97a9f2aa63d2ba4c22bc1896d20214247",
+          "to": "0x59e49396dd7E762398e3Db1dF187D9058A4DCeB7",
+          "status": "ACCEPTED",
+          "result": "MAJORITY_AGREE",
+          "exec": null,
+          "leader": "contract_error",
+          "rotations": "",
+          "validators": [
+            "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+            "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+            "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+            "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+            "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+          ],
+          "votes": [
+            "agree",
+            "agree",
+            "agree",
+            "agree",
+            "agree"
+          ],
+          "leader_output": null
+        }
+      ]
+    },
+    "register:pending": {
+      "state": "pending",
+      "last": {}
+    },
+    "bind": {
+      "hash": "0x3620c925755b1d64fe17810b91ec6dccb5a48d1f992f421f55da1b45746740ea",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "applied": true
+    },
+    "retry_registration": {
+      "hash": "0xb04ca8a4809a6b622bfbea4f46816c253524d857187cf6af0f9fa76ea6eb4624",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "applied": true,
+      "votes": {
+        "status": "ACCEPTED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "leader": "return",
+        "rotations": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "agree",
+          "idle"
+        ],
+        "leader_output": null
+      }
+    },
+    "registered": {
+      "state": "registered",
+      "waited": 38
+    },
+    "first-design:post": {
+      "hash": "0xa54ea96ab8f91c47d47dbb852113c7fa8086d2fdad863b1017ec702de6d632ba",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "applied": true,
+      "read_at_post": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792580773,
+        "due": 1792581373
+      }
+    },
+    "first-design:retry_claim": {
+      "hash": "0x20b40a6c4e1cce63489f80bfbb01399b11640a73708886602392d45098b8b099",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "applied": true,
+      "read_open_when_sent": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792580773,
+        "due": 1792581373
+      },
+      "votes": {
+        "status": "ACCEPTED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "leader": "return",
+        "rotations": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "leader_output": null
+      }
+    },
+    "first-design:live": {
+      "state": "live",
+      "print": "fd731559c212e9e2",
+      "seq": 1,
+      "waited": 1,
+      "owed": "0",
+      "board_read": [
+        {
+          "id": "0x95f34b45aa93f777455182bbbb3b035ba21e8369584d63389da7c9b706bdc7a9",
+          "to": "0x59e49396dd7E762398e3Db1dF187D9058A4DCeB7",
+          "status": "FINALIZED",
+          "result": "MAJORITY_AGREE",
+          "exec": null,
+          "leader": "return",
+          "rotations": "",
+          "validators": [
+            "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+            "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+            "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+            "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+            "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+          ],
+          "votes": [
+            "idle",
+            "idle",
+            "agree",
+            "agree",
+            "agree"
+          ],
+          "leader_output": "{\"kind\": \"confirmed\", \"print\": \"fd731559c212e9e2\"}"
+        }
+      ]
+    },
+    "claim0": {
+      "id": 1,
+      "post": "0xa0b577fc83a14c47d5a4caf1c5848f22081a63f96691d87eea68e106e8ab547a",
+      "read_open_when_seen": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792581041,
+        "due": 1792581641
+      },
+      "retry": {
+        "hash": "0x6afd1c44d41c9c8aae48f396975c92e5e286e8e2e998dbdfe52d843a8843c112",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return",
+        "applied": true
+      }
+    },
+    "claim0:settled": {
+      "id": 1,
+      "state": "live",
+      "print": "fd731559c212e9e2",
+      "race": "retry read the page",
+      "retry_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "leader": "return",
+        "rotations": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "leader_output": "{\"kind\": \"confirmed\", \"print\": \"fd731559c212e9e2\"}"
+      },
+      "refusal": null,
+      "board_read": [
+        {
+          "id": "0xc7cd711330acff62a076417a36075c478587303f8c7033db173945f15871793c",
+          "to": "0x59e49396dd7E762398e3Db1dF187D9058A4DCeB7",
+          "status": "FINALIZED",
+          "result": "MAJORITY_AGREE",
+          "exec": null,
+          "leader": "return",
+          "rotations": "",
+          "validators": [
+            "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+            "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+            "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+            "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+            "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+          ],
+          "votes": [
+            "agree",
+            "agree",
+            "agree",
+            "idle",
+            "idle"
+          ],
+          "leader_output": "{\"kind\": \"confirmed\", \"print\": \"fd731559c212e9e2\"}"
+        }
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "the Board's read_registration was refused by the unbound Reader",
+      "ok": true,
+      "triggered": [
+        {
+          "id": "0x6c7f75dcf21fc15f80d90fd7e2913fb97a9f2aa63d2ba4c22bc1896d20214247",
+          "to": "0x59e49396dd7E762398e3Db1dF187D9058A4DCeB7",
+          "status": "ACCEPTED",
+          "result": "MAJORITY_AGREE",
+          "exec": null,
+          "leader": "contract_error",
+          "rotations": "",
+          "validators": [
+            "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+            "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+            "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+            "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+            "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+          ],
+          "votes": [
+            "agree",
+            "agree",
+            "agree",
+            "agree",
+            "agree"
+          ],
+          "leader_output": null
+        }
+      ]
+    },
+    {
+      "name": "registration still pending 150s later, no read recorded",
+      "ok": true,
+      "state": "pending",
+      "last": {}
+    },
+    {
+      "name": "retry_registration by a third party: entry registered",
+      "ok": true,
+      "state": "registered",
+      "waited": 38,
+      "retry": {
+        "hash": "0xb04ca8a4809a6b622bfbea4f46816c253524d857187cf6af0f9fa76ea6eb4624",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return",
+        "applied": true,
+        "votes": {
+          "status": "ACCEPTED",
+          "result": "MAJORITY_AGREE",
+          "exec": null,
+          "leader": "return",
+          "rotations": "",
+          "validators": [
+            "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+            "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+            "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+            "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+            "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+          ],
+          "votes": [
+            "agree",
+            "agree",
+            "idle",
+            "agree",
+            "idle"
+          ],
+          "leader_output": null
+        }
+      }
+    },
+    {
+      "name": "claim 1: live, stake held, nothing refunded",
+      "ok": true,
+      "state": "live",
+      "owed": "0",
+      "waited": 29
+    },
+    {
+      "name": "claim 1: the Board's read agreed confirmed",
+      "ok": true,
+      "board_read": [
+        {
+          "id": "0xc7cd711330acff62a076417a36075c478587303f8c7033db173945f15871793c",
+          "to": "0x59e49396dd7E762398e3Db1dF187D9058A4DCeB7",
+          "status": "FINALIZED",
+          "result": "MAJORITY_AGREE",
+          "exec": null,
+          "leader": "return",
+          "rotations": "",
+          "validators": [
+            "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+            "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+            "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+            "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+            "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+          ],
+          "votes": [
+            "agree",
+            "agree",
+            "agree",
+            "idle",
+            "idle"
+          ],
+          "leader_output": "{\"kind\": \"confirmed\", \"print\": \"fd731559c212e9e2\"}"
+        }
+      ],
+      "print": "fd731559c212e9e2"
+    },
+    {
+      "name": "claim 1: retry_claim retry read the page",
+      "ok": true,
+      "retry": {
+        "hash": "0x6afd1c44d41c9c8aae48f396975c92e5e286e8e2e998dbdfe52d843a8843c112",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return",
+        "applied": true,
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rotations": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "leader_output": "{\"kind\": \"confirmed\", \"print\": \"fd731559c212e9e2\"}",
+        "refusal": null
+      }
+    }
+  ],
+  "reader": "0x59e49396dd7E762398e3Db1dF187D9058A4DCeB7",
+  "recorded_at": "2026-10-21T11:11:27.560Z",
+  "board": "0xA01006ABd7Fc66A8dC2cB07964df3532E9A0B509",
+  "superseded": [
+    {
+      "name": "retry_claim sent while the Board's posting read was open",
+      "ok": true,
+      "read": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792580773,
+        "due": 1792581373
+      },
+      "retry": {
+        "hash": "0x20b40a6c4e1cce63489f80bfbb01399b11640a73708886602392d45098b8b099",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return",
+        "applied": true,
+        "read_open_when_sent": {
+          "seq": 1,
+          "kind": "posting",
+          "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+          "fee": 0,
+          "at": 1792580773,
+          "due": 1792581373
+        },
+        "votes": {
+          "status": "ACCEPTED",
+          "result": "MAJORITY_AGREE",
+          "exec": null,
+          "leader": "return",
+          "rotations": "",
+          "validators": [
+            "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+            "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+            "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+            "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+            "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05"
+          ],
+          "votes": [
+            "idle",
+            "agree",
+            "agree",
+            "idle",
+            "agree"
+          ],
+          "leader_output": null
+        }
+      },
+      "reason": "the script read the leader's output from eqBlocksOutputs, which Studio does not return (it keeps it in leader_receipt.eq_outputs), so both outputs read as null; the claim had ended live with the stake held. The step was rerun with the output read from the receipt."
+    },
+    {
+      "name": "the claim ends live, stake held, nothing refunded",
+      "ok": true,
+      "state": "live",
+      "owed": "0",
+      "held": "100000000000000000",
+      "waited": 38,
+      "reason": "the script read the leader's output from eqBlocksOutputs, which Studio does not return (it keeps it in leader_receipt.eq_outputs), so both outputs read as null; the claim had ended live with the stake held. The step was rerun with the output read from the receipt."
+    },
+    {
+      "name": "both reads agreed confirmed with the same fingerprint",
+      "ok": false,
+      "board_read": [
+        {
+          "id": "0x95f34b45aa93f777455182bbbb3b035ba21e8369584d63389da7c9b706bdc7a9",
+          "to": "0x59e49396dd7E762398e3Db1dF187D9058A4DCeB7",
+          "status": "FINALIZED",
+          "result": "MAJORITY_AGREE",
+          "exec": null,
+          "leader": "return",
+          "rotations": "",
+          "validators": [
+            "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+            "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+            "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+            "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+            "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+          ],
+          "votes": [
+            "idle",
+            "idle",
+            "agree",
+            "agree",
+            "agree"
+          ],
+          "leader_output": null
+        }
+      ],
+      "retry_output": null,
+      "print": "fd731559c212e9e2",
+      "reason": "the script read the leader's output from eqBlocksOutputs, which Studio does not return (it keeps it in leader_receipt.eq_outputs), so both outputs read as null; the claim had ended live with the stake held. The step was rerun with the output read from the receipt."
+    },
+    {
+      "name": "retry_claim sent while the Board's posting read was open",
+      "ok": true,
+      "read": {
+        "seq": 1,
+        "kind": "posting",
+        "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+        "fee": 0,
+        "at": 1792580773,
+        "due": 1792581373
+      },
+      "retry": {
+        "hash": "0x20b40a6c4e1cce63489f80bfbb01399b11640a73708886602392d45098b8b099",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return",
+        "applied": true,
+        "read_open_when_sent": {
+          "seq": 1,
+          "kind": "posting",
+          "caller": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+          "fee": 0,
+          "at": 1792580773,
+          "due": 1792581373
+        },
+        "votes": {
+          "status": "ACCEPTED",
+          "result": "MAJORITY_AGREE",
+          "exec": null,
+          "leader": "return",
+          "rotations": "",
+          "validators": [
+            "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+            "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+            "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+            "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+            "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05"
+          ],
+          "votes": [
+            "idle",
+            "agree",
+            "agree",
+            "idle",
+            "agree"
+          ],
+          "leader_output": null
+        }
+      },
+      "reason": "first claim-retry design: the retry's output was read from eqBlocksOutputs, which Studio does not return, so it read as null; replaced by the per-attempt checks (claim0 onward) on the same contracts"
+    },
+    {
+      "name": "the claim ends live, stake held, nothing refunded",
+      "ok": true,
+      "state": "live",
+      "owed": "0",
+      "held": "100000000000000000",
+      "waited": 1,
+      "reason": "first claim-retry design: the retry's output was read from eqBlocksOutputs, which Studio does not return, so it read as null; replaced by the per-attempt checks (claim0 onward) on the same contracts"
+    },
+    {
+      "name": "both reads agreed confirmed with the same fingerprint",
+      "ok": false,
+      "board_read": [
+        {
+          "id": "0x95f34b45aa93f777455182bbbb3b035ba21e8369584d63389da7c9b706bdc7a9",
+          "to": "0x59e49396dd7E762398e3Db1dF187D9058A4DCeB7",
+          "status": "FINALIZED",
+          "result": "MAJORITY_AGREE",
+          "exec": null,
+          "leader": "return",
+          "rotations": "",
+          "validators": [
+            "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+            "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+            "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+            "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+            "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+          ],
+          "votes": [
+            "idle",
+            "idle",
+            "agree",
+            "agree",
+            "agree"
+          ],
+          "leader_output": "{\"kind\": \"confirmed\", \"print\": \"fd731559c212e9e2\"}"
+        }
+      ],
+      "retry_output": null,
+      "print": "fd731559c212e9e2",
+      "reason": "first claim-retry design: the retry's output was read from eqBlocksOutputs, which Studio does not return, so it read as null; replaced by the per-attempt checks (claim0 onward) on the same contracts"
+    }
+  ]
+}

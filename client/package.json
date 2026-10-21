@@ -1,0 +1,13 @@
+{
+  "name": "countersign-client",
+  "private": true,
+  "type": "module",
+  "main": "countersign.mjs",
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "genlayer-js": "2.0.0-rc.2",
+    "genlayer-js-v1": "npm:genlayer-js@1.1.8"
+  }
+}

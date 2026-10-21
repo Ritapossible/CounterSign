@@ -281,6 +281,23 @@ contracts, and are kept under `superseded`: the collect check ignored the fee
 the payee pays to send `collect` (the Board paid exactly 0.09 GEN; the wallet
 rose by 0.08987), and a hand-edited record counted one collect twice.
 
+**Retry check** (`deploy/retry_check.mjs`, same build, records
+`deploy/retry-{studio,studionext}.json`, code verified):
+
+- a registration whose Board read was refused (Reader not yet bound) was
+  recovered by a third party's `retry_registration` on both networks;
+- on Studio a `retry_claim` sent during the posting read agreed `confirmed`
+  with the Board's fingerprint, and the claim ended live with the stake held;
+- on Studio Next the retry lost the race to the Board's read both times and
+  was refused ("no read of this claim is open"), changing nothing.
+
+A Board-triggered claim read that failed and was then recovered has **not**
+been shown; Studio Next refuses an underfunded message up front, so it
+cannot be provoked there (THREAT-MODEL T21). On Bradbury, if a
+Board-triggered read disagrees, the record must show the retry's votes and
+the claim ending live, not refunded. An agreed false `silent` at posting is
+not retryable (T22, open).
+
 Bradbury was reset for Phase 2 (announcement of 21 October): unavailable
 until Epoch Zero ends on 22 October, fees on, new RPC and consensus
 contracts. `deploy/lib.mjs` already targets it with fees. The run on the old

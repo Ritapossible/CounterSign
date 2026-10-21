@@ -182,3 +182,31 @@ the last resort, after the read's deadline.
 **Test.** `test_a_posting_read_that_did_not_agree_is_retried_by_anyone`,
 `test_a_recheck_read_that_did_not_agree_is_retried`,
 `test_a_registration_read_that_did_not_agree_is_retried`.
+**On chain** (`deploy/retry_check.mjs`, build `991d8c1`, records
+`deploy/retry-studio.json` and `deploy/retry-studionext.json`):
+- registration, Studio and Studio Next: the Board's `read_registration` was
+  refused (the Reader was not bound yet), the entry stayed pending, and a
+  third party's `retry_registration` registered it.
+- claim, Studio: a third party's `retry_claim`, sent while the Board's
+  posting read was open, read the page itself and agreed `confirmed` with the
+  Board's fingerprint; the claim ended live with its stake held.
+- claim, Studio Next: the retry lost the race twice. The Board's read
+  reported first, and the retry was refused with "no read of this claim is
+  open"; nothing changed.
+**Not shown yet.** A Board-triggered *claim* read that actually failed and
+was then recovered by a retry. No way was found to make one fail on demand:
+on Studio Next a posting with no fee for its message is rolled back whole,
+and one with too small a fee is reverted at submission
+(`AllocationLifecycleBudgetInsufficient`). That has to be seen on Bradbury,
+where claim 5 happened.
+
+## T22 - Validators agree on a false `silent` at posting (open)
+
+**Accident.** If every validator's fetch fails the same way (the host is
+down, or blocks the validators' addresses), they agree `silent` on a page
+that does confirm the claim. The posting is refused and the stake returned.
+The read is closed, so `retry_claim` cannot be called; the project has to
+post again. A retry only helps when a round does *not* agree.
+**Status.** Open design question: accept it (the project loses nothing but
+the transaction fee and posts again) and say so, or keep a refused posting
+retryable for a short window. Not decided.
