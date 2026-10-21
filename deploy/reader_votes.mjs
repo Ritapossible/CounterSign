@@ -25,6 +25,10 @@ const votes = (t) => ({
   exec: t.txExecutionResultName ?? null, rounds: String(t.numOfRounds ?? ""),
   validators: t.lastRound?.roundValidators ?? Object.keys(t.consensus_data?.votes ?? {}),
   votes: t.lastRound?.validatorVotes ?? Object.values(t.consensus_data?.votes ?? {}),
+  // Vote codes (genlayer-js VoteType): 0 not voted, 1 agree, 2 disagree, 3 timeout, 4 deterministic violation.
+  rotations: String(t.initialRotations ?? ""),
+  leader_output: (() => { const o = Buffer.from(String(t.eqBlocksOutputs || "").replace(/^0x/, ""), "hex").toString("latin1"); return o.slice(o.indexOf("{"), o.lastIndexOf("}") + 1) || null; })(),
+  validator_results: t.lastRound?.validatorResultHash ?? null,
 });
 
 // Every Board transaction in the record that asks the Reader for a read.

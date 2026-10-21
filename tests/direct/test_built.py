@@ -90,7 +90,7 @@ def test_it_fits_bradburys_gas_cap(pair):
 
 
 def test_the_fetch_is_inline_in_every_closure(reader):
-    for name in ("read_registration", "read_claim"):
+    for name in ("_read_registration", "_read_claim"):
         _body, leader, validator = closures(reader, name)
         for closure in (leader, validator):
             assert "gl.nondet.web.get(uri)" in closure
@@ -99,18 +99,18 @@ def test_the_fetch_is_inline_in_every_closure(reader):
 
 
 def test_registration_runs_no_model_and_a_claim_asks_only_when_code_says_so(reader):
-    _body, leader, validator = closures(reader, "read_registration")
+    _body, leader, validator = closures(reader, "_read_registration")
     assert "exec_prompt" not in leader and "exec_prompt" not in validator
-    _body, leader, validator = closures(reader, "read_claim")
+    _body, leader, validator = closures(reader, "_read_claim")
     for closure in (leader, validator):
         assert closure.count("exec_prompt") == 1
         assert "if _kind == ASK_JURY:" in closure[: closure.index("exec_prompt")]
 
 
 def test_validators_compare_the_outcome_and_the_fingerprint(reader):
-    _body, _leader, validator = closures(reader, "read_registration")
+    _body, _leader, validator = closures(reader, "_read_registration")
     assert 'as_dict(leader_result).get("ok") is _ok' in validator
-    _body, _leader, validator = closures(reader, "read_claim")
+    _body, _leader, validator = closures(reader, "_read_claim")
     assert 'if str(_theirs.get("print", "")) != _r["print"]:' in validator
     assert 'return str(_theirs.get("kind", "")) == _kind' in validator
 
@@ -147,3 +147,14 @@ def test_no_credit_names_the_auditor(board):
     for name in ("note_registration", "register"):
         assert "_pay(" not in method(board, name)
     assert '"signer"' not in method(board, "_pay")
+
+
+def test_a_retry_takes_only_an_id_and_reads_everything_else_from_the_board(reader):
+    for name, args in (("retry_registration", "(self, auditor_id: int)"), ("retry_claim", "(self, claim_id: int)")):
+        body = method(reader, name)
+        assert body.startswith("    def %s%s" % (name, args)), name
+        assert "self._board().get_" in body and "_from_board" not in body
+    assert "self._from_board()" in method(reader, "read_registration") and "self._from_board()" in method(reader, "read_claim")
+    # Only the private methods read a page; the public ones only gather the inputs.
+    for name in ("read_registration", "read_claim", "retry_registration", "retry_claim"):
+        assert "run_nondet" not in method(reader, name), name

@@ -3,9 +3,20 @@
 Built by ``deploy/build_contract.py`` into ``contracts/build/countersign_reader.py``
 (and ``.min.py``, the bytes deployed). Do not edit the build.
 
-It holds no GEN and decides nobody's pay. It reads only what its Board asks
-for, with the arguments the Board sends: anyone else calling it is refused,
-so nobody can have it read a page of their choosing and report the result.
+It holds no GEN and decides nobody's pay. A read starts in one of two ways:
+
+- the Board asks for it by message (``read_registration``, ``read_claim``)
+  with the arguments it holds; anyone else calling those is refused;
+- anyone retries a read that has not reported (``retry_registration``,
+  ``retry_claim``). A retry takes only an id and reads the page URL, the
+  passage and the open read from the Board's own records, so nobody can have
+  the Reader read a page of their choosing.
+
+Why retries exist (measured on Bradbury): a transaction a contract triggers
+by message starts with no leader rotations, so one leader whose fetch fails
+ends the read; a retry is an ordinary transaction and gets the network's
+rotations. The Board never reads the Reader; the Reader reads the Board.
+
 It reports to the Board by messages sent **on finality**, so an appealed
 read reaches the Board once, with its final outcome.
 
@@ -51,9 +62,26 @@ class CounterSignReader(gl.Contract):
         if not self.board or str(gl.message.sender_address).lower() != self.board:
             raise Exception("[EXPECTED] only the Board asks for reads")
 
+    def _board(self):
+        return gl.get_contract_at(Address(self.board)).view()
+
     @gl.public.write
     def read_registration(self, auditor_id: int, url: str, sample: str) -> None:
         self._from_board()
+        self._read_registration(int(auditor_id), str(url), str(sample))
+
+    @gl.public.write
+    def retry_registration(self, auditor_id: int) -> None:
+        """Anyone reads again the page of a registration still pending, from
+        the Board's record of it."""
+        if not self.board:
+            raise Exception("[EXPECTED] the Reader is not bound")
+        a = json.loads(str(self._board().get_auditor(int(auditor_id))))
+        if a["state"] != AUDITOR_PENDING:
+            raise Exception("[EXPECTED] the registration is not pending")
+        self._read_registration(int(auditor_id), str(a["url"]), str(a["sample"]))
+
+    def _read_registration(self, auditor_id: int, url: str, sample: str) -> None:
         uri = str(url)
         row = str(sample)
 
@@ -86,6 +114,26 @@ class CounterSignReader(gl.Contract):
     def read_claim(self, claim_id: int, seq: int, posting: bool, url: str, auditor: str, subject: str,
                    scope_json: str, passage: str, stored_print: str) -> None:
         self._from_board()
+        self._read_claim(int(claim_id), int(seq), bool(posting), str(url), str(auditor), str(subject),
+                         str(scope_json), str(passage), str(stored_print))
+
+    @gl.public.write
+    def retry_claim(self, claim_id: int) -> None:
+        """Anyone reads again the page of a claim whose read is open, from the
+        Board's records: the auditor's URL, the claim's fields, the open read's
+        number and kind, and the stored fingerprint."""
+        if not self.board:
+            raise Exception("[EXPECTED] the Reader is not bound")
+        c = json.loads(str(self._board().get_claim(int(claim_id))))
+        read = c.get("read")
+        if not read:
+            raise Exception("[EXPECTED] no read of this claim is open")
+        a = json.loads(str(self._board().get_auditor(int(c["auditor"]))))
+        self._read_claim(int(claim_id), int(read["seq"]), read["kind"] == POSTING, str(a["url"]), str(a["name"]),
+                         str(c["subject"]), json.dumps(c["scope"]), str(c["passage"]), str(c["print"]))
+
+    def _read_claim(self, claim_id: int, seq: int, posting: bool, url: str, auditor: str, subject: str,
+                    scope_json: str, passage: str, stored_print: str) -> None:
         uri = str(url)
         at_posting = bool(posting)
         name = str(auditor)

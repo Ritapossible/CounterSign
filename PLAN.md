@@ -224,10 +224,10 @@ table runs again on Studio (record `deploy/scenario-studio.json`) and on
 Bradbury with the same build, and both are verified against it.
 
 **Studio result, this build** (`df56bdb`; Board `0xE83Fc81f4ece5917097947E0cE8612eaCfb07fe4`, Reader `0x5A41363301d9153362d6400c121A6155a9af54bC`;
-record `deploy/scenario-studio.json`): **94 checks, 0 failed**, every case
+record `deploy/scenario-studio-v2.json`): **94 checks, 0 failed**, every case
 three times, re-checks sent in batches with the money checked per batch.
 `deploy/verify_code.mjs df56bdb deploy/scenario-studio.json`: both
-contracts match. Per-validator votes (`deploy/scenario-studio-votes.json`):
+contracts match. Per-validator votes (`deploy/scenario-studio-v2-votes.json`):
 90 requests, 84 Reader reads, every one agreed; the other 6 were refused by
 the Board before any read (3 postings with a scope string missing, 3
 re-checks of a pending claim), so no Reader transaction exists for them.
@@ -247,17 +247,27 @@ re-checks of a pending claim), so no Reader transaction exists for them.
 - [ ] `deploy/verify_code.mjs` proves each deployed contract is the
       committed build.
 
-Status (21 October, 02:20 UTC): the Bradbury table is running on Board
-`0x1D8C1A82194e3bc4C88EF4EcA0708cF4A2900993`, Reader
-`0x2c3c7eBa22B212231B279Cc2c0CEBf72fe127561`, build `df56bdb`. Bradbury
-stopped producing blocks for about 50 minutes (20:30-21:20 UTC). Since then
-18 of 27 registrations are on chain and decided (14 registered, 4 refused,
-each on its right page), but r3's first registration
-(`0xffc39d0e7b2e02730c59f7c91480eff319734efc95f889af12a791c9cd42f1c6`),
-FINALIZED with 4 agree and 1 timeout, has not appeared in the Board's state
-for over three hours, read as final or non-final. A supervisor restarts the
-run, which resends nothing, until it does. The first Bradbury attempt is
-kept as `deploy/scenario-bradbury-aborted.json` (stale ids; see its note).
+Bradbury attempts so far, none a result:
+
+- `deploy/scenario-bradbury-aborted.json` (build `df56bdb`): stale ids sent
+  three cases to the wrong pages. It also holds claim 5: a posting read on a
+  clean page where the leader returned `silent` and all five validators
+  voted DETERMINISTIC_VIOLATION (`deploy/claim5-disagree.json`). Reads the
+  Board triggers by message start with no leader rotations.
+- `deploy/scenario-bradbury-v2-partial.json` (build `df56bdb`, ids by
+  content): 21 registrations through a 50-minute Bradbury outage and one
+  registration that finalized but never reached the Board's state (kept
+  under `never_applied`, resubmitted). Stopped for the fix below.
+
+**Fix (fourth build):** anyone may retry a read that has not reported
+(`retry_claim`, `retry_registration`), with every input taken from the
+Board's views (THREAT-MODEL T20, T21). The scenario retries a read the
+Reader holds no record of, records each failed read with its retry's votes
+and leader output, and expires only past the deadline. 198 tests, 80
+mutants killed. Studio and Bradbury run again on this build.
+
+**Done only when** a clean Bradbury posting agrees and the whole table
+finishes there with 0 failed checks.
 
 **Done when** the Bradbury record has 0 failed checks and the code check
 passes.

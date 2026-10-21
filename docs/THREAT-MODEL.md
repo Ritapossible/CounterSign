@@ -163,7 +163,22 @@ who did the same work: `down` is terminal, the reward is a fifth of
 
 **Attack.** Call the Reader directly with a forged URL or passage, so it
 reports `confirmed` for a claim.
-**Defence.** The Reader is bound once to its Board and refuses reads anyone
-else asks for; the Board sends the auditor's pinned URL and the claim's
-recorded fields.
-**Test.** `test_only_the_reader_reports_and_only_the_board_asks`.
+**Defence.** The Reader is bound once to its Board and refuses read
+messages from anyone else. A retry, which anyone may send, takes only an id
+and reads the auditor's pinned URL and the claim's recorded fields from the
+Board's views.
+**Test.** `test_only_the_reader_reports_and_only_the_board_asks`,
+`test_a_retry_reads_the_boards_page_and_passage_not_the_callers`.
+
+## T21 - One leader's failed fetch ends a read
+
+**Accident (measured on Bradbury).** A read the Board triggers by message
+starts with no leader rotations. Claim 5's leader returned `silent` on a
+clean page; all five validators read it and voted DETERMINISTIC_VIOLATION;
+nothing was reported.
+**Defence.** Anyone retries the read (`retry_claim`, `retry_registration`)
+as an ordinary transaction, which the network rotates. Expiry as silent is
+the last resort, after the read's deadline.
+**Test.** `test_a_posting_read_that_did_not_agree_is_retried_by_anyone`,
+`test_a_recheck_read_that_did_not_agree_is_retried`,
+`test_a_registration_read_that_did_not_agree_is_retried`.

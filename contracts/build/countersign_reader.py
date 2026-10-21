@@ -787,9 +787,26 @@ class CounterSignReader(gl.Contract):
         if not self.board or str(gl.message.sender_address).lower() != self.board:
             raise Exception("[EXPECTED] only the Board asks for reads")
 
+    def _board(self):
+        return gl.get_contract_at(Address(self.board)).view()
+
     @gl.public.write
     def read_registration(self, auditor_id: int, url: str, sample: str) -> None:
         self._from_board()
+        self._read_registration(int(auditor_id), str(url), str(sample))
+
+    @gl.public.write
+    def retry_registration(self, auditor_id: int) -> None:
+        """Anyone reads again the page of a registration still pending, from
+        the Board's record of it."""
+        if not self.board:
+            raise Exception("[EXPECTED] the Reader is not bound")
+        a = json.loads(str(self._board().get_auditor(int(auditor_id))))
+        if a["state"] != AUDITOR_PENDING:
+            raise Exception("[EXPECTED] the registration is not pending")
+        self._read_registration(int(auditor_id), str(a["url"]), str(a["sample"]))
+
+    def _read_registration(self, auditor_id: int, url: str, sample: str) -> None:
         uri = str(url)
         row = str(sample)
 
@@ -822,6 +839,26 @@ class CounterSignReader(gl.Contract):
     def read_claim(self, claim_id: int, seq: int, posting: bool, url: str, auditor: str, subject: str,
                    scope_json: str, passage: str, stored_print: str) -> None:
         self._from_board()
+        self._read_claim(int(claim_id), int(seq), bool(posting), str(url), str(auditor), str(subject),
+                         str(scope_json), str(passage), str(stored_print))
+
+    @gl.public.write
+    def retry_claim(self, claim_id: int) -> None:
+        """Anyone reads again the page of a claim whose read is open, from the
+        Board's records: the auditor's URL, the claim's fields, the open read's
+        number and kind, and the stored fingerprint."""
+        if not self.board:
+            raise Exception("[EXPECTED] the Reader is not bound")
+        c = json.loads(str(self._board().get_claim(int(claim_id))))
+        read = c.get("read")
+        if not read:
+            raise Exception("[EXPECTED] no read of this claim is open")
+        a = json.loads(str(self._board().get_auditor(int(c["auditor"]))))
+        self._read_claim(int(claim_id), int(read["seq"]), read["kind"] == POSTING, str(a["url"]), str(a["name"]),
+                         str(c["subject"]), json.dumps(c["scope"]), str(c["passage"]), str(c["print"]))
+
+    def _read_claim(self, claim_id: int, seq: int, posting: bool, url: str, auditor: str, subject: str,
+                    scope_json: str, passage: str, stored_print: str) -> None:
         uri = str(url)
         at_posting = bool(posting)
         name = str(auditor)

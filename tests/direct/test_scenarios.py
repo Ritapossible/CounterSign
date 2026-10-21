@@ -319,3 +319,88 @@ def test_no_path_pays_the_auditor(net):
         net.books_balance()
     states = {net.claim(i)["state"] for i in range(net.status()["claims"])}
     assert len(states) >= 3, states
+
+
+# ------------------------------------------- retries (measured on Bradbury)
+# A read the Board triggers by message gets no leader rotations; when its
+# validators do not agree it reports nothing. Anyone may then retry it as an
+# ordinary transaction, with every input taken from the Board's records.
+
+def test_a_posting_read_that_did_not_agree_is_retried_by_anyone(net):
+    net.register()
+    pages = iter([audit_page(), audit_page(ROWS[1:])])
+    net.rt.web[PAGE] = lambda: next(pages)  # leader and validator disagree once
+    cid = net.post()
+    assert net.claim(cid)["state"] == "pending"
+    net.rt.web[PAGE] = audit_page()
+    net.call("retry_claim", cid, sender=OTHER, to=READER)
+    c = net.claim(cid)
+    assert c["state"] == "live" and c["read"] is None and c["seq"] == 1
+    assert net.rt.prompts_seen == []  # retried as a posting, the clean row needs no model
+    assert net.owed(OTHER) == 0  # retrying pays nothing and costs nothing but gas
+
+
+def test_a_retried_recheck_of_an_unchanged_page_asks_no_model(net):
+    cid = net.live()
+    pages = iter([audit_page(), audit_page(ROWS[1:])])
+    net.rt.web[PAGE] = lambda: next(pages)
+    net.recheck(cid)
+    net.rt.web[PAGE] = audit_page()
+    net.call("retry_claim", cid, sender=OTHER, to=READER)
+    assert net.claim(cid)["state"] == "live" and net.rt.prompts_seen == []  # the stored fingerprint matched
+    net.books_balance()
+
+
+def test_a_recheck_read_that_did_not_agree_is_retried(net):
+    cid = net.live()
+    pages = iter([audit_page(), audit_page(ROWS[1:])])
+    net.rt.web[PAGE] = lambda: next(pages)
+    net.recheck(cid)
+    assert net.claim(cid)["read"] is not None
+    net.rt.web[PAGE] = audit_page(extra={"Acme Lending": " - this audit has been withdrawn"})
+    net.call("retry_claim", cid, sender=OTHER, to=READER)
+    c = net.claim(cid)
+    assert c["state"] == "down" and net.owed(KEEPER) == REWARD + FEE  # the reward goes to the re-check's caller
+    assert net.owed(OTHER) == 0
+
+
+def test_a_registration_read_that_did_not_agree_is_retried(net):
+    pages = iter([audit_page(), audit_page(ROWS[1:])])
+    net.rt.web[PAGE] = lambda: next(pages)
+    net.register()
+    assert net.auditor()["state"] == "pending"
+    net.rt.web[PAGE] = audit_page()
+    net.call("retry_registration", 0, sender=OTHER, to=READER)
+    assert net.auditor()["state"] == "registered"
+    with pytest.raises(Exception):
+        net.call("retry_registration", 0, sender=OTHER, to=READER)  # decided
+
+
+def test_a_retry_needs_an_open_read(net):
+    cid = net.live()
+    with pytest.raises(Exception):
+        net.call("retry_claim", cid, sender=OTHER, to=READER)
+    with pytest.raises(Exception):
+        net.call("retry_claim", 99, sender=OTHER, to=READER)
+
+
+def test_a_retry_reads_the_boards_page_and_passage_not_the_callers(net):
+    net.register()
+    pages = iter([audit_page(), audit_page(ROWS[1:])])
+    net.rt.web[PAGE] = lambda: next(pages)
+    cid = net.post()
+    # The auditor's page now lacks the row; a caller cannot point the retry anywhere else.
+    net.rt.web[PAGE] = audit_page(ROWS[1:])
+    net.rt.web["https://forged.example/page"] = audit_page()
+    with pytest.raises(TypeError):
+        net.call("retry_claim", cid, "https://forged.example/page", sender=OTHER, to=READER)
+    net.call("retry_claim", cid, sender=OTHER, to=READER)
+    assert net.claim(cid)["state"] == "refused"  # silent on the auditor's own page
+
+
+def test_a_late_report_after_a_retry_is_ignored(net):
+    cid = net.live()
+    net.recheck(cid)  # the Board's read reports at once in the stand-in: confirmed, fee to project
+    assert net.owed(PROJECT) == FEE
+    net.call("note_claim", cid, 2, "denied", "", sender=READER)  # the same read again
+    assert net.claim(cid)["state"] == "live" and net.owed(PROJECT) == FEE

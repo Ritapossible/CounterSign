@@ -6,8 +6,8 @@ editing a page they control.**
 
 > Status: **contracts built and tested off chain; not deployed.** The
 > Phase 1 probe of real audit pages on Studio and Bradbury is in
-> [deploy/probes/](deploy/probes/). The Board and Reader contracts pass 183
-> tests (every contract scenario runs on the deployed bytes too) and kill 76
+> [deploy/probes/](deploy/probes/). The Board and Reader contracts pass 198
+> tests (every contract scenario runs on the deployed bytes too) and kill 80
 > mutants. Nothing here should be read as measured on chain until
 > [PLAN.md](PLAN.md) marks it done with evidence.
 

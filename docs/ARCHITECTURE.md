@@ -21,8 +21,17 @@ and an appeal can leave a contract unreadable. So:
 - the Board asks the Reader to read by message (`read_registration`,
   `read_claim`) carrying everything the read needs: page URL, passage,
   subject, scope and stored fingerprint. The Reader is bound once to its
-  Board and refuses a read anyone else asks for, so nobody can have it read
-  a page of their choosing and report the result;
+  Board and refuses those messages from anyone else;
+- anyone may **retry** a read that has not reported (`retry_claim`,
+  `retry_registration`). A retry takes only an id; the Reader reads the
+  auditor's URL, the claim's fields, the open read's number and kind and the
+  stored fingerprint from the Board's own views, so nobody can have it read a
+  page of their choosing. The Reader reads the Board; the Board never reads
+  the Reader. Measured on Bradbury: a transaction a contract triggers by
+  message starts with no leader rotations, so one leader whose fetch fails
+  ends the read (claim 5: the leader returned `silent` on a clean page, all
+  five validators voted DETERMINISTIC_VIOLATION). A retry is an ordinary
+  transaction and gets the network's rotations;
 - every payout is the Board's own arithmetic on its own records. The Board
   never reads the Reader's state.
 
@@ -73,7 +82,8 @@ deployment). A report applies only to the read that is open, with its
 number; a late, replayed or out-of-order report is ignored. A read with no
 report by its deadline is closed by anyone calling `expire` and counts as
 `silent`: validators that cannot agree report nothing, so disagreement and
-an unreachable page end the same way.
+an unreachable page end the same way. Before the deadline, a read that
+failed is retried (above); expiry is the last resort.
 
 Unlike RedLine, a report is never replaced: the Reader reports on finality,
 so an appeal is settled before the Board sees the outcome. On Bradbury that

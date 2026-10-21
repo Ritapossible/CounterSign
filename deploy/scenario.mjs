@@ -95,23 +95,68 @@ async function settle(id, ok, label) {
   return { claim: value, waited };
 }
 
+/** What a Reader transaction shows: status, votes, and the leader's output. */
+async function readerTx(hash) {
+  const t = await C.deployer.getTransaction({ hash }).catch(() => null);
+  if (!t) return { hash };
+  const hex = String(t.eqBlocksOutputs || "").replace(/^0x/, "");
+  const out = Buffer.from(hex, "hex").toString("latin1");
+  return {
+    hash, status: t.statusName ?? t.status_name, result: t.resultName ?? t.result_name,
+    votes: t.lastRound?.validatorVotes ?? Object.values(t.consensus_data?.votes ?? {}),
+    rotations: String(t.initialRotations ?? ""), leader_output: out.slice(out.indexOf("{"), out.lastIndexOf("}") + 1) || null,
+  };
+}
+
 /**
- * Wait for a read's report. A read that never reports (validators did not
- * agree, or the round never completed) is closed the way the design says:
- * once its deadline has passed, anyone calls `expire` and it counts as
- * silent. The expiry is recorded as an event, never hidden.
+ * Wait for a read to report. A read the Board triggers by message gets no
+ * leader rotations (measured on Bradbury: one leader's failed fetch ended
+ * claim 5's read). So when the Reader holds no record of the open read after
+ * a grace period, the read failed: anyone retries it with an ordinary
+ * transaction, which the network rotates. Every failed read and every retry
+ * is recorded. ``kind``: "claim" or "auditor".
+ */
+async function awaitRead(kind, id, done, label) {
+  const get = kind === "claim" ? claim : auditor;
+  const key = (kind === "claim" ? "c:" : "a:") + id;
+  const grace = STUDIO ? 120 : 900;
+  const retries = [];
+  const t0 = Date.now();
+  for (;;) {
+    const { value: x } = await readUntil(() => get(id), done, { seconds: grace, every: 8 });
+    if (done(x)) return { value: x, retries, waited: Math.round((Date.now() - t0) / 1000) };
+    if (kind === "claim" && (!x.read || x.now > x.read.due)) return { value: x, retries, late: true };
+    if ((Date.now() - t0) / 1000 > REPORT_WAIT) return { value: x, retries, gaveUp: true };
+    const last = await readView(C.deployer, rec.reader, "last_read", [key]).catch(() => ({}));
+    const recorded = kind === "claim" ? last && last.seq === x.read.seq : last && "ok" in last;
+    if (recorded) continue; // the read happened; its report lands at finality
+    if (retries.length >= 3) continue; // three retries failed: wait for the deadline
+    const t = await sendTx(C.keeper2, rec.reader, kind === "claim" ? "retry_claim" : "retry_registration", [id], `retry ${key}`);
+    const info = await readerTx(t.hash);
+    retries.push({ ...info, consensus: t.consensus, leader: t.leader, at: Math.floor(Date.now() / 1000) });
+    rec.failed_reads = [...(rec.failed_reads || []), { key, label, read: kind === "claim" ? x.read : null, retry: retries.at(-1) }];
+    save();
+    console.log(`  ${label}: the Reader holds no record of the read; retried -> ${t.consensus} ${info.result ?? ""}`);
+  }
+}
+
+/**
+ * Wait for a read's report, retrying a read that failed. A read with no
+ * agreed report by its deadline is closed the way the design says: anyone
+ * calls `expire` and it counts as silent. The expiry is recorded as an
+ * event, never hidden.
  */
 async function settleOrExpire(id, ok, label) {
-  const late = (c) => c.read && c.now > c.read.due + 30;
-  const { claim: c0, waited } = await settle(id, (c) => ok(c) || late(c), label);
-  if (ok(c0) || !late(c0)) return { claim: c0, waited };
+  const { value: c0, waited, retries, late } = await awaitRead("claim", id, ok, label);
+  console.log(`  ${label}: ${c0.state}${late ? " (deadline passed)" : ""}`);
+  if (ok(c0) || !late || !c0.read) return { claim: c0, waited, retries };
   const t = await tx("keeper2", "expire", [id], `expire claim ${id}`);
   const { value: c } = await readUntil(() => claim(id), (c) => !c.read, { seconds: 600, every: 6 });
   const event = { id, label, read: c0.read, expire: t, state_after: c.state, misses_after: c.misses, why: c.why };
-  rec.expired = [...(rec.expired || []), event];
+  rec.expired = [...(rec.expired || []), { ...event, retries }];
   save();
   console.log(`  ${label}: no report by the deadline; expired -> ${c.state}`);
-  return { claim: c, waited, expired: event };
+  return { claim: c, waited, expired: event, retries };
 }
 
 function git(...args) {
@@ -199,9 +244,9 @@ for (let r = 1; r <= RUNS; r++) {
   for (const [name, , , expected] of ENTRIES) {
     await once(`r${r}:registered:${name}`, async () => {
       const id = rec.done[`r${r}:register:${name}`].id;
-      const { value, waited } = await readUntil(() => auditor(id), (a) => a.state !== "pending", { seconds: REPORT_WAIT, every: 6 });
-      check(`r${r} register ${name}: ${expected}`, value.state === expected, { id, state: value.state, waited });
-      return { state: value.state, waited };
+      const { value, waited, retries } = await awaitRead("auditor", id, (a) => a.state !== "pending", `r${r} register ${name}`);
+      check(`r${r} register ${name}: ${expected}`, value.state === expected, { id, state: value.state, waited, retries });
+      return { state: value.state, waited, retries };
     });
   }
 }
