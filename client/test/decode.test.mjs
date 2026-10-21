@@ -58,9 +58,9 @@ test("few keeps order and never runs more than its width at once", async () => {
   assert.equal(peak, 3);
 });
 
-test("patient retries only load refusals", async () => {
+test("patient retries everything but a contract refusal", async () => {
   const { patient } = await import("../countersign.mjs");
   let n = 0;
-  assert.equal(await patient(async () => { if (n++ < 1) throw new Error("Server busy: all 8 execution slots occupied"); return "ok"; }), "ok");
+  assert.equal(await patient(async () => { if (n++ < 2) throw new Error(n === 1 ? "Server busy: all 8 execution slots occupied" : "An unknown RPC error occurred."); return "ok"; }), "ok");
   await assert.rejects(patient(async () => { throw new Error("execution failed"); }), /execution failed/);
 });

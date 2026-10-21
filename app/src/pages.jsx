@@ -24,6 +24,27 @@ function Loading({ error }) {
   return <div className="cards">{[0, 1, 2].map((i) => <div key={i} className="skeleton" />)}</div>;
 }
 
+/** While the Board is being read, how far it got; after, what could not be read. */
+function LoadState() {
+  const { data, refresh } = useApp();
+  if (!data.status) return null;
+  if (data.loading) {
+    return (
+      <div className="notice wait" role="status" style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 18 }}>
+        <span className="spin" />
+        <span>Reading the Board: {data.claims?.length ?? 0} of {data.status.claims} claims, {data.auditors?.length ?? 0} of {data.status.auditors} auditor pages.</span>
+      </div>
+    );
+  }
+  if (!data.failed) return null;
+  return (
+    <div className="notice err" style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap", marginBottom: 18 }}>
+      <span style={{ flex: 1, minWidth: 200 }}>{data.failed} record{data.failed > 1 ? "s" : ""} could not be read: the network is busy. The rest is shown.</span>
+      <button className="btn small" onClick={refresh}>Read again</button>
+    </div>
+  );
+}
+
 function ClaimTabs({ claims, tab, setTab }) {
   const count = (s) => claims.filter((c) => c.state === s).length;
   return (
@@ -136,11 +157,12 @@ export function Home() {
           </div>
           {claims ? (
             <>
+              <LoadState />
               <ClaimTabs claims={claims} tab={tab} setTab={setTab} />
               <div className="cards" style={{ marginTop: 22 }}>
                 {shown.map((c) => <ClaimCard key={c.id} c={c} />)}
               </div>
-              {!shown.length && <div className="empty">No {tab} claims on this network yet.</div>}
+              {!shown.length && !data.loading && <div className="empty">No {tab} claims on this network yet.</div>}
               <div style={{ textAlign: "center", marginTop: 36 }}><a className="arrow-link" href="#/claims">View all</a></div>
             </>
           ) : <Loading error={data.error} />}
@@ -178,9 +200,10 @@ export function Claims() {
       </div>
       {claims ? (
         <>
+          <LoadState />
           <ClaimTabs claims={claims} tab={tab} setTab={setTab} />
           <div className="cards" style={{ marginTop: 22 }}>{shown.map((c) => <ClaimCard key={c.id} c={c} />)}</div>
-          {!shown.length && <div className="empty" style={{ marginTop: 22 }}>No {tab === "all" ? "" : tab + " "}claims yet. <a href="#/post">Post the first one.</a></div>}
+          {!shown.length && !data.loading && <div className="empty" style={{ marginTop: 22 }}>No {tab === "all" ? "" : tab + " "}claims yet. <a href="#/post">Post the first one.</a></div>}
         </>
       ) : <Loading error={data.error} />}
     </div>
@@ -204,6 +227,7 @@ export function ClaimDetail({ id }) {
   const [step, setStep] = useState(null);
   const raw = data.claims?.find((c) => c.id === Number(id));
   if (!data.claims) return <div className="wrap" style={{ padding: "60px 0" }}><Loading error={data.error} /></div>;
+  if (!raw && data.loading) return <div className="wrap" style={{ padding: "60px 0" }}><LoadState /><div className="skeleton" /></div>;
   if (!raw) return <div className="wrap page-head"><h1 className="display">Claim not found</h1><p><a href="#/claims">Back to the Board</a></p></div>;
   // Re-derive what this viewer may do (the list was read without a wallet).
   const me = account ?? "";
@@ -303,6 +327,7 @@ export function Auditors() {
       </div>
       <div className="detail">
         <div>
+          <LoadState />
           {auditors ? (
             <div className="cards" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))" }}>
               {auditors.map((a) => (
@@ -322,17 +347,17 @@ export function Auditors() {
           <div className="panel-body form">
             <div className="field">
               <label htmlFor="a-name">Auditor name</label>
-              <input id="a-name" className="input" required maxLength={80} value={form.name} onChange={set("name")} placeholder="Northlight Security" />
+              <input id="a-name" className="input" required minLength={2} maxLength={60} value={form.name} onChange={set("name")} placeholder="Northlight Security" />
             </div>
             <div className="field">
               <label htmlFor="a-url">Page that lists your audits</label>
               <input id="a-url" className="input" required type="url" maxLength={300} value={form.url} onChange={set("url")} placeholder="https://example.com/audits" />
-              <span className="hint">A plain HTTPS page. Validators fetch it without running scripts, so the list must be in the page itself.</span>
+              <span className="hint">A plain HTTPS page, at most 300 characters, with no <span className="mono">? # @ %</span> or <span className="mono">..</span> in it. Validators fetch it without running scripts, so the list must be in the page itself.</span>
             </div>
             <div className="field">
               <label htmlFor="a-sample">One row copied from that page</label>
-              <textarea id="a-sample" className="textarea" required value={form.sample} onChange={set("sample")} placeholder="Borealis Swap router and pools v1 January 2026 audit report" />
-              <span className="hint">Validators check this row is visible on the page. Registration is free apart from the transaction fee.</span>
+              <textarea id="a-sample" className="textarea" required minLength={40} maxLength={600} value={form.sample} onChange={set("sample")} placeholder="Borealis Swap router and pools v1 January 2026 audit report" />
+              <span className="hint">40 to 600 characters, word for word. Validators check this row is visible on the page. Registration is free apart from the transaction fee.</span>
             </div>
             <button className="btn green block" disabled={busy}>Register page</button>
             <TxStatus step={step} />
@@ -381,26 +406,26 @@ export function Post() {
           </div>
           <div className="field">
             <label htmlFor="p-sub">Project</label>
-            <input id="p-sub" className="input" required maxLength={80} value={form.subject} onChange={set("subject")} placeholder="Acme Lending" />
+            <input id="p-sub" className="input" required minLength={3} maxLength={80} value={form.subject} onChange={set("subject")} placeholder="Acme Lending" />
           </div>
           <div className="field">
             <label>Scope</label>
             <div className="scope-list">
               {form.scope.map((s, i) => (
                 <div key={i} className="scope-item">
-                  <input className="input" required={i === 0} value={s} placeholder={i ? "March 2026" : "lending contracts v2"}
+                  <input className="input" required={i === 0} minLength={2} maxLength={80} value={s} placeholder={i ? "March 2026" : "lending contracts v2"}
                     onChange={(e) => setForm({ ...form, scope: form.scope.map((x, j) => (j === i ? e.target.value : x)) })} />
                   {form.scope.length > 1 && <button type="button" className="icon-btn" onClick={() => setForm({ ...form, scope: form.scope.filter((_, j) => j !== i) })}>Remove</button>}
                 </div>
               ))}
             </div>
             {form.scope.length < 4 && <button type="button" className="arrow-link" style={{ justifySelf: "start", fontSize: 13 }} onClick={() => setForm({ ...form, scope: [...form.scope, ""] })}>Add scope item</button>}
-            <span className="hint">Up to four items: version, component, date. Each must appear in the passage.</span>
+            <span className="hint">One to four items, such as a component, version or date. Each must appear in the passage as whole words: <span className="mono">v2</span> does not match <span className="mono">v20</span>.</span>
           </div>
           <div className="field">
             <label htmlFor="p-pas">Passage, word for word</label>
-            <textarea id="p-pas" className="textarea" required value={form.passage} onChange={set("passage")} placeholder="Acme Lending lending contracts v2 March 2026 Northlight audit report" />
-            <span className="hint">Copied from the auditor's page. It must include the project and every scope item.</span>
+            <textarea id="p-pas" className="textarea" required minLength={40} maxLength={600} value={form.passage} onChange={set("passage")} placeholder="Acme Lending lending contracts v2 March 2026 Northlight audit report" />
+            <span className="hint">40 to 600 characters copied from the auditor's page, usually one row of its audit table. It must contain the project name and every scope item as whole words.</span>
           </div>
           <div className="field">
             <label htmlFor="p-stake">Stake (GEN)</label>

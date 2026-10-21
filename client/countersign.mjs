@@ -158,25 +158,31 @@ export function outcome(r) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-/** Retry a read the node turned away for load: Studio limits callers per
- * minute, both networks answer "server busy" when their execution slots are
- * full, and a gateway in front of Studio Next sometimes answers with an HTML
- * error page, and a dropped connection is worth one more try. Anything else
- * is thrown at once. */
-export async function patient(fn, tries = 6) {
+/** A read the contract itself refused: retrying cannot change it. */
+const contractError = (msg) => /execution failed|exit_code|unknown (claim|auditor)|KeyError|IndexError/i.test(msg);
+
+/**
+ * Retry a read until it succeeds or the contract itself refuses it. Studio
+ * limits callers per minute and per contract, both networks answer "server
+ * busy" when their execution slots are full, a gateway sometimes answers
+ * with an HTML page, and on a phone network these surface as an "unknown RPC
+ * error" or a dropped connection. All of those are worth another try, with
+ * waits that grow to half a minute.
+ */
+export async function patient(fn, tries = 8) {
   for (let i = 0; ; i++) {
     try {
       return await fn();
     } catch (e) {
-      const msg = String(e?.details || e?.message || e);
-      if (i >= tries - 1 || !/busy|rate limit|429|50[234]|slots occupied|gateway|Unexpected token '<'|failed to fetch|fetch failed|network|ECONNRESET|timed? ?out/i.test(msg)) throw e;
-      await sleep(Math.min(30_000, 2000 * 2 ** i));
+      const msg = String(e?.details || e?.shortMessage || e?.message || e);
+      if (i >= tries - 1 || contractError(msg)) throw e;
+      await sleep(Math.min(30_000, 1500 * 2 ** i));
     }
   }
 }
 
 /** ``fn(0..n-1)`` with at most ``width`` reads in flight, results in order. */
-export async function few(n, fn, width = 3) {
+export async function few(n, fn, width = 2) {
   const out = new Array(n);
   let next = 0;
   await Promise.all(Array.from({ length: Math.min(width, n) }, async () => {
@@ -246,6 +252,9 @@ export function connect(network, { account, provider } = {}) {
     status: () => board("status"),
     auditor: async (id) => decodeAuditor(await board("get_auditor", [id])),
     claim: async (id) => decodeClaim(await board("get_claim", [id]), me),
+    /** The records as the Board returns them (JSON-safe, for caching). */
+    rawAuditor: (id) => board("get_auditor", [id]),
+    rawClaim: (id) => board("get_claim", [id]),
     async auditors() {
       const n = (await board("status")).auditors;
       return few(n, (i) => this.auditor(i));

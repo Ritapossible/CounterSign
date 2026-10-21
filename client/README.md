@@ -13,8 +13,10 @@ front end's design is supplied separately and goes on top of this module.
   SDK's simulation of that exact call, including the message to the Reader).
   `post` and `recheck` refuse without reverting; their result carries the
   reason from `refusal_of` when the call was refused.
-- Reads are paced: at most three in flight, and a read the node turns away
-  for load ("server busy", Studio's per-minute limit) is retried.
+- Reads are paced: at most two in flight, and a failed read is retried with
+  growing waits (Studio's rate limits, "server busy", a dropped connection),
+  unless the contract itself refused it. `rawClaim` and `rawAuditor` return
+  the records as JSON, for an app to cache those that can no longer change.
 
 Studio still runs the older GenVM and SDK 2 cannot read from it, so Studio
 uses `genlayer-js` 1.1.8 and the fee networks use 2.0.0-rc.2.
