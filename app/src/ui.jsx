@@ -49,6 +49,7 @@ const LINKS = [
   ["claims", "Claims"],
   ["auditors", "Auditors"],
   ["post", "Post a claim"],
+  ["docs", "Docs"],
   ["account", "Account"],
   ["how", "How it works"],
 ];
@@ -135,16 +136,17 @@ export function Footer() {
                 <li><a href="#/claims">Claims</a></li>
                 <li><a href="#/auditors">Auditors</a></li>
                 <li><a href="#/post">Post a claim</a></li>
-                <li><a href="#/how">How it works</a></li>
+                <li><a href="#/account">Account</a></li>
               </ul>
             </div>
             <div>
-              <h4>Project</h4>
+              <h4>Docs</h4>
               <ul>
+                <li><a href="#/docs/getting-started">Getting started</a></li>
+                <li><a href="#/docs/integration">Integration</a></li>
+                <li><a href="#/docs/threat-model">Threat model</a></li>
+                <li><a href="#/docs/faq">FAQ</a></li>
                 <li><a href="https://github.com/Ritapossible/CounterSign" target="_blank" rel="noreferrer">Source code</a></li>
-                <li><a href="https://github.com/Ritapossible/CounterSign/blob/main/docs/THREAT-MODEL.md" target="_blank" rel="noreferrer">Threat model</a></li>
-                <li><a href="https://github.com/Ritapossible/CounterSign/blob/main/PLAN.md" target="_blank" rel="noreferrer">Test records</a></li>
-                <li><a href="https://www.genlayer.com" target="_blank" rel="noreferrer">GenLayer</a></li>
               </ul>
             </div>
           </div>
@@ -170,6 +172,7 @@ export function ClaimCard({ c }) {
       <p className="quote">{c.scope.join(" · ")}</p>
       <div className="meta">
         <span>{c.auditor.name}</span>
+        <span className="nocase">{c.auditor.host}</span>
         <span>{formatGen(c.stake)} GEN</span>
       </div>
       <span className="go">View claim</span>

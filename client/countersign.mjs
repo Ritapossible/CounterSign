@@ -15,6 +15,7 @@ import { createClient as createFeeClient, createAccount as createFeeAccount } fr
 import { studioDevnet, testnetBradbury } from "genlayer-js/chains";
 import { createClient as createV1Client, createAccount as createV1Account } from "genlayer-js-v1";
 import { studionet } from "genlayer-js-v1/chains";
+import { getAddress } from "viem";
 
 // --------------------------------------------------------------- networks
 
@@ -192,6 +193,38 @@ export async function few(n, fn, width = 2) {
     }
   }));
   return out;
+}
+
+// --------------------------------------------------------------- faucet
+
+/** Networks with a public faucet (``sim_fundAccount``). */
+export const HAS_FAUCET = new Set(["studio", "studionext"]);
+
+/**
+ * Fund an address with test GEN on Studio or Studio Next. The amount travels
+ * as a raw JSON integer in atto-GEN: a hex or string amount is refused.
+ */
+export async function fundFromFaucet(network, address, gen = 5) {
+  if (!HAS_FAUCET.has(network)) throw new Error(`${NETWORKS[network].name} has no public faucet`);
+  if (!/^0x[0-9a-fA-F]{40}$/.test(address)) throw new Error("not an address");
+  const url = NETWORKS[network].chain.rpcUrls.default.http[0];
+  // The faucet credits the address exactly as written, and balances are read
+  // under its checksummed form: a lower-case address is "funded" and the GEN
+  // never shows (measured on Studio and Studio Next).
+  const body = `{"jsonrpc":"2.0","id":${Date.now()},"method":"sim_fundAccount","params":["${getAddress(address)}",${BigInt(gen) * GEN}]}`;
+  const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body });
+  const json = await res.json();
+  if (json.error) throw new Error(json.error.message ?? "the faucet refused");
+}
+
+/** An address's GEN balance, in atto-GEN. */
+export async function balanceOf(network, address) {
+  const url = NETWORKS[network].chain.rpcUrls.default.http[0];
+  const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ jsonrpc: "2.0", id: Date.now(), method: "eth_getBalance", params: [address, "latest"] }) });
+  const json = await res.json();
+  if (json.error) throw new Error(json.error.message ?? "balance unavailable");
+  return BigInt(json.result ?? "0x0");
 }
 
 // -------------------------------------------------------------- connect

@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "genlayer-js": "2.0.0-rc.2",
-    "genlayer-js-v1": "npm:genlayer-js@1.1.8"
+    "genlayer-js-v1": "npm:genlayer-js@1.1.8",
+    "viem": "2.57.7"
   }
 }

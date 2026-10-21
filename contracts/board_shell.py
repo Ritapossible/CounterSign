@@ -8,7 +8,7 @@ It never reads the Reader. It asks the Reader to read a page by a message
 and the Reader reports back by messages (``note_registration``,
 ``note_claim``) that only the Reader may send. Every payout is the Board's
 own arithmetic on its own records, so a Reader that never reports locks
-nothing: an open read expires as silent, and a project can always withdraw.
+nothing: an open read expires, and a project can always withdraw.
 
 **Money.** A payable call never reverts once value has arrived: a refused
 posting or re-check is recorded and its value credited straight back

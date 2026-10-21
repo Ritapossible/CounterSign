@@ -5,7 +5,7 @@ import { createRoot } from "react-dom/client";
 import "./styles.css";
 import { AppProvider, useRoute } from "./state.jsx";
 import { Footer, Header } from "./ui.jsx";
-import { Account, Auditors, ClaimDetail, Claims, Home, How, Post } from "./pages.jsx";
+import { Account, Auditors, ClaimDetail, Claims, Docs, Home, How, Post } from "./pages.jsx";
 // Creates the Reown AppKit modal when VITE_REOWN_PROJECT_ID is set.
 import { wagmiAdapter } from "./wallet.js";
 
@@ -27,6 +27,7 @@ function App() {
     post: <Post />,
     account: <Account />,
     how: <How />,
+    docs: <Docs slug={id} />,
   }[page] ?? <Home />;
   return (
     <>

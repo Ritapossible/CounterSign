@@ -4,12 +4,12 @@
 auditor's own page confirms it, word for word, and nobody can profit by
 editing a page they control.**
 
-> Status: **contracts built and tested off chain; not deployed.** The
-> Phase 1 probe of real audit pages on Studio and Bradbury is in
-> [deploy/probes/](deploy/probes/). The Board and Reader contracts pass 199
-> tests (every contract scenario runs on the deployed bytes too) and kill 83
-> mutants. Nothing here should be read as measured on chain until
-> [PLAN.md](PLAN.md) marks it done with evidence.
+> Status: **live on GenLayer Studio and Studio Next; Bradbury after its
+> Phase 2 reset.** The full scenario table ran with 0 failed checks on both
+> networks, with the deployed code verified against the build. The Board and
+> Reader contracts pass 199 tests and kill 83 mutants. The web app is in
+> [app/](app/) and the docs in [docs/](docs/). What is measured, and what is
+> not yet, is recorded in [PLAN.md](PLAN.md).
 
 > **Who the auditor is.** An auditor entry is identified by the **web
 > address (host) of its pinned page** and the **address that signed the
@@ -106,9 +106,21 @@ nothing to fine. The stake pays for spam and for keepers, not penalties.
   takes a claim down. A re-check that confirms a claim pays the fee to the
   project and costs the caller, so a claim nobody doubts stays only as fresh
   as a volunteer, the auditor, or the project itself keeps it.
+- **An agreed "silent" at posting is final.** If every validator fails to
+  fetch the page the same way, the posting is refused, the stake comes back,
+  and the project posts again. A retry is only for a read that did not agree
+  (THREAT-MODEL T22).
+- **Test networks only.** Studio, Studio Next, and Bradbury once it reopens.
 
 ## Documents
 
+- [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md): using the app as an
+  auditor, a project, or anyone checking a claim.
+- [docs/INTEGRATION.md](docs/INTEGRATION.md): reading claims from an app or a
+  contract, and the full contract reference.
+- [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md): build, test, deploy, run the app,
+  publish on Vercel.
+- [docs/FAQ.md](docs/FAQ.md).
 - [PLAN.md](PLAN.md): phases, each with what "done" means and its evidence.
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): contracts, life of a claim,
   money, reading the page, the jury's one question, size budget.

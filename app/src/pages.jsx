@@ -1,8 +1,9 @@
 // Every page of the app.
 import { useEffect, useMemo, useState } from "react";
-import { GEN, MIN_STAKE, RECHECK_FEE, KEEPER_REWARD, formatGen } from "../../client/countersign.mjs";
+import { GEN, HAS_FAUCET, MIN_STAKE, RECHECK_FEE, KEEPER_REWARD, balanceOf, formatGen, fundFromFaucet } from "../../client/countersign.mjs";
 import { useApp } from "./state.jsx";
 import { ClaimCard, Globe, StatePill, TxStatus, ago, short, until } from "./ui.jsx";
+import { DOCS, GROUPS, REPO_URL, renderDoc } from "./docs.js";
 
 const STATES = ["live", "pending", "down", "refused", "withdrawn"];
 
@@ -444,11 +445,30 @@ export function Post() {
 // ---------------------------------------------------------------- account
 
 export function Account() {
-  const { account, wallet, connectWallet, signer, run, say, data } = useApp();
+  const { account, wallet, connectWallet, signer, run, say, data, network, net } = useApp();
+  const [balance, setBalance] = useState(null);
+  const [funding, setFunding] = useState(false);
   const [owed, setOwed] = useState(null);
   const [refusal, setRefusal] = useState(null);
   const [step, setStep] = useState(null);
   const busy = step && (step.phase === "sign" || step.phase === "wait");
+
+  useEffect(() => {
+    if (!account) return;
+    balanceOf(network, account).then(setBalance).catch(() => setBalance(null));
+  }, [account, network, data.at, funding]);
+
+  const fund = async () => {
+    setFunding(true);
+    try {
+      await fundFromFaucet(network, account);
+      say(`Sent 5 test GEN to your address on ${net.name}.`);
+    } catch (e) {
+      say(`The faucet refused: ${e.message}`);
+    } finally {
+      setFunding(false);
+    }
+  };
 
   useEffect(() => {
     if (!signer) return;
@@ -496,6 +516,13 @@ export function Account() {
               <div className="display" style={{ fontSize: 56 }}>{owed == null ? "–" : formatGen(owed)} <span style={{ fontSize: 24 }}>GEN</span></div>
               <button className="btn green" disabled={busy || !owed} onClick={() => run("Collect", (cs, o) => cs.collect(o), setStep)}>Collect</button>
               <TxStatus step={step} />
+              <hr className="hr" />
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+                <span><span className="label muted">Wallet balance</span><br />{balance == null ? "–" : `${formatGen(balance)} GEN`}</span>
+                {HAS_FAUCET.has(network) && (
+                  <button className="btn-line dark small" disabled={funding} onClick={fund}>{funding ? "Funding" : "Get test GEN"}</button>
+                )}
+              </div>
               {refusal?.reason && (
                 <div className="notice">
                   <span className="label" style={{ display: "block", marginBottom: 6 }}>Last refusal</span>
@@ -553,11 +580,65 @@ export function How() {
         <div className="wrap">
           <h2 className="display" style={{ fontSize: "clamp(40px, 7vw, 84px)" }}>See it on the Board</h2>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 24, marginTop: 36 }}>
-            <a className="btn" href="#/claims">Browse claims</a>
-            <a className="arrow-link" href="https://github.com/Ritapossible/CounterSign" target="_blank" rel="noreferrer">Read the source</a>
+            <a className="btn" href="#/docs/getting-started">Read the docs</a>
+            <a className="arrow-link" href="#/claims">Browse claims</a>
           </div>
         </div>
       </section>
     </>
+  );
+}
+
+// ------------------------------------------------------------------- docs
+
+export function Docs({ slug }) {
+  const index = Math.max(0, DOCS.findIndex((d) => d.slug === slug));
+  const doc = DOCS[index];
+  const rendered = useMemo(() => renderDoc(doc), [doc]);
+  const prev = DOCS[index - 1];
+  const next = DOCS[index + 1];
+  return (
+    <div className="wrap docs on-paper">
+      <aside className="docs-side">
+        <select className="select docs-select" aria-label="Choose a page" value={doc.slug} onChange={(e) => { window.location.hash = `#/docs/${e.target.value}`; }}>
+          {DOCS.map((d) => <option key={d.slug} value={d.slug}>{d.group} · {d.title}</option>)}
+        </select>
+        <nav className="docs-nav" aria-label="Documentation">
+          {GROUPS.map((g) => (
+            <div key={g}>
+              <p className="label muted">{g}</p>
+              {DOCS.filter((d) => d.group === g).map((d) => (
+                <a key={d.slug} href={`#/docs/${d.slug}`} aria-current={d.slug === doc.slug ? "page" : undefined}>{d.title}</a>
+              ))}
+            </div>
+          ))}
+          <div>
+            <p className="label muted">Project</p>
+            <a href={REPO_URL} target="_blank" rel="noreferrer">Source on GitHub</a>
+          </div>
+        </nav>
+      </aside>
+      <article>
+        <div className="prose" dangerouslySetInnerHTML={{ __html: rendered.html }} />
+        <div className="doc-foot">
+          {prev ? <a className="btn-line dark small" href={`#/docs/${prev.slug}`}>{prev.title}</a> : <span />}
+          {next ? <a className="btn small" href={`#/docs/${next.slug}`}>{next.title}</a> : <span />}
+        </div>
+        <p className="muted" style={{ fontSize: 14, marginTop: 24 }}>
+          This page is <span className="mono">{doc.file}</span> in the repository.{" "}
+          <a href={`${REPO_URL}/blob/main/${doc.file}`} target="_blank" rel="noreferrer">View or propose a change on GitHub</a>.
+        </p>
+      </article>
+      <aside className="docs-toc" aria-label="On this page">
+        {rendered.toc.length > 0 && (
+          <>
+            <p className="label muted">On this page</p>
+            {rendered.toc.map((t) => (
+              <button key={t.id} onClick={() => document.getElementById(t.id)?.scrollIntoView({ behavior: "smooth", block: "start" })}>{t.text}</button>
+            ))}
+          </>
+        )}
+      </aside>
+    </div>
   );
 }

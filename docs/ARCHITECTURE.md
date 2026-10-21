@@ -215,14 +215,22 @@ excerpting: the jury sees only the window around the passage).
 
 ## 8. The app and the badge
 
-- **Board:** every live claim, by auditor and by project, with when it was
-  last checked; claims that came down, and why. Every auditor is shown by
-  its page's host and signer next to its typed name, which is display only.
-- **Auditor:** register a page; see every claim naming you.
-- **Project:** post a claim. The app fetches the page the way a validator
-  does and shows the refusal the contract would return before signing.
-- **Re-check:** a button on every claim.
-- **Badge:** an embeddable image served by a small function that reads the
-  claim from the chain and draws "Audited by Northlight (northlight.example):
-  v2, March 2026, confirmed 2 days ago" or "Claim withdrawn". The badge holds no record of its
-  own.
+The app (`app/`, on the shared `client/` layer) is built:
+
+- **Board:** every claim, newest first, filtered by state, each with its
+  auditor's name and host, the passage, when it was last confirmed and any
+  miss; closed claims show why they closed.
+- **Auditors:** every entry with its page; registration.
+- **Post a claim:** the form with the contract's field rules. A field that
+  breaks a rule is refused by the contract before any read, and the app
+  shows the reason it records.
+- **Claim page:** re-check, withdraw, retry an open read, or close an
+  expired one, offered only to whoever may do it.
+- **Account:** what the Board owes the wallet, and `collect`.
+- **Docs:** this documentation, rendered from the repository.
+
+Not built yet: a preview that fetches the page the way a validator does
+before signing, and the **badge**: an embeddable image served by a small
+function that reads a claim from the chain and draws "Audited by Northlight
+(northlight.example): v2, March 2026, confirmed 2 days ago" or "Claim
+withdrawn", holding no record of its own.
