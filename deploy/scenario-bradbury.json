@@ -141,13 +141,41 @@
       "leader": "return"
     },
     "r3:register:happy:tx": {
-      "hash": "0xffc39d0e7b2e02730c59f7c91480eff319734efc95f889af12a791c9cd42f1c6",
+      "hash": "0x202fce3dbb2a17d59feef84ca25a09557a6697a54c3a471d28403e2757f128c0",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:happy": {
+      "id": 18,
+      "hash": "0x202fce3dbb2a17d59feef84ca25a09557a6697a54c3a471d28403e2757f128c0",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:spa:tx": {
+      "hash": "0x4d07871089223b0f5196ae8878a8e29f922acaa67e9f8d97e3d82cfee4f50b4e",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:spa": {
+      "id": 19,
+      "hash": "0x4d07871089223b0f5196ae8878a8e29f922acaa67e9f8d97e3d82cfee4f50b4e",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:nosample:tx": {
+      "hash": "0x60c2d5fba6f83b963b0994e75dc6798ebb44414c4a20b311b8d5490bdb81f77b",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:nosample": {
+      "id": 20,
+      "hash": "0x60c2d5fba6f83b963b0994e75dc6798ebb44414c4a20b311b8d5490bdb81f77b",
       "consensus": "AGREE",
       "leader": "return"
     }
   },
   "checks": [],
-  "recorded_at": "2026-10-20T23:44:45.625Z",
+  "recorded_at": "2026-10-21T07:45:13.970Z",
   "reader": "0x2c3c7eBa22B212231B279Cc2c0CEBf72fe127561",
   "board": "0x1D8C1A82194e3bc4C88EF4EcA0708cF4A2900993",
   "used": {
@@ -169,7 +197,19 @@
       14,
       15,
       16,
-      17
+      17,
+      18,
+      19,
+      20
     ]
-  }
+  },
+  "never_applied": [
+    {
+      "key": "r3:register:happy",
+      "hash": "0xffc39d0e7b2e02730c59f7c91480eff319734efc95f889af12a791c9cd42f1c6",
+      "consensus": "AGREE",
+      "leader": "return",
+      "note": "FINALIZED, AGREE (4 agree, 1 timeout), FINISHED_WITH_RETURN, sent to the Board with the right calldata; the Board's state never showed the entry (checked as final and non-final for over three hours after Bradbury's 50-minute outage). Submitted again."
+    }
+  ]
 }

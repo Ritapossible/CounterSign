@@ -834,7 +834,14 @@
       "case": "r1 post delete (a clean page)",
       "reader_tx": "0x97669385019ce7f745fcb4200b8547432ba8802fdda9d6026a56b3447c6b1983",
       "result": "FINALIZED, DISAGREE; validator votes [4,4,4,4,4], one round, no rotations left",
-      "effect": "The Reader reported nothing; the claim stayed pending and its read would expire as silent at read_window (7,200 s): the posting is refused and the stake returned, as designed. Not yet explained why validators disagreed on a plain page."
+      "effect": "The Reader reported nothing; the claim stayed pending and its read would expire as silent at read_window (7,200 s): the posting is refused and the stake returned, as designed. Not yet explained why validators disagreed on a plain page.",
+      "explained": {
+        "leader_output": "{\"kind\": \"silent\", \"print\": \"\"} - the leader could not read the clean page (fetch failed or unreadable to it)",
+        "validators": "all five computed the same result (identical validatorResultHash 0x59ec636c...) and voted DETERMINISTIC_VIOLATION against the leader: they read the page",
+        "comparison": "claim 6's read of the same page a minute later: leader {\"kind\": \"confirmed\", \"print\": \"fd731559c212e9e2\"}, five AGREE",
+        "rotations": "Reader transactions triggered by the Board's message start with initialRotations 0 (rotationsLeft 0); transactions sent by a wallet start with 3. One leader's failed fetch therefore ends a message-triggered read with no second leader.",
+        "full_records": "deploy/claim5-disagree.json (both transactions, as returned by gen_getTransaction)"
+      }
     }
   }
 }
