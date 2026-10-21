@@ -75,7 +75,7 @@ async function locate(kind, match) {
       if (match(await get(id))) return id;
     }
     return -1;
-  }, (v) => v >= 0, { seconds: STUDIO ? 60 : 600, every: 8 });
+  }, (v) => v >= 0, { seconds: STUDIO ? 60 : 1800, every: 10 });
   if (value < 0) throw new Error(`no ${kind} found for this write`);
   rec.used = rec.used || {};
   (rec.used[kind] = rec.used[kind] || []).push(value);
@@ -188,7 +188,8 @@ const ENTRIES = [
 for (let r = 1; r <= RUNS; r++) {
   for (const [name, file, sample] of ENTRIES) {
     await once(`r${r}:register:${name}`, async () => {
-      const t = await tx("auditor", "register", [`Northlight Security (demo r${r})`, raw(r, file), sample], `r${r} register ${name}`);
+      // Kept apart, so a restart never sends the same registration twice.
+      const t = await once(`r${r}:register:${name}:tx`, () => tx("auditor", "register", [`Northlight Security (demo r${r})`, raw(r, file), sample], `r${r} register ${name}`));
       const id = await locate("auditor", (a) => a.url === raw(r, file) && a.sample === sample && a.signer === A.auditor);
       return { id, ...t };
     });
@@ -211,7 +212,7 @@ const entry = (r, name) => rec.done[`r${r}:register:${name}`].id;
 async function post(r, key, auditorName, { scope = SCOPE, passage = ACME, refused = false } = {}) {
   return once(`r${r}:post:${key}`, async () => {
     const before = await owed("project");
-    const t = await tx("project", "post", [entry(r, auditorName), "Acme Lending", scope, passage], `r${r} post ${key}`, STAKE);
+    const t = await once(`r${r}:post:${key}:tx`, () => tx("project", "post", [entry(r, auditorName), "Acme Lending", scope, passage], `r${r} post ${key}`, STAKE));
     // A posting refused before any read creates no claim; its check reads the refusal record.
     if (refused) return { id: -1, owed_before: String(before), ...t };
     const aud = entry(r, auditorName), sc = JSON.stringify(JSON.parse(scope).map((x) => x.trim()));

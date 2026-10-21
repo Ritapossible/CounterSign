@@ -1,0 +1,175 @@
+{
+  "network": "bradbury",
+  "accounts": {
+    "deployer": "0xf1827cad7c88f02a7cad3627d7ce482a8f2d33c7",
+    "auditor": "0x3f55971f7fd2594a90871db489fbb82f1db4d747",
+    "project": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+    "keeper": "0xef359811497c724ef1942c6c079c64c07d87952d",
+    "keeper2": "0x8aa26fa51a68c583c467463e93db0ebc10f7d509"
+  },
+  "pages": {},
+  "done": {
+    "pages:initial": {
+      "commit": "6937779800dde86d26b38a876e3a9cf64b707ffd",
+      "visible_after_s": 2
+    },
+    "bind": {
+      "hash": "0x6c9d5f1d6272b334bf21770d0d08b9e755c3fe5ed6bd0155bcab52b03fc7573b",
+      "consensus": "AGREE"
+    },
+    "r1:register:happy": {
+      "id": 0,
+      "hash": "0xbabd02cd8cb32274ee333fa336c76cc49408cee404d61d7cc2459dc6daafc619",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:spa": {
+      "id": 1,
+      "hash": "0xc9cc396636033fcccff0abacdcb4df0faca2098c58b7fcbef67f0096a6ea7087",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:nosample": {
+      "id": 2,
+      "hash": "0xf480cb1d220b285bff0965438493c883bfbf18760d7a9385aabffe23a10232fa",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:hidden": {
+      "id": 3,
+      "hash": "0x7bb2ea2df66eaf849d09c1b652d2535f5e35c74ca531053ea503e8dd35b5a275",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:flagged": {
+      "id": 4,
+      "hash": "0x962bfecbaee08131335d74fd2e572b6a85d23432f475257bfc3035d2730958dd",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:withdraw": {
+      "id": 5,
+      "hash": "0x70541e2ab58c915186ae1b80eab26430b494501896684833f733b039e6889529",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:delete": {
+      "id": 6,
+      "hash": "0xb2c4c0d6597a6a33fa2d172efd4bfa5a0c8cdd1056da3105f9075aad9d628a73",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:outage": {
+      "id": 7,
+      "hash": "0x7377709eab489589b4c7cc9a814ce3d29e8af9c0f280ae9561bf62015cb42913",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r1:register:inject": {
+      "id": 8,
+      "hash": "0xc27a860ad9f953fb2897062e0e1ff4eab651359d8a20ebeab3cd57be3826c7f3",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:happy": {
+      "id": 9,
+      "hash": "0x37a5576a7e9ecb8866bf6849766c12765ec82c73796e62881f7286f80909e5b0",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:spa": {
+      "id": 10,
+      "hash": "0x25d287f83cb8c6e75c87c9df513bc10b0f6441363044e908e0e4b0227b452983",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:nosample": {
+      "id": 11,
+      "hash": "0x807eab7c5c4b71b68b88bd2d1e8cdfd51ed0287d2fac09efca3d5ee7b12cb85e",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:hidden": {
+      "id": 12,
+      "hash": "0xa83e67deaea2a9a125bdb3856370015c05b35a2ef6d8abd240db84515c141f40",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:flagged": {
+      "id": 13,
+      "hash": "0xde003c26571afcf4b318057808ec838a916ad99ddf127bd78908c488d2841539",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:withdraw": {
+      "id": 14,
+      "hash": "0xd552d9dc53ae198a49742c597806a37f881cfa916dbab2dd83bc14b33601ef7a",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:delete:tx": {
+      "hash": "0xa438f15af84fde6d327fba885a5cba79eb226e64570cc9aa22de46321c141451",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:delete": {
+      "id": 15,
+      "hash": "0xa438f15af84fde6d327fba885a5cba79eb226e64570cc9aa22de46321c141451",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:outage:tx": {
+      "hash": "0x105911fcc0cc01de4d74fe6db55f1db9a43347471e15938f2a74860bcd12445f",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:outage": {
+      "id": 16,
+      "hash": "0x105911fcc0cc01de4d74fe6db55f1db9a43347471e15938f2a74860bcd12445f",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:inject:tx": {
+      "hash": "0x389c650849a41f726e309ed6804e35e6fc96cfb94b151bca39f1a2f2e6f290f5",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r2:register:inject": {
+      "id": 17,
+      "hash": "0x389c650849a41f726e309ed6804e35e6fc96cfb94b151bca39f1a2f2e6f290f5",
+      "consensus": "AGREE",
+      "leader": "return"
+    },
+    "r3:register:happy:tx": {
+      "hash": "0xffc39d0e7b2e02730c59f7c91480eff319734efc95f889af12a791c9cd42f1c6",
+      "consensus": "AGREE",
+      "leader": "return"
+    }
+  },
+  "checks": [],
+  "recorded_at": "2026-10-20T23:44:45.625Z",
+  "reader": "0x2c3c7eBa22B212231B279Cc2c0CEBf72fe127561",
+  "board": "0x1D8C1A82194e3bc4C88EF4EcA0708cF4A2900993",
+  "used": {
+    "auditor": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ]
+  }
+}

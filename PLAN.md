@@ -247,6 +247,18 @@ re-checks of a pending claim), so no Reader transaction exists for them.
 - [ ] `deploy/verify_code.mjs` proves each deployed contract is the
       committed build.
 
+Status (21 October, 02:20 UTC): the Bradbury table is running on Board
+`0x1D8C1A82194e3bc4C88EF4EcA0708cF4A2900993`, Reader
+`0x2c3c7eBa22B212231B279Cc2c0CEBf72fe127561`, build `df56bdb`. Bradbury
+stopped producing blocks for about 50 minutes (20:30-21:20 UTC). Since then
+18 of 27 registrations are on chain and decided (14 registered, 4 refused,
+each on its right page), but r3's first registration
+(`0xffc39d0e7b2e02730c59f7c91480eff319734efc95f889af12a791c9cd42f1c6`),
+FINALIZED with 4 agree and 1 timeout, has not appeared in the Board's state
+for over three hours, read as final or non-final. A supervisor restarts the
+run, which resends nothing, until it does. The first Bradbury attempt is
+kept as `deploy/scenario-bradbury-aborted.json` (stale ids; see its note).
+
 **Done when** the Bradbury record has 0 failed checks and the code check
 passes.
 
