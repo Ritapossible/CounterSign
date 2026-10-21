@@ -266,6 +266,26 @@ Reader holds no record of, records each failed read with its retry's votes
 and leader output, and expires only past the deadline. 198 tests, 80
 mutants killed. Studio and Bradbury run again on this build.
 
+**Results on build `991d8c1`** (the retry fix, plus the runner version line
+Studio Next requires), the same table on both networks open on 21 October:
+
+| Network | Board | Reader | Checks | Reads | Retries / expiries |
+| --- | --- | --- | --- | --- | --- |
+| Studio | `0x334ae6d55d4113177F1eC05890d228A62E6DdC4F` | `0x5Cc46d899319C505a600403af9BEEc9AB0c80dA1` | 94, 0 failed | 75, all agreed | 0 / 0 |
+| Studio Next (fees on) | `0x3Ae1CeADe2d568C0861d2174E2b4C45a52b8CBe3` | `0x521CaE5A1CFB2CFe92C3E54a9b01c24d5d348979` | 94, 0 failed | 75, all agreed | 0 / 0 |
+
+Records `deploy/scenario-studio.json`, `deploy/scenario-studionext.json`
+and their `-votes` files; `deploy/verify_code.mjs 991d8c1` matches all four
+contracts. On Studio Next two first-run checks were wrong, not the
+contracts, and are kept under `superseded`: the collect check ignored the fee
+the payee pays to send `collect` (the Board paid exactly 0.09 GEN; the wallet
+rose by 0.08987), and a hand-edited record counted one collect twice.
+
+Bradbury was reset for Phase 2 (announcement of 21 October): unavailable
+until Epoch Zero ends on 22 October, fees on, new RPC and consensus
+contracts. `deploy/lib.mjs` already targets it with fees. The run on the old
+network is kept as `deploy/scenario-bradbury-before-reset.json`.
+
 **Done only when** a clean Bradbury posting agrees and the whole table
 finishes there with 0 failed checks.
 

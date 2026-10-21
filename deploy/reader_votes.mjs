@@ -65,7 +65,7 @@ for (const a of asks) {
   const t = await c.getTransaction({ hash: a.hash }).catch(() => null);
   if (!t) continue;
   const entry = { board_tx: a.hash, board_votes: votes(t) };
-  if (rec.network === "studio") {
+  if (rec.network.startsWith("studio")) { // Studio and Studio Next list triggered transactions
     const ids = t.triggered_transactions || [];
     for (const id of ids) {
       const x = await c.getTransaction({ hash: id }).catch(() => null);

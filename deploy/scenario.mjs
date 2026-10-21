@@ -528,14 +528,22 @@ await once("final", async () => {
   const wallet0 = await C.deployer.getBalance({ address: A[payee] });
   const board0 = await C.deployer.getBalance({ address: rec.board });
   const t = await tx(payee, "collect", [], `${payee} collects`);
+  // On a fee network the payee also pays for sending collect: its wallet rises
+  // by the payout less at most that transaction's fee deposit.
+  let deposit = 0n;
+  if (C.deployer.withFees) {
+    const ct = await C.deployer.getTransaction({ hash: t.hash });
+    deposit = (ct.data?.fee_accounting?.top_ups || []).reduce((s, x) => s + BigInt(x.amount), 0n);
+  }
   const { value: paid, waited } = await readUntil(
     async () => ({ wallet: (await C.deployer.getBalance({ address: A[payee] })) - wallet0, board: board0 - (await C.deployer.getBalance({ address: rec.board })) }),
-    (v) => v.wallet >= due && v.board >= due, { seconds: REPORT_WAIT, every: 10 });
+    (v) => v.wallet >= due - deposit && v.board >= due, { seconds: REPORT_WAIT, every: 10 });
   const after = await status();
   rec.collected = [...(rec.collected || []), String(due)];
   check("collect zeroes what is owed, and the wallet is paid at finality",
-    (await owed(payee)) === 0n && paid.wallet === due && paid.board === due && BigInt(after.balance) === BigInt(after.held) + BigInt(after.owed),
-    { ...t, payee, collected: String(due), wallet_delta: String(paid.wallet), board_delta: String(paid.board), waited, status: after });
+    (await owed(payee)) === 0n && paid.board === due && paid.wallet <= due && paid.wallet >= due - deposit &&
+      BigInt(after.balance) === BigInt(after.held) + BigInt(after.owed),
+    { ...t, payee, collected: String(due), wallet_delta: String(paid.wallet), board_delta: String(paid.board), fee_deposit: String(deposit), waited, status: after });
   return { status: after };
 });
 
