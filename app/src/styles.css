@@ -289,17 +289,12 @@ button { font: inherit; }
   z-index: -1;
 }
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 30px;
-  padding: 7px 14px;
-  border: 1px solid var(--line);
-  border-radius: 99px;
-  background: var(--paper);
-  font: 500 12px var(--mono);
-  letter-spacing: 0.08em;
+  display: block;
+  margin: 0 0 26px;
+  font: 500 clamp(14px, 1.6vw, 17px) var(--mono);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: var(--ink-2);
 }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px var(--green-wash); flex: none; }
 .dot.off { background: var(--muted); box-shadow: none; }

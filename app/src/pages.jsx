@@ -54,7 +54,7 @@ export function Home() {
       <section className="hero">
         <Globe />
         <div className="wrap">
-          <span className="hero-badge"><span className={`dot${data.status ? "" : " off"}`} />Live on {net.name.replace("GenLayer ", "")}</span>
+          <p className="hero-badge">Live on GenLayer</p>
           <h1 className="display">Audit claims,<br />read at the source</h1>
           <p className="lede">
             A project stakes GEN on a claim that it was audited. GenLayer validators read the auditor's own page to
