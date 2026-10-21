@@ -276,7 +276,7 @@ Studio Next requires), the same table on both networks open on 21 October:
 | Studio | `0x334ae6d55d4113177F1eC05890d228A62E6DdC4F` | `0x5Cc46d899319C505a600403af9BEEc9AB0c80dA1` | 94, 0 failed | 75, all agreed | 0 / 0 |
 | Studio Next (fees on) | `0x3Ae1CeADe2d568C0861d2174E2b4C45a52b8CBe3` | `0x521CaE5A1CFB2CFe92C3E54a9b01c24d5d348979` | 94, 0 failed | 75, all agreed | 0 / 0 |
 
-Records `deploy/scenario-studio.json`, `deploy/scenario-studionext.json`
+Records `deploy/scenario-studio-v4.json`, `deploy/scenario-studionext.json`
 and their `-votes` files; `deploy/verify_code.mjs 991d8c1` matches all four
 contracts. On Studio Next two first-run checks were wrong, not the
 contracts, and are kept under `superseded`: the collect check ignored the fee
@@ -307,7 +307,9 @@ not retryable; accepted as a limit (T22, closed).
 expired re-check returns its fee and is not a miss (THREAT-MODEL T23). The
 contracts are therefore no longer build `991d8c1`; the Studio and Studio
 Next tables above are for the earlier rule, in which no read expired. The
-new build is what goes to Bradbury, and the Studio table is rerun on it.
+new build is what goes to Bradbury, and the Studio table is rerun on it. Its
+record is `deploy/scenario-studio.json`; the `991d8c1` Studio record is kept
+as `deploy/scenario-studio-v4.json`.
 
 Bradbury was reset for Phase 2 (announcement of 21 October): unavailable
 until Epoch Zero ends on 22 October, fees on, new RPC and consensus
