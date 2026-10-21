@@ -11,8 +11,10 @@ on chain. Follow PLAN.md phase by phase.
 Build: `python3 deploy/build_contract.py`. Test: `python3 -m pytest tests/direct -q`.
 Mutants: `python3 tests/mutation_check.py` (must report 0 survived).
 
-**Front end:** the owner provides the design. Do not design or build the
-app, site or badge until it is given; then follow it.
+**Front end:** the owner provides the design. The app (`app/`) follows the
+owner's reference, koyeb.com's layout, with accent `#51735C` (the owner's
+choice) and CounterSign's own name and mark, never another brand's. Any new
+surface (site, badge) waits for the owner's design.
 
 ## Hard laws
 
