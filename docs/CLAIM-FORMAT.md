@@ -86,7 +86,7 @@ whether "v2" means "version two".
 | `RECHECK_FEE` | 0.01 GEN | 0.01 GEN | A re-check that finds the claim fine pays the project this, so nobody can spam re-checks for free |
 | `KEEPER_REWARD` | 0.02 GEN | 0.02 GEN | Paid from the stake to whoever's re-check takes a claim down; less than `MIN_STAKE` |
 | `MISS_GAP` | 300 s | 3,600 s | Two silent reads must be at least this far apart to take a claim down |
-| `read_window` | 600 s | 7,200 s | A read with no report by then expires as silent; on Bradbury it must exceed finality (about 30 min) |
+| `read_window` | 600 s | 7,200 s | A read with no report by then expires: a posting is refused, a re-check returns its fee and is not a miss; on Bradbury it must exceed finality (about 30 min) |
 | `WINDOW_WORDS` | 60 | 60 | Words either side of the passage in the surroundings fingerprint (RedLine's measured value) |
 | page byte cap | 400 KB | 400 KB | Larger responses count as unreadable. Phase 1: the four readable lists are 43-178 KB; ChainSecurity's 1 MB page is over and has no usable list anyway |
 

@@ -295,14 +295,22 @@ def apply_report(claim, *, seq, kind, print_, now, miss_gap):
 
 
 def expire_read(claim, *, now, miss_gap):
-    """A read with no report by its deadline counts as silent: validators
-    could not agree, or no round completed."""
+    """Close a read with no report by its deadline: validators could not
+    agree, or no round completed. That is no result, not evidence the page
+    is gone. An expired posting read is a refusal and returns the stake. An
+    expired re-check returns its fee and leaves ``misses`` as they were: only
+    a ``silent`` the Reader reports counts as a miss (THREAT-MODEL T23)."""
     read = claim.get("read")
     if not read:
         raise CounterSignError("no read of claim %d is open" % int(claim["id"]))
     if int(now) <= int(read["due"]):
         raise CounterSignError("the read is open until %d" % int(read["due"]))
-    return apply_report(claim, seq=read["seq"], kind=SILENT, print_="", now=now, miss_gap=miss_gap)
+    if read["kind"] == POSTING:
+        return apply_report(claim, seq=read["seq"], kind=SILENT, print_="", now=now, miss_gap=miss_gap)
+    credits = {}
+    _credit(credits, read["caller"], int(read["fee"]))
+    claim["read"] = None
+    return credits
 
 
 def withdraw_claim(claim, *, by, now):

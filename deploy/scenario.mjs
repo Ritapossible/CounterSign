@@ -144,8 +144,8 @@ async function awaitRead(kind, id, done, label) {
 /**
  * Wait for a read's report, retrying a read that failed. A read with no
  * agreed report by its deadline is closed the way the design says: anyone
- * calls `expire` and it counts as silent. The expiry is recorded as an
- * event, never hidden.
+ * calls `expire`; a posting is refused, a re-check returns its fee and is not
+ * a miss. The expiry is recorded as an event, never hidden.
  */
 async function settleOrExpire(id, ok, label) {
   const { value: c0, waited, retries, late } = await awaitRead("claim", id, ok, label);
@@ -365,12 +365,14 @@ for (let r = 1; r <= RUNS; r++) {
  * sum of what each keeper and the project should be credited.
  */
 /** What one re-check did, from the claim after it, and what it pays. */
-function outcomeOf(c) {
+function outcomeOf(c, expired) {
+  if (expired) return "expired"; // no result: the fee goes back, misses unchanged
   if (c.state === "down") return /denies/.test(c.why) ? "denied" : "silent-down";
   return c.misses === 0 ? "confirmed" : "silent";
 }
 function paysFor(kind, keeper, owe) {
   if (kind === "confirmed") owe.project += FEE;
+  else if (kind === "expired") owe[keeper] += FEE;
   else if (kind === "silent") owe[keeper] += FEE;
   else { owe[keeper] += REWARD + FEE; owe.project += STAKE - REWARD; }
 }
@@ -392,16 +394,17 @@ async function recheckBatch(stage, items) {
     for (const it of items) {
       const s0 = sent.out[it.key + ":" + it.r];
       let { claim: c, waited, expired } = await settleOrExpire(it.id, (c) => c.seq > s0.seq && !c.read, `r${it.r} ${it.label}`);
-      const attempts = [{ hash: s0.hash, outcome: outcomeOf(c), expired: !!expired }];
-      paysFor(outcomeOf(c), it.keeper, owe);
-      // A read that expired is a silent read. Where silence was not the case
-      // under test and the claim is still live, the keeper re-checks once more.
-      if (expired && it.expect !== "silent" && c.state === "live") {
+      const attempts = [{ hash: s0.hash, outcome: outcomeOf(c, expired), expired: !!expired }];
+      paysFor(outcomeOf(c, expired), it.keeper, owe);
+      // An expired re-check is no result (fee back, misses unchanged): the
+      // keeper re-checks once more, whatever the case under test.
+      if (expired && c.state === "live") {
         const seq = c.seq;
         const t = await tx(it.keeper, "recheck", [it.id], `r${it.r} ${it.label} (again)`, FEE);
-        ({ claim: c, waited } = await settleOrExpire(it.id, (c) => c.seq > seq && !c.read, `r${it.r} ${it.label} (again)`));
-        attempts.push({ hash: t.hash, outcome: outcomeOf(c) });
-        paysFor(outcomeOf(c), it.keeper, owe);
+        let again;
+        ({ claim: c, waited, expired: again } = await settleOrExpire(it.id, (c) => c.seq > seq && !c.read, `r${it.r} ${it.label} (again)`));
+        attempts.push({ hash: t.hash, outcome: outcomeOf(c, again), expired: !!again });
+        paysFor(outcomeOf(c, again), it.keeper, owe);
       }
       const last = await readView(C.deployer, rec.reader, "last_read", [`c:${it.id}`]);
       results[it.key + ":" + it.r] = { ...s0, state: c.state, misses: c.misses, why: c.why, miss_at: c.miss_at, checked_at: c.checked_at, waited, reader: last, attempts };

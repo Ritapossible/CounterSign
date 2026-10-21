@@ -275,7 +275,12 @@ def _AZ(claim, *, now, miss_gap):
   raise _AG('no read of claim %d is open' % int(claim['id']))
  if int(now) <= int(_a['due']):
   raise _AG('the read is open until %d' % int(_a['due']))
- return _AY(claim, seq=_a['seq'], kind=_AB, print_='', now=now, miss_gap=miss_gap)
+ if _a['kind'] == _AD:
+  return _AY(claim, seq=_a['seq'], kind=_AB, print_='', now=now, miss_gap=miss_gap)
+ credits = {}
+ _AV(credits, _a['caller'], int(_a['fee']))
+ claim['read'] = None
+ return credits
 
 def withdraw_claim(claim, *, by, now):
  if _AH(by) != claim['project']:

@@ -103,7 +103,8 @@ Found while building, for review:
 - A registration read now has a deadline too: with no report by
   `read_window`, `expire_registration` refuses the entry.
 - Reports are sent on finality instead of replaced on appeal (ARCHITECTURE
-  section 2); an open read has a deadline and expires as silent.
+  section 2); an open read has a deadline. An expired posting is refused;
+  an expired re-check returns its fee and is not a miss (T23).
 - The auditor's signer may not post or re-check on its own entry
   (THREAT-MODEL T19); the Reader serves only its Board (T20).
 
@@ -264,7 +265,8 @@ Bradbury attempts so far, none a result:
 Board's views (THREAT-MODEL T20, T21). The scenario retries a read the
 Reader holds no record of, records each failed read with its retry's votes
 and leader output, and expires only past the deadline. 198 tests, 80
-mutants killed. Studio and Bradbury run again on this build.
+mutants killed. Studio and Bradbury run again on this build. After the expiry rule (T23):
+199 tests, 83 mutants killed.
 
 **Results on build `991d8c1`** (the retry fix, plus the runner version line
 Studio Next requires), the same table on both networks open on 21 October:
@@ -284,10 +286,13 @@ rose by 0.08987), and a hand-edited record counted one collect twice.
 **Retry check** (`deploy/retry_check.mjs`, same build, records
 `deploy/retry-{studio,studionext}.json`, code verified):
 
-- a registration whose Board read was refused (Reader not yet bound) was
-  recovered by a third party's `retry_registration` on both networks;
-- on Studio a `retry_claim` sent during the posting read agreed `confirmed`
-  with the Board's fingerprint, and the claim ended live with the stake held;
+- a registration whose Board read was made to fail (the Reader deployed
+  unbound, a staged failure, not claim 5's) was recovered by a third
+  party's `retry_registration` on both networks;
+- on Studio a `retry_claim` ran beside a Board read that also succeeded; it
+  agreed `confirmed` with the Board's fingerprint and the claim ended live
+  with the stake held. That shows the retry rebuilds the read from the
+  Board's records, not that it recovers a failed read;
 - on Studio Next the retry lost the race to the Board's read both times and
   was refused ("no read of this claim is open"), changing nothing.
 
@@ -296,7 +301,13 @@ been shown; Studio Next refuses an underfunded message up front, so it
 cannot be provoked there (THREAT-MODEL T21). On Bradbury, if a
 Board-triggered read disagrees, the record must show the retry's votes and
 the claim ending live, not refunded. An agreed false `silent` at posting is
-not retryable (T22, open).
+not retryable; accepted as a limit (T22, closed).
+
+**Expiry rule changed after these runs** (Grok's review of `122fc31`): an
+expired re-check returns its fee and is not a miss (THREAT-MODEL T23). The
+contracts are therefore no longer build `991d8c1`; the Studio and Studio
+Next tables above are for the earlier rule, in which no read expired. The
+new build is what goes to Bradbury, and the Studio table is rerun on it.
 
 Bradbury was reset for Phase 2 (announcement of 21 October): unavailable
 until Epoch Zero ends on 22 October, fees on, new RPC and consensus

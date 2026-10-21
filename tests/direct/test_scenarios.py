@@ -163,7 +163,7 @@ def test_one_silent_read_leaves_the_claim_up(net):
     assert c["state"] == "live" and c["misses"] == 0
 
 
-def test_cloaking_reports_nothing_and_the_read_expires_silent(net):
+def test_cloaking_reports_nothing_and_the_read_expires_without_a_miss(net):
     cid = net.live()
     pages = iter([audit_page(), audit_page(ROWS[1:])] * 10)
     net.rt.web[PAGE] = lambda: next(pages)  # the leader and the validator see different pages
@@ -175,7 +175,7 @@ def test_cloaking_reports_nothing_and_the_read_expires_silent(net):
     net.rt.now += WINDOW + 1
     net.call("expire", cid, sender=OTHER)
     c = net.claim(cid)
-    assert c["state"] == "live" and c["misses"] == 1 and net.owed(KEEPER) == FEE
+    assert c["state"] == "live" and c["misses"] == 0 and net.owed(KEEPER) == FEE  # no result: fee back, not a miss
 
 
 def test_an_unreadable_consensus_result_is_silent(net):

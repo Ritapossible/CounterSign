@@ -108,7 +108,8 @@ export function decodeClaim(c, me = "") {
       // A re-check: live, no read open, not by the auditor's own signer.
       recheck: c.state === "live" && !read && (!meL || meL !== lower(c.auditor_signer)),
       withdraw: open && !!meL && meL === lower(c.project),
-      // Past its deadline a read counts as silent; anyone closes it.
+      // Past its deadline anyone closes the read: a posting is refused, a
+      // re-check's fee goes back and it is not a miss.
       expire: !!read && now > due,
       // Before the deadline anyone may read the page again (the Reader takes
       // only the id; the page and passage come from the Board's record).

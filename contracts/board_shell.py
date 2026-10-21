@@ -207,8 +207,9 @@ class CounterSignBoard(gl.Contract):
 
     @gl.public.write
     def expire(self, claim_id: int) -> None:
-        """Anyone closes a read that got no report by its deadline. It counts
-        as silent."""
+        """Anyone closes a read that got no report by its deadline. A posting
+        is refused and its stake returned; a re-check's fee is returned and
+        the claim's misses are unchanged."""
         claim = self._claim(claim_id)
         try:
             credits = expire_read(claim, now=self._now(), miss_gap=int(self.miss_gap))

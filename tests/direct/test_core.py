@@ -287,6 +287,32 @@ def test_an_expired_read_is_silent():
     assert core.apply_report(c, seq=1, kind=CONFIRMED, print_="p", now=T0 + WINDOW * 2, miss_gap=GAP) is None
 
 
+def test_an_expired_recheck_is_not_a_miss():
+    """No agreed result is not evidence the page is gone: the fee goes back
+    and the misses stay as they were, so expiries never take a claim down."""
+    c = posted()
+    core.apply_report(c, seq=1, kind=CONFIRMED, print_="p", now=T0 + 1, miss_gap=GAP)
+    core.open_read(c, kind=RECHECK, caller=KEEPER, fee=FEE, now=T0 + 10, window=WINDOW)
+    with pytest.raises(CounterSignError):
+        core.expire_read(c, now=T0 + 10 + WINDOW, miss_gap=GAP)
+    assert core.expire_read(c, now=T0 + 11 + WINDOW, miss_gap=GAP) == {KEEPER: FEE}
+    assert c["state"] == LIVE and c["misses"] == 0 and c["read"] is None
+    # After one reported silent, any number of expiries, however far apart, change nothing.
+    core.open_read(c, kind=RECHECK, caller=KEEPER, fee=FEE, now=T0 + 2000, window=WINDOW)
+    core.apply_report(c, seq=c["seq"], kind=SILENT, print_="", now=T0 + 2001, miss_gap=GAP)
+    assert c["misses"] == 1 and c["miss_at"] == T0 + 2000
+    for k in range(3):
+        at = T0 + 2000 + (k + 1) * (GAP + WINDOW + 10)
+        core.open_read(c, kind=RECHECK, caller=KEEPER, fee=FEE, now=at, window=WINDOW)
+        assert core.expire_read(c, now=at + WINDOW + 1, miss_gap=GAP) == {KEEPER: FEE}
+        assert c["state"] == LIVE and c["misses"] == 1 and c["miss_at"] == T0 + 2000
+    # A silent the Reader reports still counts.
+    at = T0 + 2000 + 5 * (GAP + WINDOW + 10)
+    core.open_read(c, kind=RECHECK, caller=KEEPER, fee=FEE, now=at, window=WINDOW)
+    credits = core.apply_report(c, seq=c["seq"], kind=SILENT, print_="", now=at + 1, miss_gap=GAP)
+    assert c["state"] == DOWN and credits[KEEPER] == FEE + core.KEEPER_REWARD
+
+
 def test_a_pending_claim_cannot_be_rechecked():
     c = posted()
     assert core.recheck_errors(c, caller=KEEPER, auditor=registered(), value=FEE) == ["only a live claim can be re-checked"]

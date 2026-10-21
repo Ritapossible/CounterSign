@@ -117,7 +117,8 @@ ignored. The Reader reports on finality, so an appealed read arrives once.
 ## T15 - The Reader becomes unreadable after an appeal
 
 **Defence.** The Board never reads the Reader. Live claims stay as recorded,
-an open read expires as silent after `read_window`, and a project can
+an open read expires after `read_window` (a posting is refused, a re-check
+returns its fee), and a project can
 always withdraw and recover its stake, from `pending` as well as `live`, so
 a Reader that never reports locks nothing.
 **Test.** `test_board_works_when_the_reader_is_unreadable`, `test_a_pending_claim_can_be_withdrawn`.
@@ -184,15 +185,18 @@ the last resort, after the read's deadline.
 `test_a_registration_read_that_did_not_agree_is_retried`.
 **On chain** (`deploy/retry_check.mjs`, build `991d8c1`, records
 `deploy/retry-studio.json` and `deploy/retry-studionext.json`):
-- registration, Studio and Studio Next: the Board's `read_registration` was
-  refused (the Reader was not bound yet), the entry stayed pending, and a
-  third party's `retry_registration` registered it.
-- claim, Studio: a third party's `retry_claim`, sent while the Board's
-  posting read was open, read the page itself and agreed `confirmed` with the
-  Board's fingerprint; the claim ended live with its stake held.
-- claim, Studio Next: the retry lost the race twice. The Board's read
-  reported first, and the retry was refused with "no read of this claim is
-  open"; nothing changed.
+- registration, Studio and Studio Next: the Board's request was made to
+  fail by deploying the Reader unbound, so it refused `read_registration`.
+  The entry stayed pending, and once the Reader was bound a third party's
+  `retry_registration` registered it. That failure is staged, not the
+  unrotated-leader failure of claim 5.
+- claim, Studio: a third party's `retry_claim` ran beside a Board read that
+  also succeeded. It read the page itself and agreed `confirmed` with the
+  Board's fingerprint; the claim ended live with its stake held. This shows
+  the retry rebuilds the read from the Board's records, not that it
+  recovers a failed one.
+- claim, Studio Next: the retry lost the race to the Board's read twice and
+  was refused with "no read of this claim is open"; nothing changed.
 **Not shown yet.** A Board-triggered *claim* read that actually failed and
 was then recovered by a retry. No way was found to make one fail on demand:
 on Studio Next a posting with no fee for its message is rolled back whole,
@@ -200,13 +204,31 @@ and one with too small a fee is reverted at submission
 (`AllocationLifecycleBudgetInsufficient`). That has to be seen on Bradbury,
 where claim 5 happened.
 
-## T22 - Validators agree on a false `silent` at posting (open)
+## T22 - Validators agree on a false `silent` at posting (limit, closed)
 
 **Accident.** If every validator's fetch fails the same way (the host is
 down, or blocks the validators' addresses), they agree `silent` on a page
 that does confirm the claim. The posting is refused and the stake returned.
 The read is closed, so `retry_claim` cannot be called; the project has to
-post again. A retry only helps when a round does *not* agree.
-**Status.** Open design question: accept it (the project loses nothing but
-the transaction fee and posts again) and say so, or keep a refused posting
-retryable for a short window. Not decided.
+post again.
+**Limit, accepted.** An agreed `silent` is a result: every validator fetched
+and got the same failure. It costs the project only the transaction fee.
+Keeping a refused posting retryable would mean keeping its stake locked
+until the window ended, since a stake that is credited back, or collected,
+cannot revive the claim: a new lock for a case that today costs a fee. A
+retry is only for a round that did not agree.
+
+## T23 - Expiries used to take a claim down
+
+**Attack.** A read that expires had no agreed result. If an expired
+re-check counted as a miss, two expiries `miss_gap` apart would take a
+claim down and pay the keeper reward out of the stake for reads that never
+finished; since the fee comes back, that would be cheap to force.
+**Defence.** An expired re-check returns its fee to the caller, closes the
+read, and leaves `misses` and `miss_at` unchanged. Only a `silent` the
+Reader reports counts as a miss. An expired posting read is still a
+refusal and returns the stake.
+**Test.** `test_an_expired_recheck_is_not_a_miss`,
+`test_cloaking_reports_nothing_and_the_read_expires_without_a_miss`;
+mutants `expired-recheck-is-miss`, `expired-recheck-keeps-fee`,
+`expired-recheck-stays-open`.

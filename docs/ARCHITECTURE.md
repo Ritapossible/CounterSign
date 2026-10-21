@@ -80,10 +80,12 @@ project ── withdraw(claim_id) ──► Board: withdrawn, stake returned
 Each read is numbered per claim and has a deadline (`read_window`, set per
 deployment). A report applies only to the read that is open, with its
 number; a late, replayed or out-of-order report is ignored. A read with no
-report by its deadline is closed by anyone calling `expire` and counts as
-`silent`: validators that cannot agree report nothing, so disagreement and
-an unreachable page end the same way. Before the deadline, a read that
-failed is retried (above); expiry is the last resort.
+report by its deadline is closed by anyone calling `expire`. That is no
+result, not evidence the page is gone: an expired posting is refused and
+its stake returned; an expired re-check returns its fee and leaves the
+claim's misses unchanged (THREAT-MODEL T23). Only a `silent` the Reader
+reports counts as a miss. Before the deadline, a read that failed is
+retried (above); expiry is the last resort.
 
 Unlike RedLine, a report is never replaced: the Reader reports on finality,
 so an appeal is settled before the Board sees the outcome. On Bradbury that
