@@ -161,14 +161,15 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 /** Retry a read the node turned away for load: Studio limits callers per
  * minute, both networks answer "server busy" when their execution slots are
  * full, and a gateway in front of Studio Next sometimes answers with an HTML
- * error page. Anything else is thrown at once. */
+ * error page, and a dropped connection is worth one more try. Anything else
+ * is thrown at once. */
 export async function patient(fn, tries = 6) {
   for (let i = 0; ; i++) {
     try {
       return await fn();
     } catch (e) {
       const msg = String(e?.details || e?.message || e);
-      if (i >= tries - 1 || !/busy|rate limit|429|50[234]|slots occupied|gateway|Unexpected token '<'/i.test(msg)) throw e;
+      if (i >= tries - 1 || !/busy|rate limit|429|50[234]|slots occupied|gateway|Unexpected token '<'|failed to fetch|fetch failed|network|ECONNRESET|timed? ?out/i.test(msg)) throw e;
       await sleep(Math.min(30_000, 2000 * 2 ** i));
     }
   }
