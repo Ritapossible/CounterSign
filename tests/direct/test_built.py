@@ -57,8 +57,9 @@ def closures(src, name):
 def test_runner_header_then_code(pair):
     for src in pair[:2]:
         lines = src.splitlines()
-        assert lines[0] == '# { "Depends": "%s" }' % RUNNER
-        assert lines[1] == "from genlayer import *"
+        assert lines[0] == "# v0.2.0"  # Studio Next refuses a runner comment without its version
+        assert lines[1] == '# { "Depends": "%s" }' % RUNNER
+        assert lines[2] == "from genlayer import *"
 
 
 def test_deployed_is_a_fresh_minify_of_the_tested_build(pair):

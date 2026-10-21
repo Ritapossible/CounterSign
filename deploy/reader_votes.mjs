@@ -37,7 +37,7 @@ const seen = new Set();
 const walk = (v, path) => {
   if (!v || typeof v !== "object") return;
   // A batch's "settled" entry repeats its "sent" transaction: count each hash once.
-  if (typeof v.hash === "string" && /register|post|recheck|batch|pending/.test(path) && !/withdraw|collect|settled/.test(path) && !seen.has(v.hash)) {
+  if (typeof v.hash === "string" && /register|post|recheck|batch|pending/.test(path) && !/withdraw-live|pending\/withdraw|collect|settled|:tx$/.test(path) && !seen.has(v.hash)) {
     seen.add(v.hash);
     asks.push({ path, hash: v.hash });
   }

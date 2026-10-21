@@ -27,6 +27,12 @@ OUT_DIR = os.path.join(SRC, "build")
 # never floated.
 RUNNER = "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6"
 
+# The runner comment starts with the GenVM version it was written for.
+# Measured 21 October 2026: Studio Next refuses the runner without it
+# ("invalid_contract runner malformed") and accepts "# v0.2.0"; Studio, which
+# defaulted a missing version to v0.1.0, accepts it too.
+RUNNER_VERSION = "v0.2.0"
+
 BUILDS = {
     "countersign_board": (["countersign_text.py", "countersign_core.py", "board_shell.py"], "CounterSignBoard"),
     "countersign_reader": (["countersign_text.py", "countersign_core.py", "countersign_prompts.py", "reader_shell.py"], "CounterSignReader"),
@@ -36,7 +42,8 @@ BUILDS = {
 # between it and the first statement makes the deploy fail with an empty-stderr
 # contract_error on every validator - measured on Studio in RedLine. The
 # "generated file" banner therefore sits *after* the imports, not before them.
-PREAMBLE = '''# { "Depends": "%s" }
+PREAMBLE = '''# %s
+# { "Depends": "%s" }
 from genlayer import *
 
 import datetime
@@ -48,7 +55,7 @@ import json
 # text), contracts/countersign_core.py (the rules) and, for the Board,
 # board_shell.py; for the Reader, countersign_prompts.py and reader_shell.py.
 # ---------------------------------------------------------------------------
-''' % RUNNER
+''' % (RUNNER_VERSION, RUNNER)
 
 # Imports the parts declare for themselves; the preamble already provides them.
 DROP_IMPORT = re.compile(

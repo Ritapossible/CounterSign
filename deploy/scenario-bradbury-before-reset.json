@@ -1,0 +1,20 @@
+{
+  "network": "bradbury",
+  "accounts": {
+    "deployer": "0xf1827cad7c88f02a7cad3627d7ce482a8f2d33c7",
+    "auditor": "0x3f55971f7fd2594a90871db489fbb82f1db4d747",
+    "project": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+    "keeper": "0xef359811497c724ef1942c6c079c64c07d87952d",
+    "keeper2": "0x8aa26fa51a68c583c467463e93db0ebc10f7d509"
+  },
+  "pages": {},
+  "done": {
+    "pages:initial": {
+      "commit": "6937779800dde86d26b38a876e3a9cf64b707ffd",
+      "visible_after_s": 2
+    }
+  },
+  "checks": [],
+  "recorded_at": "2026-10-21T08:11:01.663Z",
+  "reader": "0x28874A8775e1c94f4c731136e38f51B811114845"
+}

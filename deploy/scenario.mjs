@@ -16,7 +16,8 @@ const network = process.argv[2] || "studio";
 const RUNS = Number(process.env.RUNS || 3);
 const LIVE = process.env.LIVE_DIR;
 if (!LIVE) throw new Error("LIVE_DIR: a checkout of the live branch");
-const STUDIO = network === "studio";
+// Studio and Studio Next both report about 40 s after a request (measured).
+const STUDIO = network === "studio" || network === "studionext";
 const MISS_GAP = STUDIO ? 300 : 3600;
 const READ_WINDOW = STUDIO ? 600 : 7200;
 const REPORT_WAIT = STUDIO ? 900 : 9000; // seconds to wait for a report to land (past READ_WINDOW)

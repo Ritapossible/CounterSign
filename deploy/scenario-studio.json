@@ -1,0 +1,3460 @@
+{
+  "network": "studio",
+  "accounts": {
+    "deployer": "0xf1827cad7c88f02a7cad3627d7ce482a8f2d33c7",
+    "auditor": "0x3f55971f7fd2594a90871db489fbb82f1db4d747",
+    "project": "0xaa34e14a0e0b2fdd8ad10f06bc0907fa0b1d02bd",
+    "keeper": "0xef359811497c724ef1942c6c079c64c07d87952d",
+    "keeper2": "0x8aa26fa51a68c583c467463e93db0ebc10f7d509"
+  },
+  "pages": {},
+  "done": {
+    "pages:initial": {
+      "commit": "6937779800dde86d26b38a876e3a9cf64b707ffd",
+      "visible_after_s": 2
+    },
+    "bind": {
+      "hash": "0x9aa432b8035b005326c9c68dca75399638c7832275f339e6fe726909dd6192db",
+      "consensus": "MAJORITY_AGREE"
+    },
+    "r1:register:happy:tx": {
+      "hash": "0x42645cc6fd175a15ab855cdeade1cbd8d6391469413c38563330b624dea2bb7a",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:happy": {
+      "id": 0,
+      "hash": "0x42645cc6fd175a15ab855cdeade1cbd8d6391469413c38563330b624dea2bb7a",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:spa:tx": {
+      "hash": "0x2e331f12e5124f6fce2e82e57281118816b774ca00816d1e192ca4c8076d09aa",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:spa": {
+      "id": 1,
+      "hash": "0x2e331f12e5124f6fce2e82e57281118816b774ca00816d1e192ca4c8076d09aa",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:nosample:tx": {
+      "hash": "0x84e9c687f7fe0c5604dc2564c0815b0788b6d7ff90f899f4293094a5ee44265f",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:nosample": {
+      "id": 2,
+      "hash": "0x84e9c687f7fe0c5604dc2564c0815b0788b6d7ff90f899f4293094a5ee44265f",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:hidden:tx": {
+      "hash": "0x2ed0c323eeb221543e5f5a67f6b0de8bcdfd3ff09cecb607ea9b6e014d22e701",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:hidden": {
+      "id": 3,
+      "hash": "0x2ed0c323eeb221543e5f5a67f6b0de8bcdfd3ff09cecb607ea9b6e014d22e701",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:flagged:tx": {
+      "hash": "0x9d2942fe5cac29a71dee95f9ed3777110f53774bd69fb481afe781069a4f2b35",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:flagged": {
+      "id": 4,
+      "hash": "0x9d2942fe5cac29a71dee95f9ed3777110f53774bd69fb481afe781069a4f2b35",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:withdraw:tx": {
+      "hash": "0xd686ba91247d394f91d19b51115ce9f51f884c7d2cb0621381223789841c82f6",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:withdraw": {
+      "id": 5,
+      "hash": "0xd686ba91247d394f91d19b51115ce9f51f884c7d2cb0621381223789841c82f6",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:delete:tx": {
+      "hash": "0x572bbd9eb9846f3b8238e02f646a846bf8fb9bbb1dcd478c3cc81f2fe4f53665",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:delete": {
+      "id": 6,
+      "hash": "0x572bbd9eb9846f3b8238e02f646a846bf8fb9bbb1dcd478c3cc81f2fe4f53665",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:outage:tx": {
+      "hash": "0xac8302a324ff48ce5312f1d97d1fc35cec646a753e6b5b18c68988441dba1b11",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:outage": {
+      "id": 7,
+      "hash": "0xac8302a324ff48ce5312f1d97d1fc35cec646a753e6b5b18c68988441dba1b11",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:inject:tx": {
+      "hash": "0x3ef5cde328e0487fe52510679f1c67bfcce5edda6c7f8eeb166ab8dc36b312e3",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:register:inject": {
+      "id": 8,
+      "hash": "0x3ef5cde328e0487fe52510679f1c67bfcce5edda6c7f8eeb166ab8dc36b312e3",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:happy:tx": {
+      "hash": "0x9495d24d47a5d6e9f1c05ee50ce61965c7665069f2ba4ddad3ea2b02be00e20c",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:happy": {
+      "id": 9,
+      "hash": "0x9495d24d47a5d6e9f1c05ee50ce61965c7665069f2ba4ddad3ea2b02be00e20c",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:spa:tx": {
+      "hash": "0x8888b5be68cc31830c4d46a1790ff5866b635045b0640c1b9453bc5cd7590e4c",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:spa": {
+      "id": 10,
+      "hash": "0x8888b5be68cc31830c4d46a1790ff5866b635045b0640c1b9453bc5cd7590e4c",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:nosample:tx": {
+      "hash": "0x7b12ef8900e7e41110133ce1765f3ab4051fd697e43b8a45071ec63c1cdc7376",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:nosample": {
+      "id": 11,
+      "hash": "0x7b12ef8900e7e41110133ce1765f3ab4051fd697e43b8a45071ec63c1cdc7376",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:hidden:tx": {
+      "hash": "0x1d5228c214c2b81cc6ed16322505621ccfe5e5e98c0615806f7fd395a33082b1",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:hidden": {
+      "id": 12,
+      "hash": "0x1d5228c214c2b81cc6ed16322505621ccfe5e5e98c0615806f7fd395a33082b1",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:flagged:tx": {
+      "hash": "0x6a3660e24aaa1718cdf0f6baf5da35817708becf889abc0aebe0bb6814db439c",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:flagged": {
+      "id": 13,
+      "hash": "0x6a3660e24aaa1718cdf0f6baf5da35817708becf889abc0aebe0bb6814db439c",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:withdraw:tx": {
+      "hash": "0x6abb518d905d1a0ddd315ec905dad066cd77a42c9676fdf2a8a220d61c8eeac6",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:withdraw": {
+      "id": 14,
+      "hash": "0x6abb518d905d1a0ddd315ec905dad066cd77a42c9676fdf2a8a220d61c8eeac6",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:delete:tx": {
+      "hash": "0x796e5121803119feeae72b85f0f262c1cc11184f19742342e956ee2b6b25c732",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:delete": {
+      "id": 15,
+      "hash": "0x796e5121803119feeae72b85f0f262c1cc11184f19742342e956ee2b6b25c732",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:outage:tx": {
+      "hash": "0x6e3531a28f4201fc4a42e10fb5a5808ceaa83718ea01ff8e9217135c1c1123bb",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:outage": {
+      "id": 16,
+      "hash": "0x6e3531a28f4201fc4a42e10fb5a5808ceaa83718ea01ff8e9217135c1c1123bb",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:inject:tx": {
+      "hash": "0xdda98999d12c02b55469850e12d341d9551a65bb01682bd4f5d83b4bc4fa4e46",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:register:inject": {
+      "id": 17,
+      "hash": "0xdda98999d12c02b55469850e12d341d9551a65bb01682bd4f5d83b4bc4fa4e46",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:happy:tx": {
+      "hash": "0xb8718bc2267531ea17dcf33a57b796de5744fa5167019f9b5950ad3c90149d61",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:happy": {
+      "id": 18,
+      "hash": "0xb8718bc2267531ea17dcf33a57b796de5744fa5167019f9b5950ad3c90149d61",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:spa:tx": {
+      "hash": "0x64e735153ee09f2e2a2b33f7763ace090a1a861f79b53117a6c11418775c4200",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:spa": {
+      "id": 19,
+      "hash": "0x64e735153ee09f2e2a2b33f7763ace090a1a861f79b53117a6c11418775c4200",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:nosample:tx": {
+      "hash": "0x1605a7ebe22375665006abb76466204897995cde59f75cb97b9463ca7a6c27a1",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:nosample": {
+      "id": 20,
+      "hash": "0x1605a7ebe22375665006abb76466204897995cde59f75cb97b9463ca7a6c27a1",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:hidden:tx": {
+      "hash": "0xa651b581c10142554de5ebfd54f36135701f1ba4032f22cdd6e5ffd3466d3b49",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:hidden": {
+      "id": 21,
+      "hash": "0xa651b581c10142554de5ebfd54f36135701f1ba4032f22cdd6e5ffd3466d3b49",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:flagged:tx": {
+      "hash": "0x6bd84cb0e2353f77f92b4b20d46d60930706c90913d56ae0f9d4c8651b7aaf92",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:flagged": {
+      "id": 22,
+      "hash": "0x6bd84cb0e2353f77f92b4b20d46d60930706c90913d56ae0f9d4c8651b7aaf92",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:withdraw:tx": {
+      "hash": "0x9e3013442fe783a96f1fb2a15a5b8ba04a926be3778da5a4ba146c4f334868cb",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:withdraw": {
+      "id": 23,
+      "hash": "0x9e3013442fe783a96f1fb2a15a5b8ba04a926be3778da5a4ba146c4f334868cb",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:delete:tx": {
+      "hash": "0x0bbe245d9b78e3f1f0c076100bf7b96878913b76d9310c8d757875a3a9a13de4",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:delete": {
+      "id": 24,
+      "hash": "0x0bbe245d9b78e3f1f0c076100bf7b96878913b76d9310c8d757875a3a9a13de4",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:outage:tx": {
+      "hash": "0xb64aec32d33c05189353eee2c4d5af2e5e73b15d78b4ee53293f0dec1bbd1109",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:outage": {
+      "id": 25,
+      "hash": "0xb64aec32d33c05189353eee2c4d5af2e5e73b15d78b4ee53293f0dec1bbd1109",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:inject:tx": {
+      "hash": "0x3ed0759ffd74fc6443433e1862c4efe4b3b5c58a4e913535f8215250de41012b",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:register:inject": {
+      "id": 26,
+      "hash": "0x3ed0759ffd74fc6443433e1862c4efe4b3b5c58a4e913535f8215250de41012b",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:registered:happy": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r1:registered:spa": {
+      "state": "refused",
+      "waited": 1,
+      "retries": []
+    },
+    "r1:registered:nosample": {
+      "state": "refused",
+      "waited": 1,
+      "retries": []
+    },
+    "r1:registered:hidden": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r1:registered:flagged": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r1:registered:withdraw": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r1:registered:delete": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r1:registered:outage": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r1:registered:inject": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r2:registered:happy": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r2:registered:spa": {
+      "state": "refused",
+      "waited": 1,
+      "retries": []
+    },
+    "r2:registered:nosample": {
+      "state": "refused",
+      "waited": 1,
+      "retries": []
+    },
+    "r2:registered:hidden": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r2:registered:flagged": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r2:registered:withdraw": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r2:registered:delete": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r2:registered:outage": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r2:registered:inject": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r3:registered:happy": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r3:registered:spa": {
+      "state": "refused",
+      "waited": 26,
+      "retries": []
+    },
+    "r3:registered:nosample": {
+      "state": "refused",
+      "waited": 1,
+      "retries": []
+    },
+    "r3:registered:hidden": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r3:registered:flagged": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r3:registered:withdraw": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r3:registered:delete": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r3:registered:outage": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r3:registered:inject": {
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    "r1:post:happy:tx": {
+      "hash": "0x503dece0ab698759c4576936d5c678fddf9b2012cb7e3867067e8aab9f9c50ad",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:happy": {
+      "id": 0,
+      "owed_before": "0",
+      "hash": "0x503dece0ab698759c4576936d5c678fddf9b2012cb7e3867067e8aab9f9c50ad",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:absent:tx": {
+      "hash": "0xbb7b68eb2aa9449986a93ccbc6932bfa6c3d29753683cd0822a81e1431643b1d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:absent": {
+      "id": 1,
+      "owed_before": "0",
+      "hash": "0xbb7b68eb2aa9449986a93ccbc6932bfa6c3d29753683cd0822a81e1431643b1d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:hidden:tx": {
+      "hash": "0x08f0a5130d4421743cb1d7291fb387b4cf247e25d29a0d4f88db4ddb10dd80c8",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:hidden": {
+      "id": 2,
+      "owed_before": "0",
+      "hash": "0x08f0a5130d4421743cb1d7291fb387b4cf247e25d29a0d4f88db4ddb10dd80c8",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:flagged:tx": {
+      "hash": "0xa087fbd40a8d298249cb5da75973aee65eee39f421621e7499d51ac0c6c6d2aa",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:flagged": {
+      "id": 3,
+      "owed_before": "0",
+      "hash": "0xa087fbd40a8d298249cb5da75973aee65eee39f421621e7499d51ac0c6c6d2aa",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:withdraw:tx": {
+      "hash": "0x3aeb6ecf1d5c25fa9054ce5406193867eeb3a0d683095c6be68604db23beb47b",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:withdraw": {
+      "id": 4,
+      "owed_before": "0",
+      "hash": "0x3aeb6ecf1d5c25fa9054ce5406193867eeb3a0d683095c6be68604db23beb47b",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:delete:tx": {
+      "hash": "0x8658a0389888469f38cb15e82d25425f5d4d5f510bd6cae4b04e0abc2853ae85",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:delete": {
+      "id": 5,
+      "owed_before": "0",
+      "hash": "0x8658a0389888469f38cb15e82d25425f5d4d5f510bd6cae4b04e0abc2853ae85",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:outage:tx": {
+      "hash": "0xd6e456b4aeb2c9c2ecaac7a19b91d9ee29f1d00e5a93a8406daedb40671146ce",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:outage": {
+      "id": 6,
+      "owed_before": "200000000000000000",
+      "hash": "0xd6e456b4aeb2c9c2ecaac7a19b91d9ee29f1d00e5a93a8406daedb40671146ce",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:inject:tx": {
+      "hash": "0x4036efccead0d402d3113b8dcde04fb7f93bacf2ded7ba2bf0c00a5528526601",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:inject": {
+      "id": 7,
+      "owed_before": "300000000000000000",
+      "hash": "0x4036efccead0d402d3113b8dcde04fb7f93bacf2ded7ba2bf0c00a5528526601",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:scope:tx": {
+      "hash": "0x49b044e88185fddf1c309542daae3e917ea397f381825c329f9156733b69c85d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:scope": {
+      "id": -1,
+      "owed_before": "300000000000000000",
+      "hash": "0x49b044e88185fddf1c309542daae3e917ea397f381825c329f9156733b69c85d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:scope-missing": {
+      "reason": "not in the passage as whole words: April 2026",
+      "returned": "100000000000000000"
+    },
+    "r2:post:happy:tx": {
+      "hash": "0x6743d834ee85c6a8821888b1286346380edf70d2f494f9d9ab2b354c8152280c",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:happy": {
+      "id": 8,
+      "owed_before": "400000000000000000",
+      "hash": "0x6743d834ee85c6a8821888b1286346380edf70d2f494f9d9ab2b354c8152280c",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:absent:tx": {
+      "hash": "0xd476ae152aa1951d43038111ebd050275a6f8b3bd2acb3f0dbb7d3a7edee2ea9",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:absent": {
+      "id": 9,
+      "owed_before": "400000000000000000",
+      "hash": "0xd476ae152aa1951d43038111ebd050275a6f8b3bd2acb3f0dbb7d3a7edee2ea9",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:hidden:tx": {
+      "hash": "0xbd3cbd2a083ec61b4cd9dca024cce60d379dd119c7c78cd98430801626f40e14",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:hidden": {
+      "id": 10,
+      "owed_before": "400000000000000000",
+      "hash": "0xbd3cbd2a083ec61b4cd9dca024cce60d379dd119c7c78cd98430801626f40e14",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:flagged:tx": {
+      "hash": "0x1b2b4d4e31f1801ccff9df5c7427275a8a63f42aa4df171a874954cba1f00228",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:flagged": {
+      "id": 11,
+      "owed_before": "400000000000000000",
+      "hash": "0x1b2b4d4e31f1801ccff9df5c7427275a8a63f42aa4df171a874954cba1f00228",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:withdraw:tx": {
+      "hash": "0x4b2d4f5374ef4c6d2ceafa53dad73d92b6f3afcb5a91e4d69583abfeed27137a",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:withdraw": {
+      "id": 12,
+      "owed_before": "400000000000000000",
+      "hash": "0x4b2d4f5374ef4c6d2ceafa53dad73d92b6f3afcb5a91e4d69583abfeed27137a",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:delete:tx": {
+      "hash": "0x2410354bc15e6fec9d1c5247259349e05fe9eb76e499b70713982416a5d9ec41",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:delete": {
+      "id": 13,
+      "owed_before": "400000000000000000",
+      "hash": "0x2410354bc15e6fec9d1c5247259349e05fe9eb76e499b70713982416a5d9ec41",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:outage:tx": {
+      "hash": "0x08ea36c79fc9b41d4d552669a336eee873b2cb0d7d4989d490e04cb5f8ecd2b9",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:outage": {
+      "id": 14,
+      "owed_before": "400000000000000000",
+      "hash": "0x08ea36c79fc9b41d4d552669a336eee873b2cb0d7d4989d490e04cb5f8ecd2b9",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:inject:tx": {
+      "hash": "0xae5a2a1bbab469b59930782d8e988c00b1da78bdee259c0e1423294a3ae2e6ac",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:inject": {
+      "id": 15,
+      "owed_before": "500000000000000000",
+      "hash": "0xae5a2a1bbab469b59930782d8e988c00b1da78bdee259c0e1423294a3ae2e6ac",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:scope:tx": {
+      "hash": "0x0d048e90252e7dee18f0d2f19da704b0adaeba7377e0014b1a8623e7f1af2f88",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:scope": {
+      "id": -1,
+      "owed_before": "600000000000000000",
+      "hash": "0x0d048e90252e7dee18f0d2f19da704b0adaeba7377e0014b1a8623e7f1af2f88",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:scope-missing": {
+      "reason": "not in the passage as whole words: April 2026",
+      "returned": "100000000000000000"
+    },
+    "r3:post:happy:tx": {
+      "hash": "0xf53540522978819d5347ece8ddaa11b2f21488fc734f1de401670d15d1decff4",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:happy": {
+      "id": 16,
+      "owed_before": "700000000000000000",
+      "hash": "0xf53540522978819d5347ece8ddaa11b2f21488fc734f1de401670d15d1decff4",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:absent:tx": {
+      "hash": "0x9fa51f312e6f99af424fa90e2561fa2def17ac4b07f3a7bb58165a5442207b6d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:absent": {
+      "id": 17,
+      "owed_before": "800000000000000000",
+      "hash": "0x9fa51f312e6f99af424fa90e2561fa2def17ac4b07f3a7bb58165a5442207b6d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:hidden:tx": {
+      "hash": "0x498d78411eaa48552bdfcf804efec704739fcc43235a2ece017da92bb388e8ea",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:hidden": {
+      "id": 18,
+      "owed_before": "800000000000000000",
+      "hash": "0x498d78411eaa48552bdfcf804efec704739fcc43235a2ece017da92bb388e8ea",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:flagged:tx": {
+      "hash": "0xd1b83909b47a56086b6fdb236994c22183d1f73f847a94aca0b085c511ed4b61",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:flagged": {
+      "id": 19,
+      "owed_before": "800000000000000000",
+      "hash": "0xd1b83909b47a56086b6fdb236994c22183d1f73f847a94aca0b085c511ed4b61",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:withdraw:tx": {
+      "hash": "0x6241b387655a50c4394bc2e5189c1e9a09e4dde508c5a5a9bb4b0d42818a1481",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:withdraw": {
+      "id": 20,
+      "owed_before": "800000000000000000",
+      "hash": "0x6241b387655a50c4394bc2e5189c1e9a09e4dde508c5a5a9bb4b0d42818a1481",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:delete:tx": {
+      "hash": "0xc882b2a546785edb91957976ef99ee330d037f3df698d62c33de789d9810e0af",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:delete": {
+      "id": 21,
+      "owed_before": "800000000000000000",
+      "hash": "0xc882b2a546785edb91957976ef99ee330d037f3df698d62c33de789d9810e0af",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:outage:tx": {
+      "hash": "0x40cca45e61098b009773623c9e3212877e806ff5080a32b2578bb50fedd6f567",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:outage": {
+      "id": 22,
+      "owed_before": "800000000000000000",
+      "hash": "0x40cca45e61098b009773623c9e3212877e806ff5080a32b2578bb50fedd6f567",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:inject:tx": {
+      "hash": "0xc0968b8be8adcb055df4d17635871d48af329cf295019a8091f775fab571b579",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:inject": {
+      "id": 23,
+      "owed_before": "900000000000000000",
+      "hash": "0xc0968b8be8adcb055df4d17635871d48af329cf295019a8091f775fab571b579",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:scope:tx": {
+      "hash": "0x76d7d42b5a2fb210819c8f634ad4460bbd63c073b8f30371935f850b1e2002c7",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:scope": {
+      "id": -1,
+      "owed_before": "1000000000000000000",
+      "hash": "0x76d7d42b5a2fb210819c8f634ad4460bbd63c073b8f30371935f850b1e2002c7",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:scope-missing": {
+      "reason": "not in the passage as whole words: April 2026",
+      "returned": "100000000000000000"
+    },
+    "r1:posted:happy": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r1:posted:absent": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r1:posted:hidden": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r1:posted:flagged": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "denied",
+        "print": "873c4b8c2acac746"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r1:posted:withdraw": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r1:posted:delete": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r1:posted:outage": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r1:posted:inject": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r2:posted:happy": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r2:posted:absent": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r2:posted:hidden": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r2:posted:flagged": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "denied",
+        "print": "873c4b8c2acac746"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r2:posted:withdraw": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r2:posted:delete": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r2:posted:outage": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r2:posted:inject": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r3:posted:happy": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r3:posted:absent": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r3:posted:hidden": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r3:posted:flagged": {
+      "state": "refused",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "denied",
+        "print": "873c4b8c2acac746"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r3:posted:withdraw": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r3:posted:delete": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r3:posted:outage": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r3:posted:inject": {
+      "state": "live",
+      "waited": 1,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "expired": false,
+      "repost": null
+    },
+    "r1:post:pending:tx": {
+      "hash": "0x2997c566eb16397adc7afa17e783f629e1ae6fc8fd64b729486f4e1c97f55210",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:post:pending": {
+      "id": 24,
+      "owed_before": "1200000000000000000",
+      "hash": "0x2997c566eb16397adc7afa17e783f629e1ae6fc8fd64b729486f4e1c97f55210",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r1:pending": {
+      "id": 24,
+      "recheck": {
+        "hash": "0xe0b9f3a65ffc84ce18a1d00eba01ec66b7c63b8ec04f1376d5dc02cdc313231a",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "withdraw": {
+        "hash": "0x69caebe2dbb83e35b680642f88dc7d2a74a4f07a7e9bc2c95f8510833a3fc7fd",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      }
+    },
+    "r2:post:pending:tx": {
+      "hash": "0xde1469d82693546ad645bf80fc5bd241ca373f5787aecf185e71e176a6770483",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:post:pending": {
+      "id": 25,
+      "owed_before": "1300000000000000000",
+      "hash": "0xde1469d82693546ad645bf80fc5bd241ca373f5787aecf185e71e176a6770483",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:pending": {
+      "id": 25,
+      "recheck": {
+        "hash": "0xac0070b4466b041916dc4df22efd1336005a8bfba677971e811d632c63db5aa4",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "withdraw": {
+        "hash": "0xaf32ef20c2be00ea4163db52d6d81533dbbf78d5caace9c3853acf10334100fc",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      }
+    },
+    "r3:post:pending:tx": {
+      "hash": "0xc53e2bff3c675cab6cce3716a651fdae8cc647b4c53d5adb1d21a4cd3a8aed3a",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:post:pending": {
+      "id": 26,
+      "owed_before": "1400000000000000000",
+      "hash": "0xc53e2bff3c675cab6cce3716a651fdae8cc647b4c53d5adb1d21a4cd3a8aed3a",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:pending": {
+      "id": 26,
+      "recheck": {
+        "hash": "0x9d777f5e9afb25d8c4236ea04abc251b11da69892bd8a23e9bcb33871a4cc028",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      },
+      "withdraw": {
+        "hash": "0x5dac949b7032d7402e0bfc8dfdefc59f3daef911be8492460a36d439e33ace1e",
+        "consensus": "MAJORITY_AGREE",
+        "leader": "return"
+      }
+    },
+    "r1:pending-late": {
+      "id": 24,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "reader_seen_at": 1792570517949
+    },
+    "r2:pending-late": {
+      "id": 25,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "reader_seen_at": 1792570519047
+    },
+    "r3:pending-late": {
+      "id": 26,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "reader_seen_at": 1792570520118
+    },
+    "wait:pending-finality": 90,
+    "r1:checked:pending-late": true,
+    "r2:checked:pending-late": true,
+    "r3:checked:pending-late": true,
+    "batch:unchanged:sent": {
+      "before": {
+        "project": "1500000000000000000",
+        "keeper": "30000000000000000",
+        "keeper2": "0"
+      },
+      "out": {
+        "unchanged:1": {
+          "hash": "0xe7fe46260718a61e9f37a136eeae0cc766e8024350cacefdda30854bbbfd3399",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 0,
+          "seq": 1,
+          "sent_at": 1792570624
+        },
+        "unchanged:2": {
+          "hash": "0x132503de4553daa691ff2cf470753fd69ed2332ee6feaa541abcc3f9abb049a7",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 8,
+          "seq": 1,
+          "sent_at": 1792570632
+        },
+        "unchanged:3": {
+          "hash": "0xdda8851dcea89a2525e1d1c70922e0e64e868e372de154c5a0d12c119964f415",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 16,
+          "seq": 1,
+          "sent_at": 1792570640
+        }
+      }
+    },
+    "batch:unchanged:settled": {
+      "results": {
+        "unchanged:1": {
+          "hash": "0xe7fe46260718a61e9f37a136eeae0cc766e8024350cacefdda30854bbbfd3399",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 0,
+          "seq": 1,
+          "sent_at": 1792570624,
+          "state": "live",
+          "misses": 0,
+          "why": "",
+          "miss_at": 0,
+          "checked_at": 1792570618,
+          "waited": 29,
+          "reader": {
+            "seq": 2,
+            "kind": "confirmed",
+            "print": "fd731559c212e9e2"
+          },
+          "attempts": [
+            {
+              "hash": "0xe7fe46260718a61e9f37a136eeae0cc766e8024350cacefdda30854bbbfd3399",
+              "outcome": "confirmed",
+              "expired": false
+            }
+          ]
+        },
+        "unchanged:2": {
+          "hash": "0x132503de4553daa691ff2cf470753fd69ed2332ee6feaa541abcc3f9abb049a7",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 8,
+          "seq": 1,
+          "sent_at": 1792570632,
+          "state": "live",
+          "misses": 0,
+          "why": "",
+          "miss_at": 0,
+          "checked_at": 1792570626,
+          "waited": 10,
+          "reader": {
+            "seq": 2,
+            "kind": "confirmed",
+            "print": "fd731559c212e9e2"
+          },
+          "attempts": [
+            {
+              "hash": "0x132503de4553daa691ff2cf470753fd69ed2332ee6feaa541abcc3f9abb049a7",
+              "outcome": "confirmed",
+              "expired": false
+            }
+          ]
+        },
+        "unchanged:3": {
+          "hash": "0xdda8851dcea89a2525e1d1c70922e0e64e868e372de154c5a0d12c119964f415",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 16,
+          "seq": 1,
+          "sent_at": 1792570640,
+          "state": "live",
+          "misses": 0,
+          "why": "",
+          "miss_at": 0,
+          "checked_at": 1792570633,
+          "waited": 10,
+          "reader": {
+            "seq": 2,
+            "kind": "confirmed",
+            "print": "fd731559c212e9e2"
+          },
+          "attempts": [
+            {
+              "hash": "0xdda8851dcea89a2525e1d1c70922e0e64e868e372de154c5a0d12c119964f415",
+              "outcome": "confirmed",
+              "expired": false
+            }
+          ]
+        }
+      },
+      "delta": {
+        "project": "30000000000000000",
+        "keeper": "0",
+        "keeper2": "0"
+      },
+      "expected": {
+        "project": "30000000000000000",
+        "keeper": "0",
+        "keeper2": "0"
+      }
+    },
+    "checked:unchanged": true,
+    "pages:edited": {
+      "commit": "b332d2ef2c88c8d387a0739d002603776efcd1e9",
+      "visible_after_s": 2
+    },
+    "batch:edited:sent": {
+      "before": {
+        "project": "1530000000000000000",
+        "keeper": "30000000000000000",
+        "keeper2": "0"
+      },
+      "out": {
+        "withdrawn:1": {
+          "hash": "0xfde2e9cd09f635ebae2e695e14945d61f7ba4c7477ba9d4da302c3ebc8d26617",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 4,
+          "seq": 1,
+          "sent_at": 1792571042
+        },
+        "deleted-1:1": {
+          "hash": "0x4aa754a1af470c9784674f6cf6ff39f3be40407911a0986cfed14d1b78fa8b49",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 5,
+          "seq": 1,
+          "sent_at": 1792571046
+        },
+        "outage-1:1": {
+          "hash": "0xa5f70a1a51035399d869da4b630f46e4c6a0eadad1e91ad3c5fd81f45255905d",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 6,
+          "seq": 1,
+          "sent_at": 1792571054
+        },
+        "inject:1": {
+          "hash": "0x5f95b21e716c8a27d01c0122ed2c5614c2ac12ed9afa370a5d9e753474f4f48f",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 7,
+          "seq": 1,
+          "sent_at": 1792571062
+        },
+        "withdrawn:2": {
+          "hash": "0xe19a0eca4c308911f3111080031919a25d93e3b104fae07ca5a830171a457ac0",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 12,
+          "seq": 1,
+          "sent_at": 1792571069
+        },
+        "deleted-1:2": {
+          "hash": "0x32077d06c5dab11274a719771014c8e0bd71e0059df442903aea71939b23d79d",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 13,
+          "seq": 1,
+          "sent_at": 1792571077
+        },
+        "outage-1:2": {
+          "hash": "0xc0b810f2d6b08499b2b71d12b2bc81341d53b18e23a86c6647efab5e4080f84f",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 14,
+          "seq": 1,
+          "sent_at": 1792571085
+        },
+        "inject:2": {
+          "hash": "0x9fe4ffcf065b9e6016b057e666011daaa919aaeb54b52637dd4d72d8f8b725a5",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 15,
+          "seq": 1,
+          "sent_at": 1792571092
+        },
+        "withdrawn:3": {
+          "hash": "0x68e674a6c780a92fa8043de6746419450d11ef2658d5a91b007dce1cecc784c1",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 20,
+          "seq": 1,
+          "sent_at": 1792571106
+        },
+        "deleted-1:3": {
+          "hash": "0x632e7b026094d357b3468a349c7771045437c724226d1856a371d32863db1277",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 21,
+          "seq": 1,
+          "sent_at": 1792571114
+        },
+        "outage-1:3": {
+          "hash": "0xfe0819dbb2d8a2d812fa93100693fad69ebbf9af7a613e1705a40c284fb1c4ab",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 22,
+          "seq": 1,
+          "sent_at": 1792571122
+        },
+        "inject:3": {
+          "hash": "0xe189307cf48fba5d441ce936a4fd64834bb6da5d9821ac9b1c15d4db0d895b9f",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 23,
+          "seq": 1,
+          "sent_at": 1792571131
+        }
+      }
+    },
+    "batch:edited:settled": {
+      "results": {
+        "withdrawn:1": {
+          "hash": "0xfde2e9cd09f635ebae2e695e14945d61f7ba4c7477ba9d4da302c3ebc8d26617",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 4,
+          "seq": 1,
+          "sent_at": 1792571042,
+          "state": "down",
+          "misses": 0,
+          "why": "the auditor's page denies it",
+          "miss_at": 0,
+          "checked_at": 1792570060,
+          "waited": 1,
+          "reader": {
+            "seq": 2,
+            "kind": "denied",
+            "print": "6cfde32660071749"
+          },
+          "attempts": [
+            {
+              "hash": "0xfde2e9cd09f635ebae2e695e14945d61f7ba4c7477ba9d4da302c3ebc8d26617",
+              "outcome": "denied",
+              "expired": false
+            }
+          ]
+        },
+        "deleted-1:1": {
+          "hash": "0x4aa754a1af470c9784674f6cf6ff39f3be40407911a0986cfed14d1b78fa8b49",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 5,
+          "seq": 1,
+          "sent_at": 1792571046,
+          "state": "live",
+          "misses": 1,
+          "why": "",
+          "miss_at": 1792571043,
+          "checked_at": 1792570070,
+          "waited": 1,
+          "reader": {
+            "seq": 2,
+            "kind": "silent",
+            "print": ""
+          },
+          "attempts": [
+            {
+              "hash": "0x4aa754a1af470c9784674f6cf6ff39f3be40407911a0986cfed14d1b78fa8b49",
+              "outcome": "silent",
+              "expired": false
+            }
+          ]
+        },
+        "outage-1:1": {
+          "hash": "0xa5f70a1a51035399d869da4b630f46e4c6a0eadad1e91ad3c5fd81f45255905d",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 6,
+          "seq": 1,
+          "sent_at": 1792571054,
+          "state": "live",
+          "misses": 1,
+          "why": "",
+          "miss_at": 1792571048,
+          "checked_at": 1792570105,
+          "waited": 1,
+          "reader": {
+            "seq": 2,
+            "kind": "silent",
+            "print": ""
+          },
+          "attempts": [
+            {
+              "hash": "0xa5f70a1a51035399d869da4b630f46e4c6a0eadad1e91ad3c5fd81f45255905d",
+              "outcome": "silent",
+              "expired": false
+            }
+          ]
+        },
+        "inject:1": {
+          "hash": "0x5f95b21e716c8a27d01c0122ed2c5614c2ac12ed9afa370a5d9e753474f4f48f",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 7,
+          "seq": 1,
+          "sent_at": 1792571062,
+          "state": "down",
+          "misses": 0,
+          "why": "the auditor's page denies it",
+          "miss_at": 0,
+          "checked_at": 1792570115,
+          "waited": 1,
+          "reader": {
+            "seq": 2,
+            "kind": "denied",
+            "print": "600d8cd68080c5aa"
+          },
+          "attempts": [
+            {
+              "hash": "0x5f95b21e716c8a27d01c0122ed2c5614c2ac12ed9afa370a5d9e753474f4f48f",
+              "outcome": "denied",
+              "expired": false
+            }
+          ]
+        },
+        "withdrawn:2": {
+          "hash": "0xe19a0eca4c308911f3111080031919a25d93e3b104fae07ca5a830171a457ac0",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 12,
+          "seq": 1,
+          "sent_at": 1792571069,
+          "state": "down",
+          "misses": 0,
+          "why": "the auditor's page denies it",
+          "miss_at": 0,
+          "checked_at": 1792570180,
+          "waited": 1,
+          "reader": {
+            "seq": 2,
+            "kind": "denied",
+            "print": "6cfde32660071749"
+          },
+          "attempts": [
+            {
+              "hash": "0xe19a0eca4c308911f3111080031919a25d93e3b104fae07ca5a830171a457ac0",
+              "outcome": "denied",
+              "expired": false
+            }
+          ]
+        },
+        "deleted-1:2": {
+          "hash": "0x32077d06c5dab11274a719771014c8e0bd71e0059df442903aea71939b23d79d",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 13,
+          "seq": 1,
+          "sent_at": 1792571077,
+          "state": "live",
+          "misses": 1,
+          "why": "",
+          "miss_at": 1792571071,
+          "checked_at": 1792570189,
+          "waited": 1,
+          "reader": {
+            "seq": 2,
+            "kind": "silent",
+            "print": ""
+          },
+          "attempts": [
+            {
+              "hash": "0x32077d06c5dab11274a719771014c8e0bd71e0059df442903aea71939b23d79d",
+              "outcome": "silent",
+              "expired": false
+            }
+          ]
+        },
+        "outage-1:2": {
+          "hash": "0xc0b810f2d6b08499b2b71d12b2bc81341d53b18e23a86c6647efab5e4080f84f",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 14,
+          "seq": 1,
+          "sent_at": 1792571085,
+          "state": "live",
+          "misses": 1,
+          "why": "",
+          "miss_at": 1792571078,
+          "checked_at": 1792570199,
+          "waited": 1,
+          "reader": {
+            "seq": 2,
+            "kind": "silent",
+            "print": ""
+          },
+          "attempts": [
+            {
+              "hash": "0xc0b810f2d6b08499b2b71d12b2bc81341d53b18e23a86c6647efab5e4080f84f",
+              "outcome": "silent",
+              "expired": false
+            }
+          ]
+        },
+        "inject:2": {
+          "hash": "0x9fe4ffcf065b9e6016b057e666011daaa919aaeb54b52637dd4d72d8f8b725a5",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 15,
+          "seq": 1,
+          "sent_at": 1792571092,
+          "state": "down",
+          "misses": 0,
+          "why": "the auditor's page denies it",
+          "miss_at": 0,
+          "checked_at": 1792570209,
+          "waited": 10,
+          "reader": {
+            "seq": 2,
+            "kind": "denied",
+            "print": "600d8cd68080c5aa"
+          },
+          "attempts": [
+            {
+              "hash": "0x9fe4ffcf065b9e6016b057e666011daaa919aaeb54b52637dd4d72d8f8b725a5",
+              "outcome": "denied",
+              "expired": false
+            }
+          ]
+        },
+        "withdrawn:3": {
+          "hash": "0x68e674a6c780a92fa8043de6746419450d11ef2658d5a91b007dce1cecc784c1",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 20,
+          "seq": 1,
+          "sent_at": 1792571106,
+          "state": "down",
+          "misses": 0,
+          "why": "the auditor's page denies it",
+          "miss_at": 0,
+          "checked_at": 1792570276,
+          "waited": 10,
+          "reader": {
+            "seq": 2,
+            "kind": "denied",
+            "print": "6cfde32660071749"
+          },
+          "attempts": [
+            {
+              "hash": "0x68e674a6c780a92fa8043de6746419450d11ef2658d5a91b007dce1cecc784c1",
+              "outcome": "denied",
+              "expired": false
+            }
+          ]
+        },
+        "deleted-1:3": {
+          "hash": "0x632e7b026094d357b3468a349c7771045437c724226d1856a371d32863db1277",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 21,
+          "seq": 1,
+          "sent_at": 1792571114,
+          "state": "live",
+          "misses": 1,
+          "why": "",
+          "miss_at": 1792571107,
+          "checked_at": 1792570289,
+          "waited": 1,
+          "reader": {
+            "seq": 2,
+            "kind": "silent",
+            "print": ""
+          },
+          "attempts": [
+            {
+              "hash": "0x632e7b026094d357b3468a349c7771045437c724226d1856a371d32863db1277",
+              "outcome": "silent",
+              "expired": false
+            }
+          ]
+        },
+        "outage-1:3": {
+          "hash": "0xfe0819dbb2d8a2d812fa93100693fad69ebbf9af7a613e1705a40c284fb1c4ab",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 22,
+          "seq": 1,
+          "sent_at": 1792571122,
+          "state": "live",
+          "misses": 1,
+          "why": "",
+          "miss_at": 1792571115,
+          "checked_at": 1792570300,
+          "waited": 20,
+          "reader": {
+            "seq": 2,
+            "kind": "silent",
+            "print": ""
+          },
+          "attempts": [
+            {
+              "hash": "0xfe0819dbb2d8a2d812fa93100693fad69ebbf9af7a613e1705a40c284fb1c4ab",
+              "outcome": "silent",
+              "expired": false
+            }
+          ]
+        },
+        "inject:3": {
+          "hash": "0xe189307cf48fba5d441ce936a4fd64834bb6da5d9821ac9b1c15d4db0d895b9f",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 23,
+          "seq": 1,
+          "sent_at": 1792571131,
+          "state": "down",
+          "misses": 0,
+          "why": "the auditor's page denies it",
+          "miss_at": 0,
+          "checked_at": 1792570309,
+          "waited": 10,
+          "reader": {
+            "seq": 2,
+            "kind": "denied",
+            "print": "600d8cd68080c5aa"
+          },
+          "attempts": [
+            {
+              "hash": "0xe189307cf48fba5d441ce936a4fd64834bb6da5d9821ac9b1c15d4db0d895b9f",
+              "outcome": "denied",
+              "expired": false
+            }
+          ]
+        }
+      },
+      "delta": {
+        "project": "480000000000000000",
+        "keeper": "240000000000000000",
+        "keeper2": "0"
+      },
+      "expected": {
+        "project": "480000000000000000",
+        "keeper": "240000000000000000",
+        "keeper2": "0"
+      }
+    },
+    "checked:edited": true,
+    "wait:miss-gap": 231,
+    "batch:deleted-2:sent": {
+      "before": {
+        "project": "2010000000000000000",
+        "keeper": "270000000000000000",
+        "keeper2": "0"
+      },
+      "out": {
+        "deleted-2:1": {
+          "hash": "0xfdde18820d2cbe7c703cd3cd185bc2fb6538fc1e7acac6709d5f956eaa8641e8",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 5,
+          "seq": 2,
+          "sent_at": 1792571449
+        },
+        "deleted-2:2": {
+          "hash": "0x9a169515d97912727201fdd4ea521d51f196e8f439c539858739ed3a254c9d17",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 13,
+          "seq": 2,
+          "sent_at": 1792571457
+        },
+        "deleted-2:3": {
+          "hash": "0x1a290e813ceb0c507aa98e0dcb62336feac72bec20c473ca110534880a7cb264",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 21,
+          "seq": 2,
+          "sent_at": 1792571465
+        }
+      }
+    },
+    "batch:deleted-2:settled": {
+      "results": {
+        "deleted-2:1": {
+          "hash": "0xfdde18820d2cbe7c703cd3cd185bc2fb6538fc1e7acac6709d5f956eaa8641e8",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 5,
+          "seq": 2,
+          "sent_at": 1792571449,
+          "state": "down",
+          "misses": 1,
+          "why": "the auditor's page was silent twice",
+          "miss_at": 1792571043,
+          "checked_at": 1792570070,
+          "waited": 29,
+          "reader": {
+            "seq": 3,
+            "kind": "silent",
+            "print": ""
+          },
+          "attempts": [
+            {
+              "hash": "0xfdde18820d2cbe7c703cd3cd185bc2fb6538fc1e7acac6709d5f956eaa8641e8",
+              "outcome": "silent-down",
+              "expired": false
+            }
+          ]
+        },
+        "deleted-2:2": {
+          "hash": "0x9a169515d97912727201fdd4ea521d51f196e8f439c539858739ed3a254c9d17",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 13,
+          "seq": 2,
+          "sent_at": 1792571457,
+          "state": "down",
+          "misses": 1,
+          "why": "the auditor's page was silent twice",
+          "miss_at": 1792571071,
+          "checked_at": 1792570189,
+          "waited": 10,
+          "reader": {
+            "seq": 3,
+            "kind": "silent",
+            "print": ""
+          },
+          "attempts": [
+            {
+              "hash": "0x9a169515d97912727201fdd4ea521d51f196e8f439c539858739ed3a254c9d17",
+              "outcome": "silent-down",
+              "expired": false
+            }
+          ]
+        },
+        "deleted-2:3": {
+          "hash": "0x1a290e813ceb0c507aa98e0dcb62336feac72bec20c473ca110534880a7cb264",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 21,
+          "seq": 2,
+          "sent_at": 1792571465,
+          "state": "down",
+          "misses": 1,
+          "why": "the auditor's page was silent twice",
+          "miss_at": 1792571107,
+          "checked_at": 1792570289,
+          "waited": 10,
+          "reader": {
+            "seq": 3,
+            "kind": "silent",
+            "print": ""
+          },
+          "attempts": [
+            {
+              "hash": "0x1a290e813ceb0c507aa98e0dcb62336feac72bec20c473ca110534880a7cb264",
+              "outcome": "silent-down",
+              "expired": false
+            }
+          ]
+        }
+      },
+      "delta": {
+        "project": "240000000000000000",
+        "keeper": "0",
+        "keeper2": "90000000000000000"
+      },
+      "expected": {
+        "project": "240000000000000000",
+        "keeper": "0",
+        "keeper2": "90000000000000000"
+      }
+    },
+    "checked:deleted-2": true,
+    "pages:restored": {
+      "commit": "699f8254d55b869b1353c30eef12e09a5b8a3687",
+      "visible_after_s": 309
+    },
+    "batch:outage-2:sent": {
+      "before": {
+        "project": "2250000000000000000",
+        "keeper": "270000000000000000",
+        "keeper2": "90000000000000000"
+      },
+      "out": {
+        "outage-2:1": {
+          "hash": "0x7f8efa3bac9faa0951c53ed02849f4448381f1aeb4f2c6667c19ea4d25c23fdd",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 6,
+          "seq": 2,
+          "sent_at": 1792572175
+        },
+        "outage-2:2": {
+          "hash": "0xd792b98d880d08c47e2cf6d03d6f8d9ac7007fdd4d2e63b62b0a310ee6ca539a",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 14,
+          "seq": 2,
+          "sent_at": 1792572180
+        },
+        "outage-2:3": {
+          "hash": "0x5e4fe3fada6fbfb965efc771e17808ce301f67c5724c3b834f90f1cf875a8ab1",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 22,
+          "seq": 2,
+          "sent_at": 1792572188
+        }
+      }
+    },
+    "batch:outage-2:settled": {
+      "results": {
+        "outage-2:1": {
+          "hash": "0x7f8efa3bac9faa0951c53ed02849f4448381f1aeb4f2c6667c19ea4d25c23fdd",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 6,
+          "seq": 2,
+          "sent_at": 1792572175,
+          "state": "live",
+          "misses": 0,
+          "why": "",
+          "miss_at": 0,
+          "checked_at": 1792572169,
+          "waited": 39,
+          "reader": {
+            "seq": 3,
+            "kind": "confirmed",
+            "print": "fd731559c212e9e2"
+          },
+          "attempts": [
+            {
+              "hash": "0x7f8efa3bac9faa0951c53ed02849f4448381f1aeb4f2c6667c19ea4d25c23fdd",
+              "outcome": "confirmed",
+              "expired": false
+            }
+          ]
+        },
+        "outage-2:2": {
+          "hash": "0xd792b98d880d08c47e2cf6d03d6f8d9ac7007fdd4d2e63b62b0a310ee6ca539a",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 14,
+          "seq": 2,
+          "sent_at": 1792572180,
+          "state": "live",
+          "misses": 0,
+          "why": "",
+          "miss_at": 0,
+          "checked_at": 1792572177,
+          "waited": 1,
+          "reader": {
+            "seq": 3,
+            "kind": "confirmed",
+            "print": "fd731559c212e9e2"
+          },
+          "attempts": [
+            {
+              "hash": "0xd792b98d880d08c47e2cf6d03d6f8d9ac7007fdd4d2e63b62b0a310ee6ca539a",
+              "outcome": "confirmed",
+              "expired": false
+            }
+          ]
+        },
+        "outage-2:3": {
+          "hash": "0x5e4fe3fada6fbfb965efc771e17808ce301f67c5724c3b834f90f1cf875a8ab1",
+          "consensus": "MAJORITY_AGREE",
+          "leader": "return",
+          "id": 22,
+          "seq": 2,
+          "sent_at": 1792572188,
+          "state": "live",
+          "misses": 0,
+          "why": "",
+          "miss_at": 0,
+          "checked_at": 1792572181,
+          "waited": 10,
+          "reader": {
+            "seq": 3,
+            "kind": "confirmed",
+            "print": "fd731559c212e9e2"
+          },
+          "attempts": [
+            {
+              "hash": "0x5e4fe3fada6fbfb965efc771e17808ce301f67c5724c3b834f90f1cf875a8ab1",
+              "outcome": "confirmed",
+              "expired": false
+            }
+          ]
+        }
+      },
+      "delta": {
+        "project": "30000000000000000",
+        "keeper": "0",
+        "keeper2": "0"
+      },
+      "expected": {
+        "project": "30000000000000000",
+        "keeper": "0",
+        "keeper2": "0"
+      }
+    },
+    "checked:outage-2": true,
+    "r1:withdraw-live": {
+      "hash": "0xdf28921f5bc66c91da3f3ef72dc7eb68406d8123b1dcd5625ee783ad06ee3aec",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r2:withdraw-live": {
+      "hash": "0x0b8c0fe2ccd17131df7f3962d5b9527a71111093990ec2b890296b5d3b2f21b7",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "r3:withdraw-live": {
+      "hash": "0x0f596cdd76490f279281210599e86f9ecd9ed0c9bfc02d62b2b7040d631416e3",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return"
+    },
+    "final": {
+      "status": {
+        "release": "countersign-board/1",
+        "reader": "0x511f407275e7f0cb863740f0a82720c56d90eada",
+        "miss_gap": 300,
+        "read_window": 600,
+        "auditors": 27,
+        "claims": 27,
+        "held": 300000000000000000,
+        "owed": 2850000000000000000,
+        "received": 3240000000000000000,
+        "balance": 3150000000000000000
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "r1 register happy: registered",
+      "ok": true,
+      "id": 0,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r1 register spa: refused",
+      "ok": true,
+      "id": 1,
+      "state": "refused",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r1 register nosample: refused",
+      "ok": true,
+      "id": 2,
+      "state": "refused",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r1 register hidden: registered",
+      "ok": true,
+      "id": 3,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r1 register flagged: registered",
+      "ok": true,
+      "id": 4,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r1 register withdraw: registered",
+      "ok": true,
+      "id": 5,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r1 register delete: registered",
+      "ok": true,
+      "id": 6,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r1 register outage: registered",
+      "ok": true,
+      "id": 7,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r1 register inject: registered",
+      "ok": true,
+      "id": 8,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r2 register happy: registered",
+      "ok": true,
+      "id": 9,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r2 register spa: refused",
+      "ok": true,
+      "id": 10,
+      "state": "refused",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r2 register nosample: refused",
+      "ok": true,
+      "id": 11,
+      "state": "refused",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r2 register hidden: registered",
+      "ok": true,
+      "id": 12,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r2 register flagged: registered",
+      "ok": true,
+      "id": 13,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r2 register withdraw: registered",
+      "ok": true,
+      "id": 14,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r2 register delete: registered",
+      "ok": true,
+      "id": 15,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r2 register outage: registered",
+      "ok": true,
+      "id": 16,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r2 register inject: registered",
+      "ok": true,
+      "id": 17,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r3 register happy: registered",
+      "ok": true,
+      "id": 18,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r3 register spa: refused",
+      "ok": true,
+      "id": 19,
+      "state": "refused",
+      "waited": 26,
+      "retries": []
+    },
+    {
+      "name": "r3 register nosample: refused",
+      "ok": true,
+      "id": 20,
+      "state": "refused",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r3 register hidden: registered",
+      "ok": true,
+      "id": 21,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r3 register flagged: registered",
+      "ok": true,
+      "id": 22,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r3 register withdraw: registered",
+      "ok": true,
+      "id": 23,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r3 register delete: registered",
+      "ok": true,
+      "id": 24,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r3 register outage: registered",
+      "ok": true,
+      "id": 25,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r3 register inject: registered",
+      "ok": true,
+      "id": 26,
+      "state": "registered",
+      "waited": 1,
+      "retries": []
+    },
+    {
+      "name": "r1 scope string missing: refused at once, stake credited back",
+      "ok": true,
+      "id": -1,
+      "refusal": {
+        "reason": "not in the passage as whole words: April 2026",
+        "at": 1792570125,
+        "returned": 100000000000000000
+      }
+    },
+    {
+      "name": "r2 scope string missing: refused at once, stake credited back",
+      "ok": true,
+      "id": -1,
+      "refusal": {
+        "reason": "not in the passage as whole words: April 2026",
+        "at": 1792570219,
+        "returned": 100000000000000000
+      }
+    },
+    {
+      "name": "r3 scope string missing: refused at once, stake credited back",
+      "ok": true,
+      "id": -1,
+      "refusal": {
+        "reason": "not in the passage as whole words: April 2026",
+        "at": 1792570319,
+        "returned": 100000000000000000
+      }
+    },
+    {
+      "name": "r1 post happy: live",
+      "ok": true,
+      "id": 0,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r1 post absent: refused",
+      "ok": true,
+      "id": 1,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r1 post hidden: refused",
+      "ok": true,
+      "id": 2,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r1 post flagged: refused",
+      "ok": true,
+      "id": 3,
+      "state": "refused",
+      "why": "the auditor's page did not confirm it",
+      "reader": {
+        "seq": 1,
+        "kind": "denied",
+        "print": "873c4b8c2acac746"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r1 post withdraw: live",
+      "ok": true,
+      "id": 4,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r1 post delete: live",
+      "ok": true,
+      "id": 5,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r1 post outage: live",
+      "ok": true,
+      "id": 6,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r1 post inject: live",
+      "ok": true,
+      "id": 7,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r2 post happy: live",
+      "ok": true,
+      "id": 8,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r2 post absent: refused",
+      "ok": true,
+      "id": 9,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r2 post hidden: refused",
+      "ok": true,
+      "id": 10,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r2 post flagged: refused",
+      "ok": true,
+      "id": 11,
+      "state": "refused",
+      "why": "the auditor's page did not confirm it",
+      "reader": {
+        "seq": 1,
+        "kind": "denied",
+        "print": "873c4b8c2acac746"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r2 post withdraw: live",
+      "ok": true,
+      "id": 12,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r2 post delete: live",
+      "ok": true,
+      "id": 13,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r2 post outage: live",
+      "ok": true,
+      "id": 14,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r2 post inject: live",
+      "ok": true,
+      "id": 15,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r3 post happy: live",
+      "ok": true,
+      "id": 16,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r3 post absent: refused",
+      "ok": true,
+      "id": 17,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r3 post hidden: refused",
+      "ok": true,
+      "id": 18,
+      "state": "refused",
+      "why": "the auditor's page was silent",
+      "reader": {
+        "seq": 1,
+        "kind": "silent",
+        "print": ""
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r3 post flagged: refused",
+      "ok": true,
+      "id": 19,
+      "state": "refused",
+      "why": "the auditor's page did not confirm it",
+      "reader": {
+        "seq": 1,
+        "kind": "denied",
+        "print": "873c4b8c2acac746"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r3 post withdraw: live",
+      "ok": true,
+      "id": 20,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r3 post delete: live",
+      "ok": true,
+      "id": 21,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r3 post outage: live",
+      "ok": true,
+      "id": 22,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r3 post inject: live",
+      "ok": true,
+      "id": 23,
+      "state": "live",
+      "why": "",
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "waited": 1,
+      "repost": null
+    },
+    {
+      "name": "r1 re-check a pending claim: refused, fee back",
+      "ok": true,
+      "id": 24,
+      "refusal": {
+        "reason": "only a live claim can be re-checked",
+        "at": 1792570441,
+        "returned": 10000000000000000
+      }
+    },
+    {
+      "name": "r1 withdraw a pending claim: withdrawn, stake returned",
+      "ok": true,
+      "id": 24,
+      "state": "withdrawn",
+      "returned": "100000000000000000"
+    },
+    {
+      "name": "r2 re-check a pending claim: refused, fee back",
+      "ok": true,
+      "id": 25,
+      "refusal": {
+        "reason": "only a live claim can be re-checked",
+        "at": 1792570468,
+        "returned": 10000000000000000
+      }
+    },
+    {
+      "name": "r2 withdraw a pending claim: withdrawn, stake returned",
+      "ok": true,
+      "id": 25,
+      "state": "withdrawn",
+      "returned": "100000000000000000"
+    },
+    {
+      "name": "r3 re-check a pending claim: refused, fee back",
+      "ok": true,
+      "id": 26,
+      "refusal": {
+        "reason": "only a live claim can be re-checked",
+        "at": 1792570498,
+        "returned": 10000000000000000
+      }
+    },
+    {
+      "name": "r3 withdraw a pending claim: withdrawn, stake returned",
+      "ok": true,
+      "id": 26,
+      "state": "withdrawn",
+      "returned": "100000000000000000"
+    },
+    {
+      "name": "r1 a late report for a withdrawn claim is ignored",
+      "ok": true,
+      "id": 24,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "state": "withdrawn"
+    },
+    {
+      "name": "r2 a late report for a withdrawn claim is ignored",
+      "ok": true,
+      "id": 25,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "state": "withdrawn"
+    },
+    {
+      "name": "r3 a late report for a withdrawn claim is ignored",
+      "ok": true,
+      "id": 26,
+      "reader": {
+        "seq": 1,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "state": "withdrawn"
+    },
+    {
+      "name": "r1 re-check an unchanged page: live",
+      "ok": true,
+      "hash": "0xe7fe46260718a61e9f37a136eeae0cc766e8024350cacefdda30854bbbfd3399",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 0,
+      "seq": 1,
+      "sent_at": 1792570624,
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "miss_at": 0,
+      "checked_at": 1792570618,
+      "waited": 29,
+      "reader": {
+        "seq": 2,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "attempts": [
+        {
+          "hash": "0xe7fe46260718a61e9f37a136eeae0cc766e8024350cacefdda30854bbbfd3399",
+          "outcome": "confirmed",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r2 re-check an unchanged page: live",
+      "ok": true,
+      "hash": "0x132503de4553daa691ff2cf470753fd69ed2332ee6feaa541abcc3f9abb049a7",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 8,
+      "seq": 1,
+      "sent_at": 1792570632,
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "miss_at": 0,
+      "checked_at": 1792570626,
+      "waited": 10,
+      "reader": {
+        "seq": 2,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "attempts": [
+        {
+          "hash": "0x132503de4553daa691ff2cf470753fd69ed2332ee6feaa541abcc3f9abb049a7",
+          "outcome": "confirmed",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r3 re-check an unchanged page: live",
+      "ok": true,
+      "hash": "0xdda8851dcea89a2525e1d1c70922e0e64e868e372de154c5a0d12c119964f415",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 16,
+      "seq": 1,
+      "sent_at": 1792570640,
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "miss_at": 0,
+      "checked_at": 1792570633,
+      "waited": 10,
+      "reader": {
+        "seq": 2,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "attempts": [
+        {
+          "hash": "0xdda8851dcea89a2525e1d1c70922e0e64e868e372de154c5a0d12c119964f415",
+          "outcome": "confirmed",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "re-checks of unchanged pages: the money matches each re-check's outcome",
+      "ok": true,
+      "delta": {
+        "project": "30000000000000000",
+        "keeper": "0",
+        "keeper2": "0"
+      },
+      "expected": {
+        "project": "30000000000000000",
+        "keeper": "0",
+        "keeper2": "0"
+      }
+    },
+    {
+      "name": "r1 auditor withdraws beside the row: down",
+      "ok": true,
+      "hash": "0xfde2e9cd09f635ebae2e695e14945d61f7ba4c7477ba9d4da302c3ebc8d26617",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 4,
+      "seq": 1,
+      "sent_at": 1792571042,
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "miss_at": 0,
+      "checked_at": 1792570060,
+      "waited": 1,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "6cfde32660071749"
+      },
+      "attempts": [
+        {
+          "hash": "0xfde2e9cd09f635ebae2e695e14945d61f7ba4c7477ba9d4da302c3ebc8d26617",
+          "outcome": "denied",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r1 auditor deletes the row, first re-check: live, one miss",
+      "ok": true,
+      "hash": "0x4aa754a1af470c9784674f6cf6ff39f3be40407911a0986cfed14d1b78fa8b49",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 5,
+      "seq": 1,
+      "sent_at": 1792571046,
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "miss_at": 1792571043,
+      "checked_at": 1792570070,
+      "waited": 1,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "attempts": [
+        {
+          "hash": "0x4aa754a1af470c9784674f6cf6ff39f3be40407911a0986cfed14d1b78fa8b49",
+          "outcome": "silent",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r1 page unreachable once: live, one miss",
+      "ok": true,
+      "hash": "0xa5f70a1a51035399d869da4b630f46e4c6a0eadad1e91ad3c5fd81f45255905d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 6,
+      "seq": 1,
+      "sent_at": 1792571054,
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "miss_at": 1792571048,
+      "checked_at": 1792570105,
+      "waited": 1,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "attempts": [
+        {
+          "hash": "0xa5f70a1a51035399d869da4b630f46e4c6a0eadad1e91ad3c5fd81f45255905d",
+          "outcome": "silent",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r1 page talks to the jury: down",
+      "ok": true,
+      "hash": "0x5f95b21e716c8a27d01c0122ed2c5614c2ac12ed9afa370a5d9e753474f4f48f",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 7,
+      "seq": 1,
+      "sent_at": 1792571062,
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "miss_at": 0,
+      "checked_at": 1792570115,
+      "waited": 1,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "600d8cd68080c5aa"
+      },
+      "attempts": [
+        {
+          "hash": "0x5f95b21e716c8a27d01c0122ed2c5614c2ac12ed9afa370a5d9e753474f4f48f",
+          "outcome": "denied",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r2 auditor withdraws beside the row: down",
+      "ok": true,
+      "hash": "0xe19a0eca4c308911f3111080031919a25d93e3b104fae07ca5a830171a457ac0",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 12,
+      "seq": 1,
+      "sent_at": 1792571069,
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "miss_at": 0,
+      "checked_at": 1792570180,
+      "waited": 1,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "6cfde32660071749"
+      },
+      "attempts": [
+        {
+          "hash": "0xe19a0eca4c308911f3111080031919a25d93e3b104fae07ca5a830171a457ac0",
+          "outcome": "denied",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r2 auditor deletes the row, first re-check: live, one miss",
+      "ok": true,
+      "hash": "0x32077d06c5dab11274a719771014c8e0bd71e0059df442903aea71939b23d79d",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 13,
+      "seq": 1,
+      "sent_at": 1792571077,
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "miss_at": 1792571071,
+      "checked_at": 1792570189,
+      "waited": 1,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "attempts": [
+        {
+          "hash": "0x32077d06c5dab11274a719771014c8e0bd71e0059df442903aea71939b23d79d",
+          "outcome": "silent",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r2 page unreachable once: live, one miss",
+      "ok": true,
+      "hash": "0xc0b810f2d6b08499b2b71d12b2bc81341d53b18e23a86c6647efab5e4080f84f",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 14,
+      "seq": 1,
+      "sent_at": 1792571085,
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "miss_at": 1792571078,
+      "checked_at": 1792570199,
+      "waited": 1,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "attempts": [
+        {
+          "hash": "0xc0b810f2d6b08499b2b71d12b2bc81341d53b18e23a86c6647efab5e4080f84f",
+          "outcome": "silent",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r2 page talks to the jury: down",
+      "ok": true,
+      "hash": "0x9fe4ffcf065b9e6016b057e666011daaa919aaeb54b52637dd4d72d8f8b725a5",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 15,
+      "seq": 1,
+      "sent_at": 1792571092,
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "miss_at": 0,
+      "checked_at": 1792570209,
+      "waited": 10,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "600d8cd68080c5aa"
+      },
+      "attempts": [
+        {
+          "hash": "0x9fe4ffcf065b9e6016b057e666011daaa919aaeb54b52637dd4d72d8f8b725a5",
+          "outcome": "denied",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r3 auditor withdraws beside the row: down",
+      "ok": true,
+      "hash": "0x68e674a6c780a92fa8043de6746419450d11ef2658d5a91b007dce1cecc784c1",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 20,
+      "seq": 1,
+      "sent_at": 1792571106,
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "miss_at": 0,
+      "checked_at": 1792570276,
+      "waited": 10,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "6cfde32660071749"
+      },
+      "attempts": [
+        {
+          "hash": "0x68e674a6c780a92fa8043de6746419450d11ef2658d5a91b007dce1cecc784c1",
+          "outcome": "denied",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r3 auditor deletes the row, first re-check: live, one miss",
+      "ok": true,
+      "hash": "0x632e7b026094d357b3468a349c7771045437c724226d1856a371d32863db1277",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 21,
+      "seq": 1,
+      "sent_at": 1792571114,
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "miss_at": 1792571107,
+      "checked_at": 1792570289,
+      "waited": 1,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "attempts": [
+        {
+          "hash": "0x632e7b026094d357b3468a349c7771045437c724226d1856a371d32863db1277",
+          "outcome": "silent",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r3 page unreachable once: live, one miss",
+      "ok": true,
+      "hash": "0xfe0819dbb2d8a2d812fa93100693fad69ebbf9af7a613e1705a40c284fb1c4ab",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 22,
+      "seq": 1,
+      "sent_at": 1792571122,
+      "state": "live",
+      "misses": 1,
+      "why": "",
+      "miss_at": 1792571115,
+      "checked_at": 1792570300,
+      "waited": 20,
+      "reader": {
+        "seq": 2,
+        "kind": "silent",
+        "print": ""
+      },
+      "attempts": [
+        {
+          "hash": "0xfe0819dbb2d8a2d812fa93100693fad69ebbf9af7a613e1705a40c284fb1c4ab",
+          "outcome": "silent",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r3 page talks to the jury: down",
+      "ok": true,
+      "hash": "0xe189307cf48fba5d441ce936a4fd64834bb6da5d9821ac9b1c15d4db0d895b9f",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 23,
+      "seq": 1,
+      "sent_at": 1792571131,
+      "state": "down",
+      "misses": 0,
+      "why": "the auditor's page denies it",
+      "miss_at": 0,
+      "checked_at": 1792570309,
+      "waited": 10,
+      "reader": {
+        "seq": 2,
+        "kind": "denied",
+        "print": "600d8cd68080c5aa"
+      },
+      "attempts": [
+        {
+          "hash": "0xe189307cf48fba5d441ce936a4fd64834bb6da5d9821ac9b1c15d4db0d895b9f",
+          "outcome": "denied",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "edited pages: the money matches each re-check's outcome",
+      "ok": true,
+      "delta": {
+        "project": "480000000000000000",
+        "keeper": "240000000000000000",
+        "keeper2": "0"
+      },
+      "expected": {
+        "project": "480000000000000000",
+        "keeper": "240000000000000000",
+        "keeper2": "0"
+      }
+    },
+    {
+      "name": "r1 auditor deletes the row, second re-check MISS_GAP later: down",
+      "ok": true,
+      "hash": "0xfdde18820d2cbe7c703cd3cd185bc2fb6538fc1e7acac6709d5f956eaa8641e8",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 5,
+      "seq": 2,
+      "sent_at": 1792571449,
+      "state": "down",
+      "misses": 1,
+      "why": "the auditor's page was silent twice",
+      "miss_at": 1792571043,
+      "checked_at": 1792570070,
+      "waited": 29,
+      "reader": {
+        "seq": 3,
+        "kind": "silent",
+        "print": ""
+      },
+      "attempts": [
+        {
+          "hash": "0xfdde18820d2cbe7c703cd3cd185bc2fb6538fc1e7acac6709d5f956eaa8641e8",
+          "outcome": "silent-down",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r2 auditor deletes the row, second re-check MISS_GAP later: down",
+      "ok": true,
+      "hash": "0x9a169515d97912727201fdd4ea521d51f196e8f439c539858739ed3a254c9d17",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 13,
+      "seq": 2,
+      "sent_at": 1792571457,
+      "state": "down",
+      "misses": 1,
+      "why": "the auditor's page was silent twice",
+      "miss_at": 1792571071,
+      "checked_at": 1792570189,
+      "waited": 10,
+      "reader": {
+        "seq": 3,
+        "kind": "silent",
+        "print": ""
+      },
+      "attempts": [
+        {
+          "hash": "0x9a169515d97912727201fdd4ea521d51f196e8f439c539858739ed3a254c9d17",
+          "outcome": "silent-down",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r3 auditor deletes the row, second re-check MISS_GAP later: down",
+      "ok": true,
+      "hash": "0x1a290e813ceb0c507aa98e0dcb62336feac72bec20c473ca110534880a7cb264",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 21,
+      "seq": 2,
+      "sent_at": 1792571465,
+      "state": "down",
+      "misses": 1,
+      "why": "the auditor's page was silent twice",
+      "miss_at": 1792571107,
+      "checked_at": 1792570289,
+      "waited": 10,
+      "reader": {
+        "seq": 3,
+        "kind": "silent",
+        "print": ""
+      },
+      "attempts": [
+        {
+          "hash": "0x1a290e813ceb0c507aa98e0dcb62336feac72bec20c473ca110534880a7cb264",
+          "outcome": "silent-down",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "second silent reads: the money matches each re-check's outcome",
+      "ok": true,
+      "delta": {
+        "project": "240000000000000000",
+        "keeper": "0",
+        "keeper2": "90000000000000000"
+      },
+      "expected": {
+        "project": "240000000000000000",
+        "keeper": "0",
+        "keeper2": "90000000000000000"
+      }
+    },
+    {
+      "name": "r1 page back: live, misses reset",
+      "ok": true,
+      "hash": "0x7f8efa3bac9faa0951c53ed02849f4448381f1aeb4f2c6667c19ea4d25c23fdd",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 6,
+      "seq": 2,
+      "sent_at": 1792572175,
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "miss_at": 0,
+      "checked_at": 1792572169,
+      "waited": 39,
+      "reader": {
+        "seq": 3,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "attempts": [
+        {
+          "hash": "0x7f8efa3bac9faa0951c53ed02849f4448381f1aeb4f2c6667c19ea4d25c23fdd",
+          "outcome": "confirmed",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r2 page back: live, misses reset",
+      "ok": true,
+      "hash": "0xd792b98d880d08c47e2cf6d03d6f8d9ac7007fdd4d2e63b62b0a310ee6ca539a",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 14,
+      "seq": 2,
+      "sent_at": 1792572180,
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "miss_at": 0,
+      "checked_at": 1792572177,
+      "waited": 1,
+      "reader": {
+        "seq": 3,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "attempts": [
+        {
+          "hash": "0xd792b98d880d08c47e2cf6d03d6f8d9ac7007fdd4d2e63b62b0a310ee6ca539a",
+          "outcome": "confirmed",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "r3 page back: live, misses reset",
+      "ok": true,
+      "hash": "0x5e4fe3fada6fbfb965efc771e17808ce301f67c5724c3b834f90f1cf875a8ab1",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "id": 22,
+      "seq": 2,
+      "sent_at": 1792572188,
+      "state": "live",
+      "misses": 0,
+      "why": "",
+      "miss_at": 0,
+      "checked_at": 1792572181,
+      "waited": 10,
+      "reader": {
+        "seq": 3,
+        "kind": "confirmed",
+        "print": "fd731559c212e9e2"
+      },
+      "attempts": [
+        {
+          "hash": "0x5e4fe3fada6fbfb965efc771e17808ce301f67c5724c3b834f90f1cf875a8ab1",
+          "outcome": "confirmed",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "name": "pages back: the money matches each re-check's outcome",
+      "ok": true,
+      "delta": {
+        "project": "30000000000000000",
+        "keeper": "0",
+        "keeper2": "0"
+      },
+      "expected": {
+        "project": "30000000000000000",
+        "keeper": "0",
+        "keeper2": "0"
+      }
+    },
+    {
+      "name": "r1 withdraw a live claim: withdrawn, stake returned",
+      "ok": true,
+      "hash": "0xdf28921f5bc66c91da3f3ef72dc7eb68406d8123b1dcd5625ee783ad06ee3aec",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "withdrawn",
+      "returned": "100000000000000000"
+    },
+    {
+      "name": "r2 withdraw a live claim: withdrawn, stake returned",
+      "ok": true,
+      "hash": "0x0b8c0fe2ccd17131df7f3962d5b9527a71111093990ec2b890296b5d3b2f21b7",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "withdrawn",
+      "returned": "100000000000000000"
+    },
+    {
+      "name": "r3 withdraw a live claim: withdrawn, stake returned",
+      "ok": true,
+      "hash": "0x0f596cdd76490f279281210599e86f9ecd9ed0c9bfc02d62b2b7040d631416e3",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "state": "withdrawn",
+      "returned": "100000000000000000"
+    },
+    {
+      "name": "every path: the auditor is owed nothing",
+      "ok": true,
+      "owed": "0"
+    },
+    {
+      "name": "every path: the Board's books balance (balance = held + owed; received = held + owed + collected)",
+      "ok": true,
+      "release": "countersign-board/1",
+      "reader": "0x511f407275e7f0cb863740f0a82720c56d90eada",
+      "miss_gap": 300,
+      "read_window": 600,
+      "auditors": 27,
+      "claims": 27,
+      "held": 300000000000000000,
+      "owed": 2940000000000000000,
+      "received": 3240000000000000000,
+      "balance": 3240000000000000000,
+      "collected": "0"
+    },
+    {
+      "name": "collect zeroes what is owed, and the wallet is paid at finality",
+      "ok": true,
+      "hash": "0x8b1e9193a5c813e317787128c60de994deadc8ff4c9c9fb4cbd2e2b078e6ebe3",
+      "consensus": "MAJORITY_AGREE",
+      "leader": "return",
+      "payee": "keeper2",
+      "collected": "90000000000000000",
+      "wallet_delta": "90000000000000000",
+      "board_delta": "90000000000000000",
+      "waited": 31,
+      "status": {
+        "release": "countersign-board/1",
+        "reader": "0x511f407275e7f0cb863740f0a82720c56d90eada",
+        "miss_gap": 300,
+        "read_window": 600,
+        "auditors": 27,
+        "claims": 27,
+        "held": 300000000000000000,
+        "owed": 2850000000000000000,
+        "received": 3240000000000000000,
+        "balance": 3150000000000000000
+      }
+    }
+  ],
+  "recorded_at": "2026-10-21T08:45:16.570Z",
+  "reader": "0x511F407275E7F0cb863740F0a82720C56D90EaDa",
+  "board": "0x560D69647D018b7d6A73085c2E2989C786C786A4",
+  "used": {
+    "auditor": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "claim": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ]
+  },
+  "collected": [
+    "90000000000000000"
+  ],
+  "summary": {
+    "checks": 94,
+    "failed": 0
+  }
+}
