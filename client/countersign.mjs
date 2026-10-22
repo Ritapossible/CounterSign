@@ -20,23 +20,26 @@ import { getAddress } from "viem";
 // --------------------------------------------------------------- networks
 
 /**
- * Contracts deployed from build 991d8c1, code verified (deploy/verify_code.mjs).
- * Bradbury is empty until it reopens after its Phase 2 reset.
+ * Contracts deployed from build a43fad4 (the expiry rule, THREAT-MODEL T23),
+ * code verified (deploy/verify_code.mjs). Studio is the Board of the scenario
+ * run in deploy/scenario-studio.json, so the app shows the demonstration run;
+ * Studio Next is a fresh pair (deploy/deployment-studionext.json). Bradbury is
+ * empty until it reopens after its Phase 2 reset.
  */
 export const NETWORKS = {
   studio: {
     name: "GenLayer Studio",
     chain: studionet,
     fees: false,
-    board: "0x334ae6d55d4113177F1eC05890d228A62E6DdC4F",
-    reader: "0x5Cc46d899319C505a600403af9BEEc9AB0c80dA1",
+    board: "0xd807307B04812C0035f808e4015850F3e0e6B264",
+    reader: "0x5F69d0151d96a770DaA666c83eE8A7681D55aC3A",
   },
   studionext: {
     name: "GenLayer Studio Next",
     chain: { ...studioDevnet, name: "GenLayer Studio Next", rpcUrls: { default: { http: ["https://studio-next.genlayer.com/api"] } } },
     fees: true,
-    board: "0x3Ae1CeADe2d568C0861d2174E2b4C45a52b8CBe3",
-    reader: "0x521CaE5A1CFB2CFe92C3E54a9b01c24d5d348979",
+    board: "0x7B2793018645200690A7a3066C245DD8f3F65dd0",
+    reader: "0xE30aB8EABaD0445E1D13bFC412Da4a816C604084",
   },
   bradbury: {
     name: "GenLayer Bradbury",

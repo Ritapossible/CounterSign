@@ -311,6 +311,30 @@ new build is what goes to Bradbury, and the Studio table is rerun on it. Its
 record is `deploy/scenario-studio.json`; the `991d8c1` Studio record is kept
 as `deploy/scenario-studio-v4.json`.
 
+**Result on build `a43fad4`** (the expiry rule), Studio, Board
+`0xd807307B04812C0035f808e4015850F3e0e6B264`, Reader
+`0x5F69d0151d96a770DaA666c83eE8A7681D55aC3A`, record
+`deploy/scenario-studio.json`, code verified with
+`deploy/verify_code.mjs a43fad4`: **93 checks, 0 failed**, 74 Reader reads all
+agreed (`deploy/scenario-studio-votes.json`), every case three
+times. One further check, "edited pages: the money matches", is kept under
+`superseded`: the run was killed mid-batch (an operator's `pkill`) after
+sending one re-check, and on restart it took its starting balances after that
+re-check had already taken claim 4 down, then sent it again (refused, fee
+returned). The chain shows it (claim 4 at read 2 when the batch was sent; the
+second re-check returned `false`); the shortfall is exactly that one
+take-down minus the refunded fee. `scenario.mjs` now records each re-check of
+a batch as it is sent. No read expired in this run, so the expiry rule itself
+is covered by the direct tests (`test_an_expired_recheck_is_not_a_miss`) and
+three mutants, not by an on-chain expiry.
+
+The app now points at this Board on Studio, and at a fresh `a43fad4` pair on
+Studio Next (`0x7B2793018645200690A7a3066C245DD8f3F65dd0` /
+`0xE30aB8EABaD0445E1D13bFC412Da4a816C604084`, `deploy/deployment-studionext.json`,
+code verified). Four public audit lists (Trail of Bits, Sigma Prime,
+Spearbit, Cyfrin) are registered on both as labelled demo entries
+(`deploy/register_demo_auditors.mjs`).
+
 Bradbury was reset for Phase 2 (announcement of 21 October): unavailable
 until Epoch Zero ends on 22 October, fees on, new RPC and consensus
 contracts. `deploy/lib.mjs` already targets it with fees. The run on the old

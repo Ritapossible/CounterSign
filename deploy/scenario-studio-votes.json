@@ -1,0 +1,3903 @@
+{
+  "network": "studio",
+  "board": "0xd807307B04812C0035f808e4015850F3e0e6B264",
+  "reader": "0x5F69d0151d96a770DaA666c83eE8A7681D55aC3A",
+  "reads": {
+    "/r1:register:happy": {
+      "board_tx": "0x010e8d86dc9915e0caabc006b82a3fb6004014424a4c601e1fb6a3183eafc3fb",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "idle",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x32b873d32ecfb6ea98aec9d9c1965f9680bf669275007473b1cf6ae4a6093ea0",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "idle",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:register:spa": {
+      "board_tx": "0x0fea85876c2082b86b9c8c723b8aecec8fd2061f4d0bc190a63a8d60aa55cd67",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xd596dedeb4d022e3044bdc84a59ad3d9b173ce579bcd6a0c515f9028e7b32f49",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:register:nosample": {
+      "board_tx": "0xefa773fa643cccc504ece727dc99f49169f4ad9bd7d414d88802eae24a79228e",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x77256311ed70e5624088c270eab3c6bb5f0a4bd65f1611cb0bed88e4affdba84",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:register:hidden": {
+      "board_tx": "0xa8534d5e81fece5bff53553a966bd49654af1a04635c95393093ef8cd425081d",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xbcba17f1bb9e3f7896fc86be1771644fcf8ba4a71eaf568273e5d50fa6d85f54",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:register:flagged": {
+      "board_tx": "0xecb86d162ed525ba31a851644920691d85b174a8cc2d896dd48d0f1d9e67991f",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xa209443a0f88f8a26ace90817b4677063322e2a2c9d224653ea18b7c017fc0e1",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:register:withdraw": {
+      "board_tx": "0x303e41ac97e936891a8f634d05517a36402ba3dc380f17cb643f5b820248a0bb",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x90980e0b4a1287693e839ede2d59daf36637729b14d4c7b6628c9808662ffd7c",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:register:delete": {
+      "board_tx": "0x483de83197aa38658c4ba3134d8eeaca21a81bb19db6427c258ea0a30926badd",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x39dc7c0a48bf82c6c78b6b29be5171c7903c4579ccf35f32ec68561c47406d12",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:register:outage": {
+      "board_tx": "0xae69112c06f6d2012dc68a48aeee98dce402a838d748a8cf22bcc110d60c4799",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xda7b9e898a196d1f9abee075c8457fc77b1701667abcd699b3ff44b63d1bd2c4",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "idle",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:register:inject": {
+      "board_tx": "0x08a8de0da67ac641d32118fef652520919cbc8b05e053d4258b943498ed77fa3",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x15819397a0147db92f34da58bb603ac60eb2241fde0e3e8bd73c67e8adab5cd2",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:register:happy": {
+      "board_tx": "0x07c800c804cd84c612f28a9ad2c024f636d8f42bbe5f05bc0602dfa8310832aa",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x5219e82e27f8f2bd2f7ebc9273c9f849c76900f633b2e2547eaedade4ae24107",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:register:spa": {
+      "board_tx": "0x6f7c94d6ea3ca75156c75baa09a843366d8c30f902ba1e4af87af10577c1c477",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x1ab829b3e4977beedea037ad352e25ae3d9cb88c09f7926813ea160777b6c125",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:register:nosample": {
+      "board_tx": "0xbe1f793a1a6ba372d5fab6a87ce8285756c3c523619c3947a93e93528bd2eb2e",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xaf1157ac313c6122a70e78fecdc7f3071ae48da11d66f4f8b9d75c8ca353aade",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:register:hidden": {
+      "board_tx": "0xf9461477b0b2234822a68970727e8bdfd2490f498cb5bf7467d148bfaff6ca9d",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x33b0dadb6cc3eb065b1bdcb58d8558a4207a5438b4608c3ad129fb6362a1ac80",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:register:flagged": {
+      "board_tx": "0x0c8e5ab6468c6c7ea579516c297aa4c4c198369350c3cf3ddb14474cb06549c2",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xb2161b7dbb78d6b5b303975b30829c04972e24d4bdccc46ff36c6ca3300c5206",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:register:withdraw": {
+      "board_tx": "0x33b999230a6dfffe9d9d9927bc010d8c6ee9326809867695d027e560ac53ee13",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x224b20435a64ceae9d208edb61761b1e5e5150b57ff5115b336c39e88d132a83",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:register:delete": {
+      "board_tx": "0xcf633e11bca08493afd92d5316a7d3d7d5cb86662ad62145c6780e63fb708ac6",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xbcb1c44ee4493fd6f7262acefa6c8391e5403eaab948d318d772866d11015b68",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:register:outage": {
+      "board_tx": "0x8c6dccb6e8af3a27ae83d7e87b226f7cacacd802af37a3fa473b37e35de0f0c5",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x1db20facf51b2b42c085c4118be551ff522a90f28be0a81c9a4f20563816634c",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:register:inject": {
+      "board_tx": "0xa745b5b0bf1300c9079a53c9ee01252b1a362af6b1b35582e2d75b80bae39c20",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x011f2082309a2d7612188e382d68b9ef0a02a52ba08d62b3ff5f7deaebbd433b",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:register:happy": {
+      "board_tx": "0x86289063d39acefef4ddaccec4243b5e213d00ebccf09418d1b83a9d1d8da9d7",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xc2d99d6b1f29ef4c3639a219ef387e9a53366fc6491a86bdaade268ad51ce0fd",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:register:spa": {
+      "board_tx": "0xe09dc32e53988f57273e9f8f3afa522de8b4e2f271611265c794b8e3c90c0c32",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x94065c0fd39bcf4313aa6e47c3a054aef02392928830df123df30b81a268815c",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:register:nosample": {
+      "board_tx": "0x7c5ee3268a981a253eef554c959aeb7ab7f90160dc15d6c227e85bf4c137138c",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x816a8aee756a7cd392cfc2baf2c3d32292e9c87f2b63b3261d83348ca435fe55",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:register:hidden": {
+      "board_tx": "0x474bec053ba50ac1ae35185a8fdfeca8cca39ba05d2ac04a5f306c0f559c108d",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x005dd85aeb2d67f3668a28a4129afff646a8a845696bb2d5f3840ee7474d385c",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:register:flagged": {
+      "board_tx": "0xcfc010df9f5693743720d0265aee4b7aff6abad0f12c4a6293645a81699e6136",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xcd1ab2c23367ae58ab66b3ef2b5b10a26ffbaa71262900acab61575a4298ae94",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19"
+        ],
+        "votes": [
+          "idle",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:register:withdraw": {
+      "board_tx": "0xc06f4e79c9f2996505dc30fc5eaaf8885ea0c942087ea35deb9ba55581787405",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x7bcbe0a3923112787c62e4edcf9bb3a090a2f5e1460c63dbc1efe066f1d30ca6",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:register:delete": {
+      "board_tx": "0x0afb787aa378f1c3eedfe5f8b5a5e6fd7b925125dbac978d7c5b07ffbe211c5e",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xe0d1ca117604dd08e910aae02d8bedd862f2cfab1dc1e41650f829422e1aab48",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:register:outage": {
+      "board_tx": "0x8860b786b238d813671ce7656586a9a3d7224a5bc39b2c30840ee3a27cb0a8bb",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xf5801e9a4b6246849893b051ff4132e0b2e1850691b69b2126a213ac1e02b3ee",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:register:inject": {
+      "board_tx": "0xa587f6844e77cc06f32d67ce4c6aacd79e91d5d6ba7e72e65708b0d23e2435fe",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x7331f31bfb9ee11b8718bb68d9ea9e1639735188795906434f8399f2a37cd5cc",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "idle",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:post:happy": {
+      "board_tx": "0x9064f6aeb6e98dfe863edf725fd537cd97e33bd3957df56c4331b62ac3e2c031",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x98561e83279153fa82948d23d953b64f11f22effee12a59779c54b51c9fef753",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:post:absent": {
+      "board_tx": "0x1cd6d02ac01d380bbf66c82dc516c2aeed4c880848532af01f78fc1436d3679e",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xf7e7298f271fe8de16c81bff83c95eb5d14765b8b05a58af3a79ea32c083e2c8",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:post:hidden": {
+      "board_tx": "0x3df12a59d9b50419720f5e6fd9dd864d16959d7b47708796f5c6b61ab91297f4",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xa613db9363a223337f6d6c850b6893eedd71e79546306222a7dcf99bd2446a9c",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:post:flagged": {
+      "board_tx": "0xf90d003f024aadd51b3ab959dbae7a806e05c844bcae38fcd239fe2a20e61b6d",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xed1bfec3015c97c047bfa9ef1c87c28391f5408e7ed4f2c0b3e8d19e6dbcef17",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:post:withdraw": {
+      "board_tx": "0xeebbafee5940c218e0ebae6997afd8a1e7c9d1214c38a55980bbf71e63669d64",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x16fa3f75cf7dcc82a2f5e516552931a1ba94416c058846e644de7fca70941ed9",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:post:delete": {
+      "board_tx": "0x0f1776291d9166dfe93c293544be10ab3435bb408ff21685bbd1c1be4f23d37a",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xbea091490dc0c7bb50fcfe9f722f40f6f67eaf9cb387d6b3af86850dbf065049",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:post:outage": {
+      "board_tx": "0x889c8ab69cd40d9b1f71683bc792d4b8721bf84b88788f74703cffd673fb1193",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xc58d3bebab6c38c46f4c4636230e0f6d80fa7541fa0e3666dd4448fc87ee9667",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:post:inject": {
+      "board_tx": "0x72ee2f0924af1d02044b1b797a2dd632919ce7d5a8ac03d7d9444de5e1631a88",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x5c1a0131ed63299d2b8b7f9383c5edddf646f0a7753e014d8fdba2b1774000f3",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:post:scope": {
+      "board_tx": "0xca9ebf17b27e76e7953001b83e3beffb400bc3f6f976f43733ed5ac4aaf33ad7",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "note": "refused by the Board before any read: no Reader transaction"
+    },
+    "/r2:post:happy": {
+      "board_tx": "0x216b87338193f0731083e48f22ee03636a75fb610b0a60099c16e5f901b363e6",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x19f45f23515931aa00f46a84ba34174ffed1915bd268bbbef26a128e60f2861b",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:post:absent": {
+      "board_tx": "0x8aed4b085db283bef1af199614bd757ac73a85ea957ed899c621eebab077ca27",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xb9a32eef2ad390b50daaa7969da8e27a174e1085cd5a09794518fc9d351743b2",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:post:hidden": {
+      "board_tx": "0x380fe3ebe2786a44995034b3f7458bf4855c77f251fe410e90d161c73017f6f9",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x20ea4f2a974c9292f318cfddf7d27b5c31465e81bda2a08bda8aa01f00336611",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:post:flagged": {
+      "board_tx": "0x5593b75800526ab8a748c7ad687c8845bec66d5474ea61c9fbf6c0f4ba3c24da",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xcbf6ad8cb1e25f00c0478ffcfca27e6d0d84f3adbce566b8e8aab6333757477f",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:post:withdraw": {
+      "board_tx": "0xd662185b8c536c809bfc3c5df4f994a819c191697f3331d43ac6719da96d40ce",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xb6cfda0900fba322adf64b08cace9366f1b6cb545044d2c71f7e9a4f222169cb",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:post:delete": {
+      "board_tx": "0xe0f1c2bea599b6f9f1e25afede2e4068ebafbeeddf0ac30befc61b9438dea8ae",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x67b863542332950d649009bd29912536723dd0f93fb8fa8abe27598c3afca26c",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:post:outage": {
+      "board_tx": "0xb3c9b74179b826f304751031bd5f4f09fe5181f68926ab5e6579f6db1685b745",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x317ee9e0a61cc5b1720e638481e7381632b2a1cf623f7a896d0f4fe29ea2d334",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:post:inject": {
+      "board_tx": "0xe65f626550b6205356b8c8e03eb73feaf5906e59624595bc6a4721a9248020b7",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xbfe55f9302847285ad405bf530e8f1c4f9830b0b3be27fb265a0bc22b3eb940f",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:post:scope": {
+      "board_tx": "0xeef4dd4c3f4016e9e32323feb24738c87e3fe7d3b9496cf17801cc08b7b82f34",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "note": "refused by the Board before any read: no Reader transaction"
+    },
+    "/r3:post:happy": {
+      "board_tx": "0xfb4f1d74a3c6a145ead119285f562d3ec28d0ccb3e328a6c15e4add6eb2d8bb0",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6"
+        ],
+        "votes": [
+          "idle",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x787efb2f411c861632b293a51db8b94e49f6184c5f6a219f8aa60e9d113282dc",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:post:absent": {
+      "board_tx": "0x1ac1ceca085a8a236dcf658b32cf4f15f8ff80bd1336a5b540478c83475610d4",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x3e1fbf5cfdb6e5323c0973e7603620d7da4ef620ffa3028871434efc33c72fa0",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:post:hidden": {
+      "board_tx": "0xb6f7732e94cc28e1e3b349039fc8ab75186afe86127e4b28369b340d3408310e",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x5a2cf88b5d143dac9cded837ee02e493d56f45bdc00012f3c750954aa31d98ed",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:post:flagged": {
+      "board_tx": "0x5d1bf2b2945379fcf35112bfa15978045497a3171d3a8d4481d4b70b78b69c0b",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x69f8ff9981237e83d38621625c022b28624c0e269ff8edf4d4cb15240c507d66",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:post:withdraw": {
+      "board_tx": "0xb4d7219341e77faf014ece9a9993346195400abcacee63d1a54d7e87597eb3ac",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x618f369037d20b5bca3da5433f7ab56d11d47be10b8aebb3a96295bff4ac6cdf",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "idle",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:post:delete": {
+      "board_tx": "0x9215b666c17e892f10bd4c0febd107a01dda64cc75d60ed400bf33c257532c94",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xd394ee68938882a1b7b7af8e81effca7b19217a73a81ac2dd649e32808af0667",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:post:outage": {
+      "board_tx": "0x22493760bac833cc5d4f2af0ab91a3e4f14fd1a0b26489d7b49d4387373a5dc8",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xce8726bf931090deff342aa84b14da6b266770503b124930890d9a19c1b784ff",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:post:inject": {
+      "board_tx": "0xcb93f31ba074dcbc93dd4ea4daca6ed6a2225d64ec298f81bee2765cefab729c",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x99df779998977311de0ed50d62c543103aa22d5443e219631f3b56edf08a92e8",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:post:scope": {
+      "board_tx": "0x482aab93066692e06c0a8b8202d4ddfcc582c6f60b537c5af1375ea6800fb91c",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "note": "refused by the Board before any read: no Reader transaction"
+    },
+    "/r1:post:pending": {
+      "board_tx": "0x215b7973bd9729c6e9b73f1de1216dbd2a7ffb5913d4b04fe97816f13fc7197a",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xb530044bcaef1e4cfe97403b1ba226e0c966a027878fba96a0e3589e0ed32a66",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r1:pending/recheck": {
+      "board_tx": "0x19656e22d22c60ed9b02279feccc4cf86fc91ebd69768b01256a93847534d68a",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "note": "refused by the Board before any read: no Reader transaction"
+    },
+    "/r2:post:pending": {
+      "board_tx": "0x75927a3cec0a2dd4147a12401386aa8b11d8e21e77777db42e22de44aadf6e3b",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "idle",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x9ca7e84b914be2bcb6cb98756939ca14e01303942e0ef374deca33c691e9046d",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r2:pending/recheck": {
+      "board_tx": "0xc5c15f3e223329ce495a349e69ec00596191350441bc49da11c923700591d7eb",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "note": "refused by the Board before any read: no Reader transaction"
+    },
+    "/r3:post:pending": {
+      "board_tx": "0xe3a6fc6d17634f7b9b2e6178fef1dd0966462cdbf23ed9b6ea556e2d924944c5",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xa4b134e816e93e409b1c39f49a566b4601efe4d40b90e1b5c25f1843c1539e3e",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/r3:pending/recheck": {
+      "board_tx": "0x3ab4c3862b21d2b270526378a323aafe841180a30a44677f0fbea273c713913a",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "note": "refused by the Board before any read: no Reader transaction"
+    },
+    "/batch:unchanged:sent/out/unchanged:1": {
+      "board_tx": "0xc0993aeb429bd5b505b7c7732fb59f18f10a685dc9c1d669400c3e4eb4ccaf5e",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xb33101f048e976755b16fbd2b7bc9f2c9ec5e1f3e4917ff00f58617b91687906",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:unchanged:sent/out/unchanged:2": {
+      "board_tx": "0x03870d30bb0cc951c072b3245b86abf680c519be0815292b9ccf2ddf6f16a858",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x5d19e10a908614395f2e84ff6e2387712f0603b83ec6a63697cb8bd571e308b0",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:unchanged:sent/out/unchanged:3": {
+      "board_tx": "0x4bc4b97785a82780cc44d07f836d9a18e3d8b5a282d503ee647f8c5527e02e96",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x4b2fc81593e4890ff5b012879c8a4ea458dd9d499c6fa9ab08fc9a6d4378935e",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "idle",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:edited:sent/out/withdrawn:1": {
+      "board_tx": "0x8b1bf00da2d241c5c8c0ebb9e337cbd3ec7e6e84271fa4a55651014210b0352b",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "note": "refused by the Board before any read: the duplicate re-check of claim 4 sent after the run restarted mid-batch (returned false, 'only a live claim can be re-checked'); the re-check that took claim 4 down was sent by the killed run and is not in this record (see the superseded check in scenario-studio.json)"
+    },
+    "/batch:edited:sent/out/deleted-1:1": {
+      "board_tx": "0xc8ed7bb6a2cf3ec0036c1f86f801f5274042437daddc526b33960c21118344c1",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xb4a8871bb84b3f72937f87685d9bad52568c998273e777c4c15e239c202a80cc",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:edited:sent/out/outage-1:1": {
+      "board_tx": "0x21e73e07d76210c67a3d33fa970d3566c8c01eaee897b95a1e6801c266dd22c9",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x5348de42f4f1f1dc6fc634f29e37ac6f505f10b9bb18dcd1bb683f2e728411fb",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:edited:sent/out/inject:1": {
+      "board_tx": "0x7e9f58a7cac837cb086d33770e2435c0fc97afcef4f2de93b8e6dec230015fca",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xcebb17039ab1c2e4ed27d84cb229577fe7203d0b60b40cb7a25a66b904f31d67",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:edited:sent/out/withdrawn:2": {
+      "board_tx": "0x6b838b8d656d8162e1080c669304417d6da994572206abeb05bb795109a0d061",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xa9c04549b798a2472f54d4c280bd5fc460e420c724d0091fa5b7aba0e04e9248",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "idle",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:edited:sent/out/deleted-1:2": {
+      "board_tx": "0x753164c37454b905563dff3764de39f3f85d8de595bcc29d13b2ee451bc1fde6",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x9f29750f55d5c4881b88920a4fdf296484bef07c8534ef40da7daf9b18c8c0e9",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "idle",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:edited:sent/out/outage-1:2": {
+      "board_tx": "0xf99ef745e03007a2b259fa108b47146c0c6d3094bf07b5b97f816fe15b142f03",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xdb0335b0f9cdfc8c4d8fb098035d9df8056e43dce454cf73def15b44895855e0",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "idle",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:edited:sent/out/inject:2": {
+      "board_tx": "0x27c8e5a4d41e7970dbe3d2d02f31d6cbf58beb4480ef1925ab849ba2a2093f29",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x9bb61cb89c15f8559a61f75abd1ec1dbbe38e56898fab16d8175dff3dcd74d83",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:edited:sent/out/withdrawn:3": {
+      "board_tx": "0xb335956f695e0367f7a5850787066419f02008d7122be5f1dbc47cbe04af86bd",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x3c83eb8b14d67a97f0913a8ca25098275531a4620a8a8ada2a28d34f2ad96030",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:edited:sent/out/deleted-1:3": {
+      "board_tx": "0x1978099beefa831f3751a71942b51d5345fc6603af30d490068b6c58060b645b",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x7e1e409f2496342717b0f566f3960051575923721caef697c256220e437359fc",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:edited:sent/out/outage-1:3": {
+      "board_tx": "0xb76d64f6e137964aec5824a7a8daaa725c8bb3d08d6729f68644fbc95b59f047",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x0892c5f62e146f83b7a98bc13b23e3f44dc4e3752a13a4cbbfbca6118c129bcd",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x40533175AfBbAee2c030F88259Afb5aEDbCF0E05",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:edited:sent/out/inject:3": {
+      "board_tx": "0xe80c62b6e447ac99a3bb9cdb36e7e7dae6e6d6d31d038bbd59d5c0c09ee81807",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x4909ecc8d4a8688dcd215483c6ee1ac5551edeba7d3decb30630ca111331069f",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "idle",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:deleted-2:sent/out/deleted-2:1": {
+      "board_tx": "0x391e0cca6acbeb9699b15c1cc621f745701c410613e1cc3cabf61d9369cda94b",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x7bf4Ea55363bbe73A4dd5b3900bf03c978A63b6e",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "idle",
+          "idle",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x41d8920d25603f562a248f732d324b8461b149c55f6306c438da358499bc133d",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:deleted-2:sent/out/deleted-2:2": {
+      "board_tx": "0x8afc41db65da47be9f671eebb7f0f9efa5394b67a5aba9239f4a2e15bf2fdf36",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x5c02615bdbcf145ab842225108c36ca655737e91e18ba2bd3a5a28755922041d",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xa21bc502E3578E4b3039be8c59a257198f7c3f19",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:deleted-2:sent/out/deleted-2:3": {
+      "board_tx": "0x2faeadee78214894ca2e3de4f46304f9f19db25b04e5779148aa91307d089308",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x6064a257cb1508c3a668231fb410aea3fcc241ab61883081b784e95701707d1d",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xb0925568bFbCF00aADBcA053E6D0E1628ff3d530",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:outage-2:sent/out/outage-2:1": {
+      "board_tx": "0x1511dc67e9df4228279c28d00bd5086dc137806bcbc18cbb678b490fe0661a62",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x63d29994e3c9cf8b455f861541d5a185873bfbae22afc8315e68d6714ccbe693",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x2FcBC452425f2F1e102c5c04b4331fcB46ee1c00",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:outage-2:sent/out/outage-2:2": {
+      "board_tx": "0x223d84d70e9f3a2fb56cc8cf4cdf2e1be93ddb801deff8e6fac6bd582d699545",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44",
+          "0x8a876C3F3a4783Bd123982bcBF3c672dc0239004",
+          "0xad7d13f269CeAd4379E64a1A3a0803a827e70B43",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf1C7551292319EE334e2D8A24eAC108Bd4C63b21"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0xcfe4532fe6fc3ca11285faa0caa1396aa4f382807f5154b586387eb1a3d96171",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x17ac0CaefB18205c737e64ee582c9245A28ca1f9",
+          "0x5Bbbd7cdD63c0ba7f088038Cb049bDDAbE4F6fd1",
+          "0x892C437da9b9CA0b6017B6f046F58E3526B46ec6",
+          "0x8Ce1805d6970d54748dE7160b5b395dCC5c71F44"
+        ],
+        "votes": [
+          "agree",
+          "idle",
+          "idle",
+          "agree",
+          "agree"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    },
+    "/batch:outage-2:sent/out/outage-2:3": {
+      "board_tx": "0xd4bf04034f4257db543e482f04e7ea1767da5dd40ad809582a2b3f128271b819",
+      "board_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x0B50B270Eba5D9B780272C4Cf4720260177e761D",
+          "0x1dEcE6A694520b1d3a2e24b9f28500858C756BDb",
+          "0x6a4179A851B3747A458baD2f089AB2EeFE0eBbAb",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "agree",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      },
+      "reader_tx": "0x1cc544fc3c423899755fc49aedef3ee9028c3e71d8e2d599174a95e0dfd7f4b8",
+      "reader_votes": {
+        "status": "FINALIZED",
+        "result": "MAJORITY_AGREE",
+        "exec": null,
+        "rounds": "",
+        "validators": [
+          "0x1242E9f5bf9b253327f130E8802b7b2F438A21Ef",
+          "0x9244De5F20cB75A0c51d79A9A3208D00a99aFc10",
+          "0xA712cB25a4002666FA9D09477251f238dD9e06b3",
+          "0xe7eEe8a1c1690b0322d795B80A76ab2Cd1a0eAFd",
+          "0xf29b6947ed298d139FC2655DB15D868C9AbB3091"
+        ],
+        "votes": [
+          "agree",
+          "agree",
+          "agree",
+          "idle",
+          "idle"
+        ],
+        "rotations": "",
+        "leader_output": null,
+        "validator_results": null
+      }
+    }
+  },
+  "summary": {
+    "requests": 81,
+    "reads": 74,
+    "refused_before_read": 7,
+    "unexplained_missing": 0,
+    "reads_agreed": 74
+  }
+}

@@ -9,10 +9,12 @@ Built on [GenLayer](https://genlayer.com) Intelligent Contracts.
 · [Docs](https://counter-sign-v0.vercel.app/#/docs/getting-started)
 
 > **Status.** Live on GenLayer **Studio** and **Studio Next** (test
-> networks). The full scenario table ran on both with **94 checks, 0
-> failed**, and the code on chain was verified against the build. The
-> contracts pass **199 tests**, and the mutation harness kills **83 of 83**
-> mutants. **Bradbury** (GenLayer's public testnet) was reset for its Phase 2
+> networks), on build `a43fad4`. The full scenario table ran on Studio on
+> that build with **93 checks, 0 failed** (one more check is kept as
+> superseded, with its chain evidence), and on the previous build on Studio
+> and Studio Next with **94 checks, 0 failed** each. The code on chain was
+> verified against each build. The contracts pass **199 tests**, and the
+> mutation harness kills **83 of 83** mutants. **Bradbury** (GenLayer's public testnet) was reset for its Phase 2
 > and is next. Everything measured, and everything not yet measured, is in
 > [PLAN.md](PLAN.md) with its evidence. Test GEN only; nothing here holds
 > value.
@@ -150,7 +152,7 @@ nothing to fine. The stake pays for spam and for keepers, not penalties.
 | Full scenario table, three runs, build `991d8c1` | Studio | **94 checks, 0 failed**; 75 Reader reads, all agreed; no retry or expiry needed; code verified | `deploy/scenario-studio-v4.json` |
 | The same table, fees on | Studio Next | **94 checks, 0 failed**; 75 reads, all agreed; code verified | `deploy/scenario-studionext.json` |
 | Retry check | Studio, Studio Next | A registration whose Board read was made to fail was recovered by a third party's `retry_registration`; on Studio a `retry_claim` read the page itself and agreed with the Board's read | `deploy/retry-*.json` |
-| The table on the current build (with the expiry rule) | Studio | running | `deploy/scenario-studio.json` |
+| The table on the current build `a43fad4` (with the expiry rule) | Studio | **93 checks, 0 failed**; 74 Reader reads, all agreed; one check superseded with its chain evidence (a run killed mid-batch measured its starting balances late); no read expired, so the expiry rule itself is covered by the direct tests and mutants; code verified | `deploy/scenario-studio.json` |
 | The table on Bradbury | Bradbury | after the Phase 2 reset | |
 
 Each scenario run deploys a fresh pair of contracts, publishes a fictional
@@ -221,12 +223,15 @@ Every attack considered, and what stops it, is in the
 
 | Network | Board | Reader | Build |
 | --- | --- | --- | --- |
-| Studio | `0x334ae6d55d4113177F1eC05890d228A62E6DdC4F` | `0x5Cc46d899319C505a600403af9BEEc9AB0c80dA1` | `991d8c1` |
-| Studio Next | `0x3Ae1CeADe2d568C0861d2174E2b4C45a52b8CBe3` | `0x521CaE5A1CFB2CFe92C3E54a9b01c24d5d348979` | `991d8c1` |
+| Studio | `0xd807307B04812C0035f808e4015850F3e0e6B264` | `0x5F69d0151d96a770DaA666c83eE8A7681D55aC3A` | `a43fad4` |
+| Studio Next | `0x7B2793018645200690A7a3066C245DD8f3F65dd0` | `0xE30aB8EABaD0445E1D13bFC412Da4a816C604084` | `a43fad4` |
 | Bradbury | after the Phase 2 reset | | |
 
-These are the contracts the app uses. The current source adds the expiry
-rule (T23); the next deployment, and Bradbury, use it.
+These are the contracts the app uses, with the expiry rule (T23). The Studio
+Board is the one the scenario table ran on, so the app shows that
+demonstration run; four public audit lists are registered on both Boards as
+labelled demo entries (`deploy/demo-auditors.json`). The `991d8c1` pairs the
+earlier tables ran on stay on chain, recorded in their files.
 
 | Constant | Studio | Bradbury |
 | --- | --- | --- |

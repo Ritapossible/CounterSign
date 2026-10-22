@@ -4,7 +4,7 @@ The layer between the deployed contracts and an app. It holds no design: the
 front end's design is supplied separately and goes on top of this module.
 
 - `NETWORKS`: Board and Reader addresses on Studio and Studio Next (build
-  `991d8c1`, code verified). Bradbury is empty until it reopens after its
+  `a43fad4`, code verified). Bradbury is empty until it reopens after its
   Phase 2 reset.
 - Views decoded into plain states (`decodeClaim`, `decodeAuditor`), with
   what the viewer may do now: `can.recheck`, `can.withdraw`, `can.retry`,

@@ -378,13 +378,20 @@ function paysFor(kind, keeper, owe) {
 }
 
 async function recheckBatch(stage, items) {
+  // The balances before the batch, and each re-check, are recorded as soon as
+  // they exist: a run killed mid-batch once took its "before" balances again
+  // after one re-check had already paid out, and sent that re-check twice
+  // (superseded check in scenario-studio.json).
   const sent = await once(`batch:${stage}:sent`, async () => {
-    const before = { project: String(await owed("project")), keeper: String(await owed("keeper")), keeper2: String(await owed("keeper2")) };
+    const before = await once(`batch:${stage}:before`, async () =>
+      ({ project: String(await owed("project")), keeper: String(await owed("keeper")), keeper2: String(await owed("keeper2")) }));
     const out = {};
     for (const it of items) {
-      const seq = (await claim(it.id)).seq;
-      const t = await tx(it.keeper, "recheck", [it.id], `r${it.r} ${it.label}`, FEE);
-      out[it.key + ":" + it.r] = { ...t, id: it.id, seq, sent_at: Math.floor(Date.now() / 1000) };
+      out[it.key + ":" + it.r] = await once(`batch:${stage}:${it.key}:${it.r}:tx`, async () => {
+        const seq = (await claim(it.id)).seq;
+        const t = await tx(it.keeper, "recheck", [it.id], `r${it.r} ${it.label}`, FEE);
+        return { ...t, id: it.id, seq, sent_at: Math.floor(Date.now() / 1000) };
+      });
     }
     return { before, out };
   });

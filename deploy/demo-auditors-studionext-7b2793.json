@@ -1,0 +1,39 @@
+{
+  "network": "studionext",
+  "board": "0x7B2793018645200690A7a3066C245DD8f3F65dd0",
+  "signer": "0xf1827cad7c88f02a7cad3627d7ce482a8f2d33c7",
+  "entries": {
+    "https://raw.githubusercontent.com/trailofbits/publications/master/README.md": {
+      "name": "Trail of Bits list (demo, not by Trail of Bits)",
+      "hash": "0x6d6cc3473beb262a54b255d54f794c0a31404174c1dbcc52d02d6450287699c9",
+      "consensus": "MAJORITY_AGREE",
+      "id": 0,
+      "state": "registered",
+      "waited": 37
+    },
+    "https://raw.githubusercontent.com/sigp/public-audits/master/README.md": {
+      "name": "Sigma Prime list (demo, not by Sigma Prime)",
+      "hash": "0x17c21640f09956bb76e8c82ee91e96b8298dc13b2c1c5ab2586a0983eb9ed268",
+      "consensus": "MAJORITY_AGREE",
+      "id": 1,
+      "state": "registered",
+      "waited": 41
+    },
+    "https://raw.githubusercontent.com/spearbit/portfolio/master/README.md": {
+      "name": "Spearbit list (demo, not by Spearbit)",
+      "hash": "0x622af277f76aed2957a054df0462b1a19d7a7490fd3de927a1bbbd95f51fdade",
+      "consensus": "MAJORITY_AGREE",
+      "id": 2,
+      "state": "registered",
+      "waited": 38
+    },
+    "https://raw.githubusercontent.com/Cyfrin/cyfrin-audit-reports/main/README.md": {
+      "name": "Cyfrin list (demo, not by Cyfrin)",
+      "hash": "0x6862a3ceb4efe16a947905a1c2e82931d56bb8e607cf50b51d7567300dea769e",
+      "consensus": "MAJORITY_AGREE",
+      "id": 3,
+      "state": "registered",
+      "waited": 37
+    }
+  }
+}

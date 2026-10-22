@@ -296,6 +296,7 @@ button { font: inherit; }
   text-transform: uppercase;
   color: var(--ink-2);
 }
+.demo-note { max-width: 560px; margin: 36px auto 0; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px var(--green-wash); flex: none; }
 .dot.off { background: var(--muted); box-shadow: none; }
 

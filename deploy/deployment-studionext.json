@@ -1,0 +1,9 @@
+{
+  "network": "studionext",
+  "board": "0x7B2793018645200690A7a3066C245DD8f3F65dd0",
+  "reader": "0xE30aB8EABaD0445E1D13bFC412Da4a816C604084",
+  "miss_gap": 300,
+  "read_window": 600,
+  "deployed_at": "2026-10-22",
+  "note": "The app's Studio Next board on the expiry-rule build (THREAT-MODEL T23), deployed with deploy/deploy.mjs."
+}

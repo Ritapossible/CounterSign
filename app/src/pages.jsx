@@ -76,7 +76,7 @@ export function Home() {
       <section className="hero">
         <Globe />
         <div className="wrap">
-          <p className="hero-badge">Live on GenLayer</p>
+          <p className="hero-badge">Live on GenLayer {net.name.replace("GenLayer ", "")} · test GEN</p>
           <h1 className="display">Audit claims,<br />read at the source</h1>
           <p className="lede">
             A project stakes GEN on a claim that it was audited. GenLayer validators read the auditor's own page to
@@ -86,6 +86,11 @@ export function Home() {
             <a className="btn" href="#/claims">Browse claims</a>
             <a className="arrow-link" href="#/post">Post a claim</a>
           </div>
+          <p className="demo-note">
+            This board is CounterSign's demonstration run on a GenLayer test network: a fictional auditor's pages,
+            edited on purpose to exercise every case, and four public audit lists registered as labelled demo entries.
+            Test GEN has no value.
+          </p>
         </div>
       </section>
 

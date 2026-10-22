@@ -66,8 +66,8 @@ the claims you need, and cache claims that are closed (`refused`, `down`,
 
 | Network | Board | Reader | Build |
 | --- | --- | --- | --- |
-| Studio | `0x334ae6d55d4113177F1eC05890d228A62E6DdC4F` | `0x5Cc46d899319C505a600403af9BEEc9AB0c80dA1` | `991d8c1` |
-| Studio Next | `0x3Ae1CeADe2d568C0861d2174E2b4C45a52b8CBe3` | `0x521CaE5A1CFB2CFe92C3E54a9b01c24d5d348979` | `991d8c1` |
+| Studio | `0xd807307B04812C0035f808e4015850F3e0e6B264` | `0x5F69d0151d96a770DaA666c83eE8A7681D55aC3A` | `a43fad4` |
+| Studio Next | `0x7B2793018645200690A7a3066C245DD8f3F65dd0` | `0xE30aB8EABaD0445E1D13bFC412Da4a816C604084` | `a43fad4` |
 | Bradbury | not deployed yet | | |
 
 `deploy/verify_code.mjs <commit> <record.json>` checks that the code on chain

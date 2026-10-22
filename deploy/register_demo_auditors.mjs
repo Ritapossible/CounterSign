@@ -7,7 +7,7 @@
 // with the contract's own rules before registering (deploy/demo-auditors.json).
 //
 //   COUNTERSIGN_KEYS=<dir> node register_demo_auditors.mjs <network> <board>
-// Resumable; writes deploy/demo-auditors-<network>.json.
+// Resumable; writes deploy/demo-auditors-<network>-<board prefix>.json.
 import fs from "node:fs";
 import { accountFor, clientFor, readUntil, readView, sendTx } from "./lib.mjs";
 
@@ -16,7 +16,7 @@ if (!network || !board) throw new Error("usage: node register_demo_auditors.mjs 
 const entries = JSON.parse(fs.readFileSync(new URL("./demo-auditors.json", import.meta.url)));
 const c = clientFor(network, "principal");
 const me = accountFor("principal").address.toLowerCase();
-const OUT = new URL(`./demo-auditors-${network}.json`, import.meta.url);
+const OUT = new URL(`./demo-auditors-${network}-${board.slice(2, 8).toLowerCase()}.json`, import.meta.url);
 const rec = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, "utf8")) : { network, board, signer: me, entries: {} };
 const save = () => fs.writeFileSync(OUT, JSON.stringify(rec, null, 2));
 const view = (fn, args = []) => readView(c, board, fn, args);
