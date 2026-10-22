@@ -371,6 +371,62 @@ export function Auditors() {
 
 // ------------------------------------------------------------------- post
 
+/** The end of a page address, which tells apart entries on the same host. */
+const pathTail = (url) => {
+  const parts = url.replace(/^https?:\/\/[^/]+/, "").split("/").filter(Boolean);
+  return parts.length ? (parts.length > 2 ? "…/" : "/") + parts.slice(-2).join("/") : "/";
+};
+
+/** Choose a registered auditor: search, then one card per entry. */
+function AuditorPicker({ auditors, claims, value, onChange }) {
+  const [q, setQ] = useState("");
+  const [open, setOpen] = useState(!value);
+  const live = useMemo(() => {
+    const m = {};
+    for (const c of claims) if (c.state === "live") m[c.auditor.id] = (m[c.auditor.id] ?? 0) + 1;
+    return m;
+  }, [claims]);
+  const chosen = auditors.find((a) => String(a.id) === String(value));
+  const needle = q.trim().toLowerCase();
+  const shown = [...auditors].reverse().filter((a) => !needle || `${a.name} ${a.url} #${a.id}`.toLowerCase().includes(needle));
+
+  const Row = ({ a, selected, onClick }) => (
+    <button type="button" role="radio" aria-checked={selected} className="pick" onClick={onClick}>
+      <span className="pick-main">
+        <span className="pick-name">{a.name}</span>
+        <span className="pick-host">{a.host}</span>
+        <span className="pick-path">{pathTail(a.url)}</span>
+      </span>
+      <span className="pick-meta">
+        <span>#{a.id}</span>
+        <span>{live[a.id] ?? 0} live</span>
+      </span>
+    </button>
+  );
+
+  if (!auditors.length) return <div className="empty" style={{ padding: 24 }}>No registered auditors on this network yet. <a href="#/auditors">Register one.</a></div>;
+  if (chosen && !open) {
+    return (
+      <div className="picker">
+        <Row a={chosen} selected onClick={() => setOpen(true)} />
+        <button type="button" className="arrow-link" style={{ fontSize: 12.5, justifySelf: "start" }} onClick={() => setOpen(true)}>Change auditor</button>
+      </div>
+    );
+  }
+  return (
+    <div className="picker">
+      <input className="input" type="search" placeholder={`Search ${auditors.length} auditor pages by name or address`} value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search auditors" />
+      <div className="pick-list" role="radiogroup" aria-labelledby="p-aud">
+        {shown.map((a) => (
+          <Row key={a.id} a={a} selected={String(a.id) === String(value)} onClick={() => { onChange(String(a.id)); setOpen(false); setQ(""); }} />
+        ))}
+        {!shown.length && <div className="muted" style={{ padding: 16 }}>No auditor matches "{q}".</div>}
+      </div>
+      <span className="hint">Check the host: the name is typed by whoever registered the page, and only the page's address identifies the auditor.</span>
+    </div>
+  );
+}
+
 export function Post() {
   const { data, account, run } = useApp();
   const registered = useMemo(() => (data.auditors ?? []).filter((a) => a.state === "registered"), [data.auditors]);
@@ -398,11 +454,8 @@ export function Post() {
       <form className="panel" onSubmit={submit} style={{ maxWidth: 760 }}>
         <div className="panel-body form">
           <div className="field">
-            <label htmlFor="p-aud">Auditor</label>
-            <select id="p-aud" className="select" required value={form.auditor} onChange={set("auditor")}>
-              <option value="" disabled>{registered.length ? "Choose a registered auditor" : "No registered auditors on this network"}</option>
-              {registered.map((a) => <option key={a.id} value={a.id}>{a.name} · {a.url.replace(/^https?:\/\//, "").slice(0, 48)}</option>)}
-            </select>
+            <label id="p-aud">Auditor</label>
+            <AuditorPicker auditors={registered} claims={data.claims ?? []} value={form.auditor} onChange={(id) => setForm({ ...form, auditor: id })} />
             {own && <span className="hint" style={{ color: "var(--red)" }}>You signed this auditor's registration; an auditor cannot post claims on its own entry.</span>}
           </div>
           <div className="field">
@@ -433,7 +486,7 @@ export function Post() {
             <input id="p-stake" className="input" required inputMode="decimal" pattern="[0-9]+(\.[0-9]{1,18})?" value={form.stake} onChange={set("stake")} />
             <span className="hint">At least {formatGen(MIN_STAKE)} GEN. Returned when you withdraw, or if the posting is refused. If a re-check takes the claim down, {formatGen(KEEPER_REWARD)} GEN goes to whoever re-checked and the rest comes back to you.</span>
           </div>
-          <button className="btn green block" disabled={busy || !!own}>Stake and post</button>
+          <button className="btn green block" disabled={busy || !!own || !form.auditor}>Stake and post</button>
           <TxStatus step={step} />
           {step?.phase === "done" && <a className="arrow-link" href="#/claims">See it on the Board</a>}
         </div>
