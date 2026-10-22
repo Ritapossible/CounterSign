@@ -1,0 +1,40 @@
+[
+ {
+  "name": "Trail of Bits list (demo, not by Trail of Bits)",
+  "url": "https://raw.githubusercontent.com/trailofbits/publications/master/README.md",
+  "sample": "| [Uniswap v4 Core](https://docs.uniswap.org/contracts/v4/concepts/intro-to-v4) | Jul 2024 | 6 | | [\ud83d\udcc4\u2705](reviews/2024-07-uniswap-v4-core-securityreview.pdf) |",
+  "subject": "Uniswap v4 Core",
+  "scope": [
+   "Jul 2024"
+  ]
+ },
+ {
+  "name": "Sigma Prime list (demo, not by Sigma Prime)",
+  "url": "https://raw.githubusercontent.com/sigp/public-audits/master/README.md",
+  "sample": "| [Lido](https://lido.fi/) | January 2026 | [a70087d](https://github.com/lidofinance/core/tree/a70087d99ead7acc43bce1aaf9fb7ef108d01e3c) | Review of Onchain BLS Library | [Report](./reports/lido/Sigma_Prime_Lido_BLS_Library_Security_Assessment_Report_v2_0.pdf) |",
+  "subject": "Lido",
+  "scope": [
+   "January 2026",
+   "Onchain BLS Library"
+  ]
+ },
+ {
+  "name": "Spearbit list (demo, not by Spearbit)",
+  "url": "https://raw.githubusercontent.com/spearbit/portfolio/master/README.md",
+  "sample": "| [Morpho](https://www.morpho.xyz) | September 2026 | [:page_facing_up:](https://cantina.xyz/portfolio/5a4c1c99-3882-47fc-a12b-88d11306d0e7) | DeFi, Lending | LSR-[Saw-Mon and Natalie](https://cantina.xyz/u/Saw-mon-and-Natalie) <br> LSR-[MiloTruck](https://cantina.xyz/u/milotruck) <br> SR-[Om Parikh](https://cantina.xyz/u/hack3r-0m) |",
+  "subject": "Morpho",
+  "scope": [
+   "September 2026",
+   "Lending"
+  ]
+ },
+ {
+  "name": "Cyfrin list (demo, not by Cyfrin)",
+  "url": "https://raw.githubusercontent.com/Cyfrin/cyfrin-audit-reports/main/README.md",
+  "sample": "| 2026-08-31 | 2026-09-02 | [GreekFi Oracle](./reports/2026-09-08-cyfrin-greekfi-oracle-v2.0.pdf) | Options, Derivatives, Oracle, Lending, Morpho, Chainlink | 0 | 0 | 2 | 1 | 4 | 0 |",
+  "subject": "GreekFi Oracle",
+  "scope": [
+   "2026-09-02"
+  ]
+ }
+]

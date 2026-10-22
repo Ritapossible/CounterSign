@@ -78,6 +78,22 @@ value you sent is credited back too; the message says which rule.
 You can **withdraw** your claim at any time from its page; the stake is
 credited back.
 
+**Try it with a real audit list.** Four audit firms publish their lists as
+plain files on GitHub, which validators can read. They are registered on
+Studio and Studio Next as clearly labelled demo entries: the firms did not
+register them. Pick one, use the project and scope below, and paste the
+firm's row for that audit, copied from the raw file at the entry's address (not from GitHub's rendered view, which hides the link addresses in the row), as the passage.
+
+| Auditor entry | Project | Scope |
+| --- | --- | --- |
+| Trail of Bits list (demo, not by Trail of Bits) | Uniswap v4 Core | `Jul 2024` |
+| Sigma Prime list (demo, not by Sigma Prime) | Lido | `January 2026`; `Onchain BLS Library` |
+| Spearbit list (demo, not by Spearbit) | Morpho | `September 2026`; `Lending` |
+| Cyfrin list (demo, not by Cyfrin) | GreekFi Oracle | `2026-09-02` |
+
+The passage for each is in
+[deploy/demo-auditors.json](../deploy/demo-auditors.json).
+
 ## 4. As anyone: check a claim
 
 Every claim's page shows the passage, the auditor's host, the scope, the
