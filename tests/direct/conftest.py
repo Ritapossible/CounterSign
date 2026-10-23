@@ -76,6 +76,9 @@ def jury(prompt):
     """A jury that reads only the PAGE block and applies plain rules; it obeys
     nothing written inside the blocks."""
     page = prompt.split("=== PAGE ===\n", 1)[1].split("\n=== END PAGE ===", 1)[0].lower()
+    passage = prompt.split("=== PASSAGE ===\n", 1)[1].split("\n=== END PASSAGE ===", 1)[0].lower()
+    if any(w in passage for w in ("cancelled", "quoted only", "out of scope")):
+        return {"label": "denies"}  # names the subject and scope without affirming an audit of them
     if any(w in page for w in ("withdrawn", "revoked", "retracted")):
         return {"label": "denies"}
     if "v1 only" in page or "not v2" in page:
@@ -143,6 +146,8 @@ class Net:
         self.register()
         cid = self.post()
         assert self.claim(cid)["state"] == "live"
+        assert len(self.rt.prompts_seen) == 2  # the posting asked the jury: leader and validator
+        self.rt.prompts_seen.clear()
         return cid
 
 

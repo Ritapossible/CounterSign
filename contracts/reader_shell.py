@@ -24,10 +24,13 @@ Each read, every validator fetches the page itself (a plain fetch, never
 rendered) and computes the outcome:
 
 - registration: the page is readable and the sample row is on it;
-- a claim: ``read_page`` decides confirmed or silent by code. Only when the
-  passage is there but its surroundings call for it (changed since the last
-  confirmation, or a withdrawal phrase at posting) is the jury asked, and
-  only ``confirms`` confirms.
+- a claim at posting: a passage that is not on the page is silent, one that
+  says the subject was not audited is denied by code, and every other one
+  goes to the jury, which must find that it affirms an audit of the subject
+  for the full scope. Only ``confirms`` posts a claim;
+- a claim at a re-check: ``read_page`` confirms by code while the words
+  around the passage are the ones the jury affirmed; changed words go to the
+  jury again.
 
 Validators accept the leader's result only if they reach the same outcome
 and the same surroundings fingerprint. A round that does not agree reports

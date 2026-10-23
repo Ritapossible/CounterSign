@@ -88,18 +88,19 @@ _AB = 'silent'
 _AC = (_Z, _AA, _AB)
 _AD = 'posting'
 _AE = 'recheck'
-_AF = set('the a an and of for by on in to inc ltd llc co corp company labs lab protocol protocols finance network dao foundation project audit audits audited report reports security smart contract contracts review core app v1 v2 v3'.split())
+_AF = ('not audited', 'never audited', 'not been audited', 'not yet audited', 'unaudited', 'did not audit', 'does not audit', 'has not audited', 'have not audited', 'never audit', 'not an audit', 'audit was declined', 'declined to audit')
+_AG = set('the a an and of for by on in to inc ltd llc co corp company labs lab protocol protocols finance network dao foundation project audit audits audited report reports security smart contract contracts review core app v1 v2 v3'.split())
 
-class _AG(Exception):
+class _AH(Exception):
  pass
 
-def _AH(value, context='address'):
+def _AI(value, context='address'):
  a = str(value).strip().lower()
  if len(a) != 42 or not a.startswith('0x') or any((c not in '0123456789abcdef' for c in a[2:])):
-  raise _AG('%s is not an address' % context)
+  raise _AH('%s is not an address' % context)
  return a
 
-def _AI(url):
+def _AJ(url):
  u = str(url)
  if not u.startswith('https://') or len(u) > _O:
   return 'the page must be an https:// URL of at most %d characters' % _O
@@ -110,63 +111,65 @@ def _AI(url):
   return 'the URL has no host'
  return ''
 
-def _AJ(url):
+def _AK(url):
  return str(url)[8:].split('/')[0].lower()
 
-def _AK(text):
+def _AL(text):
  return all((ch.isprintable() for ch in text))
 
-def _AL(name):
+def _AM(name):
  n = str(name).strip()
- if not 2 <= len(n) <= 60 or not _AK(n):
+ if not 2 <= len(n) <= 60 or not _AL(n):
   return 'the name must be 2-60 printable characters'
  return ''
 
-def _AM(subject):
+def _AN(subject):
  s = str(subject).strip()
- if not 3 <= len(s) <= 80 or not _AK(s):
+ if not 3 <= len(s) <= 80 or not _AL(s):
   return 'the subject must be 3-80 printable characters'
  if sum((1 for ch in s if ch.isalpha())) < 3:
   return 'the subject must contain at least 3 letters'
- if all((w in _AF for w in _J(_G(s)))):
+ if all((w in _AG for w in _J(_G(s)))):
   return 'the subject must be a name, not only common words'
  return ''
 
-def _AN(scope):
+def _AO(scope):
  if not isinstance(scope, list) or not 1 <= len(scope) <= _P:
   return ['the scope must be 1-%d strings' % _P]
  _b = []
  for s in scope:
-  if not isinstance(s, str) or not 2 <= len(s.strip()) <= 80 or (not _AK(s)):
+  if not isinstance(s, str) or not 2 <= len(s.strip()) <= 80 or (not _AL(s)):
    _b.append('each scope string must be 2-80 printable characters')
   elif not any((ch.isalnum() for ch in s)):
    _b.append('each scope string must contain a letter or digit')
  return _b
 
-def _AO(name, url, sample):
- _b = [e for e in (_AL(name), _AI(url)) if e]
+def _AP(name, url, sample):
+ _b = [e for e in (_AM(name), _AJ(url)) if e]
  e = _H(sample)
  if e:
   _b.append('the sample: ' + e)
  return _b
 
-def _AP(*, auditor, project, subject, scope, passage, value):
+def _AQ(*, auditor, project, subject, scope, passage, value):
  _b = []
  if auditor is None:
   return ['unknown auditor']
  if auditor['state'] != _R:
   _b.append('the auditor is not registered')
- if _AH(project) == auditor['signer']:
+ if _AI(project) == auditor['signer']:
   _b.append('an auditor cannot post claims on its own entry')
  if isinstance(value, bool) or not isinstance(value, int) or value < _L:
   _b.append('the stake must be at least %d atto' % _L)
- for e in (_AM(subject), _H(passage)):
+ for e in (_AN(subject), _H(passage)):
   if e:
    _b.append(e)
- _f = _AN(scope)
+ _f = _AO(scope)
  _b += _f
  if not _b:
   p = _G(passage)
+  if _BB(passage):
+   _b.append('the passage says the subject was not audited: ' + ', '.join(_BB(passage)))
   if not _I(p, subject):
    _b.append('the subject is not in the passage as whole words')
   _c = [s for s in scope if not _I(p, s)]
@@ -174,10 +177,10 @@ def _AP(*, auditor, project, subject, scope, passage, value):
    _b.append('not in the passage as whole words: ' + ', '.join(_c))
  return _b
 
-def _AQ(*, auditor_id, name, url, sample, signer, now, window):
- return {'id': int(auditor_id), 'name': str(name).strip(), 'url': str(url), 'host': _AJ(url), 'signer': _AH(signer, 'signer'), 'sample': str(sample), 'state': _Q, 'at': int(now), 'due': int(now) + int(window)}
+def _AR(*, auditor_id, name, url, sample, signer, now, window):
+ return {'id': int(auditor_id), 'name': str(name).strip(), 'url': str(url), 'host': _AK(url), 'signer': _AI(signer, 'signer'), 'sample': str(sample), 'state': _Q, 'at': int(now), 'due': int(now) + int(window)}
 
-def _AR(auditor, *, ok, now):
+def _AS(auditor, *, ok, now):
  if auditor['state'] != _Q:
   return False
  auditor['state'] = _R if ok else _S
@@ -186,24 +189,24 @@ def _AR(auditor, *, ok, now):
 
 def expire_registration(auditor, *, now):
  if auditor['state'] != _Q:
-  raise _AG('auditor %d is %s' % (int(auditor['id']), auditor['state']))
+  raise _AH('auditor %d is %s' % (int(auditor['id']), auditor['state']))
  if int(now) <= int(auditor['due']):
-  raise _AG('the registration read is open until %d' % int(auditor['due']))
+  raise _AH('the registration read is open until %d' % int(auditor['due']))
  auditor['state'] = _S
  auditor['decided_at'] = int(now)
  auditor['why'] = 'no agreed read of the page in time'
 
-def _AS(*, claim_id, auditor, project, subject, scope, passage, stake, now):
- return {'id': int(claim_id), 'auditor': int(auditor['id']), 'project': _AH(project, 'project'), 'subject': str(subject).strip(), 'scope': [str(s).strip() for s in scope], 'passage': str(passage), 'stake': int(stake), 'state': _T, 'posted_at': int(now), 'print': '', 'misses': 0, 'miss_at': 0, 'checked_at': 0, 'seq': 0, 'read': None, 'why': ''}
+def _AT(*, claim_id, auditor, project, subject, scope, passage, stake, now):
+ return {'id': int(claim_id), 'auditor': int(auditor['id']), 'project': _AI(project, 'project'), 'subject': str(subject).strip(), 'scope': [str(s).strip() for s in scope], 'passage': str(passage), 'stake': int(stake), 'state': _T, 'posted_at': int(now), 'print': '', 'misses': 0, 'miss_at': 0, 'checked_at': 0, 'seq': 0, 'read': None, 'why': ''}
 
-def _AT(claim, *, kind, caller, fee, now, window):
+def _AU(claim, *, kind, caller, fee, now, window):
  if claim.get('read'):
-  raise _AG('a read of claim %d is open' % int(claim['id']))
+  raise _AH('a read of claim %d is open' % int(claim['id']))
  claim['seq'] = int(claim['seq']) + 1
- claim['read'] = {'seq': claim['seq'], 'kind': kind, 'caller': _AH(caller, 'caller'), 'fee': int(fee), 'at': int(now), 'due': int(now) + int(window)}
+ claim['read'] = {'seq': claim['seq'], 'kind': kind, 'caller': _AI(caller, 'caller'), 'fee': int(fee), 'at': int(now), 'due': int(now) + int(window)}
  return claim['read']
 
-def _AU(claim, *, caller, auditor, value):
+def _AV(claim, *, caller, auditor, value):
  _a = []
  if claim['state'] != _U:
   _a.append('only a live claim can be re-checked')
@@ -211,32 +214,32 @@ def _AU(claim, *, caller, auditor, value):
   _a.append('a read of this claim is already open')
  if isinstance(value, bool) or value != _M:
   _a.append('a re-check costs exactly %d atto' % _M)
- if _AH(caller) == auditor['signer']:
+ if _AI(caller) == auditor['signer']:
   _a.append('the auditor cannot re-check claims on its own entry')
  return _a
 
-def _AV(credits, who, amount):
+def _AW(credits, who, amount):
  if amount > 0:
   credits[who] = credits.get(who, 0) + int(amount)
 
-def _AW(claim, state, why, now):
+def _AX(claim, state, why, now):
  claim['state'] = state
  claim['why'] = why
  claim['ended_at'] = int(now)
  claim['read'] = None
 
-def _AX(claim, read, why, now):
+def _AY(claim, read, why, now):
  credits = {}
  _a = min(_N, int(claim['stake']))
- _AV(credits, read['caller'], _a + int(read['fee']))
- _AV(credits, claim['project'], int(claim['stake']) - _a)
- _AW(claim, _W, why, now)
+ _AW(credits, read['caller'], _a + int(read['fee']))
+ _AW(credits, claim['project'], int(claim['stake']) - _a)
+ _AX(claim, _W, why, now)
  return credits
 
-def _AY(claim, *, seq, kind, print_, now, miss_gap):
+def _AZ(claim, *, seq, kind, print_, now, miss_gap):
  _a = claim.get('read')
  if kind not in _AC:
-  raise _AG('unknown outcome %r' % kind)
+  raise _AH('unknown outcome %r' % kind)
  if not _a or int(seq) != int(_a['seq']) or claim['state'] not in _Y:
   return None
  credits = {}
@@ -247,8 +250,8 @@ def _AY(claim, *, seq, kind, print_, now, miss_gap):
    claim['checked_at'] = int(_a['at'])
    claim['read'] = None
   else:
-   _AV(credits, claim['project'], int(claim['stake']))
-   _AW(claim, _V, "the auditor's page did not confirm it" if kind == _AA else "the auditor's page was silent", now)
+   _AW(credits, claim['project'], int(claim['stake']))
+   _AX(claim, _V, "the auditor's page did not confirm it" if kind == _AA else "the auditor's page was silent", now)
   return credits
  if kind == _Z:
   claim['print'] = str(print_)
@@ -256,46 +259,50 @@ def _AY(claim, *, seq, kind, print_, now, miss_gap):
   claim['misses'] = 0
   claim['miss_at'] = 0
   claim['read'] = None
-  _AV(credits, claim['project'], int(_a['fee']))
+  _AW(credits, claim['project'], int(_a['fee']))
   return credits
  if kind == _AA:
-  return _AX(claim, _a, "the auditor's page denies it", now)
+  return _AY(claim, _a, "the auditor's page denies it", now)
  if int(claim['misses']) and int(_a['at']) >= int(claim['miss_at']) + int(miss_gap):
-  return _AX(claim, _a, "the auditor's page was silent twice", now)
+  return _AY(claim, _a, "the auditor's page was silent twice", now)
  if not int(claim['misses']):
   claim['misses'] = 1
   claim['miss_at'] = int(_a['at'])
  claim['read'] = None
- _AV(credits, _a['caller'], int(_a['fee']))
+ _AW(credits, _a['caller'], int(_a['fee']))
  return credits
 
-def _AZ(claim, *, now, miss_gap):
+def _BA(claim, *, now, miss_gap):
  _a = claim.get('read')
  if not _a:
-  raise _AG('no read of claim %d is open' % int(claim['id']))
+  raise _AH('no read of claim %d is open' % int(claim['id']))
  if int(now) <= int(_a['due']):
-  raise _AG('the read is open until %d' % int(_a['due']))
+  raise _AH('the read is open until %d' % int(_a['due']))
  if _a['kind'] == _AD:
-  return _AY(claim, seq=_a['seq'], kind=_AB, print_='', now=now, miss_gap=miss_gap)
+  return _AZ(claim, seq=_a['seq'], kind=_AB, print_='', now=now, miss_gap=miss_gap)
  credits = {}
- _AV(credits, _a['caller'], int(_a['fee']))
+ _AW(credits, _a['caller'], int(_a['fee']))
  claim['read'] = None
  return credits
 
 def withdraw_claim(claim, *, by, now):
- if _AH(by) != claim['project']:
-  raise _AG('only the project may withdraw its claim')
+ if _AI(by) != claim['project']:
+  raise _AH('only the project may withdraw its claim')
  if claim['state'] not in _Y:
-  raise _AG('claim %d is %s' % (int(claim['id']), claim['state']))
+  raise _AH('claim %d is %s' % (int(claim['id']), claim['state']))
  credits = {}
  _a = claim.get('read')
  if _a:
-  _AV(credits, _a['caller'], int(_a['fee']))
- _AV(credits, claim['project'], int(claim['stake']))
- _AW(claim, _X, 'withdrawn by the project', now)
+  _AW(credits, _a['caller'], int(_a['fee']))
+ _AW(credits, claim['project'], int(claim['stake']))
+ _AX(claim, _X, 'withdrawn by the project', now)
  return credits
 
-def _BA(claim, auditor):
+def _BB(passage):
+ p = _G(passage)
+ return [n for n in _AF if _I(p, n)]
+
+def _BC(claim, auditor):
  _a = dict(claim)
  _a['auditor_name'] = auditor['name']
  _a['auditor_host'] = auditor['host']
@@ -330,7 +337,7 @@ class CounterSignBoard(gl.Contract):
   if not 60 <= int(miss_gap) <= 30 * 86400 or not 60 <= int(read_window) <= 7 * 86400:
    raise Exception('[EXPECTED] miss_gap and read_window are 60 seconds to 30 and 7 days')
   self.release = 'countersign-board/1'
-  self.reader = _AH(reader, 'reader')
+  self.reader = _AI(reader, 'reader')
   self.miss_gap = u256(int(miss_gap))
   self.read_window = u256(int(read_window))
 
@@ -383,11 +390,11 @@ class CounterSignBoard(gl.Contract):
 
  @gl.public.write
  def register(self, name: str, page_url: str, sample: str) -> int:
-  _c = _AO(str(name), str(page_url), str(sample))
+  _c = _AP(str(name), str(page_url), str(sample))
   if _c:
    raise Exception('[EXPECTED] ' + '; '.join(_c))
   _b = int(self.auditor_count)
-  _a = _AQ(auditor_id=_b, name=str(name), url=str(page_url), sample=str(sample), signer=self._me(), now=self._now(), window=int(self.read_window))
+  _a = _AR(auditor_id=_b, name=str(name), url=str(page_url), sample=str(sample), signer=self._me(), now=self._now(), window=int(self.read_window))
   self.auditors[u256(_b)] = json.dumps(_a)
   self.auditor_count = u256(_b + 1)
   gl.get_contract_at(Address(self.reader)).emit(on='accepted').read_registration(_b, _a['url'], _a['sample'])
@@ -397,7 +404,7 @@ class CounterSignBoard(gl.Contract):
  def note_registration(self, auditor_id: int, ok: bool) -> None:
   self._from_reader()
   _a = self._auditor(auditor_id)
-  if _AR(_a, ok=bool(ok), now=self._now()):
+  if _AS(_a, ok=bool(ok), now=self._now()):
    self.auditors[u256(int(auditor_id))] = json.dumps(_a)
 
  @gl.public.write.payable
@@ -410,13 +417,13 @@ class CounterSignBoard(gl.Contract):
   _a = None
   if 0 <= int(auditor_id) < int(self.auditor_count):
    _a = json.loads(self.auditors[u256(int(auditor_id))])
-  _d = ['the scope is not valid JSON'] if _e is None else _AP(auditor=_a, project=self._me(), subject=str(subject), scope=_e, passage=str(passage), value=_f)
+  _d = ['the scope is not valid JSON'] if _e is None else _AQ(auditor=_a, project=self._me(), subject=str(subject), scope=_e, passage=str(passage), value=_f)
   if _d:
    self._refuse('; '.join(_d), _f)
    return -1
   _c = int(self.claim_count)
-  _b = _AS(claim_id=_c, auditor=_a, project=self._me(), subject=str(subject), scope=_e, passage=str(passage), stake=_f, now=self._now())
-  _AT(_b, kind=_AD, caller=self._me(), fee=0, now=self._now(), window=int(self.read_window))
+  _b = _AT(claim_id=_c, auditor=_a, project=self._me(), subject=str(subject), scope=_e, passage=str(passage), stake=_f, now=self._now())
+  _AU(_b, kind=_AD, caller=self._me(), fee=0, now=self._now(), window=int(self.read_window))
   self._take(_f)
   self._save_claim(_b)
   self.claim_count = u256(_c + 1)
@@ -431,11 +438,11 @@ class CounterSignBoard(gl.Contract):
    return False
   _b = self._claim(claim_id)
   _a = self._auditor(_b['auditor'])
-  _c = _AU(_b, caller=self._me(), auditor=_a, value=_d)
+  _c = _AV(_b, caller=self._me(), auditor=_a, value=_d)
   if _c:
    self._refuse('; '.join(_c), _d)
    return False
-  _AT(_b, kind=_AE, caller=self._me(), fee=_d, now=self._now(), window=int(self.read_window))
+  _AU(_b, kind=_AE, caller=self._me(), fee=_d, now=self._now(), window=int(self.read_window))
   self._take(_d)
   self._save_claim(_b)
   self._ask(_b, _a)
@@ -446,8 +453,8 @@ class CounterSignBoard(gl.Contract):
   self._from_reader()
   _a = self._claim(claim_id)
   try:
-   credits = _AY(_a, seq=int(seq), kind=str(kind), print_=str(print_)[:32], now=self._now(), miss_gap=int(self.miss_gap))
-  except _AG as _b:
+   credits = _AZ(_a, seq=int(seq), kind=str(kind), print_=str(print_)[:32], now=self._now(), miss_gap=int(self.miss_gap))
+  except _AH as _b:
    raise Exception('[EXPECTED] ' + str(_b))
   if credits is not None:
    self._save_claim(_a)
@@ -458,7 +465,7 @@ class CounterSignBoard(gl.Contract):
   _a = self._auditor(auditor_id)
   try:
    expire_registration(_a, now=self._now())
-  except _AG as _b:
+  except _AH as _b:
    raise Exception('[EXPECTED] ' + str(_b))
   self.auditors[u256(int(auditor_id))] = json.dumps(_a)
 
@@ -466,8 +473,8 @@ class CounterSignBoard(gl.Contract):
  def expire(self, claim_id: int) -> None:
   _a = self._claim(claim_id)
   try:
-   credits = _AZ(_a, now=self._now(), miss_gap=int(self.miss_gap))
-  except _AG as _b:
+   credits = _BA(_a, now=self._now(), miss_gap=int(self.miss_gap))
+  except _AH as _b:
    raise Exception('[EXPECTED] ' + str(_b))
   self._save_claim(_a)
   self._pay(credits or {})
@@ -477,7 +484,7 @@ class CounterSignBoard(gl.Contract):
   _a = self._claim(claim_id)
   try:
    credits = withdraw_claim(_a, by=self._me(), now=self._now())
-  except _AG as _b:
+  except _AH as _b:
    raise Exception('[EXPECTED] ' + str(_b))
   self._save_claim(_a)
   self._pay(credits)
@@ -499,7 +506,7 @@ class CounterSignBoard(gl.Contract):
  @gl.public.view
  def get_claim(self, claim_id: int) -> str:
   _a = self._claim(claim_id)
-  _b = _BA(_a, self._auditor(_a['auditor']))
+  _b = _BC(_a, self._auditor(_a['auditor']))
   _b['now'] = self._now()
   return json.dumps(_b)
 

@@ -132,11 +132,17 @@ def page_read(body, posting=True, stored="", status=200):
     return core.read_page(status, body, ACME, posting=posting, stored_print=stored)
 
 
-def test_a_complete_passage_with_ordinary_surroundings_is_confirmed_by_code():
+def test_at_posting_code_never_confirms_a_passage_by_its_words_alone():
+    """Whole words show the passage names the subject and the scope, not that
+    it affirms an audit of them: every posting goes to the jury."""
     r = page_read(audit_page())
-    assert r["kind"] == CONFIRMED and r["print"] and r["around"] == []
-    again = page_read(audit_page(), posting=False, stored=r["print"])
-    assert again["kind"] == CONFIRMED and again["print"] == r["print"]
+    assert r["kind"] == ASK_JURY and r["print"] and ACME.lower() in r["around"][0]
+
+
+def test_at_a_recheck_the_words_the_jury_affirmed_are_confirmed_by_code():
+    base = page_read(audit_page())["print"]
+    again = page_read(audit_page(), posting=False, stored=base)
+    assert again["kind"] == CONFIRMED and again["print"] == base and again["around"] == []
 
 
 @pytest.mark.parametrize("body,status", [
@@ -150,29 +156,49 @@ def test_an_unreadable_page_or_a_missing_passage_is_silent(body, status):
     assert page_read(body, status=status)["kind"] == SILENT
 
 
-def test_at_posting_a_withdrawal_phrase_beside_the_passage_asks_the_jury():
-    r = page_read(audit_page(extra={"Acme Lending": " (withdrawn)"}))
-    assert r["kind"] == ASK_JURY and r["around"] and "withdrawn" in r["around"][0]
-    assert core.fired(core.page_text(audit_page(extra={"Acme Lending": " - no longer valid"})), ACME) == ["no longer valid"]
+NEGATIVE = [
+    "Project X was not audited for Scope Y by Northlight during 2026",
+    "Acme Lending lending contracts v2 March 2026 was not audited by Northlight",
+    "Acme Lending lending contracts v2 March 2026: never audited, review declined",
+    "Acme Lending lending contracts v2 March 2026 has not been audited by Northlight",
+    "Acme Lending lending contracts v2 March 2026 status: unaudited (quote only)",
+    "Northlight did not audit Acme Lending lending contracts v2 March 2026",
+    "Acme Lending lending contracts v2 March 2026: this listing is not an audit",
+    "Acme Lending lending contracts v2 March 2026 - audit was declined by Northlight",
+    "ACME LENDING LENDING CONTRACTS V2 MARCH 2026 NOT AUDITED",
+]
 
 
-def test_words_that_ordinary_reports_use_do_not_ask_the_jury():
-    for words in (" did not find critical issues", " draft report", " preliminary findings", " Kelp LRT-ETH Withdrawals",
-                  " revoke role fix", " unwithdrawn"):
-        assert page_read(audit_page(extra={"Acme Lending": words}))["kind"] == CONFIRMED, words
+@pytest.mark.parametrize("passage", NEGATIVE[1:])
+def test_a_passage_that_says_the_subject_was_not_audited_is_refused_before_any_read(passage):
+    out = errors(passage=passage)
+    assert out and out[0].startswith("the passage says the subject was not audited"), out
 
 
-def test_a_standing_disclaimer_above_the_list_does_not_ask_the_jury():
-    """A real auditor page may say "a project not listed here was not audited
-    by us" above its table. A jury reading that beside the row might refuse an
-    honest claim, so those phrases are not on the posting list."""
+def test_the_reviewers_case_is_refused_before_any_read():
+    out = errors(subject="Project X", scope=["Scope Y"], passage=NEGATIVE[0])
+    assert out == ["the passage says the subject was not audited: not audited"]
+
+
+@pytest.mark.parametrize("passage", NEGATIVE)
+def test_at_posting_a_negative_passage_on_the_page_is_denied_by_code(passage):
+    """Even if a negative passage reached a read (a Board built before this
+    rule, or a retry), code denies it and never asks the jury to weigh it."""
+    body = audit_page(before="<p>%s</p>" % passage)
+    r = core.read_page(200, body, passage, posting=True, stored_print="")
+    assert r["kind"] == DENIED and r["around"] == []
+
+
+def test_negations_are_whole_words_of_the_passage_only():
+    assert core.negations("Acme Lending lending contracts v2 March 2026 Northlight audit report") == []
+    for words in ("did not find critical issues", "no issues were found", "notaudited", "nonaudited",
+                  "re-audited after fixes", "draft report", "preliminary findings"):
+        assert core.negations(ACME + " " + words) == [], words
+    # A standing disclaimer above the list is not in the passage: the row is
+    # still read, and it is the jury that weighs the page.
     for line in ("A project that is not listed here was not audited by us.",
-                 "Any project not on this list was not audited by Northlight.",
-                 "Projects not listed here, we did not audit.",
-                 "We do not endorse any project. A listing here is not an audit of later versions."):
-        assert page_read(audit_page(before="<p>%s</p>" % line))["kind"] == CONFIRMED, line
-    for phrase in ("not audited by", "was not audited", "did not audit", "not an audit", "do not endorse"):
-        assert phrase not in core.WITHDRAW
+                 "Any project not on this list was not audited by Northlight."):
+        assert page_read(audit_page(before="<p>%s</p>" % line))["kind"] == ASK_JURY, line
 
 
 def test_at_a_recheck_only_changed_surroundings_ask_the_jury():

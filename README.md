@@ -113,9 +113,11 @@ count as a change.
 
 | On the page | Who decides | Outcome |
 | --- | --- | --- |
-| The passage, word for word, with the same surroundings as at the last confirmation | Code | **confirmed** |
+| At posting, the passage itself says the subject was not audited ("was not audited", "never audited", "unaudited", "did not audit", "not an audit", "audit was declined", ...) | Code, before any read | **refused**, stake credited back |
+| At posting, the passage is on the page | The validators' language models, asked one question: does the passage affirm that this auditor audited the subject for every scope item? | only `confirms` posts the claim; anything else is **denied** |
+| At a re-check, the passage word for word, with the surroundings the jury affirmed | Code | **confirmed** |
 | The passage is missing, the page is unreadable, or it could not be fetched | Code | **silent** |
-| The passage is there, but its surroundings changed since the last confirmation, or a withdrawal phrase (`withdrawn`, `revoked`, `retracted`, `rescinded`, `superseded`, `no longer valid`) sits near it at posting | The validators' language models, asked one question | only `confirms` confirms; anything else is **denied** |
+| At a re-check, the passage is there but its surroundings changed | The jury, the same question | only `confirms` keeps the claim; anything else is **denied** |
 
 The page comes from the auditor's server and the claim from the project, so
 either might try to talk to the jury. Neither can open or close a block of
@@ -177,6 +179,13 @@ times, editing the pages mid-run:
 | The project withdraws a live claim, and one still pending | stake returned; a late report is ignored |
 | Every path | the auditor received nothing; the Board's books balance |
 
+**Since this table.** It is the record of build `a43fad4`, on chain. A
+review found that build confirmed a posting by code when the passage named
+the subject and scope, even if it said they were not audited. The current
+build refuses such a passage before any read and has the jury affirm every
+other posting ([Design decisions](#design-decisions)); it is tested in the
+GenVM stand-in and by mutants, and is not deployed yet.
+
 **Not shown yet.** A read the Board triggers that fails on its own and is
 then recovered by a retry. On the earlier Bradbury network, one leader's
 failed fetch ended a read (claim 5), which is why retries exist, but the test
@@ -192,13 +201,18 @@ networks give no way to cause that on demand. It is part of the Bradbury run.
   readable, with thousands of characters, yet show none of their audits to a
   validator. A length minimum would register them and every claim would then
   fail. The sample proves the list itself is visible ([T17](docs/THREAT-MODEL.md)).
-- **Code first, the jury only when needed.** Validators agree on outcomes,
-  not on text, and code decides every ordinary read. The model is asked one
-  question, and only when the words around the passage changed or a
-  withdrawal phrase is near it at posting.
+- **Naming is not affirming.** Whole words prove a passage names the
+  subject and scope, not that it says they were audited: "Project X was not
+  audited for Scope Y" contains both. So code never confirms a posting. A
+  passage that negates itself is refused before any read, and the jury must
+  find that every other one affirms the audit. After that, code decides
+  every re-check of an unchanged page: those are the words the jury
+  affirmed. The cost is a model call per posting, and a cautious jury may
+  refuse an honest claim (its stake comes back); it can no longer post a
+  denial.
 - **Whole-word matching, no fuzziness.** `v2` does not match `v20`, `acme`
-  does not match `acmeswap`, and a withdrawal phrase never fires on part of a
-  word ("Withdrawals" is a real audit scope).
+  does not match `acmeswap`, and a negation never fires on part of a word
+  ("notaudited", "re-audited").
 - **Two contracts.** The Board never reads the Reader, so an appealed or
   stuck read cannot freeze money. The Reader reports on finality, so an
   appeal reaches the Board once, with its final outcome.

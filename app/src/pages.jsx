@@ -618,8 +618,8 @@ export function How() {
             <p>The Board holds stakes and records and never fetches anything. The Reader fetches pages and asks the validators, then reports to the Board once its result is final.</p>
           </div>
           <div className="ruled">
-            <h2>Code first, the jury only when needed</h2>
-            <p>If the passage is on the page and its surroundings have not changed, code decides. Only a changed context, or a withdrawal word near it, goes to the validators' language models, and only "confirms" keeps a claim.</p>
+            <h2>Naming is not affirming</h2>
+            <p>A passage that says the project was not audited is refused before any read. Every other posting goes to the validators' language models, which must find that it affirms an audit of the subject for the full scope. After that, a re-check of an unchanged page is decided by code, and only "confirms" keeps a claim.</p>
           </div>
         </div>
         <hr className="hr" />

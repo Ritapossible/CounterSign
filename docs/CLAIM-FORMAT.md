@@ -71,12 +71,16 @@ page's visible text; `subject` and every `scope` string must appear in the
 passage **as whole words**: the character before and after each match is
 the start or end of the text or is not a letter or digit. So `v2` does not
 match `v20`, `acme` does not match `acmeswap`, and a short particle cannot
-stand in for a name. The withdrawal phrases in the window around the
-passage are matched the same way, as whole words: audit scopes on real
-lists contain words like "Withdrawals" (Sigma Prime, Kelp LRT-ETH
-Withdrawals), and a phrase must never fire on part of a word. There is no
-fuzzy matching and no model deciding
+stand in for a name. There is no fuzzy matching and no model deciding
 whether "v2" means "version two".
+
+**Naming is not affirming.** Matching proves the passage names the subject
+and scope, not that it says they were audited. A passage that says the
+subject was not audited ("was not audited", "never audited", "unaudited",
+"did not audit", "not an audit", "audit was declined", ...; whole words, in
+the passage only) is refused before any read, stake credited back. Every
+other posting is read by the jury, which must find that the passage affirms
+an audit of the subject for every scope item before the claim goes live.
 
 ## Constants (proposed; fixed per deployment)
 

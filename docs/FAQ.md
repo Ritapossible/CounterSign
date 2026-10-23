@@ -34,13 +34,15 @@ whoever re-checked.
 
 ## What does the AI decide?
 
-Very little. If the passage is on the page and the words around it are the
-same as at the last confirmation, code decides: confirmed. If the passage is
-missing, code decides: silent. Only when the passage is there but its
-surroundings changed, or a withdrawal phrase (`withdrawn`, `revoked`,
-`retracted`, `rescinded`, `superseded`, `no longer valid`) sits near it at
-posting, are the validators' language models asked one question, and only
-the answer `confirms` keeps or posts a claim.
+One question, at two moments. At posting, the validators' language models
+read every passage that is on the page and decide whether it affirms that
+this auditor audited the subject for every scope item; naming them is not
+enough ("Project X was not audited for Scope Y" names both). A passage that
+plainly says the subject was not audited is refused by code before that.
+At a re-check, if the passage is there and the words around it are the ones
+the jury affirmed, code decides: confirmed. If the passage is missing, code
+decides: silent. Only changed surroundings go back to the jury. Only the
+answer `confirms` keeps or posts a claim.
 
 ## What if the auditor's site is down for an hour?
 

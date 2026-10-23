@@ -107,37 +107,44 @@ The Reader uses a plain fetch, never rendering (CLAIM-FORMAT, registration).
 
 | Outcome | Condition |
 | --- | --- |
-| `confirmed` | The normalised passage is in the page's visible text and the surroundings fingerprint matches the one stored at the last confirmation (at posting there is nothing to compare, see below). The Board has already checked, before any read, that the passage contains `subject` and every `scope` string as whole words |
-| `ask_jury` | The passage is present and complete, but the surroundings fingerprint differs from the stored one, or (at posting) the window contains a withdrawal word |
-| `denied` | The jury answered `denies` or `points_elsewhere` or `cannot_tell` |
+| `confirmed` | At a re-check only: the normalised passage is in the page's visible text and the surroundings fingerprint matches the one stored at the last confirmation. The Board has already checked, before any read, that the passage contains `subject` and every `scope` string as whole words |
+| `ask_jury` | At posting, the passage is present (always); at a re-check, it is present but the surroundings fingerprint differs from the stored one |
+| `denied` | At posting, the passage itself says the subject was not audited (code); or the jury answered `denies`, `points_elsewhere` or `cannot_tell` |
 | `silent` | The passage is absent, incomplete, hidden, the page is empty, over the byte cap, unfetchable, or the validators could not agree |
 
-`confirmed` and `silent` need no model. Only `ask_jury` reaches one, and its
-answer turns into `confirmed` or `denied`.
+`confirmed`, `silent` and a negation's `denied` need no model. Only
+`ask_jury` reaches one, and its answer turns into `confirmed` or `denied`.
 
-**At posting** there is no earlier fingerprint, so the Reader looks at the
-window of `WINDOW_WORDS` words around the passage for a short, fixed list of
-phrases that only ever mean that one item was withdrawn: `withdrawn`,
-`revoked`, `retracted`, `rescinded`, `superseded`, `no longer valid`. None
-present: `confirmed`, no model, and the fingerprint is stored. Any present:
-`ask_jury`. The list only decides whether to ask; it never decides the
-answer. Phrases match as whole words, like subject and scope.
+**At posting**, code never confirms. Whole words prove the passage names
+the subject and every scope string, not that it says they were audited:
+"Project X was not audited for Scope Y" contains both (the reviewer's case).
+So:
 
-Words that appear in ordinary audit reports are deliberately **not** on the
-list: `did not` ("did not find critical issues"), `draft`, `preliminary`,
-`findings`, `issues`. Otherwise the jury would be asked about the very pages
-the code path exists for. So is every phrase a standing header or
-disclaimer uses (second and third reviews): `not audited by`, `was not
-audited`, `did not audit`, `not an audit`, `do not endorse`. A header above
-a table ("projects not listed here, we did not audit"; "we do not endorse
-any project") sits within the window of the first rows, and a jury reading
-it beside an honest row might answer `cannot_tell`, which refuses the
-claim. A real withdrawal added later beside a row changes its
-surroundings and reaches the jury on re-check. Phase 1 measured the list against real audit
-pages: no phrase fired in the window of any confirming row, and none of the
-phrases occurs anywhere on the four readable lists (about 390,000
-characters). The only near miss was a substring: Sigma Prime lists "Kelp
-LRT-ETH Withdrawals", which is why phrases match as whole words.
+1. A passage that negates itself is refused by the Board before any read,
+   with the stake credited back, and denied by the Reader if it is ever read
+   at posting. `NEGATIONS` is a short fixed list matched as whole words in
+   the passage only: `not audited`, `never audited`, `not been audited`,
+   `not yet audited`, `unaudited`, `did not audit`, `does not audit`,
+   `has not audited`, `have not audited`, `never audit`, `not an audit`,
+   `audit was declined`, `declined to audit`.
+2. Every other posting goes to the jury, which must find that the passage
+   affirms an audit of the subject covering every scope item, credited to
+   this auditor (the page is its own) or to no one else.
+
+The words around the passage are never searched for negations: a standing
+disclaimer above a table ("projects not listed here were not audited by us")
+sits within the window of the first rows. The jury reads it, and its
+question says such a notice is not about a listed passage. Words of ordinary
+reports (`did not find`, `no issues`, `draft`, `preliminary`) are not on the
+list.
+
+Earlier builds (through `a43fad4`) confirmed a posting by code whenever no
+withdrawal word was near it, to keep the model off the happy path. A review
+showed that let a direct negative passage go live, so the trade was
+reversed: one model call per posting, and a cautious jury may refuse an
+honest claim (stake returned), but it can never post a denial. A re-check of
+an unchanged page still needs no model: its words are the ones the jury
+affirmed.
 
 ## 4. Reading the page
 
@@ -160,17 +167,21 @@ opacity.
 
 ## 5. The jury's one question
 
-The jury is asked only when the passage is present and complete but its
-surroundings changed (or contain a withdrawal word at posting). It is shown
-the claim (auditor name, subject, scope strings, passage) and the words
-around the passage on today's page, as untrusted text. It answers with
-exactly one of:
+The jury reads every posting whose passage is present, and a re-check
+whose surroundings changed. It is shown the claim (auditor name, subject,
+scope strings, passage) and the words around the passage on today's page,
+as untrusted text. It answers with exactly one of:
 
-- `confirms`: the page, read around the passage, still says the auditor
-  audited this subject for this scope;
-- `denies`: the surrounding words withdraw, revoke or contradict it;
-- `points_elsewhere`: the words make it about something else (another
-  version, product or date than the scope);
+- `confirms`: the passage itself affirms an audit of the subject covering
+  every scope item (a row of the auditor's list of its audits affirms what
+  it lists), credited to this auditor or to no one else, and nothing around
+  it withdraws or contradicts it. Naming the subject and scope is not
+  enough;
+- `denies`: the passage says the subject was not audited, or not for some
+  scope item, or the surrounding words withdraw, revoke or contradict it;
+- `points_elsewhere`: the passage or the words around it make it about
+  something else (another auditor, version, product or date than the scope,
+  or only part of the scope);
 - `cannot_tell`.
 
 Only `confirms` keeps or posts a claim. The jury never decides whether the

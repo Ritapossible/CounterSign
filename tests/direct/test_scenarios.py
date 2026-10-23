@@ -50,11 +50,34 @@ def test_register_refuses_bad_fields_outright(net):
     assert net.status()["auditors"] == 0
 
 
-def test_post_with_the_exact_passage_goes_live_with_no_model(net):
-    cid = net.live()
+def test_post_goes_live_only_once_the_jury_affirms_the_passage(net):
+    net.register()
+    cid = net.post()
     c = net.claim(cid)
-    assert c["auditor_host"] == "northlight.example" and c["print"]
-    assert net.rt.prompts_seen == []
+    assert c["state"] == "live" and c["auditor_host"] == "northlight.example" and c["print"]
+    assert len(net.rt.prompts_seen) == 2  # leader and validator, both asked
+    assert "must state or list them as audited" in net.rt.prompts_seen[0]
+    net.books_balance()
+
+
+def test_a_direct_negative_assertion_is_refused_before_any_read(net):
+    """The reviewer's case: the passage names the subject and every scope
+    item as whole words, and says they were not audited."""
+    net.rt.web[PAGE] = audit_page(before="<p>Project X was not audited for Scope Y by Northlight during 2026.</p>")
+    net.register()
+    assert net.post(subject="Project X", scope=["Scope Y"], passage="Project X was not audited for Scope Y by Northlight during 2026") == -1
+    assert "not audited" in json.loads(net.board.refusal_of(PROJECT))["reason"]
+    assert net.owed(PROJECT) == STAKE and net.status()["claims"] == 0 and net.rt.prompts_seen == []
+    net.books_balance()
+
+
+def test_a_negative_passage_code_cannot_spot_is_refused_by_the_jury(net):
+    row = "Acme Lending lending contracts v2 March 2026 engagement cancelled before fieldwork"
+    net.rt.web[PAGE] = audit_page(before="<p>%s</p>" % row)
+    net.register()
+    cid = net.post(passage=row)
+    assert net.claim(cid)["state"] == "refused" and len(net.rt.prompts_seen) == 2
+    assert net.owed(PROJECT) == STAKE and net.owed(AUDITOR) == 0
     net.books_balance()
 
 
@@ -94,7 +117,7 @@ def test_recheck_an_unchanged_page_pays_the_project_and_asks_no_model(net):
     assert net.recheck(cid) is True
     c = net.claim(cid)
     assert c["state"] == "live" and c["read"] is None and net.owed(PROJECT) == FEE
-    assert net.rt.prompts_seen == []
+    assert net.rt.prompts_seen == []  # the words the jury affirmed at posting
     net.books_balance()
 
 
@@ -333,10 +356,11 @@ def test_a_posting_read_that_did_not_agree_is_retried_by_anyone(net):
     cid = net.post()
     assert net.claim(cid)["state"] == "pending"
     net.rt.web[PAGE] = audit_page()
+    net.rt.prompts_seen.clear()
     net.call("retry_claim", cid, sender=OTHER, to=READER)
     c = net.claim(cid)
     assert c["state"] == "live" and c["read"] is None and c["seq"] == 1
-    assert net.rt.prompts_seen == []  # retried as a posting, the clean row needs no model
+    assert len(net.rt.prompts_seen) == 2  # retried as a posting, the jury must affirm it again
     assert net.owed(OTHER) == 0  # retrying pays nothing and costs nothing but gas
 
 
