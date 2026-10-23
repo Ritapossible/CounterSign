@@ -129,6 +129,8 @@ MUTATIONS = [
      "    if posting and negations(passage):", "    if False:", CORE),
     ("negation-not-refused", "a negative passage is refused before any read",
      "        if negations(passage):\n            errors.append", "        if False:\n            errors.append", CORE),
+    ("contractions-kept", "a contracted negation is a negation",
+     "    p = normalize(passage).replace(\"n't\", \" not\")", "    p = normalize(passage)", CORE),
     ("negation-substring", "negations match as whole words",
      "    return [n for n in NEGATIONS if whole_word(p, n)]", "    return [n for n in NEGATIONS if n.replace(\" \", \"\") in p.replace(\" \", \"\")]", CORE),
     ("recheck-skips-print", "changed surroundings ask the jury",

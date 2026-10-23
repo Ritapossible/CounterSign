@@ -88,7 +88,7 @@ _AB = 'silent'
 _AC = (_Z, _AA, _AB)
 _AD = 'posting'
 _AE = 'recheck'
-_AF = ('not audited', 'never audited', 'not been audited', 'not yet audited', 'unaudited', 'did not audit', 'does not audit', 'has not audited', 'have not audited', 'never audit', 'not an audit', 'audit was declined', 'declined to audit')
+_AF = ('not audited', 'never audited', 'not been audited', 'never been audited', 'not yet audited', 'unaudited', 'did not audit', 'does not audit', 'has not audited', 'have not audited', 'never audit', 'not an audit', 'audit was declined', 'declined to audit')
 _AG = set('the a an and of for by on in to inc ltd llc co corp company labs lab protocol protocols finance network dao foundation project audit audits audited report reports security smart contract contracts review core app v1 v2 v3'.split())
 
 class _AH(Exception):
@@ -299,7 +299,7 @@ def withdraw_claim(claim, *, by, now):
  return credits
 
 def _BB(passage):
- p = _G(passage)
+ p = _G(passage).replace("n't", ' not')
  return [n for n in _AF if _I(p, n)]
 
 def _BC(claim, auditor):

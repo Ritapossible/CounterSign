@@ -76,7 +76,7 @@ whether "v2" means "version two".
 
 **Naming is not affirming.** Matching proves the passage names the subject
 and scope, not that it says they were audited. A passage that says the
-subject was not audited ("was not audited", "never audited", "unaudited",
+subject was not audited ("was not audited", "wasn't audited", "never audited", "unaudited",
 "did not audit", "not an audit", "audit was declined", ...; whole words, in
 the passage only) is refused before any read, stake credited back. Every
 other posting is read by the jury, which must find that the passage affirms

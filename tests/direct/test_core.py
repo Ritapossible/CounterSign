@@ -166,6 +166,12 @@ NEGATIVE = [
     "Acme Lending lending contracts v2 March 2026: this listing is not an audit",
     "Acme Lending lending contracts v2 March 2026 - audit was declined by Northlight",
     "ACME LENDING LENDING CONTRACTS V2 MARCH 2026 NOT AUDITED",
+    "Acme Lending lending contracts v2 March 2026 wasn't audited by Northlight",
+    "Acme Lending lending contracts v2 March 2026 hasn't been audited by Northlight",
+    "Acme Lending lending contracts v2 March 2026 wasn\u2019t audited (typographic apostrophe)",
+    "Northlight didn't audit Acme Lending lending contracts v2 March 2026",
+    "Acme Lending lending contracts v2 March 2026: this listing isn't an audit",
+    "Acme Lending lending contracts v2 March 2026 has never been audited by Northlight",
 ]
 
 
@@ -178,6 +184,11 @@ def test_a_passage_that_says_the_subject_was_not_audited_is_refused_before_any_r
 def test_the_reviewers_case_is_refused_before_any_read():
     out = errors(subject="Project X", scope=["Scope Y"], passage=NEGATIVE[0])
     assert out == ["the passage says the subject was not audited: not audited"]
+    for contracted in ("Project X wasn't audited for Scope Y by Northlight during 2026",
+                       "Project X hasn't been audited for Scope Y by Northlight during 2026",
+                       "Project X wasn&#39;t audited for Scope Y by Northlight during 2026"):
+        out = errors(subject="Project X", scope=["Scope Y"], passage=contracted)
+        assert out and out[0].startswith("the passage says the subject was not audited"), contracted
 
 
 @pytest.mark.parametrize("passage", NEGATIVE)

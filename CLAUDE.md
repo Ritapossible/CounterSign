@@ -26,7 +26,8 @@ These are the product. A change that breaks one is wrong even if tests pass.
 2. **Code never confirms a posting; no model on an unchanged re-check.**
    Whole words show a passage names the subject and scope, not that it
    affirms an audit of them ("Project X was not audited for Scope Y"). So a
-   passage that negates itself (`NEGATIONS`, whole words, the passage only)
+   passage that negates itself (`NEGATIONS`, whole words, the passage only,
+   contractions spelled out)
    is refused before any read and denied if read, and every other posting
    goes to the jury, which must find that the passage affirms an audit of
    the subject for the full scope. A re-check whose surroundings are the

@@ -71,6 +71,17 @@ def test_a_direct_negative_assertion_is_refused_before_any_read(net):
     net.books_balance()
 
 
+@pytest.mark.parametrize("passage", ["Project X wasn't audited for Scope Y by Northlight during 2026",
+                                     "Project X hasn\u2019t been audited for Scope Y by Northlight during 2026"])
+def test_a_contracted_negative_assertion_is_refused_before_any_read(net, passage):
+    """The same sentence with a contraction, which the test jury would
+    otherwise confirm: code refuses it before the jury is reached."""
+    net.rt.web[PAGE] = audit_page(before="<p>%s.</p>" % passage)
+    net.register()
+    assert net.post(subject="Project X", scope=["Scope Y"], passage=passage) == -1
+    assert net.owed(PROJECT) == STAKE and net.status()["claims"] == 0 and net.rt.prompts_seen == []
+
+
 def test_a_negative_passage_code_cannot_spot_is_refused_by_the_jury(net):
     row = "Acme Lending lending contracts v2 March 2026 engagement cancelled before fieldwork"
     net.rt.web[PAGE] = audit_page(before="<p>%s</p>" % row)

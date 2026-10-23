@@ -124,9 +124,10 @@ So:
    with the stake credited back, and denied by the Reader if it is ever read
    at posting. `NEGATIONS` is a short fixed list matched as whole words in
    the passage only: `not audited`, `never audited`, `not been audited`,
-   `not yet audited`, `unaudited`, `did not audit`, `does not audit`,
+   `never been audited`, `not yet audited`, `unaudited`, `did not audit`, `does not audit`,
    `has not audited`, `have not audited`, `never audit`, `not an audit`,
-   `audit was declined`, `declined to audit`.
+   `audit was declined`, `declined to audit`. Contractions are spelled out
+   first, so `wasn't audited` and `hasn't been audited` are covered.
 2. Every other posting goes to the jury, which must find that the passage
    affirms an audit of the subject covering every scope item, credited to
    this auditor (the page is its own) or to no one else.

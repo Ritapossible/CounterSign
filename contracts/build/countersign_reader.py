@@ -344,10 +344,11 @@ RECHECK = "recheck"
 # affirming an audit. Only the passage is searched, as whole words, never the
 # words around it: a standing disclaimer above a list ("a project not listed
 # here was not audited by us") sits beside honest rows. Never add words
-# ordinary reports use ("did not find", "no issues", "draft"). Anything subtler
-# is the jury's, which reads every posting.
+# ordinary reports use ("did not find", "no issues", "draft"). Contractions
+# are spelled out first ("wasn't" is "was not"), so each phrase covers them.
+# Anything subtler is the jury's, which reads every posting.
 NEGATIONS = (
-    "not audited", "never audited", "not been audited", "not yet audited", "unaudited",
+    "not audited", "never audited", "not been audited", "never been audited", "not yet audited", "unaudited",
     "did not audit", "does not audit", "has not audited", "have not audited", "never audit",
     "not an audit", "audit was declined", "declined to audit",
 )
@@ -647,8 +648,9 @@ def registration_ok(status, body, sample):
 
 
 def negations(passage):
-    """Negation phrases, as whole words, in the passage itself."""
-    p = normalize(passage)
+    """Negation phrases, as whole words, in the passage itself, with every
+    "n't" spelled out (normalize has already folded curly apostrophes)."""
+    p = normalize(passage).replace("n't", " not")
     return [n for n in NEGATIONS if whole_word(p, n)]
 
 

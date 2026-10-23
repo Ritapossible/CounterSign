@@ -214,7 +214,7 @@ _AD = 'denied'
 _AE = 'silent'
 _AF = (_AB, _AD, _AE)
 _AG = 'posting'
-_AH = ('not audited', 'never audited', 'not been audited', 'not yet audited', 'unaudited', 'did not audit', 'does not audit', 'has not audited', 'have not audited', 'never audit', 'not an audit', 'audit was declined', 'declined to audit')
+_AH = ('not audited', 'never audited', 'not been audited', 'never been audited', 'not yet audited', 'unaudited', 'did not audit', 'does not audit', 'has not audited', 'have not audited', 'never audit', 'not an audit', 'audit was declined', 'declined to audit')
 
 class _AI(Exception):
  pass
@@ -236,7 +236,7 @@ def _AL(status, body, sample):
  return _a is not None and _Q(_a, sample)
 
 def _AM(passage):
- p = _O(passage)
+ p = _O(passage).replace("n't", ' not')
  return [n for n in _AH if _R(p, n)]
 
 def _AN(status, body, passage, *, posting, stored_print):

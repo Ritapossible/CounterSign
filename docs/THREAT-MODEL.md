@@ -53,7 +53,7 @@ visible.
 (a quote request, a refused engagement). The passage contains the subject
 and every scope item as whole words, so matching alone would post it.
 **Defence.** A passage that negates itself (`NEGATIONS`, whole words, the
-passage only) is refused by the Board before any read, stake credited back,
+passage only, "wasn't" read as "was not") is refused by the Board before any read, stake credited back,
 and denied by the Reader if read. Every other posting goes to the jury,
 which must find that the passage affirms an audit of the subject covering
 every scope item; naming them is not enough, and only `confirms` posts.
@@ -61,9 +61,10 @@ every scope item; naming them is not enough, and only `confirms` posts.
 `test_a_passage_that_says_the_subject_was_not_audited_is_refused_before_any_read`,
 `test_at_posting_a_negative_passage_on_the_page_is_denied_by_code`,
 `test_a_direct_negative_assertion_is_refused_before_any_read`,
+`test_a_contracted_negative_assertion_is_refused_before_any_read`,
 `test_a_negative_passage_code_cannot_spot_is_refused_by_the_jury`,
 `test_the_jury_must_find_the_passage_affirms_the_audit`; mutants
-`posting-confirmed-by-code`, `negation-not-refused`,
+`posting-confirmed-by-code`, `negation-not-refused`, `contractions-kept`,
 `negation-read-not-denied`, `negation-substring`, `naming-is-enough`.
 
 ## T6 - The passage stays, but is withdrawn next to it
