@@ -26,6 +26,7 @@ const GEN = 10n ** 18n;
 const STAKE = GEN / 10n, FEE = GEN / 100n, REWARD = GEN / 50n;
 
 const ACME = "Acme Lending lending contracts v2 March 2026 Northlight audit report";
+const NEGATIVE_ROW = "Acme Lending lending contracts v2 March 2026 engagement cancelled before fieldwork, no report issued";
 const SAMPLE = "Borealis Swap router and pools v1 January 2026 Northlight audit report";
 const SCOPE = JSON.stringify(["lending contracts v2", "March 2026"]);
 const raw = (r, name) => `https://raw.githubusercontent.com/Ritapossible/CounterSign/live/demo/${network}/r${r}/${name}`;
@@ -185,7 +186,7 @@ async function publish(stage) {
     for (;;) {
       let stale = 0;
       for (let r = 1; r <= RUNS; r++) {
-        for (const name of ["happy.html", "withdraw.html", "delete.html", "outage.html", "inject.html"]) {
+        for (const name of ["happy.html", "withdraw.html", "delete.html", "outage.html", "inject.html", "negative.html"]) {
           const local = `${LIVE}/demo/${network}/r${r}/${name}`;
           const want = fs.existsSync(local) ? fs.readFileSync(local, "utf8") : null;
           const res = await fetch(raw(r, name), { cache: "no-store" }).catch(() => null);
@@ -230,6 +231,7 @@ const ENTRIES = [
   ["delete", "delete.html", SAMPLE, "registered"],
   ["outage", "outage.html", SAMPLE, "registered"],
   ["inject", "inject.html", SAMPLE, "registered"],
+  ["negative", "negative.html", SAMPLE, "registered"],
 ];
 for (let r = 1; r <= RUNS; r++) {
   for (const [name, file, sample] of ENTRIES) {
@@ -268,8 +270,9 @@ async function post(r, key, auditorName, { scope = SCOPE, passage = ACME, refuse
 }
 
 for (let r = 1; r <= RUNS; r++) {
-  for (const k of ["happy", "absent", "hidden", "flagged", "withdraw", "delete", "outage", "inject"]) {
-    const opts = k === "absent" ? { passage: "Acme Lending lending contracts v2 March 2026 Northlight final audit report" } : {};
+  for (const k of ["happy", "absent", "hidden", "flagged", "withdraw", "delete", "outage", "inject", "negative"]) {
+    const opts = k === "absent" ? { passage: "Acme Lending lending contracts v2 March 2026 Northlight final audit report" }
+      : k === "negative" ? { passage: NEGATIVE_ROW } : {};
     await post(r, k, k === "absent" ? "happy" : k, opts);
   }
   await once(`r${r}:scope-missing`, async () => {
@@ -282,9 +285,24 @@ for (let r = 1; r <= RUNS; r++) {
       p.id === -1 && String(refusal.returned) === String(STAKE) && reason.includes("April 2026"), { id: p.id, refusal });
     return { reason, returned: String(refusal.returned) };
   });
+  // The reviewer's case: a passage that names Acme and its scope and says
+  // they were not audited is refused before any read, contraction or not.
+  for (const [key, passage] of [
+    ["negated", "Acme Lending lending contracts v2 March 2026 was not audited by Northlight"],
+    ["contracted", "Acme Lending lending contracts v2 March 2026 wasn't audited by Northlight"],
+  ]) {
+    await once(`r${r}:${key}`, async () => {
+      const p = await post(r, key, "happy", { passage, refused: true });
+      const refusal = await view("refusal_of", [A.project]);
+      const reason = refusal.reason || "";
+      check(`r${r} passage says not audited (${key}): refused at once, stake credited back`,
+        p.id === -1 && String(refusal.returned) === String(STAKE) && reason.includes("not audited"), { id: p.id, refusal });
+      return { reason, returned: String(refusal.returned) };
+    });
+  }
 }
 
-const EXPECT_POST = { happy: "live", absent: "refused", hidden: "refused", flagged: "refused", withdraw: "live", delete: "live", outage: "live", inject: "live" };
+const EXPECT_POST = { happy: "live", absent: "refused", hidden: "refused", flagged: "refused", withdraw: "live", delete: "live", outage: "live", inject: "live", negative: "refused" };
 const ABSENT = { passage: "Acme Lending lending contracts v2 March 2026 Northlight final audit report" };
 for (let r = 1; r <= RUNS; r++) {
   for (const [k, expected] of Object.entries(EXPECT_POST)) {
