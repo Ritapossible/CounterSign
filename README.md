@@ -13,8 +13,11 @@ Built on [GenLayer](https://genlayer.com) Intelligent Contracts.
 > that build with **93 checks, 0 failed** (one more check is kept as
 > superseded, with its chain evidence), and on the previous build on Studio
 > and Studio Next with **94 checks, 0 failed** each. The code on chain was
-> verified against each build. The contracts pass **199 tests**, and the
-> mutation harness kills **83 of 83** mutants. **Bradbury** (GenLayer's public testnet) was reset for its Phase 2
+> verified against each build. After a review, build `a8f9209` makes every
+> posting's passage affirm the audit, not only name it; it is live on Studio
+> with **106 checks, 0 failed**, and waits on Studio Next while GenLayer
+> fixes a server error there. The contracts pass **237 tests**, and the
+> mutation harness kills **87 of 87** mutants. **Bradbury** (GenLayer's public testnet) was reset for its Phase 2
 > and is next. Everything measured, and everything not yet measured, is in
 > [PLAN.md](PLAN.md) with its evidence. Test GEN only; nothing here holds
 > value.
@@ -155,6 +158,8 @@ nothing to fine. The stake pays for spam and for keepers, not penalties.
 | The same table, fees on | Studio Next | **94 checks, 0 failed**; 75 reads, all agreed; code verified | `deploy/scenario-studionext.json` |
 | Retry check | Studio, Studio Next | A registration whose Board read was made to fail was recovered by a third party's `retry_registration`; on Studio a `retry_claim` read the page itself and agreed with the Board's read | `deploy/retry-*.json` |
 | The table on the current build `a43fad4` (with the expiry rule) | Studio | **93 checks, 0 failed**; 74 Reader reads, all agreed; one check superseded with its chain evidence (a run killed mid-batch measured its starting balances late); no read expired, so the expiry rule itself is covered by the direct tests and mutants; code verified | `deploy/scenario-studio.json` |
+| The table on build `a8f9209` (a passage must affirm the audit), with the reviewer's cases | Studio | **106 checks, 0 failed**; 81 Reader reads, all agreed; 12 requests refused by the Board before any read, as expected; every posting read by the jury; code verified | `deploy/scenario-studio-a8f9209.json` |
+| The same, fees on | Studio Next | waiting: Studio Next answers every contract call with a server database error (23 October) | |
 | The table on Bradbury | Bradbury | after the Phase 2 reset | |
 
 Each scenario run deploys a fresh pair of contracts, publishes a fictional
@@ -167,7 +172,9 @@ times, editing the pages mid-run:
 | Register a page drawn by JavaScript | refused |
 | Register a readable page whose sample row is not on it | refused |
 | Re-check a pending claim | refused, fee not taken |
-| Post with the exact passage, subject and every scope item | live, no model |
+| Post with the exact passage, subject and every scope item | jury affirms; live (build `a43fad4`: live, no model) |
+| Post a passage that says Acme was not audited, and the same with "wasn't" | refused at once, stake credited back, no read (build `a8f9209`) |
+| Post a row naming Acme and its scope that says the engagement was cancelled | jury asked; denied; refused, stake returned (build `a8f9209`) |
 | Post with a scope item missing from the passage | refused at once, stake credited back |
 | Post a passage not on the page, or only in hidden markup | refused, stake returned |
 | Post a passage with "withdrawn" next to it | jury asked; denied; refused, stake returned |
@@ -179,12 +186,11 @@ times, editing the pages mid-run:
 | The project withdraws a live claim, and one still pending | stake returned; a late report is ignored |
 | Every path | the auditor received nothing; the Board's books balance |
 
-**Since this table.** It is the record of build `a43fad4`, on chain. A
-review found that build confirmed a posting by code when the passage named
-the subject and scope, even if it said they were not audited. The current
-build refuses such a passage before any read and has the jury affirm every
-other posting ([Design decisions](#design-decisions)); it is tested in the
-GenVM stand-in and by mutants, and is not deployed yet.
+**After the review.** Build `a43fad4` confirmed a posting by code when the
+passage named the subject and scope, even if it said they were not audited.
+Build `a8f9209` refuses such a passage before any read and has the jury
+affirm every other posting ([Design decisions](#design-decisions)). Its
+Studio run shows every case above, the three new ones included.
 
 **Not shown yet.** A read the Board triggers that fails on its own and is
 then recovered by a retry. On the earlier Bradbury network, one leader's
@@ -235,16 +241,27 @@ Every attack considered, and what stops it, is in the
 
 ## Deployed contracts
 
+### Build `a8f9209`: a passage must affirm the audit (the app uses these)
+
+| Network | Board | Reader | Build |
+| --- | --- | --- | --- |
+| Studio | [`0x2905e0C304f2F801d98cd1D57c31b50403c8F50a`](https://explorer-studio.genlayer.com/address/0x2905e0C304f2F801d98cd1D57c31b50403c8F50a) | [`0xd48F81D47b588058CBCe3767f6ec1270eF5D1850`](https://explorer-studio.genlayer.com/address/0xd48F81D47b588058CBCe3767f6ec1270eF5D1850) | `a8f9209` |
+| Studio Next | waiting on a Studio Next server error | | |
+| Bradbury | after the Phase 2 reset | | |
+
+### Build `a43fad4`: as first submitted
+
 | Network | Board | Reader | Build |
 | --- | --- | --- | --- |
 | Studio | [`0xd807307B04812C0035f808e4015850F3e0e6B264`](https://explorer-studio.genlayer.com/address/0xd807307B04812C0035f808e4015850F3e0e6B264) | [`0x5F69d0151d96a770DaA666c83eE8A7681D55aC3A`](https://explorer-studio.genlayer.com/address/0x5F69d0151d96a770DaA666c83eE8A7681D55aC3A) | `a43fad4` |
 | Studio Next | [`0x7B2793018645200690A7a3066C245DD8f3F65dd0`](https://explorer-studio-next.genlayer.com/address/0x7B2793018645200690A7a3066C245DD8f3F65dd0) | [`0xE30aB8EABaD0445E1D13bFC412Da4a816C604084`](https://explorer-studio-next.genlayer.com/address/0xE30aB8EABaD0445E1D13bFC412Da4a816C604084) | `a43fad4` |
 | Bradbury | after the Phase 2 reset | | |
 
-These are the contracts the app uses, with the expiry rule (T23). The Studio
-Board is the one the scenario table ran on, so the app shows that
-demonstration run; four public audit lists are registered on both Boards as
-labelled demo entries (`deploy/demo-auditors.json`). The `991d8c1` pairs the
+On Studio the app uses the `a8f9209` Board, the one its scenario table ran
+on, so it shows that demonstration run. On Studio Next it uses the
+`a43fad4` pair until `a8f9209` is deployed there. Four public audit lists
+are registered on every Board as labelled demo entries
+(`deploy/demo-auditors.json`). The `991d8c1` pairs the
 earlier tables ran on stay on chain, recorded in their files.
 
 | Constant | Studio | Bradbury |
@@ -311,8 +328,8 @@ Every view, write and field is in [Integration](docs/INTEGRATION.md).
 ```bash
 pip install -r requirements-dev.txt
 python3 deploy/build_contract.py        # build both contracts
-python3 -m pytest tests/direct -q       # 199 tests
-python3 tests/mutation_check.py         # 83 mutants, each must be killed
+python3 -m pytest tests/direct -q       # 237 tests
+python3 tests/mutation_check.py         # 87 mutants, each must be killed
 
 cd deploy && npm install
 COUNTERSIGN_KEYS=<dir> node deploy.mjs studio     # deploy and bind a pair

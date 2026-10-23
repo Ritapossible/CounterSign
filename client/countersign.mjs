@@ -20,19 +20,19 @@ import { getAddress } from "viem";
 // --------------------------------------------------------------- networks
 
 /**
- * Contracts deployed from build a43fad4 (the expiry rule, THREAT-MODEL T23),
- * code verified (deploy/verify_code.mjs). Studio is the Board of the scenario
- * run in deploy/scenario-studio.json, so the app shows the demonstration run;
- * Studio Next is a fresh pair (deploy/deployment-studionext.json). Bradbury is
- * empty until it reopens after its Phase 2 reset.
+ * Studio: build a8f9209 (a posting's passage must affirm the audit), the
+ * Board of the scenario run in deploy/scenario-studio-a8f9209.json, code
+ * verified (deploy/verify_code.mjs). Studio Next: build a43fad4
+ * (deploy/deployment-studionext.json) until a8f9209 is deployed there.
+ * Bradbury is empty until it reopens after its Phase 2 reset.
  */
 export const NETWORKS = {
   studio: {
     name: "GenLayer Studio",
     chain: studionet,
     fees: false,
-    board: "0xd807307B04812C0035f808e4015850F3e0e6B264",
-    reader: "0x5F69d0151d96a770DaA666c83eE8A7681D55aC3A",
+    board: "0x2905e0C304f2F801d98cd1D57c31b50403c8F50a",
+    reader: "0xd48F81D47b588058CBCe3767f6ec1270eF5D1850",
   },
   studionext: {
     name: "GenLayer Studio Next",

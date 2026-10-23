@@ -98,7 +98,7 @@ for (const a of asks) {
   console.log(a.path, entry.reader_tx ? `${entry.reader_votes.result} ${JSON.stringify(entry.reader_votes.votes)}` : "no reader tx found");
 }
 // Requests the Board refused before any read have no Reader transaction.
-const refusedBeforeRead = (path) => /:post:scope|:pending\/recheck/.test(path);
+const refusedBeforeRead = (path) => /:post:(scope|negated|contracted)|:pending\/recheck/.test(path);
 for (const [path, x] of Object.entries(out.reads)) if (!x.reader_tx && refusedBeforeRead(path)) x.note = "refused by the Board before any read: no Reader transaction";
 const reads = Object.values(out.reads).filter((x) => x.reader_tx);
 out.summary = {

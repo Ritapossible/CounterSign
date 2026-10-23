@@ -66,7 +66,7 @@ the claims you need, and cache claims that are closed (`refused`, `down`,
 
 | Network | Board | Reader | Build |
 | --- | --- | --- | --- |
-| Studio | [`0xd807307B04812C0035f808e4015850F3e0e6B264`](https://explorer-studio.genlayer.com/address/0xd807307B04812C0035f808e4015850F3e0e6B264) | [`0x5F69d0151d96a770DaA666c83eE8A7681D55aC3A`](https://explorer-studio.genlayer.com/address/0x5F69d0151d96a770DaA666c83eE8A7681D55aC3A) | `a43fad4` |
+| Studio | [`0x2905e0C304f2F801d98cd1D57c31b50403c8F50a`](https://explorer-studio.genlayer.com/address/0x2905e0C304f2F801d98cd1D57c31b50403c8F50a) | [`0xd48F81D47b588058CBCe3767f6ec1270eF5D1850`](https://explorer-studio.genlayer.com/address/0xd48F81D47b588058CBCe3767f6ec1270eF5D1850) | `a8f9209` |
 | Studio Next | [`0x7B2793018645200690A7a3066C245DD8f3F65dd0`](https://explorer-studio-next.genlayer.com/address/0x7B2793018645200690A7a3066C245DD8f3F65dd0) | [`0xE30aB8EABaD0445E1D13bFC412Da4a816C604084`](https://explorer-studio-next.genlayer.com/address/0xE30aB8EABaD0445E1D13bFC412Da4a816C604084) | `a43fad4` |
 | Bradbury | not deployed yet | | |
 
