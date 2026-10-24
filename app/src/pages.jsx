@@ -484,7 +484,7 @@ export function Post() {
           <div className="field">
             <label htmlFor="p-pas">Passage, word for word</label>
             <textarea id="p-pas" className="textarea" required minLength={40} maxLength={600} value={form.passage} onChange={set("passage")} placeholder="Acme Lending lending contracts v2 March 2026 Northlight audit report" />
-            <span className="hint">40 to 600 characters copied from the auditor's page, usually one row of its audit table. It must contain the project name and every scope item as whole words.</span>
+            <span className="hint">40 to 600 characters copied from the auditor's page, usually one row of its audit table. It must contain the project name and every scope item as whole words, and say they were audited: a passage that says otherwise is refused.</span>
           </div>
           <div className="field">
             <label htmlFor="p-stake">Stake (GEN)</label>

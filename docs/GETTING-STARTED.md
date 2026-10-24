@@ -66,11 +66,15 @@ control.
    `March 2026`.
 5. Paste the **passage**: 40 to 600 characters copied from the auditor's
    page, usually your row of its audit table. It must contain the project
-   name and every scope item as whole words (`v2` does not match `v20`).
+   name and every scope item as whole words (`v2` does not match `v20`),
+   and it must say they were audited: a passage that says the project was
+   not audited is refused at once.
 6. Set the **stake**, at least 0.1 GEN, and press **Stake and post**.
 
 The claim is **pending** while validators read the page, usually under a
-minute on Studio. If they confirm the passage, the claim goes **live**. If
+minute on Studio. Their language models check that the passage affirms
+an audit of your project for every scope item. If they confirm it, the
+claim goes **live**. If
 they do not, it is **refused** and your stake is credited back. If the app
 shows a refusal right away (a field broke a rule), nothing was read and the
 value you sent is credited back too; the message says which rule.
